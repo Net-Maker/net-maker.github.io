@@ -1,0 +1,3 @@
+User-agent: *
+
+Sitemap: http://localhost:1313/Net-Maker/net-maker.github.io/sitemap.xml
