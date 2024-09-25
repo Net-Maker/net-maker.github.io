@@ -179,7 +179,6 @@ work:
 
 ## About Me
 
-I'm now a visiting student in Westlake University, supervised by xiuyuliang[<a herf="endless.do">endless.do</a>].  
-      My resarch interest is NeRF,Implicit Representation,3D Human Avatar.
+I'm now a research assistant in Westlake University, supervised by xiuyuliang[<a herf="endless.do">endless.do</a>].  
+      My resarch interest is Computer Graphic, Implicit Representation and 3D Human Avatar.
       I am interested in developing programs with computer vision techniques too.
-      I had been doing resarch for NeRF and 3D HumanReconstruction for two years.
