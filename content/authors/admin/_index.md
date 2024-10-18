@@ -47,9 +47,9 @@ profiles:
     url: https://orcid.org/0009-0005-1632-5197
 
 interests:
-  - Artificial Intelligence
-  - Computer Graphic
-  - 3D Computer Vision
+  - 3D/4D Reconstruction
+  - Implicit Representation
+  - Human-centric 3DV
 
 education:
   # - area: PhD Artificial Intelligence
@@ -179,6 +179,5 @@ work:
 
 ## About Me
 
-I'm now a research assistant in Westlake University, supervised by xiuyuliang[<a herf="endless.do">endless.do</a>].  
-      My resarch interest is Computer Graphic, Implicit Representation and 3D Human Avatar.
-      I am interested in developing programs with computer vision techniques too.
+I'm now a research assistant in Westlake University, supervised by [Yuliang Xiu](endless.do) and [Anpei Chen](https://apchenstu.github.io/) .  
+      <!-- My resarch interests include 3D/4D Reconstruction, Implicit Representation and 3D Human Avatar. -->
