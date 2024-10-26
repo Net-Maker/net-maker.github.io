@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Recent Cook | Jiaxin wang&#39;s Website</title>
-    <link>https://github.com/Net-Maker/net-maker.github.io/event/</link>
-      <atom:link href="https://github.com/Net-Maker/net-maker.github.io/event/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:1313/Net-Maker/net-maker.github.io/event/</link>
+      <atom:link href="http://localhost:1313/Net-Maker/net-maker.github.io/event/index.xml" rel="self" type="application/rss+xml" />
     <description>Recent Cook</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sat, 01 Jun 2030 13:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://github.com/Net-Maker/net-maker.github.io/media/icon_hu11113581397667919721.png</url>
+      <url>http://localhost:1313/Net-Maker/net-maker.github.io/media/icon_hu11113581397667919721.png</url>
       <title>Recent Cook</title>
-      <link>https://github.com/Net-Maker/net-maker.github.io/event/</link>
+      <link>http://localhost:1313/Net-Maker/net-maker.github.io/event/</link>
     </image>
     
     <item>
       <title>Air Fryer Roasted Chicken Legs</title>
-      <link>https://github.com/Net-Maker/net-maker.github.io/event/example2/</link>
+      <link>http://localhost:1313/Net-Maker/net-maker.github.io/event/example2/</link>
       <pubDate>Sat, 01 Jun 2030 13:00:00 +0000</pubDate>
-      <guid>https://github.com/Net-Maker/net-maker.github.io/event/example2/</guid>
+      <guid>http://localhost:1313/Net-Maker/net-maker.github.io/event/example2/</guid>
       <description>&lt;!-- 
 
 
@@ -46,9 +46,9 @@ Further event details, including [page elements](https://docs.hugoblox.com/refer
     
     <item>
       <title>Spicy Pork Ribs</title>
-      <link>https://github.com/Net-Maker/net-maker.github.io/event/example/</link>
+      <link>http://localhost:1313/Net-Maker/net-maker.github.io/event/example/</link>
       <pubDate>Sat, 01 Jun 2030 13:00:00 +0000</pubDate>
-      <guid>https://github.com/Net-Maker/net-maker.github.io/event/example/</guid>
+      <guid>http://localhost:1313/Net-Maker/net-maker.github.io/event/example/</guid>
       <description>&lt;!-- 
 
 
