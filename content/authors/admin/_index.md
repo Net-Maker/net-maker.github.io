@@ -50,6 +50,7 @@ interests:
   - 3D/4D Reconstruction
   - Implicit Representation
   - Human-centric 3DV
+  - Cooking 🍖
 
 education:
   # - area: PhD Artificial Intelligence
