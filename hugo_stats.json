@@ -535,11 +535,15 @@
       "z-30"
     ],
     "ids": [
+      "--lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit",
+      "--lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit-1",
+      "--lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit-2",
+      "--migrated-infrastructure-to-a-new-data-center",
       "-click-here-to-become-a-sponsor-and-help-support-hugo-bloxs-future-httpshugobloxcomsponsor",
       "TableOfContents",
       "about-me",
       "callouts",
-      "chart-178432596",
+      "chart-314526879",
       "charts",
       "code",
       "crowd-funded-open-source-software",

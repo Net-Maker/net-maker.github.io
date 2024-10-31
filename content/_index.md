@@ -35,9 +35,9 @@ sections:
       title: '📚 My Research'
       subtitle: ''
       text: |-
-        My research focus on how to efficiently represent the 3D scene and 4D scene.
+        My research focuses on the efficient representation of 3D and 4D scenes. I am particularly interested in integrating the imaginative capabilities of models with the realism of the physical world, aiming to develop an AI that bridges my imagination to reality.
 
-        I'm now working on 4D reconstruction and Annimation by using a monocular video.
+        I'm now working on 4D reconstruction and Animation by using a monocular video.
         
         Please reach out to collaborate 😃
     design:
