@@ -180,5 +180,5 @@ work:
 
 ## About Me
 
-I'm now a research assistant in Westlake University, supervised by [Yuliang Xiu](endless.do) and [Anpei Chen](https://apchenstu.github.io/) .  
+I'm now a research assistant in Westlake University, supervised by [Prof. Yuliang Xiu](endless.do) and [Prof. Anpei Chen](https://apchenstu.github.io/). Before that, I got my bachelor's degree in Computer Science from Hangzhou Dianzi University, where I work closely with [Prof. Weichen Dai](https://weichnn.github.io/).
       <!-- My resarch interests include 3D/4D Reconstruction, Implicit Representation and 3D Human Avatar. -->
