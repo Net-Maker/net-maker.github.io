@@ -2,45 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hugo | Jiaxin wang&#39;s Website</title>
-    <link>https://github.com/Net-Maker/net-maker.github.io/tags/hugo/</link>
-      <atom:link href="https://github.com/Net-Maker/net-maker.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:1313/tags/hugo/</link>
+      <atom:link href="http://localhost:1313/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <description>Hugo</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Thu, 26 Oct 2023 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://github.com/Net-Maker/net-maker.github.io/media/icon_hu2479377040299485929.png</url>
+      <url>http://localhost:1313/media/icon_hu2479377040299485929.png</url>
       <title>Hugo</title>
-      <link>https://github.com/Net-Maker/net-maker.github.io/tags/hugo/</link>
+      <link>http://localhost:1313/tags/hugo/</link>
     </image>
     
     <item>
       <title>Pandas</title>
-      <link>https://github.com/Net-Maker/net-maker.github.io/project/pandas/</link>
+      <link>http://localhost:1313/project/pandas/</link>
       <pubDate>Thu, 26 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>https://github.com/Net-Maker/net-maker.github.io/project/pandas/</guid>
+      <guid>http://localhost:1313/project/pandas/</guid>
       <description>&lt;p&gt;Flexible and powerful data analysis / manipulation library for Python, providing labeled data structures.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>PyTorch</title>
-      <link>https://github.com/Net-Maker/net-maker.github.io/project/pytorch/</link>
+      <link>http://localhost:1313/project/pytorch/</link>
       <pubDate>Thu, 26 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>https://github.com/Net-Maker/net-maker.github.io/project/pytorch/</guid>
+      <guid>http://localhost:1313/project/pytorch/</guid>
       <description>&lt;p&gt;PyTorch is a Python package that provides tensor computation (like NumPy) with strong GPU acceleration.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>scikit-learn</title>
-      <link>https://github.com/Net-Maker/net-maker.github.io/project/scikit/</link>
+      <link>http://localhost:1313/project/scikit/</link>
       <pubDate>Thu, 26 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>https://github.com/Net-Maker/net-maker.github.io/project/scikit/</guid>
+      <guid>http://localhost:1313/project/scikit/</guid>
       <description>&lt;p&gt;scikit-learn is a Python module for machine learning built on top of SciPy and is distributed under the 3-Clause BSD license.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>📈 Communicate your results effectively with the best data visualizations</title>
-      <link>https://github.com/Net-Maker/net-maker.github.io/post/data-visualization/</link>
+      <link>http://localhost:1313/post/data-visualization/</link>
       <pubDate>Wed, 25 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>https://github.com/Net-Maker/net-maker.github.io/post/data-visualization/</guid>
+      <guid>http://localhost:1313/post/data-visualization/</guid>
       <description>&lt;p&gt;Hugo Blox is designed to give technical content creators a seamless experience. You can focus on the content and Hugo Blox handles the rest.&lt;/p&gt;
 &lt;p&gt;Use popular tools such as Plotly, Mermaid, and data frames.&lt;/p&gt;
 &lt;h2 id=&#34;charts&#34;&gt;Charts&lt;/h2&gt;
@@ -52,7 +52,7 @@
 
 
 
-&lt;div id=&#34;chart-564137829&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-423156879&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   async function fetchChartJSON() {
     console.debug(&#39;Hugo Blox fetching chart JSON...&#39;)
@@ -70,7 +70,7 @@
 
       fetchChartJSON().then(chart =&gt; {
         console.debug(&#39;Plotting chart...&#39;)
-        window.Plotly.newPlot(&#39;chart-564137829&#39;, chart.data, chart.layout, {responsive: true});
+        window.Plotly.newPlot(&#39;chart-423156879&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();
@@ -250,9 +250,9 @@ Crash --&gt; [*]
     
     <item>
       <title>👩🏼‍🏫 Teach academic courses</title>
-      <link>https://github.com/Net-Maker/net-maker.github.io/post/teach-courses/</link>
+      <link>http://localhost:1313/post/teach-courses/</link>
       <pubDate>Tue, 24 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>https://github.com/Net-Maker/net-maker.github.io/post/teach-courses/</guid>
+      <guid>http://localhost:1313/post/teach-courses/</guid>
       <description>&lt;p&gt;
  is designed to give technical content creators a seamless experience. You can focus on the content and the Hugo Blox Builder which this template is built upon handles the rest.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Embed videos, podcasts, code, LaTeX math, and even test students!&lt;/strong&gt;&lt;/p&gt;
@@ -307,7 +307,7 @@ Crash --&gt; [*]
 
 
 &lt;audio controls &gt;
-  &lt;source src=&#34;https://github.com/Net-Maker/net-maker.github.io/Net-Maker/net-maker.github.io/post/teach-courses/ambient-piano.mp3&#34; type=&#34;audio/mpeg&#34;&gt;
+  &lt;source src=&#34;http://localhost:1313/post/teach-courses/ambient-piano.mp3&#34; type=&#34;audio/mpeg&#34;&gt;
 &lt;/audio&gt;
 
 &lt;h2 id=&#34;test-students&#34;&gt;Test students&lt;/h2&gt;
