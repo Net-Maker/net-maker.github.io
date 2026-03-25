@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>GaussiAnimate</title>
+  <link rel="icon" type="image/x-icon" href="static/images/flamingo.png">
+  <link rel="stylesheet" href="static/css/google_fonts.css">
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+  <style>
+    .animal-page {
+      display: none;
+    }
+
+    .animal-page.is-active {
+      display: block;
+    }
+
+    .cloth-page {
+      display: none;
+    }
+
+    .cloth-page.is-active {
+      display: block;
+    }
+
+    .actor-page {
+      display: none;
+    }
+
+    .actor-page.is-active {
+      display: block;
+    }
+
+    #deformingthings4d-section .animal-page {
+      padding: 1rem 1rem 0.25rem 1rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #fcfcfd;
+    }
+
+    #vto-section .cloth-page {
+      padding: 1rem 1rem 0.25rem 1rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #fcfcfd;
+    }
+
+    #actorshq-section .actor-page {
+      padding: 1rem 1rem 0.25rem 1rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #fcfcfd;
+    }
+
+    #deformingthings4d-section .title.is-5.has-text-centered {
+      font-size: 1.3rem;
+    }
+
+    #vto-section .title.is-5.has-text-centered {
+      font-size: 1.3rem;
+    }
+
+    #actorshq-section .title.is-5.has-text-centered {
+      font-size: 1.3rem;
+    }
+
+    #deformingthings4d-section .title.is-6.has-text-centered {
+      font-size: 1.05rem;
+      letter-spacing: 0.01em;
+    }
+
+    #vto-section .title.is-6.has-text-centered {
+      font-size: 1.05rem;
+      letter-spacing: 0.01em;
+    }
+
+    #actorshq-section .title.is-6.has-text-centered {
+      font-size: 1.05rem;
+      letter-spacing: 0.01em;
+    }
+
+    #deformingthings4d-section .animal-page > .columns:not(.is-multiline) {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 0.6rem;
+    }
+
+    #vto-section .cloth-page > .columns:not(.is-multiline) {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 0.6rem;
+    }
+
+    #actorshq-section .actor-page > .columns:not(.is-multiline) {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 0.6rem;
+    }
+
+    #deformingthings4d-section .animal-page > .mb-4 {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      border-radius: 8px;
+      padding: 0.35rem 0.75rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 48px;
+    }
+
+    #vto-section .cloth-page > .mb-4 {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      border-radius: 8px;
+      padding: 0.35rem 0.75rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 48px;
+    }
+
+    #actorshq-section .actor-page > .mb-4 {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      border-radius: 8px;
+      padding: 0.35rem 0.75rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 48px;
+    }
+
+    #deformingthings4d-section .animal-page > .mb-4 .title {
+      margin: 0 !important;
+      width: 100%;
+      text-align: center !important;
+      line-height: 1.2;
+      display: block;
+    }
+
+    #vto-section .cloth-page > .mb-4 .title {
+      margin: 0 !important;
+      width: 100%;
+      text-align: center !important;
+      line-height: 1.2;
+      display: block;
+    }
+
+    #actorshq-section .actor-page > .mb-4 .title {
+      margin: 0 !important;
+      width: 100%;
+      text-align: center !important;
+      line-height: 1.2;
+      display: block;
+    }
+
+    #deformingthings4d-section .animal-page > .columns.is-multiline.mb-6 {
+      margin-bottom: 0.75rem !important;
+    }
+
+    #vto-section .cloth-page > .columns.is-multiline.mb-6 {
+      margin-bottom: 0.75rem !important;
+    }
+
+    #actorshq-section .actor-page > .columns.is-multiline.mb-6 {
+      margin-bottom: 0.75rem !important;
+    }
+
+    #deformingthings4d-section .animal-page > .columns.is-multiline.mb-6 + .columns {
+      margin-top: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      border-radius: 0 !important;
+      padding: 0 !important;
+    }
+
+    #vto-section .cloth-page > .columns.is-multiline.mb-6 + .columns {
+      margin-top: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      border-radius: 0 !important;
+      padding: 0 !important;
+    }
+
+    #actorshq-section .actor-placeholder {
+      min-height: 180px;
+      border: 1px dashed #cbd5e1;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f8fafc;
+      color: #64748b;
+      font-size: 0.95rem;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="hero" style="background-color: #ff9d2e00;">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-2 publication-title">
+              <span style="font-size: 3.3rem;">GaussiAnimate</span><br>
+              <span style="font-size: 1.9rem;">Reconstruct and Rig Animatable Categories with Level of Dynamics</span><br>
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Teaser Image -->
+  <section class="hero teaser">
+    <div class="container">
+      <div class="hero-body">
+        <img src="static/images/teaser_pdf.svg" alt="Project Teaser Image" width="100%">
+
+        <h2 class="subtitle has-text-justified is-6">
+          <p>
+            <strong>GaussiAnimate</strong> is designed to 1) reconstruct animatable categories (ie, clothed humans, animals) from multi-view video; 2) rig consistent 4DGS with a novel <span style="color: red;">skele</span><span style="color: blue;">bones</span> representation, which well balance the intuitive control of <span style="color: red;">kinematic skeletons</span> and the deformation fidelity of <span style="color: blue;">free-from bones</span>; and 3) animate the rigged 4DGS with a Partwise Motion Matching (PartMM) algorithm, which can handle complex non-rigid deformations, in a non-parametric manner.
+          </p>
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- Paper abstract -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-4">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Rigging animatable characters, such as quadrupeds and clothed humans, presents a fundamental challenge:
+              balancing <i>intuitive control</i> with <i>deformation fidelity</i>. While kinematic skeletons offer
+              intuitive control, natural surface deformations involve significant non-rigid dynamics, such as loose
+              clothing and soft tissues, that cannot be easily captured by skeletons alone. Free-form bones, which
+              conform closely to the surface, can effectively capture non-rigid deformations but lack the kinematic
+              structure required for intuitive control. To combine the best of both worlds, we propose a scaffold-skin
+              rigging system, termed <i>skelebones</i>, with three core steps: (1) <i>Bones</i>, which compress
+              temporally consistent deformable Gaussians into free-form bones to approximate non-rigid surface
+              deformations; (2) <i>Skeleton</i>, which extracts a Mean Curvature Skeleton from canonical Gaussians and
+              refines it temporally to ensure a category-agnostic, motion-adaptive, and topology-correct kinematic
+              structure; and (3) <i>Binding</i>, which binds the skeleton and bones via non-parametric partwise motion
+              matching, synthesizing novel bone motions by matching, retrieving, and blending existing ones.
+              Collectively, these steps compress the level of dynamics of reconstructed Gaussian sequences into compact
+              skelebones that are both controllable and expressive. We validate our approach on both synthetic and
+              real-world datasets, demonstrating superior reanimation performance (17.3 over LBS for unseen poses)
+              without sacrificing reconstruction quality, especially for subjects with complex non-rigid surface
+              dynamics. Our partwise motion matching algorithm also generalizes effectively across Gaussians and meshes,
+              delivering competitive results in low-data scenarios (48.4 over LBS, 24.1 over GRU). Code will be made
+              publicly available for research purposes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="vto-section">
+    <div class="container">
+      <h2 class="title is-3 has-text-centered">Results on VTO Datasets</h2>
+      <div class="is-flex is-justify-content-center is-align-items-center mb-5" style="gap: 0.75rem;">
+        <button id="cloth-page-prev" class="button is-light">Prev</button>
+        <span id="cloth-page-indicator" class="has-text-weight-semibold">1 / 5 - Tshirt1</span>
+        <button id="cloth-page-next" class="button is-light">Next</button>
+      </div>
+
+      <div class="cloth-page is-active" data-cloth="hood_video_tshirt_shape00_91_33">
+        <div class="columns is-multiline mb-6"><div class="column is-4"><h4 class="title is-5 has-text-centered mb-3">GT</h4><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/cloth/hood_video_tshirt_shape00_91_33/gt_mesh.mp4" type="video/mp4"></video></div><div class="column is-4"><h4 class="title is-5 has-text-centered mb-3">Skeleton</h4><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/cloth/hood_video_tshirt_shape00_91_33/skeleton.mp4" type="video/mp4"></video></div><div class="column is-4"><h4 class="title is-5 has-text-centered mb-3">Bones</h4><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/cloth/hood_video_tshirt_shape00_91_33/ssdr_bones.mp4" type="video/mp4"></video></div></div>
+        <div class="mb-4"><h4 class="title is-5 has-text-centered mb-4">Animation Result</h4></div>
+        <div class="columns is-multiline mb-6"><div class="column"><h4 class="title is-6 has-text-centered mb-2">GT</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">Ours</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">FullMM</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">GRU</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">MLP</h4></div></div>
+        <div class="columns mb-6"><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/cloth/hood_video_tshirt_shape00_91_33/comparison.mp4" type="video/mp4"></video></div></div>
+        <div class="mb-4"><h4 class="title is-5 has-text-centered mb-4">Error Map</h4></div>
+        
+        
+        <div class="columns is-multiline mb-6"><div class="column"><h4 class="title is-6 has-text-centered mb-2">GT</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">Ours</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">FullMM</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">GRU</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">MLP</h4></div></div>
+        <div class="columns mb-6"><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/cloth/hood_video_tshirt_shape00_91_33/error_comparison.mp4" type="video/mp4"></video></div></div>
+        <div class="mb-4"><h4 class="title is-5 has-text-centered mb-4">Overlap</h4></div>
+        <div class="columns is-multiline mb-6"><div class="column"><h4 class="title is-6 has-text-centered mb-2">Ours</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">FullMM</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">GRU</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">MLP</h4></div></div>
+        <div class="columns"><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/cloth/hood_video_tshirt_shape00_91_33/overlap_comparison.mp4" type="video/mp4"></video></div></div>
+      </div>
+
+      <div class="cloth-page" data-cloth="hood_video_tshirt_shape00_91_36">
+        <div class="columns is-multiline mb-6"><div class="column is-4"><h4 class="title is-5 has-text-centered mb-3">GT</h4><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/cloth/hood_video_tshirt_shape00_91_36/gt_mesh.mp4" type="video/mp4"></video></div><div class="column is-4"><h4 class="title is-5 has-text-centered mb-3">Skeleton</h4><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/cloth/hood_video_tshirt_shape00_91_36/skeleton.mp4" type="video/mp4"></video></div><div class="column is-4"><h4 class="title is-5 has-text-centered mb-3">Bones</h4><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/cloth/hood_video_tshirt_shape00_91_36/ssdr_bones.mp4" type="video/mp4"></video></div></div>
+        <div class="mb-4"><h4 class="title is-5 has-text-centered mb-4">Animation Result</h4></div>
+        <div class="columns is-multiline mb-6"><div class="column"><h4 class="title is-6 has-text-centered mb-2">GT</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">Ours</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">FullMM</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">GRU</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">MLP</h4></div></div>
+        <div class="columns mb-6"><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/cloth/hood_video_tshirt_shape00_91_36/comparison.mp4" type="video/mp4"></video></div></div>
+        <div class="mb-4"><h4 class="title is-5 has-text-centered mb-4">Error Map</h4></div>
+        
+        
+        <div class="columns is-multiline mb-6"><div class="column"><h4 class="title is-6 has-text-centered mb-2">GT</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">Ours</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">FullMM</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">GRU</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">MLP</h4></div></div>
+        <div class="columns mb-6"><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/cloth/hood_video_tshirt_shape00_91_36/error_comparison.mp4" type="video/mp4"></video></div></div>
+        <div class="mb-4"><h4 class="title is-5 has-text-centered mb-4">Overlap</h4></div>
+        <div class="columns is-multiline mb-6"><div class="column"><h4 class="title is-6 has-text-centered mb-2">Ours</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">FullMM</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">GRU</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">MLP</h4></div></div>
+        <div class="columns"><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/cloth/hood_video_tshirt_shape00_91_36/overlap_comparison.mp4" type="video/mp4"></video></div></div>
+      </div><div class="cloth-page" data-cloth="hood_video_tshirt_shape00_91_38">
+        <div class="columns is-multiline mb-6"><div class="column is-4"><h4 class="title is-5 has-text-centered mb-3">GT</h4><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/cloth/hood_video_tshirt_shape00_91_38/gt_mesh.mp4" type="video/mp4"></video></div><div class="column is-4"><h4 class="title is-5 has-text-centered mb-3">Skeleton</h4><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/cloth/hood_video_tshirt_shape00_91_38/skeleton.mp4" type="video/mp4"></video></div><div class="column is-4"><h4 class="title is-5 has-text-centered mb-3">Bones</h4><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/cloth/hood_video_tshirt_shape00_91_38/ssdr_bones.mp4" type="video/mp4"></video></div></div>
+        <div class="mb-4"><h4 class="title is-5 has-text-centered mb-4">Animation Result</h4></div>
+        <div class="columns is-multiline mb-6"><div class="column"><h4 class="title is-6 has-text-centered mb-2">GT</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">Ours</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">FullMM</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">GRU</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">MLP</h4></div></div>
+        <div class="columns mb-6"><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/cloth/hood_video_tshirt_shape00_91_38/comparison.mp4" type="video/mp4"></video></div></div>
+        <div class="mb-4"><h4 class="title is-5 has-text-centered mb-4">Error Map</h4></div>
+        
+        
+        <div class="columns is-multiline mb-6"><div class="column"><h4 class="title is-6 has-text-centered mb-2">GT</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">Ours</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">FullMM</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">GRU</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">MLP</h4></div></div>
+        <div class="columns mb-6"><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/cloth/hood_video_tshirt_shape00_91_38/error_comparison.mp4" type="video/mp4"></video></div></div>
+        <div class="mb-4"><h4 class="title is-5 has-text-centered mb-4">Overlap</h4></div>
+        <div class="columns is-multiline mb-6"><div class="column"><h4 class="title is-6 has-text-centered mb-2">Ours</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">FullMM</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">GRU</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">MLP</h4></div></div>
+        <div class="columns"><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/cloth/hood_video_tshirt_shape00_91_38/overlap_comparison.mp4" type="video/mp4"></video></div></div>
+      </div>
+
+      <div class="cloth-page" data-cloth="hood_video_dress_shape00_91_38">
+        
+        
+        <div class="columns is-multiline mb-6">
+          <div class="column is-4"><h4 class="title is-5 has-text-centered mb-3">GT</h4><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/cloth/hood_video_dress_shape00_91_38/gt_mesh.mp4" type="video/mp4"></video></div>
+          <div class="column is-4"><h4 class="title is-5 has-text-centered mb-3">Skeleton</h4><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/cloth/hood_video_dress_shape00_91_38/skeleton.mp4" type="video/mp4"></video></div>
+          <div class="column is-4"><h4 class="title is-5 has-text-centered mb-3">Bones</h4><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/cloth/hood_video_dress_shape00_91_38/ssdr_bones.mp4" type="video/mp4"></video></div>
+        </div>
+        <div class="mb-4"><h4 class="title is-5 has-text-centered mb-4">Animation Result</h4></div>
+        <div class="columns is-multiline mb-6"><div class="column"><h4 class="title is-6 has-text-centered mb-2">GT</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">Ours</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">FullMM</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">GRU</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">MLP</h4></div></div>
+        <div class="columns mb-6"><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/cloth/hood_video_dress_shape00_91_38/comparison.mp4" type="video/mp4"></video></div></div>
+        <div class="mb-4"><h4 class="title is-5 has-text-centered mb-4">Error Map</h4></div>
+        
+        
+        <div class="columns is-multiline mb-6"><div class="column"><h4 class="title is-6 has-text-centered mb-2">GT</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">Ours</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">FullMM</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">GRU</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">MLP</h4></div></div>
+        <div class="columns mb-6"><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/cloth/hood_video_dress_shape00_91_38/error_comparison.mp4" type="video/mp4"></video></div></div>
+        <div class="mb-4"><h4 class="title is-5 has-text-centered mb-4">Overlap</h4></div>
+        <div class="columns is-multiline mb-6"><div class="column"><h4 class="title is-6 has-text-centered mb-2">Ours</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">FullMM</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">GRU</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">MLP</h4></div></div>
+        <div class="columns"><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/cloth/hood_video_dress_shape00_91_38/overlap_comparison.mp4" type="video/mp4"></video></div></div>
+      </div>
+
+      <div class="cloth-page" data-cloth="hood_video_dress_shape00_91_61">
+        <div class="columns is-multiline mb-6"><div class="column is-4"><h4 class="title is-5 has-text-centered mb-3">GT</h4><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/cloth/hood_video_dress_shape00_91_61/gt_mesh.mp4" type="video/mp4"></video></div><div class="column is-4"><h4 class="title is-5 has-text-centered mb-3">Skeleton</h4><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/cloth/hood_video_dress_shape00_91_61/skeleton.mp4" type="video/mp4"></video></div><div class="column is-4"><h4 class="title is-5 has-text-centered mb-3">Bones</h4><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/cloth/hood_video_dress_shape00_91_61/ssdr_bones.mp4" type="video/mp4"></video></div></div>
+        <div class="mb-4"><h4 class="title is-5 has-text-centered mb-4">Animation Result</h4></div>
+        <div class="columns is-multiline mb-6"><div class="column"><h4 class="title is-6 has-text-centered mb-2">GT</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">Ours</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">FullMM</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">GRU</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">MLP</h4></div></div>
+        <div class="columns mb-6"><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/cloth/hood_video_dress_shape00_91_61/comparison.mp4" type="video/mp4"></video></div></div>
+        <div class="mb-4"><h4 class="title is-5 has-text-centered mb-4">Error Map</h4></div>
+        
+        
+        <div class="columns is-multiline mb-6"><div class="column"><h4 class="title is-6 has-text-centered mb-2">GT</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">Ours</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">FullMM</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">GRU</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">MLP</h4></div></div>
+        <div class="columns mb-6"><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/cloth/hood_video_dress_shape00_91_61/error_comparison.mp4" type="video/mp4"></video></div></div>
+        <div class="mb-4"><h4 class="title is-5 has-text-centered mb-4">Overlap</h4></div>
+        <div class="columns is-multiline mb-6"><div class="column"><h4 class="title is-6 has-text-centered mb-2">Ours</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">FullMM</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">GRU</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">MLP</h4></div></div>
+        <div class="columns"><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/cloth/hood_video_dress_shape00_91_61/overlap_comparison.mp4" type="video/mp4"></video></div></div>
+      </div>
+
+      
+    </div>
+  </section>
+
+  <section class="section" id="deformingthings4d-section">
+    <div class="container">
+      <h2 class="title is-3 has-text-centered">Results on DeformingThings4D Datasets</h2>
+      <div class="is-flex is-justify-content-center is-align-items-center mb-5" style="gap: 0.75rem;">
+        <button id="animal-page-prev" class="button is-light">Prev</button>
+        <span id="animal-page-indicator" class="has-text-weight-semibold">1 / 5 - lepoard</span>
+        <button id="animal-page-next" class="button is-light">Next</button>
+      </div>
+
+      <div class="animal-page is-active" data-animal="lepoard">
+        <div class="columns is-multiline mb-6">
+          <div class="column is-4">
+            <h4 class="title is-5 has-text-centered mb-3">GT</h4>
+            <video autoplay controls muted loop preload="metadata" width="100%">
+              <source src="static/videos/animal/lepoard/gt_mesh.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column is-4">
+            <h4 class="title is-5 has-text-centered mb-3">Skeleton</h4>
+            <video autoplay controls muted loop preload="metadata" width="100%">
+              <source src="static/videos/animal/lepoard/skeleton.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column is-4">
+            <h4 class="title is-5 has-text-centered mb-3">Bones</h4>
+            <video autoplay controls muted loop preload="metadata" width="100%">
+              <source src="static/videos/animal/lepoard/ssdr_bones.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <div class="mb-4"><h4 class="title is-5 has-text-centered mb-4">Animation Result</h4></div>
+        <div class="columns is-multiline mb-6">
+          <div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">GT</h4></div>
+          <div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">Ours</h4></div>
+          <div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">FullMM</h4></div>
+          <div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">GRU</h4></div>
+          <div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">MLP</h4></div>
+          <div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">LBS</h4></div>
+        </div>
+        
+        <div class="columns mb-6">
+          <div class="column">
+            <video autoplay controls muted loop preload="metadata" width="100%">
+              <source src="static/videos/animal/lepoard/comparison.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <div class="mb-4"><h4 class="title is-5 has-text-centered mb-4">Error Map</h4></div>
+        <div class="columns is-multiline mb-6">
+          <div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">GT</h4></div>
+          <div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">Ours</h4></div>
+          <div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">FullMM</h4></div>
+          <div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">GRU</h4></div>
+          <div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">MLP</h4></div>
+          <div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">LBS</h4></div>
+        </div>
+        <div class="columns mb-6">
+          <div class="column">
+            <video autoplay controls muted loop preload="metadata" width="100%">
+              <source src="static/videos/animal/lepoard/error_comparison.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <div class="mb-4"><h4 class="title is-5 has-text-centered mb-4">Overlap</h4></div>
+        <div class="columns is-multiline mb-6">
+          <div class="column"><h4 class="title is-6 has-text-centered mb-2">Ours</h4></div>
+          <div class="column"><h4 class="title is-6 has-text-centered mb-2">FullMM</h4></div>
+          <div class="column"><h4 class="title is-6 has-text-centered mb-2">GRU</h4></div>
+          <div class="column"><h4 class="title is-6 has-text-centered mb-2">MLP</h4></div>
+          <div class="column"><h4 class="title is-6 has-text-centered mb-2">LBS</h4></div>
+        </div>
+        <div class="columns"><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/animal/lepoard/overlap_comparison.mp4" type="video/mp4"></video></div></div>
+      </div>
+
+      <div class="animal-page" data-animal="bull_tail">
+        <div class="columns is-multiline mb-6">
+          <div class="column is-4"><h4 class="title is-5 has-text-centered mb-3">GT</h4><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/animal/bull_tail/gt_mesh.mp4" type="video/mp4"></video></div>
+          <div class="column is-4"><h4 class="title is-5 has-text-centered mb-3">Skeleton</h4><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/animal/bull_tail/skeleton.mp4" type="video/mp4"></video></div>
+          <div class="column is-4"><h4 class="title is-5 has-text-centered mb-3">Bones</h4><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/animal/bull_tail/ssdr_bones.mp4" type="video/mp4"></video></div>
+        </div>
+        <div class="mb-4"><h4 class="title is-5 has-text-centered mb-4">Animation Result</h4></div>
+        <div class="columns is-multiline mb-6">
+          <div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">GT</h4></div><div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">Ours</h4></div><div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">FullMM</h4></div><div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">GRU</h4></div><div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">MLP</h4></div><div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">LBS</h4></div>
+        </div>
+        <div class="columns mb-6"><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/animal/bull_tail/comparison.mp4" type="video/mp4"></video></div></div>
+        <div class="mb-4"><h4 class="title is-5 has-text-centered mb-4">Error Map</h4></div>
+        
+        
+        <div class="columns is-multiline mb-6">
+          <div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">GT</h4></div><div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">Ours</h4></div><div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">FullMM</h4></div><div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">GRU</h4></div><div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">MLP</h4></div><div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">LBS</h4></div>
+        </div>
+        <div class="columns mb-6"><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/animal/bull_tail/error_comparison.mp4" type="video/mp4"></video></div></div>
+        <div class="mb-4"><h4 class="title is-5 has-text-centered mb-4">Overlap</h4></div>
+        <div class="columns is-multiline mb-6"><div class="column"><h4 class="title is-6 has-text-centered mb-2">Ours</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">FullMM</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">GRU</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">MLP</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">LBS</h4></div></div>
+        <div class="columns"><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/animal/bull_tail/overlap_comparison.mp4" type="video/mp4"></video></div></div>
+      </div>
+
+      <div class="animal-page" data-animal="cattle_jump">
+        <div class="columns is-multiline mb-6">
+          <div class="column is-4"><h4 class="title is-5 has-text-centered mb-3">GT</h4><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/animal/cattle_jump/gt_mesh.mp4" type="video/mp4"></video></div>
+          <div class="column is-4"><h4 class="title is-5 has-text-centered mb-3">Skeleton</h4><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/animal/cattle_jump/skeleton.mp4" type="video/mp4"></video></div>
+          <div class="column is-4"><h4 class="title is-5 has-text-centered mb-3">Bones</h4><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/animal/cattle_jump/ssdr_bones.mp4" type="video/mp4"></video></div>
+        </div>
+        <div class="mb-4"><h4 class="title is-5 has-text-centered mb-4">Animation Result</h4></div>
+        <div class="columns is-multiline mb-6">
+          <div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">GT</h4></div><div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">Ours</h4></div><div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">FullMM</h4></div><div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">GRU</h4></div><div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">MLP</h4></div><div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">LBS</h4></div>
+        </div>
+        <div class="columns mb-6"><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/animal/cattle_jump/comparison.mp4" type="video/mp4"></video></div></div>
+        <div class="mb-4"><h4 class="title is-5 has-text-centered mb-4">Error Map</h4></div>
+        
+        
+        <div class="columns is-multiline mb-6">
+          <div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">GT</h4></div><div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">Ours</h4></div><div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">FullMM</h4></div><div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">GRU</h4></div><div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">MLP</h4></div><div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">LBS</h4></div>
+        </div>
+        <div class="columns mb-6"><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/animal/cattle_jump/error_comparison.mp4" type="video/mp4"></video></div></div>
+        <div class="mb-4"><h4 class="title is-5 has-text-centered mb-4">Overlap</h4></div>
+        <div class="columns is-multiline mb-6"><div class="column"><h4 class="title is-6 has-text-centered mb-2">Ours</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">FullMM</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">GRU</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">MLP</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">LBS</h4></div></div>
+        <div class="columns"><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/animal/cattle_jump/overlap_comparison.mp4" type="video/mp4"></video></div></div>
+      </div>
+
+      <div class="animal-page" data-animal="chicken">
+        <div class="columns is-multiline mb-6">
+          <div class="column is-4"><h4 class="title is-5 has-text-centered mb-3">GT</h4><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/animal/chicken/gt_mesh.mp4" type="video/mp4"></video></div>
+          <div class="column is-4"><h4 class="title is-5 has-text-centered mb-3">Skeleton</h4><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/animal/chicken/skeleton.mp4" type="video/mp4"></video></div>
+          <div class="column is-4"><h4 class="title is-5 has-text-centered mb-3">Bones</h4><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/animal/chicken/ssdr_bones.mp4" type="video/mp4"></video></div>
+        </div>
+        <div class="mb-4"><h4 class="title is-5 has-text-centered mb-4">Animation Result</h4></div>
+        <div class="columns is-multiline mb-6">
+          <div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">GT</h4></div><div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">Ours</h4></div><div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">FullMM</h4></div><div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">GRU</h4></div><div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">MLP</h4></div><div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">LBS</h4></div>
+        </div>
+        <div class="columns mb-6"><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/animal/chicken/comparison.mp4" type="video/mp4"></video></div></div>
+        <div class="mb-4"><h4 class="title is-5 has-text-centered mb-4">Error Map</h4></div>
+        
+        
+        <div class="columns is-multiline mb-6">
+          <div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">GT</h4></div><div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">Ours</h4></div><div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">FullMM</h4></div><div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">GRU</h4></div><div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">MLP</h4></div><div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">LBS</h4></div>
+        </div>
+        <div class="columns mb-6"><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/animal/chicken/error_comparison.mp4" type="video/mp4"></video></div></div>
+        <div class="mb-4"><h4 class="title is-5 has-text-centered mb-4">Overlap</h4></div>
+        <div class="columns is-multiline mb-6"><div class="column"><h4 class="title is-6 has-text-centered mb-2">Ours</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">FullMM</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">GRU</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">MLP</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">LBS</h4></div></div>
+        <div class="columns"><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/animal/chicken/overlap_comparison.mp4" type="video/mp4"></video></div></div>
+      </div>
+
+      <div class="animal-page" data-animal="fish">
+        <div class="columns is-multiline mb-6">
+          <div class="column is-4"><h4 class="title is-5 has-text-centered mb-3">GT</h4><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/animal/fish/gt_mesh.mp4" type="video/mp4"></video></div>
+          <div class="column is-4"><h4 class="title is-5 has-text-centered mb-3">Skeleton</h4><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/animal/fish/skeleton.mp4" type="video/mp4"></video></div>
+          <div class="column is-4"><h4 class="title is-5 has-text-centered mb-3">Bones</h4><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/animal/fish/ssdr_bones.mp4" type="video/mp4"></video></div>
+        </div>
+        <div class="mb-4"><h4 class="title is-5 has-text-centered mb-4">Animation Result</h4></div>
+        <div class="columns is-multiline mb-6">
+          <div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">GT</h4></div><div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">Ours</h4></div><div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">FullMM</h4></div><div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">GRU</h4></div><div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">MLP</h4></div><div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">LBS</h4></div>
+        </div>
+        <div class="columns mb-6"><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/animal/fish/comparison.mp4" type="video/mp4"></video></div></div>
+        <div class="mb-4"><h4 class="title is-5 has-text-centered mb-4">Error Map</h4></div>
+        <div class="columns is-multiline mb-6">
+          <div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">GT</h4></div><div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">Ours</h4></div><div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">FullMM</h4></div><div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">GRU</h4></div><div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">MLP</h4></div><div class="column is-2"><h4 class="title is-6 has-text-centered mb-2">LBS</h4></div>
+        </div>
+        <div class="columns mb-6"><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/animal/fish/error_comparison.mp4" type="video/mp4"></video></div></div>
+        <div class="mb-4"><h4 class="title is-5 has-text-centered mb-4">Overlap</h4></div>
+        <div class="columns is-multiline mb-6"><div class="column"><h4 class="title is-6 has-text-centered mb-2">Ours</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">FullMM</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">GRU</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">MLP</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">LBS</h4></div></div>
+        <div class="columns"><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/animal/fish/overlap_comparison.mp4" type="video/mp4"></video></div></div>
+      </div>
+    </div>
+  </section>
+  
+
+  <section class="section" id="actorshq-section">
+    <div class="container">
+      <h2 class="title is-3 has-text-centered">Result on ActorsHQ Dataset</h2>
+      <div class="is-flex is-justify-content-center is-align-items-center mb-5" style="gap: 0.75rem;">
+        <button id="actor-page-prev" class="button is-light">Prev</button>
+        <span id="actor-page-indicator" class="has-text-weight-semibold">1 / 3 - Actor01 Seq01</span>
+        <button id="actor-page-next" class="button is-light">Next</button>
+      </div>
+
+      <div class="actor-page is-active" data-actor="actor01_seq01_c106">
+        <div class="columns is-multiline mb-6">
+          <div class="column is-3"><h4 class="title is-5 has-text-centered mb-3">Recon PC</h4><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/actorshq/actor01_seq01_c106/recon_pc.mp4" type="video/mp4"></video></div>
+          <div class="column is-3"><h4 class="title is-5 has-text-centered mb-3">Rendering</h4><video autoplay controls muted loop preload="metadata" width="100%" data-playback-rate="0.5"><source src="static/videos/actorshq/actor01_seq01_c106/rendering.mp4" type="video/mp4"></video></div>
+          <div class="column is-3"><h4 class="title is-5 has-text-centered mb-3">Skeleton</h4><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/actorshq/actor01_seq01_c106/skeleton.mp4" type="video/mp4"></video></div>
+          <div class="column is-3"><h4 class="title is-5 has-text-centered mb-3">Bones</h4><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/actorshq/actor01_seq01_c106/bones.mp4" type="video/mp4"></video></div>
+        </div>
+        <div class="mb-4"><h4 class="title is-5 has-text-centered mb-4">Animation Result (View1)</h4></div><div class="columns is-multiline mb-6"><div class="column"><h4 class="title is-6 has-text-centered mb-2">GT</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">D3DGS</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">Ours</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">Bob</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">LBS</h4></div></div><div class="columns is-multiline mb-6"><div class="column"><video autoplay controls muted loop preload="metadata" width="100%" data-playback-rate="0.5"><source src="static/videos/actorshq/actor01_seq01_c106/animation_gt.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/actorshq/actor01_seq01_c106/animation_d3dgs.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/actorshq/actor01_seq01_c106/animation_ours.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/actorshq/actor01_seq01_c106/animation_bob.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/actorshq/actor01_seq01_c106/animation_lbs.mp4" type="video/mp4"></video></div></div><div class="mb-4"><h4 class="title is-5 has-text-centered mb-4">Animation Result (View2)</h4></div><div class="columns is-multiline mb-6"><div class="column"><h4 class="title is-6 has-text-centered mb-2">GT</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">D3DGS</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">Ours</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">Bob</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">LBS</h4></div></div><div class="columns is-multiline mb-6"><div class="column"><video autoplay controls muted loop preload="metadata" width="100%" data-playback-rate="0.5"><source src="static/videos/actorshq/actor01_seq01_c159/animation_gt.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/actorshq/actor01_seq01_c159/animation_d3dgs.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/actorshq/actor01_seq01_c159/animation_ours.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/actorshq/actor01_seq01_c159/animation_bob.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/actorshq/actor01_seq01_c159/animation_lbs.mp4" type="video/mp4"></video></div></div><div class="mb-4"><h4 class="title is-5 has-text-centered mb-4">Rendering Result (View1)</h4></div><div class="columns is-multiline mb-6"><div class="column"><h4 class="title is-6 has-text-centered mb-2">GT</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">D3DGS</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">Ours</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">Bob</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">LBS</h4></div></div><div class="columns is-multiline mb-6"><div class="column"><video autoplay controls muted loop preload="metadata" width="100%" data-playback-rate="0.5"><source src="static/videos/actorshq/actor01_seq01_c106/render_result_gt.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%" data-playback-rate="0.5"><source src="static/videos/actorshq/actor01_seq01_c106/render_result_d3dgs.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%" data-playback-rate="0.5"><source src="static/videos/actorshq/actor01_seq01_c106/render_result_ours.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%" data-playback-rate="0.5"><source src="static/videos/actorshq/actor01_seq01_c106/render_result_bob.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%" data-playback-rate="0.5"><source src="static/videos/actorshq/actor01_seq01_c106/render_result_lbs.mp4" type="video/mp4"></video></div></div><div class="mb-4"><h4 class="title is-5 has-text-centered mb-4">Rendering Result (View2)</h4></div><div class="columns is-multiline mb-6"><div class="column"><h4 class="title is-6 has-text-centered mb-2">GT</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">D3DGS</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">Ours</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">Bob</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">LBS</h4></div></div><div class="columns is-multiline mb-6"><div class="column"><video autoplay controls muted loop preload="metadata" width="100%" data-playback-rate="0.5"><source src="static/videos/actorshq/actor01_seq01_c159/render_result_gt.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%" data-playback-rate="0.5"><source src="static/videos/actorshq/actor01_seq01_c159/render_result_d3dgs.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%" data-playback-rate="0.5"><source src="static/videos/actorshq/actor01_seq01_c159/render_result_ours.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%" data-playback-rate="0.5"><source src="static/videos/actorshq/actor01_seq01_c159/render_result_bob.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%" data-playback-rate="0.5"><source src="static/videos/actorshq/actor01_seq01_c159/render_result_lbs.mp4" type="video/mp4"></video></div></div></div><div class="actor-page" data-actor="actor02_seq01_c159">
+        <div class="columns is-multiline mb-6">
+          <div class="column is-3"><h4 class="title is-5 has-text-centered mb-3">Recon PC</h4><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/actorshq/actor02_seq01_c159/recon_pc.mp4" type="video/mp4"></video></div>
+          <div class="column is-3"><h4 class="title is-5 has-text-centered mb-3">Rendering</h4><video autoplay controls muted loop preload="metadata" width="100%" data-playback-rate="0.5"><source src="static/videos/actorshq/actor02_seq01_c159/rendering.mp4" type="video/mp4"></video></div>
+          <div class="column is-3"><h4 class="title is-5 has-text-centered mb-3">Skeleton</h4><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/actorshq/actor02_seq01_c159/skeleton.mp4" type="video/mp4"></video></div>
+          <div class="column is-3"><h4 class="title is-5 has-text-centered mb-3">Bones</h4><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/actorshq/actor02_seq01_c159/bones.mp4" type="video/mp4"></video></div>
+        </div>
+        <div class="mb-4"><h4 class="title is-5 has-text-centered mb-4">Animation Result (View1)</h4></div><div class="columns is-multiline mb-6"><div class="column"><h4 class="title is-6 has-text-centered mb-2">GT</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">D3DGS</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">Ours</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">Bob</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">LBS</h4></div></div><div class="columns is-multiline mb-6"><div class="column"><video autoplay controls muted loop preload="metadata" width="100%" data-playback-rate="0.5"><source src="static/videos/actorshq/actor02_seq01_c106/animation_gt.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/actorshq/actor02_seq01_c106/animation_d3dgs.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/actorshq/actor02_seq01_c106/animation_ours.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/actorshq/actor02_seq01_c106/animation_bob.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/actorshq/actor02_seq01_c106/animation_lbs.mp4" type="video/mp4"></video></div></div><div class="mb-4"><h4 class="title is-5 has-text-centered mb-4">Animation Result (View2)</h4></div><div class="columns is-multiline mb-6"><div class="column"><h4 class="title is-6 has-text-centered mb-2">GT</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">D3DGS</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">Ours</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">Bob</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">LBS</h4></div></div><div class="columns is-multiline mb-6"><div class="column"><video autoplay controls muted loop preload="metadata" width="100%" data-playback-rate="0.5"><source src="static/videos/actorshq/actor02_seq01_c159/animation_gt.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/actorshq/actor02_seq01_c159/animation_d3dgs.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/actorshq/actor02_seq01_c159/animation_ours.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/actorshq/actor02_seq01_c159/animation_bob.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/actorshq/actor02_seq01_c159/animation_lbs.mp4" type="video/mp4"></video></div></div><div class="mb-4"><h4 class="title is-5 has-text-centered mb-4">Rendering Result (View1)</h4></div><div class="columns is-multiline mb-6"><div class="column"><h4 class="title is-6 has-text-centered mb-2">GT</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">D3DGS</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">Ours</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">Bob</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">LBS</h4></div></div><div class="columns is-multiline mb-6"><div class="column"><video autoplay controls muted loop preload="metadata" width="100%" data-playback-rate="0.5"><source src="static/videos/actorshq/actor02_seq01_c106/render_result_gt.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%" data-playback-rate="0.5"><source src="static/videos/actorshq/actor02_seq01_c106/render_result_d3dgs.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%" data-playback-rate="0.5"><source src="static/videos/actorshq/actor02_seq01_c106/render_result_ours.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%" data-playback-rate="0.5"><source src="static/videos/actorshq/actor02_seq01_c106/render_result_bob.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%" data-playback-rate="0.5"><source src="static/videos/actorshq/actor02_seq01_c106/render_result_lbs.mp4" type="video/mp4"></video></div></div><div class="mb-4"><h4 class="title is-5 has-text-centered mb-4">Rendering Result (View2)</h4></div><div class="columns is-multiline mb-6"><div class="column"><h4 class="title is-6 has-text-centered mb-2">GT</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">D3DGS</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">Ours</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">Bob</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">LBS</h4></div></div><div class="columns is-multiline mb-6"><div class="column"><video autoplay controls muted loop preload="metadata" width="100%" data-playback-rate="0.5"><source src="static/videos/actorshq/actor02_seq01_c159/render_result_gt.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%" data-playback-rate="0.5"><source src="static/videos/actorshq/actor02_seq01_c159/render_result_d3dgs.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%" data-playback-rate="0.5"><source src="static/videos/actorshq/actor02_seq01_c159/render_result_ours.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%" data-playback-rate="0.5"><source src="static/videos/actorshq/actor02_seq01_c159/render_result_bob.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%" data-playback-rate="0.5"><source src="static/videos/actorshq/actor02_seq01_c159/render_result_lbs.mp4" type="video/mp4"></video></div></div></div><div class="actor-page" data-actor="actor04_seq02_c159">
+        <div class="columns is-multiline mb-6">
+          <div class="column is-3"><h4 class="title is-5 has-text-centered mb-3">Recon PC</h4><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/actorshq/actor04_seq02_c159/recon_pc.mp4" type="video/mp4"></video></div>
+          <div class="column is-3"><h4 class="title is-5 has-text-centered mb-3">Rendering</h4><video autoplay controls muted loop preload="metadata" width="100%" data-playback-rate="0.5"><source src="static/videos/actorshq/actor04_seq02_c159/rendering.mp4" type="video/mp4"></video></div>
+          <div class="column is-3"><h4 class="title is-5 has-text-centered mb-3">Skeleton</h4><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/actorshq/actor04_seq02_c159/skeleton.mp4" type="video/mp4"></video></div>
+          <div class="column is-3"><h4 class="title is-5 has-text-centered mb-3">Bones</h4><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/actorshq/actor04_seq02_c159/bones.mp4" type="video/mp4"></video></div>
+        </div>
+        <div class="mb-4"><h4 class="title is-5 has-text-centered mb-4">Animation Result (View1)</h4></div><div class="columns is-multiline mb-6"><div class="column"><h4 class="title is-6 has-text-centered mb-2">GT</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">D3DGS</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">Ours</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">Bob</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">LBS</h4></div></div><div class="columns is-multiline mb-6"><div class="column"><video autoplay controls muted loop preload="metadata" width="100%" data-playback-rate="0.5"><source src="static/videos/actorshq/actor04_seq02_c106/animation_gt.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/actorshq/actor04_seq02_c106/animation_d3dgs.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/actorshq/actor04_seq02_c106/animation_ours.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/actorshq/actor04_seq02_c106/animation_bob.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/actorshq/actor04_seq02_c106/animation_lbs.mp4" type="video/mp4"></video></div></div><div class="mb-4"><h4 class="title is-5 has-text-centered mb-4">Animation Result (View2)</h4></div><div class="columns is-multiline mb-6"><div class="column"><h4 class="title is-6 has-text-centered mb-2">GT</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">D3DGS</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">Ours</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">Bob</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">LBS</h4></div></div><div class="columns is-multiline mb-6"><div class="column"><video autoplay controls muted loop preload="metadata" width="100%" data-playback-rate="0.5"><source src="static/videos/actorshq/actor04_seq02_c159/animation_gt.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/actorshq/actor04_seq02_c159/animation_d3dgs.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/actorshq/actor04_seq02_c159/animation_ours.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/actorshq/actor04_seq02_c159/animation_bob.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%"><source src="static/videos/actorshq/actor04_seq02_c159/animation_lbs.mp4" type="video/mp4"></video></div></div><div class="mb-4"><h4 class="title is-5 has-text-centered mb-4">Rendering Result (View1)</h4></div><div class="columns is-multiline mb-6"><div class="column"><h4 class="title is-6 has-text-centered mb-2">GT</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">D3DGS</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">Ours</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">Bob</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">LBS</h4></div></div><div class="columns is-multiline mb-6"><div class="column"><video autoplay controls muted loop preload="metadata" width="100%" data-playback-rate="0.5"><source src="static/videos/actorshq/actor04_seq02_c106/render_result_gt.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%" data-playback-rate="0.5"><source src="static/videos/actorshq/actor04_seq02_c106/render_result_d3dgs.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%" data-playback-rate="0.5"><source src="static/videos/actorshq/actor04_seq02_c106/render_result_ours.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%" data-playback-rate="0.5"><source src="static/videos/actorshq/actor04_seq02_c106/render_result_bob.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%" data-playback-rate="0.5"><source src="static/videos/actorshq/actor04_seq02_c106/render_result_lbs.mp4" type="video/mp4"></video></div></div><div class="mb-4"><h4 class="title is-5 has-text-centered mb-4">Rendering Result (View2)</h4></div><div class="columns is-multiline mb-6"><div class="column"><h4 class="title is-6 has-text-centered mb-2">GT</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">D3DGS</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">Ours</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">Bob</h4></div><div class="column"><h4 class="title is-6 has-text-centered mb-2">LBS</h4></div></div><div class="columns is-multiline mb-6"><div class="column"><video autoplay controls muted loop preload="metadata" width="100%" data-playback-rate="0.5"><source src="static/videos/actorshq/actor04_seq02_c159/render_result_gt.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%" data-playback-rate="0.5"><source src="static/videos/actorshq/actor04_seq02_c159/render_result_d3dgs.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%" data-playback-rate="0.5"><source src="static/videos/actorshq/actor04_seq02_c159/render_result_ours.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%" data-playback-rate="0.5"><source src="static/videos/actorshq/actor04_seq02_c159/render_result_bob.mp4" type="video/mp4"></video></div><div class="column"><video autoplay controls muted loop preload="metadata" width="100%" data-playback-rate="0.5"><source src="static/videos/actorshq/actor04_seq02_c159/render_result_lbs.mp4" type="video/mp4"></video></div></div></div>
+    </div>
+  </section>
+
+
+  <!-- Method section -->
+  <section class="section" style="background-color: #f5f5f5;">
+    <div class="container">
+      <h2 class="title is-3 has-text-centered">Skelebone Motion Database Construction</h2>
+
+      <!-- Pipeline figure -->
+      <div class="columns is-centered">
+        <div class="column">
+          <img src="static/images/pipeline.svg" alt="Skelebone Motion Database Construction" width="100%">
+
+          <h3 class="subtitle has-text-justified is-6">
+            <p>
+              <strong>Skelebone Motion Database Construction.</strong> Given a monocular or multi-view video, our method reconstructs a consistent 4DGS, extracts the inner skeleton via curve skeletonization and the outer free-form bones via SSDR, and combines them into "skelebones," which are then used to build a motion database.
+            </p>
+          </h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Method section -->
+  <section class="section" style="background-color: #f5f5f5;">
+    <div class="container">
+      <h2 class="title is-3 has-text-centered">Partwise Motion Matching</h2>
+
+      <!-- Pipeline figure -->
+      <div class="columns is-centered">
+        <div class="column">
+          <img src="static/images/pipeline2_pdf.svg" alt="Partwise Motion Matching" width="100%">
+
+          <h3 class="subtitle has-text-justified is-6">
+            <p>
+              <strong>Partwise Motion Matching (PartMM).</strong> Given a novel pose of the inner skeleton as input, we animate our skelebones by synthesizing the motion of the outer skeleton via part-wise motion matching. Specifically, we first (a) take the novel pose of the inner skeleton and decompose the kinematic tree into multiple parts; (b) build a part-wise motion patch database from previously reconstructed paired inner--outer skeleton motions; (c) iteratively query the database using the novel inner pose to retrieve the most similar motion patch, and perform part alignment to rotate the outer skeleton accordingly. By repeatedly applying step (c), we obtain the final outer-skeleton motion M<sub>out</sub>.
+            </p>
+          </h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+
+            <p>
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleVideoSource(video, enabled) {
+      var source = video.querySelector("source");
+      if (!source) return;
+
+      var currentSrc = source.getAttribute("src");
+      if (!source.dataset.src && currentSrc) {
+        source.dataset.src = currentSrc;
+      }
+
+      var savedSrc = source.dataset.src;
+      if (!savedSrc) return;
+
+      if (enabled) {
+        if (source.getAttribute("src") !== savedSrc) {
+          source.setAttribute("src", savedSrc);
+          video.load();
+        }
+      } else if (source.getAttribute("src")) {
+        source.removeAttribute("src");
+        video.load();
+      }
+    }
+
+    function syncPageVideos(page, shouldPlay) {
+      var videos = page.querySelectorAll("video");
+      for (var i = 0; i < videos.length; i++) {
+        var v = videos[i];
+        if (shouldPlay) {
+          toggleVideoSource(v, true);
+          v.autoplay = true;
+          v.preload = "metadata";
+          var rate = parseFloat(v.dataset.playbackRate || "1");
+          v.playbackRate = !isNaN(rate) && rate > 0 ? rate : 1;
+          var playPromise = v.play();
+          if (playPromise && typeof playPromise.catch === "function") {
+            playPromise.catch(function () {});
+          }
+        } else {
+          v.autoplay = false;
+          v.pause();
+          v.currentTime = 0;
+          v.preload = "none";
+          toggleVideoSource(v, false);
+        }
+      }
+    }
+
+    function initClothPager() {
+      var section = document.getElementById("vto-section");
+      if (!section) return;
+
+      var pages = section.querySelectorAll(".cloth-page");
+      var prevBtn = document.getElementById("cloth-page-prev");
+      var nextBtn = document.getElementById("cloth-page-next");
+      var indicator = document.getElementById("cloth-page-indicator");
+      if (!pages.length || !prevBtn || !nextBtn || !indicator) return;
+
+      var current = 0;
+      var clothNameMap = {
+        hood_video_tshirt_shape00_91_33: "Tshirt1",
+        hood_video_tshirt_shape00_91_36: "Tshirt2",
+        hood_video_tshirt_shape00_91_38: "Tshirt3",
+        hood_video_dress_shape00_91_38: "Dress1",
+        hood_video_dress_shape00_91_61: "Dress2",
+      };
+
+      function showPage(index) {
+        current = (index + pages.length) % pages.length;
+        for (var i = 0; i < pages.length; i++) {
+          var active = i === current;
+          pages[i].classList.toggle("is-active", active);
+          syncPageVideos(pages[i], active);
+        }
+        var rawName = pages[current].dataset.cloth || "unknown";
+        var name = clothNameMap[rawName] || rawName;
+        indicator.textContent = (current + 1) + " / " + pages.length + " - " + name;
+      }
+
+      prevBtn.addEventListener("click", function () {
+        showPage(current - 1);
+      });
+
+      nextBtn.addEventListener("click", function () {
+        showPage(current + 1);
+      });
+
+      showPage(0);
+    }
+
+    function initAnimalPager() {
+      var section = document.getElementById("deformingthings4d-section");
+      if (!section) return;
+
+      var pages = section.querySelectorAll(".animal-page");
+      var prevBtn = document.getElementById("animal-page-prev");
+      var nextBtn = document.getElementById("animal-page-next");
+      var indicator = document.getElementById("animal-page-indicator");
+      if (!pages.length || !prevBtn || !nextBtn || !indicator) return;
+
+      var current = 0;
+
+      function showPage(index) {
+        current = (index + pages.length) % pages.length;
+        for (var i = 0; i < pages.length; i++) {
+          var active = i === current;
+          pages[i].classList.toggle("is-active", active);
+          syncPageVideos(pages[i], active);
+        }
+        var animalName = pages[current].dataset.animal || "unknown";
+        indicator.textContent = (current + 1) + " / " + pages.length + " - " + animalName;
+      }
+
+      prevBtn.addEventListener("click", function () {
+        showPage(current - 1);
+      });
+
+      nextBtn.addEventListener("click", function () {
+        showPage(current + 1);
+      });
+
+      showPage(0);
+    }
+
+    function initActorPager() {
+      var section = document.getElementById("actorshq-section");
+      if (!section) return;
+
+      var pages = section.querySelectorAll(".actor-page");
+      var prevBtn = document.getElementById("actor-page-prev");
+      var nextBtn = document.getElementById("actor-page-next");
+      var indicator = document.getElementById("actor-page-indicator");
+      if (!pages.length || !prevBtn || !nextBtn || !indicator) return;
+
+      var current = 0;
+      var actorNameMap = {
+        actor01_seq01_c106: "Actor01 Seq01",
+        actor02_seq01_c159: "Actor02 Seq01",
+        actor04_seq02_c159: "Actor04 Seq02",
+      };
+
+      function showPage(index) {
+        current = (index + pages.length) % pages.length;
+        for (var i = 0; i < pages.length; i++) {
+          var active = i === current;
+          pages[i].classList.toggle("is-active", active);
+          syncPageVideos(pages[i], active);
+        }
+        var rawName = pages[current].dataset.actor || "unknown";
+        var actorName = actorNameMap[rawName] || rawName;
+        indicator.textContent = (current + 1) + " / " + pages.length + " - " + actorName;
+      }
+
+      prevBtn.addEventListener("click", function () {
+        showPage(current - 1);
+      });
+
+      nextBtn.addEventListener("click", function () {
+        showPage(current + 1);
+      });
+
+      showPage(0);
+    }
+
+    initClothPager();
+    initAnimalPager();
+    initActorPager();
+
+    function toggleMoreVideos() {
+      var moreVideos = document.getElementById("more-videos");
+      var btn = event.target;
+
+      if (moreVideos.style.display === "none") {
+        moreVideos.style.display = "flex";
+        btn.textContent = "Hide more results";
+      } else {
+        moreVideos.style.display = "none";
+        btn.textContent = "Check out more results";
+      }
+    }
+
+    function toggleMoreVideos2() {
+      var moreVideos = document.getElementById("more-videos-2");
+      var btn = event.target;
+
+      if (moreVideos.style.display === "none") {
+        moreVideos.style.display = "flex";
+        btn.textContent = "Hide more results";
+      } else {
+        moreVideos.style.display = "none";
+        btn.textContent = "Check out more results";
+      }
+    }
+  </script>
+
+</body>
+
+</html>
