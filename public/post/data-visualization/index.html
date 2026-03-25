@@ -1,6 +1,6 @@
 <!doctype html>
 <!-- This site was created with Hugo Blox. https://hugoblox.com -->
-<!-- Last Published: March 20, 2026 --><html lang="en-us" dir="ltr"
+<!-- Last Published: March 25, 2026 --><html lang="en-us" dir="ltr"
       data-wc-theme-default="system">
   
 <head>
@@ -158,8 +158,8 @@
   
 
   
-  <link rel="icon" type="image/png" href="/media/icon_hue256e5969de13bee2425dd17547cec23_3125_32x32_fill_lanczos_center_3.png" />
-  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hue256e5969de13bee2425dd17547cec23_3125_180x180_fill_lanczos_center_3.png" />
+  <link rel="icon" type="image/png" href="/media/icon_hu10785448402156906417.png" />
+  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hu12392068422464023891.png" />
 
   <link rel="canonical" href="https://cookmaker.cn/post/data-visualization/" />
 
@@ -468,6 +468,7 @@
   
   
   
+  
 
 
 
@@ -531,6 +532,12 @@
 
 
 
+
+  
+  
+  
+  
+  <script defer src="/js/mermaid.bundle.addbbabb71331768410cfb03a610179690ff1dfd413519d34219c06a8fd39202.js" integrity="sha256-rdu6u3EzF2hBDPsDphAXlpD/Hf1BNRnTQhnAao/TkgI="></script>
 
 
 
@@ -867,34 +874,31 @@
     href="/post/data-visualization/"
     
   >📈 Communicate your results effectively with the best data visualizations
-    </a>
-  
-    <ul class="hb-sidebar-mobile-toc"><li>
-              <a
-                href="#charts"
-                class="hb-docs-link"
-              >Charts</a>
-            </li>
-          <li>
-              <a
-                href="#diagrams"
-                class="hb-docs-link"
-              >Diagrams</a>
-            </li>
-          <li>
-              <a
-                href="#data-frames"
-                class="hb-docs-link"
-              >Data Frames</a>
-            </li>
-          <li>
-              <a
-                href="#did-you-find-this-page-helpful-consider-sharing-it-"
-                class="hb-docs-link"
-              >Did you find this page helpful? Consider sharing it 🙌</a>
-            </li>
-          </ul>
-  
+    </a><ul class="hb-sidebar-mobile-toc"><li>
+                <a
+                  href="#charts"
+                  class="hb-docs-link"
+                >Charts</a>
+              </li>
+            <li>
+                <a
+                  href="#diagrams"
+                  class="hb-docs-link"
+                >Diagrams</a>
+              </li>
+            <li>
+                <a
+                  href="#data-frames"
+                  class="hb-docs-link"
+                >Data Frames</a>
+              </li>
+            <li>
+                <a
+                  href="#did-you-find-this-page-helpful-consider-sharing-it-"
+                  class="hb-docs-link"
+                >Did you find this page helpful? Consider sharing it 🙌</a>
+              </li>
+            </ul>
               
             </li><li class="flex flex-col "><a
     class="hb-sidebar-custom-link
@@ -985,14 +989,19 @@
               
             </li></ul>
       </div></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/gaussianimate/"
+    
+  >
+    </a></li>
     </ul>
 
     <div class="max-xl:hidden h-0 w-64 shrink-0"></div></div>
 
 </aside>
-  
-
-<nav class="hb-toc order-last hidden w-64 shrink-0 xl:block print:hidden px-4" aria-label="table of contents">
+  <nav class="hb-toc order-last hidden w-64 shrink-0 xl:block print:hidden px-4" aria-label="table of contents">
   
 
 
@@ -1056,7 +1065,7 @@
           <div class="group inline-flex items-center text-current gap-x-1.5 mx-1">
             
             
-            <img src="/author/%E7%8E%8B%E4%BD%B3%E9%91%AB/avatar_hub38d6e1035340a1fce18f81d9767734d_2487400_50x50_fill_q80_h2_lanczos_center.webp" alt="王佳鑫" class="inline-block h-4 w-4 rounded-full border border-current" loading="lazy" />
+            <img src="/author/%E7%8E%8B%E4%BD%B3%E9%91%AB/avatar_hu13645888318285984631.webp" alt="王佳鑫" class="inline-block h-4 w-4 rounded-full border border-current" loading="lazy" />
             
             <div >王佳鑫</div>
           </div>
@@ -1101,7 +1110,7 @@
       
       <div class="article-header article-container featured-image-wrapper mt-4 mb-16" style="max-width: 720px; max-height: 480px;">
         <div style="position: relative">
-          <img src="/post/data-visualization/featured_hu02aa61ae1d9de35cbe238d2676170cb9_233990_abf1095b6cdd8788a5b847fd5c871fb1.webp" width="720" height="480" alt="" class="featured-image">
+          <img src="/post/data-visualization/featured_hu15046892941476069000.webp" width="720" height="480" alt="" class="featured-image">
           <span class="article-header-caption">Image credit:</span>
         </div>
       </div>
@@ -1121,7 +1130,7 @@
 
 
 
-<div id="chart-386271495" class="chart"></div>
+<div id="chart-293547861" class="chart"></div>
 <script>
   async function fetchChartJSON() {
     console.debug('Hugo Blox fetching chart JSON...')
@@ -1139,7 +1148,7 @@
 
       fetchChartJSON().then(chart => {
         console.debug('Plotting chart...')
-        window.Plotly.newPlot('chart-386271495', chart.data, chart.layout, {responsive: true});
+        window.Plotly.newPlot('chart-293547861', chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();
@@ -1469,7 +1478,7 @@ Crash --> [*]
     width="96"
     height="96"
     alt="王佳鑫"
-  src="/author/%E7%8E%8B%E4%BD%B3%E9%91%AB/avatar_hub38d6e1035340a1fce18f81d9767734d_2487400_192x192_fill_q80_lanczos_center.jpg"
+  src="/author/%E7%8E%8B%E4%BD%B3%E9%91%AB/avatar_hu15706419959901056805.jpg"
   loading="lazy"
   />
   

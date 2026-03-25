@@ -161,5 +161,8 @@
     <loc>https://cookmaker.cn/tags/source-themes/</loc>
     <lastmod>2015-09-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://cookmaker.cn/gaussianimate/</loc>
+    <changefreq>weekly</changefreq>
   </url>
 </urlset>

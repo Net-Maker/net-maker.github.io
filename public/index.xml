@@ -7,7 +7,7 @@
     <description>Jiaxin wang&#39;s Website</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Mon, 24 Oct 2022 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://cookmaker.cn/media/icon_hue256e5969de13bee2425dd17547cec23_3125_512x512_fill_lanczos_center_3.png</url>
+      <url>https://cookmaker.cn/media/icon_hu2479377040299485929.png</url>
       <title>Jiaxin wang&#39;s Website</title>
       <link>https://cookmaker.cn/</link>
     </image>
@@ -101,7 +101,8 @@ Further event details, including [page elements](https://docs.hugoblox.com/refer
 &lt;/span&gt;
   &lt;span class=&#34;dark:text-neutral-300&#34;&gt;Create your slides in Markdown - click the &lt;em&gt;Slides&lt;/em&gt; button to check out the example.&lt;/span&gt;
 &lt;/div&gt;
-&lt;p&gt;Add the publication&amp;rsquo;s &lt;strong&gt;full text&lt;/strong&gt; or &lt;strong&gt;supplementary notes&lt;/strong&gt; here. You can use rich formatting such as including &lt;a href=&#34;https://docs.hugoblox.com/content/writing-markdown-latex/&#34;&gt;code, math, and images&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Add the publication&amp;rsquo;s &lt;strong&gt;full text&lt;/strong&gt; or &lt;strong&gt;supplementary notes&lt;/strong&gt; here. You can use rich formatting such as including 
+.&lt;/p&gt;
 </description>
     </item>
     
@@ -147,31 +148,52 @@ Further event details, including [page elements](https://docs.hugoblox.com/refer
 &lt;/ol&gt;
 &lt;h3 id=&#34;get-started&#34;&gt;Get Started&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;👉 &lt;a href=&#34;https://hugoblox.com/templates/&#34;&gt;&lt;strong&gt;Create a new site&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;📚 &lt;a href=&#34;https://docs.hugoblox.com/&#34;&gt;&lt;strong&gt;Personalize your site&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;💬 &lt;a href=&#34;https://discord.gg/z8wNYzb&#34;&gt;Chat with the &lt;strong&gt;Hugo Blox community&lt;/strong&gt;&lt;/a&gt; or &lt;a href=&#34;https://discourse.gohugo.io&#34;&gt;&lt;strong&gt;Hugo community&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;🐦 Twitter: &lt;a href=&#34;https://twitter.com/GetResearchDev&#34;&gt;@GetResearchDev&lt;/a&gt; &lt;a href=&#34;https://twitter.com/GeorgeCushen&#34;&gt;@GeorgeCushen&lt;/a&gt; #MadeWithHugoBlox&lt;/li&gt;
-&lt;li&gt;💡 &lt;a href=&#34;https://github.com/HugoBlox/hugo-blox-builder/issues&#34;&gt;Request a &lt;strong&gt;feature&lt;/strong&gt; or report a &lt;strong&gt;bug&lt;/strong&gt; for &lt;em&gt;Hugo Blox&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;⬆️ &lt;strong&gt;Updating Hugo Blox?&lt;/strong&gt; View the &lt;a href=&#34;https://docs.hugoblox.com/reference/update/&#34;&gt;Update Guide&lt;/a&gt; and &lt;a href=&#34;https://github.com/HugoBlox/hugo-blox-builder/releases&#34;&gt;Release Notes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;👉 
+&lt;/li&gt;
+&lt;li&gt;📚 
+&lt;/li&gt;
+&lt;li&gt;💬 
+ or 
+&lt;/li&gt;
+&lt;li&gt;🐦 Twitter: 
+ 
+ #MadeWithHugoBlox&lt;/li&gt;
+&lt;li&gt;💡 
+&lt;/li&gt;
+&lt;li&gt;⬆️ &lt;strong&gt;Updating Hugo Blox?&lt;/strong&gt; View the 
+ and 
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;crowd-funded-open-source-software&#34;&gt;Crowd-funded open-source software&lt;/h2&gt;
 &lt;p&gt;To help us develop this template and software sustainably under the MIT license, we ask all individuals and businesses that use it to help support its ongoing maintenance and development via sponsorship.&lt;/p&gt;
-&lt;h3 id=&#34;-click-here-to-become-a-sponsor-and-help-support-hugo-bloxs-future-httpshugobloxcomsponsor&#34;&gt;&lt;a href=&#34;https://hugoblox.com/sponsor/&#34;&gt;❤️ Click here to become a sponsor and help support Hugo Blox&amp;rsquo;s future ❤️&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;As a token of appreciation for sponsoring, you can &lt;strong&gt;unlock &lt;a href=&#34;https://hugoblox.com/sponsor/&#34;&gt;these&lt;/a&gt; awesome rewards and extra features 🦄✨&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;-click-here-to-become-a-sponsor-and-help-support-hugo-bloxs-future-httpshugobloxcomsponsor&#34;&gt;
+&lt;/h3&gt;
+&lt;p&gt;As a token of appreciation for sponsoring, you can &lt;strong&gt;unlock 
+ awesome rewards and extra features 🦄✨&lt;/strong&gt;&lt;/p&gt;
 &lt;h2 id=&#34;ecosystem&#34;&gt;Ecosystem&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/GetRD/academic-file-converter&#34;&gt;Bibtex To Markdown&lt;/a&gt;:&lt;/strong&gt; Automatically import publications from BibTeX&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;
+:&lt;/strong&gt; Automatically import publications from BibTeX&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;inspiration&#34;&gt;Inspiration&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://hugoblox.com/creators/&#34;&gt;Learn what other &lt;strong&gt;creators&lt;/strong&gt;&lt;/a&gt; are building with this template.&lt;/p&gt;
+&lt;p&gt;
+ are building with this template.&lt;/p&gt;
 &lt;h2 id=&#34;features&#34;&gt;Features&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Page builder&lt;/strong&gt; - Create &lt;em&gt;anything&lt;/em&gt; with no-code &lt;a href=&#34;https://hugoblox.com/blocks/&#34;&gt;&lt;strong&gt;blocks&lt;/strong&gt;&lt;/a&gt; and &lt;a href=&#34;https://docs.hugoblox.com/reference/markdown/&#34;&gt;&lt;strong&gt;elements&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Page builder&lt;/strong&gt; - Create &lt;em&gt;anything&lt;/em&gt; with no-code 
+ and 
+&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Edit any type of content&lt;/strong&gt; - Blog posts, publications, talks, slides, projects, and more!&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Create content&lt;/strong&gt; in &lt;a href=&#34;https://docs.hugoblox.com/reference/markdown/&#34;&gt;&lt;strong&gt;Markdown&lt;/strong&gt;&lt;/a&gt;, &lt;a href=&#34;https://docs.hugoblox.com/getting-started/cms/&#34;&gt;&lt;strong&gt;Jupyter&lt;/strong&gt;&lt;/a&gt;, or &lt;a href=&#34;https://docs.hugoblox.com/getting-started/cms/&#34;&gt;&lt;strong&gt;RStudio&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Plugin System&lt;/strong&gt; - Fully customizable &lt;a href=&#34;https://docs.hugoblox.com/getting-started/customize/&#34;&gt;&lt;strong&gt;color&lt;/strong&gt; and &lt;strong&gt;font themes&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Create content&lt;/strong&gt; in 
+, 
+, or 
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Plugin System&lt;/strong&gt; - Fully customizable 
+&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Display Code and Math&lt;/strong&gt; - Code syntax highlighting and LaTeX math supported&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Integrations&lt;/strong&gt; - &lt;a href=&#34;https://analytics.google.com&#34;&gt;Google Analytics&lt;/a&gt;, &lt;a href=&#34;https://disqus.com&#34;&gt;Disqus commenting&lt;/a&gt;, Maps, Contact Forms, and more!&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Integrations&lt;/strong&gt; - 
+, 
+, Maps, Contact Forms, and more!&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Beautiful Site&lt;/strong&gt; - Simple and refreshing one-page design&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Industry-Leading SEO&lt;/strong&gt; - Help get your website found on search engines and social media&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Media Galleries&lt;/strong&gt; - Display your images and videos with captions in a customizable gallery&lt;/li&gt;
@@ -184,10 +206,13 @@ Further event details, including [page elements](https://docs.hugoblox.com/refer
 &lt;/ul&gt;
 &lt;h2 id=&#34;themes&#34;&gt;Themes&lt;/h2&gt;
 &lt;p&gt;Hugo Blox and its templates come with &lt;strong&gt;automatic day (light) and night (dark) mode&lt;/strong&gt; built-in. Visitors can choose their preferred mode by clicking the sun/moon icon in the header.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://docs.hugoblox.com/getting-started/customize/&#34;&gt;Choose a stunning &lt;strong&gt;theme&lt;/strong&gt; and &lt;strong&gt;font&lt;/strong&gt;&lt;/a&gt; for your site. Themes are fully customizable.&lt;/p&gt;
+&lt;p&gt;
+ for your site. Themes are fully customizable.&lt;/p&gt;
 &lt;h2 id=&#34;license&#34;&gt;License&lt;/h2&gt;
-&lt;p&gt;Copyright 2016-present &lt;a href=&#34;https://georgecushen.com&#34;&gt;George Cushen&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Released under the &lt;a href=&#34;https://github.com/HugoBlox/hugo-blox-builder/blob/main/LICENSE.md&#34;&gt;MIT&lt;/a&gt; license.&lt;/p&gt;
+&lt;p&gt;Copyright 2016-present 
+.&lt;/p&gt;
+&lt;p&gt;Released under the 
+ license.&lt;/p&gt;
 </description>
     </item>
     
@@ -243,12 +268,16 @@ Further event details, including [page elements](https://docs.hugoblox.com/refer
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;renders as&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; height=&#34;200px&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;- Hugo Modules
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  - Hugo Blox
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  - blox-plugins-netlify
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  - blox-plugins-netlify-cms
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  - blox-plugins-reveal
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Anh here&amp;rsquo;s a more advanced mindmap with formatting, code blocks, and math:&lt;/p&gt;
+&lt;div class=&#34;markmap&#34; style=&#34;height: 200px;&#34;&gt;
+
+&lt;pre&gt;- Hugo Modules
+  - Hugo Blox
+  - blox-plugins-netlify
+  - blox-plugins-netlify-cms
+  - blox-plugins-reveal&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Anh here&amp;rsquo;s a more advanced mindmap with formatting, code blocks, and math:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;
 &lt;code&gt;
@@ -275,28 +304,33 @@ Further event details, including [page elements](https://docs.hugoblox.com/refer
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;renders as&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;- Mindmaps
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  - Links
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    - [Hugo Blox Docs](https://docs.hugoblox.com/)
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    - [Discord Community](https://discord.gg/z8wNYzb)
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    - [GitHub](https://github.com/HugoBlox/hugo-blox-builder)
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  - Features
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    - Markdown formatting
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    - **inline** ~~text~~ *styles*
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    - multiline
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      text
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    - `inline code`
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    -
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      ```js
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      console.log(&amp;#39;hello&amp;#39;);
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      console.log(&amp;#39;code block&amp;#39;);
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      ```
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    - Math: $x = {-b \pm \sqrt{b^2-4ac} \over 2a}$
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;highlighting&#34;&gt;Highlighting&lt;/h2&gt;
+&lt;div class=&#34;markmap&#34; style=&#34;height: 500px;&#34;&gt;
+
+&lt;pre&gt;- Mindmaps
+  - Links
+    - [Hugo Blox Docs](https://docs.hugoblox.com/)
+    - [Discord Community](https://discord.gg/z8wNYzb)
+    - [GitHub](https://github.com/HugoBlox/hugo-blox-builder)
+  - Features
+    - Markdown formatting
+    - **inline** ~~text~~ *styles*
+    - multiline
+      text
+    - `inline code`
+    -
+      ```js
+      console.log(&#39;hello&#39;);
+      console.log(&#39;code block&#39;);
+      ```
+    - Math: $x = {-b \pm \sqrt{b^2-4ac} \over 2a}$&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&#34;highlighting&#34;&gt;Highlighting&lt;/h2&gt;
 &lt;p&gt;&lt;mark&gt;Highlight&lt;/mark&gt; important text with &lt;code&gt;mark&lt;/code&gt;:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;mark&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;Highlighted text&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;mark&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;callouts&#34;&gt;Callouts&lt;/h2&gt;
-&lt;p&gt;Use &lt;a href=&#34;https://docs.hugoblox.com/reference/markdown/#callouts&#34;&gt;callouts&lt;/a&gt; (aka &lt;em&gt;asides&lt;/em&gt;, &lt;em&gt;hints&lt;/em&gt;, or &lt;em&gt;alerts&lt;/em&gt;) to draw attention to notes, tips, and warnings.&lt;/p&gt;
+&lt;p&gt;Use 
+ (aka &lt;em&gt;asides&lt;/em&gt;, &lt;em&gt;hints&lt;/em&gt;, or &lt;em&gt;alerts&lt;/em&gt;) to draw attention to notes, tips, and warnings.&lt;/p&gt;
 &lt;p&gt;By wrapping a paragraph in &lt;code&gt;{{% callout note %}} ... {{% /callout %}}&lt;/code&gt;, it will render as an aside.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{% callout note %}}
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;A Markdown aside is useful for displaying notices, hints, or definitions to your readers.
@@ -327,14 +361,15 @@ Further event details, including [page elements](https://docs.hugoblox.com/refer
       <description>&lt;p&gt;Hugo Blox is designed to give technical content creators a seamless experience. You can focus on the content and Hugo Blox handles the rest.&lt;/p&gt;
 &lt;p&gt;Use popular tools such as Plotly, Mermaid, and data frames.&lt;/p&gt;
 &lt;h2 id=&#34;charts&#34;&gt;Charts&lt;/h2&gt;
-&lt;p&gt;Hugo Blox supports the popular &lt;a href=&#34;https://plot.ly/&#34;&gt;Plotly&lt;/a&gt; format for interactive data visualizations. With Plotly, you can design almost any kind of visualization you can imagine!&lt;/p&gt;
+&lt;p&gt;Hugo Blox supports the popular 
+ format for interactive data visualizations. With Plotly, you can design almost any kind of visualization you can imagine!&lt;/p&gt;
 &lt;p&gt;Save your Plotly JSON in your page folder, for example &lt;code&gt;line-chart.json&lt;/code&gt;, and then add the &lt;code&gt;{{&amp;lt; chart data=&amp;quot;line-chart&amp;quot; &amp;gt;}}&lt;/code&gt; shortcode where you would like the chart to appear.&lt;/p&gt;
 &lt;p&gt;Demo:&lt;/p&gt;
 
 
 
 
-&lt;div id=&#34;chart-879316425&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-823475196&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   async function fetchChartJSON() {
     console.debug(&#39;Hugo Blox fetching chart JSON...&#39;)
@@ -352,13 +387,14 @@ Further event details, including [page elements](https://docs.hugoblox.com/refer
 
       fetchChartJSON().then(chart =&gt; {
         console.debug(&#39;Plotting chart...&#39;)
-        window.Plotly.newPlot(&#39;chart-879316425&#39;, chart.data, chart.layout, {responsive: true});
+        window.Plotly.newPlot(&#39;chart-823475196&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();
 &lt;/script&gt;
 
-&lt;p&gt;You might also find the &lt;a href=&#34;http://plotly-json-editor.getforge.io/&#34;&gt;Plotly JSON Editor&lt;/a&gt; useful.&lt;/p&gt;
+&lt;p&gt;You might also find the 
+ useful.&lt;/p&gt;
 &lt;h2 id=&#34;diagrams&#34;&gt;Diagrams&lt;/h2&gt;
 &lt;p&gt;Hugo Blox supports the &lt;em&gt;Mermaid&lt;/em&gt; Markdown extension for diagrams.&lt;/p&gt;
 &lt;p&gt;An example &lt;strong&gt;flowchart&lt;/strong&gt;:&lt;/p&gt;
@@ -371,12 +407,13 @@ C --&amp;gt;|Two| E[Result 2]
 ```
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;renders as&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;graph TD
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;A[Hard] --&amp;gt;|Text| B(Round)
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;B --&amp;gt; C{Decision}
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;C --&amp;gt;|One| D[Result 1]
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;C --&amp;gt;|Two| E[Result 2]
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;An example &lt;strong&gt;sequence diagram&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class=&#34;mermaid&#34;&gt;graph TD
+A[Hard] --&gt;|Text| B(Round)
+B --&gt; C{Decision}
+C --&gt;|One| D[Result 1]
+C --&gt;|Two| E[Result 2]
+&lt;/div&gt;
+&lt;p&gt;An example &lt;strong&gt;sequence diagram&lt;/strong&gt;:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;```mermaid
 sequenceDiagram
 Alice-&amp;gt;&amp;gt;John: Hello John, how are you?
@@ -390,16 +427,17 @@ Bob--&amp;gt;&amp;gt;John: Jolly good!
 ```
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;renders as&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sequenceDiagram
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Alice-&amp;gt;&amp;gt;John: Hello John, how are you?
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;loop Healthcheck
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    John-&amp;gt;&amp;gt;John: Fight against hypochondria
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;end
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Note right of John: Rational thoughts!
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;John--&amp;gt;&amp;gt;Alice: Great!
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;John-&amp;gt;&amp;gt;Bob: How about you?
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Bob--&amp;gt;&amp;gt;John: Jolly good!
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;An example &lt;strong&gt;class diagram&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class=&#34;mermaid&#34;&gt;sequenceDiagram
+Alice-&gt;&gt;John: Hello John, how are you?
+loop Healthcheck
+    John-&gt;&gt;John: Fight against hypochondria
+end
+Note right of John: Rational thoughts!
+John--&gt;&gt;Alice: Great!
+John-&gt;&gt;Bob: How about you?
+Bob--&gt;&gt;John: Jolly good!
+&lt;/div&gt;
+&lt;p&gt;An example &lt;strong&gt;class diagram&lt;/strong&gt;:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;```mermaid
 classDiagram
 Class01 &amp;lt;|-- AveryLongClass : Cool
@@ -418,21 +456,22 @@ Class08 &amp;lt;--&amp;gt; C2: Cool label
 ```
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;renders as&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;classDiagram
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Class01 &amp;lt;|-- AveryLongClass : Cool
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Class03 *-- Class04
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Class05 o-- Class06
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Class07 .. Class08
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Class09 --&amp;gt; C2 : Where am i?
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Class09 --* C3
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Class09 --|&amp;gt; Class07
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Class07 : equals()
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Class07 : Object[] elementData
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Class01 : size()
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Class01 : int chimp
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Class01 : int gorilla
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Class08 &amp;lt;--&amp;gt; C2: Cool label
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;An example &lt;strong&gt;state diagram&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class=&#34;mermaid&#34;&gt;classDiagram
+Class01 &lt;|-- AveryLongClass : Cool
+Class03 *-- Class04
+Class05 o-- Class06
+Class07 .. Class08
+Class09 --&gt; C2 : Where am i?
+Class09 --* C3
+Class09 --|&gt; Class07
+Class07 : equals()
+Class07 : Object[] elementData
+Class01 : size()
+Class01 : int chimp
+Class01 : int gorilla
+Class08 &lt;--&gt; C2: Cool label
+&lt;/div&gt;
+&lt;p&gt;An example &lt;strong&gt;state diagram&lt;/strong&gt;:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;```mermaid
 stateDiagram
 [*] --&amp;gt; Still
@@ -444,14 +483,15 @@ Crash --&amp;gt; [*]
 ```
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;renders as&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;stateDiagram
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[*] --&amp;gt; Still
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Still --&amp;gt; [*]
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Still --&amp;gt; Moving
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Moving --&amp;gt; Still
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Moving --&amp;gt; Crash
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Crash --&amp;gt; [*]
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;data-frames&#34;&gt;Data Frames&lt;/h2&gt;
+&lt;div class=&#34;mermaid&#34;&gt;stateDiagram
+[*] --&gt; Still
+Still --&gt; [*]
+Still --&gt; Moving
+Moving --&gt; Still
+Moving --&gt; Crash
+Crash --&gt; [*]
+&lt;/div&gt;
+&lt;h2 id=&#34;data-frames&#34;&gt;Data Frames&lt;/h2&gt;
 &lt;p&gt;Save your spreadsheet as a CSV file in your page&amp;rsquo;s folder and then render it by adding the &lt;em&gt;Table&lt;/em&gt; shortcode to your page:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{{&amp;lt;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;table&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;path&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;results.csv&amp;#34;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;header&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;true&amp;#34;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;caption&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Table 1: My results&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;gt;}}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;renders as&lt;/p&gt;
@@ -530,7 +570,8 @@ Crash --&amp;gt; [*]
       <link>https://cookmaker.cn/post/teach-courses/</link>
       <pubDate>Tue, 24 Oct 2023 00:00:00 +0000</pubDate>
       <guid>https://cookmaker.cn/post/teach-courses/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://hugoblox.com&#34;&gt;Hugo Blox Builder&lt;/a&gt; is designed to give technical content creators a seamless experience. You can focus on the content and the Hugo Blox Builder which this template is built upon handles the rest.&lt;/p&gt;
+      <description>&lt;p&gt;
+ is designed to give technical content creators a seamless experience. You can focus on the content and the Hugo Blox Builder which this template is built upon handles the rest.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Embed videos, podcasts, code, LaTeX math, and even test students!&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;On this page, you&amp;rsquo;ll find some examples of the types of technical content that can be rendered with Hugo Blox.&lt;/p&gt;
 &lt;h2 id=&#34;video&#34;&gt;Video&lt;/h2&gt;
@@ -556,7 +597,8 @@ Crash --&amp;gt; [*]
   &gt;&lt;/iframe&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;Video file&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Videos may be added to a page by either placing them in your &lt;code&gt;assets/media/&lt;/code&gt; media library or in your &lt;a href=&#34;https://gohugo.io/content-management/page-bundles/&#34;&gt;page&amp;rsquo;s folder&lt;/a&gt;, and then embedding them with the &lt;em&gt;video&lt;/em&gt; shortcode:&lt;/p&gt;
+&lt;p&gt;Videos may be added to a page by either placing them in your &lt;code&gt;assets/media/&lt;/code&gt; media library or in your 
+, and then embedding them with the &lt;em&gt;video&lt;/em&gt; shortcode:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;{{&amp;lt; video src=&amp;quot;my_video.mp4&amp;quot; controls=&amp;quot;yes&amp;quot; &amp;gt;}}
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;podcast&#34;&gt;Podcast&lt;/h2&gt;
@@ -608,8 +650,7 @@ Crash --&amp;gt; [*]
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;\gamma&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;_{n} &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;\frac&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;{ &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;\left&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt; | &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;\left&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;\mathbf&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt; x_{n} &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;\mathbf&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt; x_{n&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;} &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;\right&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;^T &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;\left&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;\nabla&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt; F &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;\mathbf&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt; x_{n}&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;\nabla&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt; F &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;\mathbf&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt; x_{n&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;\right&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;\right&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt; |}{&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;\left&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;\|\nabla&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt; F&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;\mathbf&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;{x}_{n}&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;\nabla&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt; F&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;\mathbf&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;{x}_{n&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;\right&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;\|&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;^&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;$$&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;renders as&lt;/p&gt;
-$$\gamma_{n} = \frac{ \left | \left (\mathbf x_{n} - \mathbf x_{n-1} \right )^T \left [\nabla F (\mathbf x_{n}) - \nabla F (\mathbf x_{n-1}) \right ] \right |}{\left \|\nabla F(\mathbf{x}_{n}) - \nabla F(\mathbf{x}_{n-1}) \right \|^2}$$
-&lt;p&gt;Example &lt;strong&gt;inline math&lt;/strong&gt; &lt;code&gt;$\nabla F(\mathbf{x}_{n})$&lt;/code&gt; renders as $\nabla F(\mathbf{x}_{n})$.&lt;/p&gt;
+$$\gamma_{n} = \frac{ \left | \left (\mathbf x_{n} - \mathbf x_{n-1} \right )^T \left [\nabla F (\mathbf x_{n}) - \nabla F (\mathbf x_{n-1}) \right ] \right |}{\left \|\nabla F(\mathbf{x}_{n}) - \nabla F(\mathbf{x}_{n-1}) \right \|^2}$$&lt;p&gt;Example &lt;strong&gt;inline math&lt;/strong&gt; &lt;code&gt;$\nabla F(\mathbf{x}_{n})$&lt;/code&gt; renders as $\nabla F(\mathbf{x}_{n})$.&lt;/p&gt;
 &lt;p&gt;Example &lt;strong&gt;multi-line math&lt;/strong&gt; using the math linebreak (&lt;code&gt;\\&lt;/code&gt;):&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-latex&#34; data-lang=&#34;latex&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sb&#34;&gt;$$&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;k;p_{&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;}^{&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;\begin&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;{cases}p_{&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;}^{&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;} &amp;amp; &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;\text&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;{if }k&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;, &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;\\&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;p_{&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;}^{&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;} &amp;amp; &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;\text&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;{if }k&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;\end&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;{cases}&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;$$&lt;/span&gt;
@@ -617,8 +658,7 @@ $$\gamma_{n} = \frac{ \left | \left (\mathbf x_{n} - \mathbf x_{n-1} \right )^T 
 $$
 f(k;p_{0}^{*}) = \begin{cases}p_{0}^{*} &amp; \text{if }k=1, \\
 1-p_{0}^{*} &amp; \text{if }k=0.\end{cases}
-$$
-&lt;h2 id=&#34;code&#34;&gt;Code&lt;/h2&gt;
+$$&lt;h2 id=&#34;code&#34;&gt;Code&lt;/h2&gt;
 &lt;p&gt;Hugo Blox Builder utilises Hugo&amp;rsquo;s Markdown extension for highlighting code syntax. The code theme can be selected in the &lt;code&gt;config/_default/params.yaml&lt;/code&gt; file.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;```python
 import pandas as pd
@@ -654,7 +694,8 @@ data.head()
       <link>https://cookmaker.cn/teaching/js/</link>
       <pubDate>Tue, 24 Oct 2023 00:00:00 +0000</pubDate>
       <guid>https://cookmaker.cn/teaching/js/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://hugoblox.com&#34;&gt;Hugo Blox Builder&lt;/a&gt; is designed to give technical content creators a seamless experience. You can focus on the content and the Hugo Blox Builder which this template is built upon handles the rest.&lt;/p&gt;
+      <description>&lt;p&gt;
+ is designed to give technical content creators a seamless experience. You can focus on the content and the Hugo Blox Builder which this template is built upon handles the rest.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Embed videos, podcasts, code, LaTeX math, and even test students!&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;On this page, you&amp;rsquo;ll find some examples of the types of technical content that can be rendered with Hugo Blox.&lt;/p&gt;
 &lt;h2 id=&#34;video&#34;&gt;Video&lt;/h2&gt;
@@ -674,7 +715,8 @@ data.head()
 &lt;pre&gt;&lt;code&gt;{{&amp;lt; bilibili id=&amp;quot;BV1WV4y1r7DF&amp;quot; &amp;gt;}}
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;strong&gt;Video file&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Videos may be added to a page by either placing them in your &lt;code&gt;assets/media/&lt;/code&gt; media library or in your &lt;a href=&#34;https://gohugo.io/content-management/page-bundles/&#34;&gt;page&amp;rsquo;s folder&lt;/a&gt;, and then embedding them with the &lt;em&gt;video&lt;/em&gt; shortcode:&lt;/p&gt;
+&lt;p&gt;Videos may be added to a page by either placing them in your &lt;code&gt;assets/media/&lt;/code&gt; media library or in your 
+, and then embedding them with the &lt;em&gt;video&lt;/em&gt; shortcode:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;{{&amp;lt; video src=&amp;quot;my_video.mp4&amp;quot; controls=&amp;quot;yes&amp;quot; &amp;gt;}}
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;podcast&#34;&gt;Podcast&lt;/h2&gt;
@@ -780,7 +822,8 @@ data.head()
       <link>https://cookmaker.cn/teaching/python/</link>
       <pubDate>Tue, 24 Oct 2023 00:00:00 +0000</pubDate>
       <guid>https://cookmaker.cn/teaching/python/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://hugoblox.com&#34;&gt;Hugo Blox Builder&lt;/a&gt; is designed to give technical content creators a seamless experience. You can focus on the content and the Hugo Blox Builder which this template is built upon handles the rest.&lt;/p&gt;
+      <description>&lt;p&gt;
+ is designed to give technical content creators a seamless experience. You can focus on the content and the Hugo Blox Builder which this template is built upon handles the rest.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Embed videos, podcasts, code, LaTeX math, and even test students!&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;On this page, you&amp;rsquo;ll find some examples of the types of technical content that can be rendered with Hugo Blox.&lt;/p&gt;
 &lt;h2 id=&#34;video&#34;&gt;Video&lt;/h2&gt;
@@ -800,7 +843,8 @@ data.head()
 &lt;pre&gt;&lt;code&gt;{{&amp;lt; bilibili id=&amp;quot;BV1WV4y1r7DF&amp;quot; &amp;gt;}}
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;strong&gt;Video file&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Videos may be added to a page by either placing them in your &lt;code&gt;assets/media/&lt;/code&gt; media library or in your &lt;a href=&#34;https://gohugo.io/content-management/page-bundles/&#34;&gt;page&amp;rsquo;s folder&lt;/a&gt;, and then embedding them with the &lt;em&gt;video&lt;/em&gt; shortcode:&lt;/p&gt;
+&lt;p&gt;Videos may be added to a page by either placing them in your &lt;code&gt;assets/media/&lt;/code&gt; media library or in your 
+, and then embedding them with the &lt;em&gt;video&lt;/em&gt; shortcode:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;{{&amp;lt; video src=&amp;quot;my_video.mp4&amp;quot; controls=&amp;quot;yes&amp;quot; &amp;gt;}}
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;podcast&#34;&gt;Podcast&lt;/h2&gt;
@@ -981,14 +1025,16 @@ Parallel 4   :         des6, after des4, 1d
       <link>https://cookmaker.cn/publication/preprint/</link>
       <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
       <guid>https://cookmaker.cn/publication/preprint/</guid>
-      <description>&lt;p&gt;This work is driven by the results in my &lt;a href=&#34;https://cookmaker.cn/publication/conference-paper/&#34;&gt;previous paper&lt;/a&gt; on LLMs.&lt;/p&gt;
+      <description>&lt;p&gt;This work is driven by the results in my 
+ on LLMs.&lt;/p&gt;
 &lt;div class=&#34;flex px-4 py-3 mb-6 rounded-md bg-primary-100 dark:bg-primary-900&#34;&gt;
 &lt;span class=&#34;pr-3 pt-1 text-primary-600 dark:text-primary-300&#34;&gt;
   &lt;svg height=&#34;24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 24 24&#34;&gt;&lt;path fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; stroke-width=&#34;1.5&#34; d=&#34;m11.25 11.25l.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0a9 9 0 0 1 18 0m-9-3.75h.008v.008H12z&#34;/&gt;&lt;/svg&gt;
 &lt;/span&gt;
   &lt;span class=&#34;dark:text-neutral-300&#34;&gt;Create your slides in Markdown - click the &lt;em&gt;Slides&lt;/em&gt; button to check out the example.&lt;/span&gt;
 &lt;/div&gt;
-&lt;p&gt;Add the publication&amp;rsquo;s &lt;strong&gt;full text&lt;/strong&gt; or &lt;strong&gt;supplementary notes&lt;/strong&gt; here. You can use rich formatting such as including &lt;a href=&#34;https://docs.hugoblox.com/content/writing-markdown-latex/&#34;&gt;code, math, and images&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Add the publication&amp;rsquo;s &lt;strong&gt;full text&lt;/strong&gt; or &lt;strong&gt;supplementary notes&lt;/strong&gt; here. You can use rich formatting such as including 
+.&lt;/p&gt;
 </description>
     </item>
     
@@ -1009,8 +1055,839 @@ Parallel 4   :         des6, after des4, 1d
 &lt;/span&gt;
   &lt;span class=&#34;dark:text-neutral-300&#34;&gt;Create your slides in Markdown - click the &lt;em&gt;Slides&lt;/em&gt; button to check out the example.&lt;/span&gt;
 &lt;/div&gt;
-&lt;p&gt;Add the publication&amp;rsquo;s &lt;strong&gt;full text&lt;/strong&gt; or &lt;strong&gt;supplementary notes&lt;/strong&gt; here. You can use rich formatting such as including &lt;a href=&#34;https://docs.hugoblox.com/content/writing-markdown-latex/&#34;&gt;code, math, and images&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Add the publication&amp;rsquo;s &lt;strong&gt;full text&lt;/strong&gt; or &lt;strong&gt;supplementary notes&lt;/strong&gt; here. You can use rich formatting such as including 
+.&lt;/p&gt;
 </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://cookmaker.cn/gaussianimate/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://cookmaker.cn/gaussianimate/</guid>
+      <description>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+  &lt;meta charset=&#34;utf-8&#34;&gt;
+  &lt;title&gt;GaussiAnimate&lt;/title&gt;
+  &lt;link rel=&#34;icon&#34; type=&#34;image/x-icon&#34; href=&#34;static/images/flamingo.png&#34;&gt;
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;static/css/google_fonts.css&#34;&gt;
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;static/css/bulma.min.css&#34;&gt;
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;static/css/bulma-carousel.min.css&#34;&gt;
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;static/css/bulma-slider.min.css&#34;&gt;
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;static/css/fontawesome.all.min.css&#34;&gt;
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;static/css/index.css&#34;&gt;
+  &lt;script defer src=&#34;static/js/fontawesome.all.min.js&#34;&gt;&lt;/script&gt;
+  &lt;script src=&#34;static/js/bulma-carousel.min.js&#34;&gt;&lt;/script&gt;
+  &lt;script src=&#34;static/js/bulma-slider.min.js&#34;&gt;&lt;/script&gt;
+  &lt;script src=&#34;static/js/index.js&#34;&gt;&lt;/script&gt;
+  &lt;style&gt;
+    .animal-page {
+      display: none;
+    }
+
+    .animal-page.is-active {
+      display: block;
+    }
+
+    .cloth-page {
+      display: none;
+    }
+
+    .cloth-page.is-active {
+      display: block;
+    }
+
+    .actor-page {
+      display: none;
+    }
+
+    .actor-page.is-active {
+      display: block;
+    }
+
+    #deformingthings4d-section .animal-page {
+      padding: 1rem 1rem 0.25rem 1rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #fcfcfd;
+    }
+
+    #vto-section .cloth-page {
+      padding: 1rem 1rem 0.25rem 1rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #fcfcfd;
+    }
+
+    #actorshq-section .actor-page {
+      padding: 1rem 1rem 0.25rem 1rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #fcfcfd;
+    }
+
+    #deformingthings4d-section .title.is-5.has-text-centered {
+      font-size: 1.3rem;
+    }
+
+    #vto-section .title.is-5.has-text-centered {
+      font-size: 1.3rem;
+    }
+
+    #actorshq-section .title.is-5.has-text-centered {
+      font-size: 1.3rem;
+    }
+
+    #deformingthings4d-section .title.is-6.has-text-centered {
+      font-size: 1.05rem;
+      letter-spacing: 0.01em;
+    }
+
+    #vto-section .title.is-6.has-text-centered {
+      font-size: 1.05rem;
+      letter-spacing: 0.01em;
+    }
+
+    #actorshq-section .title.is-6.has-text-centered {
+      font-size: 1.05rem;
+      letter-spacing: 0.01em;
+    }
+
+    #deformingthings4d-section .animal-page &gt; .columns:not(.is-multiline) {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 0.6rem;
+    }
+
+    #vto-section .cloth-page &gt; .columns:not(.is-multiline) {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 0.6rem;
+    }
+
+    #actorshq-section .actor-page &gt; .columns:not(.is-multiline) {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 0.6rem;
+    }
+
+    #deformingthings4d-section .animal-page &gt; .mb-4 {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      border-radius: 8px;
+      padding: 0.35rem 0.75rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 48px;
+    }
+
+    #vto-section .cloth-page &gt; .mb-4 {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      border-radius: 8px;
+      padding: 0.35rem 0.75rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 48px;
+    }
+
+    #actorshq-section .actor-page &gt; .mb-4 {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      border-radius: 8px;
+      padding: 0.35rem 0.75rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 48px;
+    }
+
+    #deformingthings4d-section .animal-page &gt; .mb-4 .title {
+      margin: 0 !important;
+      width: 100%;
+      text-align: center !important;
+      line-height: 1.2;
+      display: block;
+    }
+
+    #vto-section .cloth-page &gt; .mb-4 .title {
+      margin: 0 !important;
+      width: 100%;
+      text-align: center !important;
+      line-height: 1.2;
+      display: block;
+    }
+
+    #actorshq-section .actor-page &gt; .mb-4 .title {
+      margin: 0 !important;
+      width: 100%;
+      text-align: center !important;
+      line-height: 1.2;
+      display: block;
+    }
+
+    #deformingthings4d-section .animal-page &gt; .columns.is-multiline.mb-6 {
+      margin-bottom: 0.75rem !important;
+    }
+
+    #vto-section .cloth-page &gt; .columns.is-multiline.mb-6 {
+      margin-bottom: 0.75rem !important;
+    }
+
+    #actorshq-section .actor-page &gt; .columns.is-multiline.mb-6 {
+      margin-bottom: 0.75rem !important;
+    }
+
+    #deformingthings4d-section .animal-page &gt; .columns.is-multiline.mb-6 + .columns {
+      margin-top: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      border-radius: 0 !important;
+      padding: 0 !important;
+    }
+
+    #vto-section .cloth-page &gt; .columns.is-multiline.mb-6 + .columns {
+      margin-top: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      border-radius: 0 !important;
+      padding: 0 !important;
+    }
+
+    #actorshq-section .actor-placeholder {
+      min-height: 180px;
+      border: 1px dashed #cbd5e1;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f8fafc;
+      color: #64748b;
+      font-size: 0.95rem;
+      width: 100%;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;section class=&#34;hero&#34; style=&#34;background-color: #ff9d2e00;&#34;&gt;
+    &lt;div class=&#34;hero-body&#34;&gt;
+      &lt;div class=&#34;container is-max-desktop&#34;&gt;
+        &lt;div class=&#34;columns is-centered&#34;&gt;
+          &lt;div class=&#34;column has-text-centered&#34;&gt;
+            &lt;h1 class=&#34;title is-2 publication-title&#34;&gt;
+              &lt;span style=&#34;font-size: 3.3rem;&#34;&gt;GaussiAnimate&lt;/span&gt;&lt;br&gt;
+              &lt;span style=&#34;font-size: 1.9rem;&#34;&gt;Reconstruct and Rig Animatable Categories with Level of Dynamics&lt;/span&gt;&lt;br&gt;
+            &lt;/h1&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;!-- Main Teaser Image --&gt;
+  &lt;section class=&#34;hero teaser&#34;&gt;
+    &lt;div class=&#34;container&#34;&gt;
+      &lt;div class=&#34;hero-body&#34;&gt;
+        &lt;img src=&#34;static/images/teaser_pdf.svg&#34; alt=&#34;Project Teaser Image&#34; width=&#34;100%&#34;&gt;
+
+        &lt;h2 class=&#34;subtitle has-text-justified is-6&#34;&gt;
+          &lt;p&gt;
+            &lt;strong&gt;GaussiAnimate&lt;/strong&gt; is designed to 1) reconstruct animatable categories (ie, clothed humans, animals) from multi-view video; 2) rig consistent 4DGS with a novel &lt;span style=&#34;color: red;&#34;&gt;skele&lt;/span&gt;&lt;span style=&#34;color: blue;&#34;&gt;bones&lt;/span&gt; representation, which well balance the intuitive control of &lt;span style=&#34;color: red;&#34;&gt;kinematic skeletons&lt;/span&gt; and the deformation fidelity of &lt;span style=&#34;color: blue;&#34;&gt;free-from bones&lt;/span&gt;; and 3) animate the rigged 4DGS with a Partwise Motion Matching (PartMM) algorithm, which can handle complex non-rigid deformations, in a non-parametric manner.
+          &lt;/p&gt;
+        &lt;/h2&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;!-- Paper abstract --&gt;
+  &lt;section class=&#34;section hero is-light&#34;&gt;
+    &lt;div class=&#34;container is-max-desktop&#34;&gt;
+      &lt;div class=&#34;columns is-centered has-text-centered&#34;&gt;
+        &lt;div class=&#34;column is-four-fifths&#34;&gt;
+          &lt;h2 class=&#34;title is-4&#34;&gt;Abstract&lt;/h2&gt;
+          &lt;div class=&#34;content has-text-justified&#34;&gt;
+            &lt;p&gt;
+              Rigging animatable characters, such as quadrupeds and clothed humans, presents a fundamental challenge:
+              balancing &lt;i&gt;intuitive control&lt;/i&gt; with &lt;i&gt;deformation fidelity&lt;/i&gt;. While kinematic skeletons offer
+              intuitive control, natural surface deformations involve significant non-rigid dynamics, such as loose
+              clothing and soft tissues, that cannot be easily captured by skeletons alone. Free-form bones, which
+              conform closely to the surface, can effectively capture non-rigid deformations but lack the kinematic
+              structure required for intuitive control. To combine the best of both worlds, we propose a scaffold-skin
+              rigging system, termed &lt;i&gt;skelebones&lt;/i&gt;, with three core steps: (1) &lt;i&gt;Bones&lt;/i&gt;, which compress
+              temporally consistent deformable Gaussians into free-form bones to approximate non-rigid surface
+              deformations; (2) &lt;i&gt;Skeleton&lt;/i&gt;, which extracts a Mean Curvature Skeleton from canonical Gaussians and
+              refines it temporally to ensure a category-agnostic, motion-adaptive, and topology-correct kinematic
+              structure; and (3) &lt;i&gt;Binding&lt;/i&gt;, which binds the skeleton and bones via non-parametric partwise motion
+              matching, synthesizing novel bone motions by matching, retrieving, and blending existing ones.
+              Collectively, these steps compress the level of dynamics of reconstructed Gaussian sequences into compact
+              skelebones that are both controllable and expressive. We validate our approach on both synthetic and
+              real-world datasets, demonstrating superior reanimation performance (17.3 over LBS for unseen poses)
+              without sacrificing reconstruction quality, especially for subjects with complex non-rigid surface
+              dynamics. Our partwise motion matching algorithm also generalizes effectively across Gaussians and meshes,
+              delivering competitive results in low-data scenarios (48.4 over LBS, 24.1 over GRU). Code will be made
+              publicly available for research purposes.
+            &lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;section class=&#34;section&#34; id=&#34;vto-section&#34;&gt;
+    &lt;div class=&#34;container&#34;&gt;
+      &lt;h2 class=&#34;title is-3 has-text-centered&#34;&gt;Results on VTO Datasets&lt;/h2&gt;
+      &lt;div class=&#34;is-flex is-justify-content-center is-align-items-center mb-5&#34; style=&#34;gap: 0.75rem;&#34;&gt;
+        &lt;button id=&#34;cloth-page-prev&#34; class=&#34;button is-light&#34;&gt;Prev&lt;/button&gt;
+        &lt;span id=&#34;cloth-page-indicator&#34; class=&#34;has-text-weight-semibold&#34;&gt;1 / 5 - Tshirt1&lt;/span&gt;
+        &lt;button id=&#34;cloth-page-next&#34; class=&#34;button is-light&#34;&gt;Next&lt;/button&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&#34;cloth-page is-active&#34; data-cloth=&#34;hood_video_tshirt_shape00_91_33&#34;&gt;
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;GT&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/cloth/hood_video_tshirt_shape00_91_33/gt_mesh.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Skeleton&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/cloth/hood_video_tshirt_shape00_91_33/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Bones&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/cloth/hood_video_tshirt_shape00_91_33/ssdr_bones.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Animation Result&lt;/h4&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/cloth/hood_video_tshirt_shape00_91_33/comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Error Map&lt;/h4&gt;&lt;/div&gt;
+        
+        
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/cloth/hood_video_tshirt_shape00_91_33/error_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Overlap&lt;/h4&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/cloth/hood_video_tshirt_shape00_91_33/overlap_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&#34;cloth-page&#34; data-cloth=&#34;hood_video_tshirt_shape00_91_36&#34;&gt;
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;GT&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/cloth/hood_video_tshirt_shape00_91_36/gt_mesh.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Skeleton&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/cloth/hood_video_tshirt_shape00_91_36/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Bones&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/cloth/hood_video_tshirt_shape00_91_36/ssdr_bones.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Animation Result&lt;/h4&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/cloth/hood_video_tshirt_shape00_91_36/comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Error Map&lt;/h4&gt;&lt;/div&gt;
+        
+        
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/cloth/hood_video_tshirt_shape00_91_36/error_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Overlap&lt;/h4&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/cloth/hood_video_tshirt_shape00_91_36/overlap_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;&lt;div class=&#34;cloth-page&#34; data-cloth=&#34;hood_video_tshirt_shape00_91_38&#34;&gt;
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;GT&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/cloth/hood_video_tshirt_shape00_91_38/gt_mesh.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Skeleton&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/cloth/hood_video_tshirt_shape00_91_38/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Bones&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/cloth/hood_video_tshirt_shape00_91_38/ssdr_bones.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Animation Result&lt;/h4&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/cloth/hood_video_tshirt_shape00_91_38/comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Error Map&lt;/h4&gt;&lt;/div&gt;
+        
+        
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/cloth/hood_video_tshirt_shape00_91_38/error_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Overlap&lt;/h4&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/cloth/hood_video_tshirt_shape00_91_38/overlap_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&#34;cloth-page&#34; data-cloth=&#34;hood_video_dress_shape00_91_38&#34;&gt;
+        
+        
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;
+          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;GT&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/cloth/hood_video_dress_shape00_91_38/gt_mesh.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Skeleton&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/cloth/hood_video_dress_shape00_91_38/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Bones&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/cloth/hood_video_dress_shape00_91_38/ssdr_bones.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Animation Result&lt;/h4&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/cloth/hood_video_dress_shape00_91_38/comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Error Map&lt;/h4&gt;&lt;/div&gt;
+        
+        
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/cloth/hood_video_dress_shape00_91_38/error_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Overlap&lt;/h4&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/cloth/hood_video_dress_shape00_91_38/overlap_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&#34;cloth-page&#34; data-cloth=&#34;hood_video_dress_shape00_91_61&#34;&gt;
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;GT&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/cloth/hood_video_dress_shape00_91_61/gt_mesh.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Skeleton&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/cloth/hood_video_dress_shape00_91_61/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Bones&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/cloth/hood_video_dress_shape00_91_61/ssdr_bones.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Animation Result&lt;/h4&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/cloth/hood_video_dress_shape00_91_61/comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Error Map&lt;/h4&gt;&lt;/div&gt;
+        
+        
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/cloth/hood_video_dress_shape00_91_61/error_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Overlap&lt;/h4&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/cloth/hood_video_dress_shape00_91_61/overlap_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+
+      
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;section class=&#34;section&#34; id=&#34;deformingthings4d-section&#34;&gt;
+    &lt;div class=&#34;container&#34;&gt;
+      &lt;h2 class=&#34;title is-3 has-text-centered&#34;&gt;Results on DeformingThings4D Datasets&lt;/h2&gt;
+      &lt;div class=&#34;is-flex is-justify-content-center is-align-items-center mb-5&#34; style=&#34;gap: 0.75rem;&#34;&gt;
+        &lt;button id=&#34;animal-page-prev&#34; class=&#34;button is-light&#34;&gt;Prev&lt;/button&gt;
+        &lt;span id=&#34;animal-page-indicator&#34; class=&#34;has-text-weight-semibold&#34;&gt;1 / 5 - lepoard&lt;/span&gt;
+        &lt;button id=&#34;animal-page-next&#34; class=&#34;button is-light&#34;&gt;Next&lt;/button&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&#34;animal-page is-active&#34; data-animal=&#34;lepoard&#34;&gt;
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;
+          &lt;div class=&#34;column is-4&#34;&gt;
+            &lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;GT&lt;/h4&gt;
+            &lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;
+              &lt;source src=&#34;static/videos/animal/lepoard/gt_mesh.mp4&#34; type=&#34;video/mp4&#34;&gt;
+            &lt;/video&gt;
+          &lt;/div&gt;
+          &lt;div class=&#34;column is-4&#34;&gt;
+            &lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Skeleton&lt;/h4&gt;
+            &lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;
+              &lt;source src=&#34;static/videos/animal/lepoard/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;
+            &lt;/video&gt;
+          &lt;/div&gt;
+          &lt;div class=&#34;column is-4&#34;&gt;
+            &lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Bones&lt;/h4&gt;
+            &lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;
+              &lt;source src=&#34;static/videos/animal/lepoard/ssdr_bones.mp4&#34; type=&#34;video/mp4&#34;&gt;
+            &lt;/video&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Animation Result&lt;/h4&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;
+          &lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&#34;columns mb-6&#34;&gt;
+          &lt;div class=&#34;column&#34;&gt;
+            &lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;
+              &lt;source src=&#34;static/videos/animal/lepoard/comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;
+            &lt;/video&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Error Map&lt;/h4&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;
+          &lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;columns mb-6&#34;&gt;
+          &lt;div class=&#34;column&#34;&gt;
+            &lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;
+              &lt;source src=&#34;static/videos/animal/lepoard/error_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;
+            &lt;/video&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Overlap&lt;/h4&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;
+          &lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;
+          &lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;
+          &lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;
+          &lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;
+          &lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;columns&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/animal/lepoard/overlap_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&#34;animal-page&#34; data-animal=&#34;bull_tail&#34;&gt;
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;
+          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;GT&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/animal/bull_tail/gt_mesh.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Skeleton&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/animal/bull_tail/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Bones&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/animal/bull_tail/ssdr_bones.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Animation Result&lt;/h4&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;
+          &lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/animal/bull_tail/comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Error Map&lt;/h4&gt;&lt;/div&gt;
+        
+        
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;
+          &lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/animal/bull_tail/error_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Overlap&lt;/h4&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/animal/bull_tail/overlap_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&#34;animal-page&#34; data-animal=&#34;cattle_jump&#34;&gt;
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;
+          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;GT&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/animal/cattle_jump/gt_mesh.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Skeleton&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/animal/cattle_jump/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Bones&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/animal/cattle_jump/ssdr_bones.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Animation Result&lt;/h4&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;
+          &lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/animal/cattle_jump/comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Error Map&lt;/h4&gt;&lt;/div&gt;
+        
+        
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;
+          &lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/animal/cattle_jump/error_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Overlap&lt;/h4&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/animal/cattle_jump/overlap_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&#34;animal-page&#34; data-animal=&#34;chicken&#34;&gt;
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;
+          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;GT&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/animal/chicken/gt_mesh.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Skeleton&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/animal/chicken/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Bones&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/animal/chicken/ssdr_bones.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Animation Result&lt;/h4&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;
+          &lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/animal/chicken/comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Error Map&lt;/h4&gt;&lt;/div&gt;
+        
+        
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;
+          &lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/animal/chicken/error_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Overlap&lt;/h4&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/animal/chicken/overlap_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&#34;animal-page&#34; data-animal=&#34;fish&#34;&gt;
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;
+          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;GT&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/animal/fish/gt_mesh.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Skeleton&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/animal/fish/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Bones&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/animal/fish/ssdr_bones.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Animation Result&lt;/h4&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;
+          &lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/animal/fish/comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Error Map&lt;/h4&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;
+          &lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/animal/fish/error_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Overlap&lt;/h4&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/animal/fish/overlap_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+  
+
+  &lt;section class=&#34;section&#34; id=&#34;actorshq-section&#34;&gt;
+    &lt;div class=&#34;container&#34;&gt;
+      &lt;h2 class=&#34;title is-3 has-text-centered&#34;&gt;Result on ActorsHQ Dataset&lt;/h2&gt;
+      &lt;div class=&#34;is-flex is-justify-content-center is-align-items-center mb-5&#34; style=&#34;gap: 0.75rem;&#34;&gt;
+        &lt;button id=&#34;actor-page-prev&#34; class=&#34;button is-light&#34;&gt;Prev&lt;/button&gt;
+        &lt;span id=&#34;actor-page-indicator&#34; class=&#34;has-text-weight-semibold&#34;&gt;1 / 3 - Actor01 Seq01&lt;/span&gt;
+        &lt;button id=&#34;actor-page-next&#34; class=&#34;button is-light&#34;&gt;Next&lt;/button&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&#34;actor-page is-active&#34; data-actor=&#34;actor01_seq01_c106&#34;&gt;
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;
+          &lt;div class=&#34;column is-3&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Recon PC&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor01_seq01_c106/recon_pc.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-3&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Rendering&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor01_seq01_c106/rendering.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-3&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Skeleton&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor01_seq01_c106/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-3&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Bones&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor01_seq01_c106/bones.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Animation Result (View1)&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;D3DGS&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Bob&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor01_seq01_c106/animation_gt.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor01_seq01_c106/animation_d3dgs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor01_seq01_c106/animation_ours.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor01_seq01_c106/animation_bob.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor01_seq01_c106/animation_lbs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Animation Result (View2)&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;D3DGS&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Bob&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor01_seq01_c159/animation_gt.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor01_seq01_c159/animation_d3dgs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor01_seq01_c159/animation_ours.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor01_seq01_c159/animation_bob.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor01_seq01_c159/animation_lbs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Rendering Result (View1)&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;D3DGS&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Bob&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor01_seq01_c106/render_result_gt.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor01_seq01_c106/render_result_d3dgs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor01_seq01_c106/render_result_ours.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor01_seq01_c106/render_result_bob.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor01_seq01_c106/render_result_lbs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Rendering Result (View2)&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;D3DGS&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Bob&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor01_seq01_c159/render_result_gt.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor01_seq01_c159/render_result_d3dgs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor01_seq01_c159/render_result_ours.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor01_seq01_c159/render_result_bob.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor01_seq01_c159/render_result_lbs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;actor-page&#34; data-actor=&#34;actor02_seq01_c159&#34;&gt;
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;
+          &lt;div class=&#34;column is-3&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Recon PC&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor02_seq01_c159/recon_pc.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-3&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Rendering&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor02_seq01_c159/rendering.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-3&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Skeleton&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor02_seq01_c159/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-3&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Bones&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor02_seq01_c159/bones.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Animation Result (View1)&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;D3DGS&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Bob&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor02_seq01_c106/animation_gt.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor02_seq01_c106/animation_d3dgs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor02_seq01_c106/animation_ours.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor02_seq01_c106/animation_bob.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor02_seq01_c106/animation_lbs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Animation Result (View2)&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;D3DGS&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Bob&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor02_seq01_c159/animation_gt.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor02_seq01_c159/animation_d3dgs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor02_seq01_c159/animation_ours.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor02_seq01_c159/animation_bob.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor02_seq01_c159/animation_lbs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Rendering Result (View1)&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;D3DGS&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Bob&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor02_seq01_c106/render_result_gt.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor02_seq01_c106/render_result_d3dgs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor02_seq01_c106/render_result_ours.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor02_seq01_c106/render_result_bob.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor02_seq01_c106/render_result_lbs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Rendering Result (View2)&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;D3DGS&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Bob&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor02_seq01_c159/render_result_gt.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor02_seq01_c159/render_result_d3dgs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor02_seq01_c159/render_result_ours.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor02_seq01_c159/render_result_bob.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor02_seq01_c159/render_result_lbs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;actor-page&#34; data-actor=&#34;actor04_seq02_c159&#34;&gt;
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;
+          &lt;div class=&#34;column is-3&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Recon PC&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor04_seq02_c159/recon_pc.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-3&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Rendering&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor04_seq02_c159/rendering.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-3&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Skeleton&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor04_seq02_c159/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-3&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Bones&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor04_seq02_c159/bones.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Animation Result (View1)&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;D3DGS&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Bob&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor04_seq02_c106/animation_gt.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor04_seq02_c106/animation_d3dgs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor04_seq02_c106/animation_ours.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor04_seq02_c106/animation_bob.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor04_seq02_c106/animation_lbs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Animation Result (View2)&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;D3DGS&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Bob&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor04_seq02_c159/animation_gt.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor04_seq02_c159/animation_d3dgs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor04_seq02_c159/animation_ours.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor04_seq02_c159/animation_bob.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor04_seq02_c159/animation_lbs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Rendering Result (View1)&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;D3DGS&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Bob&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor04_seq02_c106/render_result_gt.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor04_seq02_c106/render_result_d3dgs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor04_seq02_c106/render_result_ours.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor04_seq02_c106/render_result_bob.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor04_seq02_c106/render_result_lbs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Rendering Result (View2)&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;D3DGS&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Bob&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor04_seq02_c159/render_result_gt.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor04_seq02_c159/render_result_d3dgs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor04_seq02_c159/render_result_ours.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor04_seq02_c159/render_result_bob.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;static/videos/actorshq/actor04_seq02_c159/render_result_lbs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+
+  &lt;!-- Method section --&gt;
+  &lt;section class=&#34;section&#34; style=&#34;background-color: #f5f5f5;&#34;&gt;
+    &lt;div class=&#34;container&#34;&gt;
+      &lt;h2 class=&#34;title is-3 has-text-centered&#34;&gt;Skelebone Motion Database Construction&lt;/h2&gt;
+
+      &lt;!-- Pipeline figure --&gt;
+      &lt;div class=&#34;columns is-centered&#34;&gt;
+        &lt;div class=&#34;column&#34;&gt;
+          &lt;img src=&#34;static/images/pipeline.svg&#34; alt=&#34;Skelebone Motion Database Construction&#34; width=&#34;100%&#34;&gt;
+
+          &lt;h3 class=&#34;subtitle has-text-justified is-6&#34;&gt;
+            &lt;p&gt;
+              &lt;strong&gt;Skelebone Motion Database Construction.&lt;/strong&gt; Given a monocular or multi-view video, our method reconstructs a consistent 4DGS, extracts the inner skeleton via curve skeletonization and the outer free-form bones via SSDR, and combines them into &#34;skelebones,&#34; which are then used to build a motion database.
+            &lt;/p&gt;
+          &lt;/h3&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;!-- Method section --&gt;
+  &lt;section class=&#34;section&#34; style=&#34;background-color: #f5f5f5;&#34;&gt;
+    &lt;div class=&#34;container&#34;&gt;
+      &lt;h2 class=&#34;title is-3 has-text-centered&#34;&gt;Partwise Motion Matching&lt;/h2&gt;
+
+      &lt;!-- Pipeline figure --&gt;
+      &lt;div class=&#34;columns is-centered&#34;&gt;
+        &lt;div class=&#34;column&#34;&gt;
+          &lt;img src=&#34;static/images/pipeline2_pdf.svg&#34; alt=&#34;Partwise Motion Matching&#34; width=&#34;100%&#34;&gt;
+
+          &lt;h3 class=&#34;subtitle has-text-justified is-6&#34;&gt;
+            &lt;p&gt;
+              &lt;strong&gt;Partwise Motion Matching (PartMM).&lt;/strong&gt; Given a novel pose of the inner skeleton as input, we animate our skelebones by synthesizing the motion of the outer skeleton via part-wise motion matching. Specifically, we first (a) take the novel pose of the inner skeleton and decompose the kinematic tree into multiple parts; (b) build a part-wise motion patch database from previously reconstructed paired inner--outer skeleton motions; (c) iteratively query the database using the novel inner pose to retrieve the most similar motion patch, and perform part alignment to rotate the outer skeleton accordingly. By repeatedly applying step (c), we obtain the final outer-skeleton motion M&lt;sub&gt;out&lt;/sub&gt;.
+            &lt;/p&gt;
+          &lt;/h3&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;footer class=&#34;footer&#34;&gt;
+    &lt;div class=&#34;container&#34;&gt;
+      &lt;div class=&#34;columns is-centered&#34;&gt;
+        &lt;div class=&#34;column is-8&#34;&gt;
+          &lt;div class=&#34;content&#34;&gt;
+
+            &lt;p&gt;
+            &lt;/p&gt;
+
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/footer&gt;
+
+  &lt;script&gt;
+    function toggleVideoSource(video, enabled) {
+      var source = video.querySelector(&#34;source&#34;);
+      if (!source) return;
+
+      var currentSrc = source.getAttribute(&#34;src&#34;);
+      if (!source.dataset.src &amp;&amp; currentSrc) {
+        source.dataset.src = currentSrc;
+      }
+
+      var savedSrc = source.dataset.src;
+      if (!savedSrc) return;
+
+      if (enabled) {
+        if (source.getAttribute(&#34;src&#34;) !== savedSrc) {
+          source.setAttribute(&#34;src&#34;, savedSrc);
+          video.load();
+        }
+      } else if (source.getAttribute(&#34;src&#34;)) {
+        source.removeAttribute(&#34;src&#34;);
+        video.load();
+      }
+    }
+
+    function syncPageVideos(page, shouldPlay) {
+      var videos = page.querySelectorAll(&#34;video&#34;);
+      for (var i = 0; i &lt; videos.length; i++) {
+        var v = videos[i];
+        if (shouldPlay) {
+          toggleVideoSource(v, true);
+          v.autoplay = true;
+          v.preload = &#34;metadata&#34;;
+          var rate = parseFloat(v.dataset.playbackRate || &#34;1&#34;);
+          v.playbackRate = !isNaN(rate) &amp;&amp; rate &gt; 0 ? rate : 1;
+          var playPromise = v.play();
+          if (playPromise &amp;&amp; typeof playPromise.catch === &#34;function&#34;) {
+            playPromise.catch(function () {});
+          }
+        } else {
+          v.autoplay = false;
+          v.pause();
+          v.currentTime = 0;
+          v.preload = &#34;none&#34;;
+          toggleVideoSource(v, false);
+        }
+      }
+    }
+
+    function initClothPager() {
+      var section = document.getElementById(&#34;vto-section&#34;);
+      if (!section) return;
+
+      var pages = section.querySelectorAll(&#34;.cloth-page&#34;);
+      var prevBtn = document.getElementById(&#34;cloth-page-prev&#34;);
+      var nextBtn = document.getElementById(&#34;cloth-page-next&#34;);
+      var indicator = document.getElementById(&#34;cloth-page-indicator&#34;);
+      if (!pages.length || !prevBtn || !nextBtn || !indicator) return;
+
+      var current = 0;
+      var clothNameMap = {
+        hood_video_tshirt_shape00_91_33: &#34;Tshirt1&#34;,
+        hood_video_tshirt_shape00_91_36: &#34;Tshirt2&#34;,
+        hood_video_tshirt_shape00_91_38: &#34;Tshirt3&#34;,
+        hood_video_dress_shape00_91_38: &#34;Dress1&#34;,
+        hood_video_dress_shape00_91_61: &#34;Dress2&#34;,
+      };
+
+      function showPage(index) {
+        current = (index + pages.length) % pages.length;
+        for (var i = 0; i &lt; pages.length; i++) {
+          var active = i === current;
+          pages[i].classList.toggle(&#34;is-active&#34;, active);
+          syncPageVideos(pages[i], active);
+        }
+        var rawName = pages[current].dataset.cloth || &#34;unknown&#34;;
+        var name = clothNameMap[rawName] || rawName;
+        indicator.textContent = (current + 1) + &#34; / &#34; + pages.length + &#34; - &#34; + name;
+      }
+
+      prevBtn.addEventListener(&#34;click&#34;, function () {
+        showPage(current - 1);
+      });
+
+      nextBtn.addEventListener(&#34;click&#34;, function () {
+        showPage(current + 1);
+      });
+
+      showPage(0);
+    }
+
+    function initAnimalPager() {
+      var section = document.getElementById(&#34;deformingthings4d-section&#34;);
+      if (!section) return;
+
+      var pages = section.querySelectorAll(&#34;.animal-page&#34;);
+      var prevBtn = document.getElementById(&#34;animal-page-prev&#34;);
+      var nextBtn = document.getElementById(&#34;animal-page-next&#34;);
+      var indicator = document.getElementById(&#34;animal-page-indicator&#34;);
+      if (!pages.length || !prevBtn || !nextBtn || !indicator) return;
+
+      var current = 0;
+
+      function showPage(index) {
+        current = (index + pages.length) % pages.length;
+        for (var i = 0; i &lt; pages.length; i++) {
+          var active = i === current;
+          pages[i].classList.toggle(&#34;is-active&#34;, active);
+          syncPageVideos(pages[i], active);
+        }
+        var animalName = pages[current].dataset.animal || &#34;unknown&#34;;
+        indicator.textContent = (current + 1) + &#34; / &#34; + pages.length + &#34; - &#34; + animalName;
+      }
+
+      prevBtn.addEventListener(&#34;click&#34;, function () {
+        showPage(current - 1);
+      });
+
+      nextBtn.addEventListener(&#34;click&#34;, function () {
+        showPage(current + 1);
+      });
+
+      showPage(0);
+    }
+
+    function initActorPager() {
+      var section = document.getElementById(&#34;actorshq-section&#34;);
+      if (!section) return;
+
+      var pages = section.querySelectorAll(&#34;.actor-page&#34;);
+      var prevBtn = document.getElementById(&#34;actor-page-prev&#34;);
+      var nextBtn = document.getElementById(&#34;actor-page-next&#34;);
+      var indicator = document.getElementById(&#34;actor-page-indicator&#34;);
+      if (!pages.length || !prevBtn || !nextBtn || !indicator) return;
+
+      var current = 0;
+      var actorNameMap = {
+        actor01_seq01_c106: &#34;Actor01 Seq01&#34;,
+        actor02_seq01_c159: &#34;Actor02 Seq01&#34;,
+        actor04_seq02_c159: &#34;Actor04 Seq02&#34;,
+      };
+
+      function showPage(index) {
+        current = (index + pages.length) % pages.length;
+        for (var i = 0; i &lt; pages.length; i++) {
+          var active = i === current;
+          pages[i].classList.toggle(&#34;is-active&#34;, active);
+          syncPageVideos(pages[i], active);
+        }
+        var rawName = pages[current].dataset.actor || &#34;unknown&#34;;
+        var actorName = actorNameMap[rawName] || rawName;
+        indicator.textContent = (current + 1) + &#34; / &#34; + pages.length + &#34; - &#34; + actorName;
+      }
+
+      prevBtn.addEventListener(&#34;click&#34;, function () {
+        showPage(current - 1);
+      });
+
+      nextBtn.addEventListener(&#34;click&#34;, function () {
+        showPage(current + 1);
+      });
+
+      showPage(0);
+    }
+
+    initClothPager();
+    initAnimalPager();
+    initActorPager();
+
+    function toggleMoreVideos() {
+      var moreVideos = document.getElementById(&#34;more-videos&#34;);
+      var btn = event.target;
+
+      if (moreVideos.style.display === &#34;none&#34;) {
+        moreVideos.style.display = &#34;flex&#34;;
+        btn.textContent = &#34;Hide more results&#34;;
+      } else {
+        moreVideos.style.display = &#34;none&#34;;
+        btn.textContent = &#34;Check out more results&#34;;
+      }
+    }
+
+    function toggleMoreVideos2() {
+      var moreVideos = document.getElementById(&#34;more-videos-2&#34;);
+      var btn = event.target;
+
+      if (moreVideos.style.display === &#34;none&#34;) {
+        moreVideos.style.display = &#34;flex&#34;;
+        btn.textContent = &#34;Hide more results&#34;;
+      } else {
+        moreVideos.style.display = &#34;none&#34;;
+        btn.textContent = &#34;Check out more results&#34;;
+      }
+    }
+  &lt;/script&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;</description>
     </item>
     
   </channel>
