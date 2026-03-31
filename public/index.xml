@@ -369,7 +369,7 @@ Further event details, including [page elements](https://docs.hugoblox.com/refer
 
 
 
-&lt;div id=&#34;chart-254963871&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-925418673&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   async function fetchChartJSON() {
     console.debug(&#39;Hugo Blox fetching chart JSON...&#39;)
@@ -387,7 +387,7 @@ Further event details, including [page elements](https://docs.hugoblox.com/refer
 
       fetchChartJSON().then(chart =&gt; {
         console.debug(&#39;Plotting chart...&#39;)
-        window.Plotly.newPlot(&#39;chart-254963871&#39;, chart.data, chart.layout, {responsive: true});
+        window.Plotly.newPlot(&#39;chart-925418673&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();
@@ -1284,26 +1284,231 @@ Parallel 4   :         des6, after des4, 1d
           &lt;div class=&#34;column has-text-centered&#34;&gt;
             &lt;h1 class=&#34;title is-2 publication-title&#34;&gt;
               &lt;span style=&#34;font-size: 3.3rem;&#34;&gt;GaussiAnimate&lt;/span&gt;&lt;br&gt;
-              &lt;span style=&#34;font-size: 1.9rem;&#34;&gt;Reconstruct and Rig Animatable Categories with Level of Dynamics&lt;/span&gt;&lt;br&gt;
+              &lt;span style=&#34;font-size: 1.9rem;&#34;&gt;Reconstruct and Rig Animatable Categories with Level of Dynamics&lt;/span&gt;
             &lt;/h1&gt;
+
+            &lt;!-- Authors --&gt;
+            &lt;div style=&#34;margin-top: 1.2rem; font-size: 1.05rem; line-height: 2;&#34;&gt;
+              &lt;span&gt;&lt;a href=&#34;http://cookmaker.cn&#34; target=&#34;_blank&#34; style=&#34;color: #333;&#34;&gt;Jiaxin Wang&lt;/a&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/span&gt;,
+              &lt;span&gt;&lt;a href=&#34;#&#34; style=&#34;color: #333;&#34;&gt;Dongxin Lyu&lt;/a&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/span&gt;,
+              &lt;span&gt;&lt;a href=&#34;https://zcai0612.github.io/&#34; target=&#34;_blank&#34; style=&#34;color: #333;&#34;&gt;Zeyu Cai&lt;/a&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/span&gt;,
+              &lt;span&gt;&lt;a href=&#34;https://frank-zy-dou.github.io/&#34; target=&#34;_blank&#34; style=&#34;color: #333;&#34;&gt;Zhiyang Dou&lt;/a&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/span&gt;,
+              &lt;span&gt;&lt;a href=&#34;https://clinplayer.github.io/&#34; target=&#34;_blank&#34; style=&#34;color: #333;&#34;&gt;Cheng Lin&lt;/a&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/span&gt;,
+              &lt;span&gt;&lt;a href=&#34;https://apchenstu.github.io/&#34; target=&#34;_blank&#34; style=&#34;color: #333;&#34;&gt;Anpei Chen&lt;/a&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/span&gt;,
+              &lt;span&gt;&lt;a href=&#34;https://xiuyuliang.cn/&#34; target=&#34;_blank&#34; style=&#34;color: #333;&#34;&gt;Yuliang Xiu&lt;/a&gt;&lt;sup&gt;1*&lt;/sup&gt;&lt;/span&gt;
+            &lt;/div&gt;
+
+            &lt;!-- Affiliations --&gt;
+            &lt;div style=&#34;margin-top: 0.6rem; font-size: 0.88rem; color: #666; line-height: 1.7;&#34;&gt;
+              &lt;sup&gt;1&lt;/sup&gt;Westlake University &amp;nbsp;&amp;nbsp;
+              &lt;sup&gt;2&lt;/sup&gt;University of Hong Kong &amp;nbsp;&amp;nbsp;
+              &lt;sup&gt;3&lt;/sup&gt;Macau University of Science and Technology&lt;br&gt;
+              &lt;span style=&#34;font-size: 0.82rem; color: #888;&#34;&gt;* Corresponding author&lt;/span&gt;
+            &lt;/div&gt;
+
+            &lt;!-- Email --&gt;
+            &lt;div style=&#34;margin-top: 0.4rem; font-size: 0.78rem; color: #999; font-family: &#39;SF Mono&#39;, &#39;Consolas&#39;, &#39;Monaco&#39;, monospace; letter-spacing: 0.01em;&#34;&gt;
+              {wangjiaxin, lyudongxin, chenanpei, xiuyuliang}@westlake.edu.cn,
+              caizeyu010612@gmail.com,
+              frankdou@mit.edu,
+              chenglin@must.edu.mo
+            &lt;/div&gt;
+
           &lt;/div&gt;
         &lt;/div&gt;
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/section&gt;
 
-  &lt;!-- Main Teaser Image --&gt;
-  &lt;section class=&#34;hero teaser&#34;&gt;
-    &lt;div class=&#34;container&#34;&gt;
-      &lt;div class=&#34;hero-body&#34;&gt;
-        &lt;img src=&#34;https://cookmaker.cn/gaussianimate/static/images/teaser_pdf.svg&#34; alt=&#34;Project Teaser Image&#34; width=&#34;100%&#34;&gt;
+  &lt;!-- Demo Video Gallery --&gt;
+  &lt;style&gt;
+    .gallery-section {
+      background: #fcfcfd;
+      padding: 2rem 0 2.5rem;
+    }
+    .gallery-header {
+      text-align: center;
+      margin-bottom: 1.8rem;
+    }
+    .gallery-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.25rem;
+    }
+    .gallery-rule {
+      width: 40px;
+      height: 1.5px;
+      background: #aaa;
+      margin: 0.5rem auto 0.6rem;
+      border: none;
+    }
+    .gallery-subtitle {
+      color: #777;
+      font-size: 0.92rem;
+      font-weight: 400;
+      font-style: italic;
+    }
 
-        &lt;h2 class=&#34;subtitle has-text-justified is-6&#34;&gt;
-          &lt;p&gt;
-            &lt;strong&gt;GaussiAnimate&lt;/strong&gt; is designed to 1) reconstruct animatable categories (ie, clothed humans, animals) from multi-view video; 2) rig consistent 4DGS with a novel &lt;span style=&#34;color: red;&#34;&gt;skele&lt;/span&gt;&lt;span style=&#34;color: blue;&#34;&gt;bones&lt;/span&gt; representation, which well balance the intuitive control of &lt;span style=&#34;color: red;&#34;&gt;kinematic skeletons&lt;/span&gt; and the deformation fidelity of &lt;span style=&#34;color: blue;&#34;&gt;free-from bones&lt;/span&gt;; and 3) animate the rigged 4DGS with a Partwise Motion Matching (PartMM) algorithm, which can handle complex non-rigid deformations, in a non-parametric manner.
-          &lt;/p&gt;
-        &lt;/h2&gt;
+    .gallery-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      table-layout: fixed;
+    }
+    .gallery-table thead th {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0 8px 12px;
+      text-align: center;
+      border-bottom: 1.5px solid #d0d0d0;
+    }
+    .gallery-table thead th:first-child {
+      text-align: right;
+      padding-right: 20px;
+      width: 150px;
+    }
+    .gallery-table tbody tr {
+      transition: background 0.2s;
+    }
+    .gallery-table tbody tr:hover {
+      background: rgba(0,0,0,0.015);
+    }
+    .gallery-table tbody td {
+      padding: 12px 8px;
+      vertical-align: middle;
+      border-bottom: 1px solid #ececec;
+    }
+    .gallery-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+    .gallery-table tbody td:first-child {
+      text-align: right;
+      padding-right: 20px;
+      width: 150px;
+    }
+    .gallery-cat-main {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #2a2a2a;
+      line-height: 1.3;
+    }
+    .gallery-cat-sub {
+      font-size: 0.78rem;
+      color: #999;
+      font-weight: 400;
+      margin-top: 2px;
+    }
+
+    .gallery-vid-wrap {
+      position: relative;
+      border-radius: 4px;
+      overflow: hidden;
+      background: #f5f5f5;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      transition: box-shadow 0.25s ease, transform 0.25s ease;
+      margin: 0 auto;
+    }
+    .gallery-vid-wrap:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+      transform: translateY(-2px);
+    }
+    .gallery-vid-wrap video {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 768px) {
+      .gallery-table thead th:first-child,
+      .gallery-table tbody td:first-child {
+        width: 100px;
+        padding-right: 12px;
+      }
+      .gallery-cat-main { font-size: 0.85rem; }
+      .gallery-cat-sub { font-size: 0.68rem; }
+      .gallery-table thead th { font-size: 0.7rem; }
+    }
+  &lt;/style&gt;
+
+  &lt;section class=&#34;gallery-section&#34;&gt;
+    &lt;div class=&#34;container&#34;&gt;
+      &lt;div class=&#34;gallery-header&#34;&gt;
+        &lt;div class=&#34;gallery-title&#34;&gt;Results Gallery&lt;/div&gt;
+        &lt;hr class=&#34;gallery-rule&#34;&gt;
+        &lt;div class=&#34;gallery-subtitle&#34;&gt;Skelebon on diverse animatable entities&lt;/div&gt;
       &lt;/div&gt;
+
+      &lt;table class=&#34;gallery-table&#34;&gt;
+        &lt;thead&gt;
+          &lt;tr&gt;
+            &lt;th&gt;&lt;/th&gt;
+            &lt;th&gt;Skeleton&lt;/th&gt;
+            &lt;th&gt;Bones&lt;/th&gt;
+            &lt;th&gt;Skinning&lt;/th&gt;
+            &lt;th&gt;Combined&lt;/th&gt;
+          &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+          &lt;!-- Gaussian --&gt;
+          &lt;tr&gt;
+            &lt;td&gt;
+              &lt;div class=&#34;gallery-cat-main&#34;&gt;Clothed Human&lt;/div&gt;
+              &lt;div class=&#34;gallery-cat-sub&#34;&gt;4D Gaussians&lt;/div&gt;
+            &lt;/td&gt;
+            &lt;td&gt;&lt;div class=&#34;gallery-vid-wrap&#34;&gt;&lt;video autoplay loop muted playsinline&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/teaser/gaussian/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;div class=&#34;gallery-vid-wrap&#34;&gt;&lt;video autoplay loop muted playsinline&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/teaser/gaussian/bones.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;div class=&#34;gallery-vid-wrap&#34;&gt;&lt;video autoplay loop muted playsinline&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/teaser/gaussian/skinning_bones.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;div class=&#34;gallery-vid-wrap&#34;&gt;&lt;video autoplay loop muted playsinline&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/teaser/gaussian/pc_bones.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;!-- Bucks --&gt;
+          &lt;tr&gt;
+            &lt;td&gt;
+              &lt;div class=&#34;gallery-cat-main&#34;&gt;Quadruped&lt;/div&gt;
+              &lt;div class=&#34;gallery-cat-sub&#34;&gt;Mesh &amp;middot; Bucks&lt;/div&gt;
+            &lt;/td&gt;
+            &lt;td&gt;&lt;div class=&#34;gallery-vid-wrap&#34;&gt;&lt;video autoplay loop muted playsinline&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/teaser/bucks/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;div class=&#34;gallery-vid-wrap&#34;&gt;&lt;video autoplay loop muted playsinline&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/teaser/bucks/ssdr_bones.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;div class=&#34;gallery-vid-wrap&#34;&gt;&lt;video autoplay loop muted playsinline&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/teaser/bucks/skinning_mesh.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;div class=&#34;gallery-vid-wrap&#34;&gt;&lt;video autoplay loop muted playsinline&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/teaser/bucks/combined.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;!-- Cloth --&gt;
+          &lt;tr&gt;
+            &lt;td&gt;
+              &lt;div class=&#34;gallery-cat-main&#34;&gt;Garment&lt;/div&gt;
+              &lt;div class=&#34;gallery-cat-sub&#34;&gt;Mesh &amp;middot; Cloth&lt;/div&gt;
+            &lt;/td&gt;
+            &lt;td&gt;&lt;div class=&#34;gallery-vid-wrap&#34;&gt;&lt;video autoplay loop muted playsinline&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/teaser/cloth/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;div class=&#34;gallery-vid-wrap&#34;&gt;&lt;video autoplay loop muted playsinline&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/teaser/cloth/ssdr_bones.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;div class=&#34;gallery-vid-wrap&#34;&gt;&lt;video autoplay loop muted playsinline&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/teaser/cloth/skinning_mesh.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;div class=&#34;gallery-vid-wrap&#34;&gt;&lt;video autoplay loop muted playsinline&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/teaser/cloth/combined.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;!-- Dragon --&gt;
+          &lt;tr&gt;
+            &lt;td&gt;
+              &lt;div class=&#34;gallery-cat-main&#34;&gt;Dragon&lt;/div&gt;
+              &lt;div class=&#34;gallery-cat-sub&#34;&gt;Mesh &amp;middot; Biped&lt;/div&gt;
+            &lt;/td&gt;
+            &lt;td&gt;&lt;div class=&#34;gallery-vid-wrap&#34;&gt;&lt;video autoplay loop muted playsinline&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/teaser/dragon/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;div class=&#34;gallery-vid-wrap&#34;&gt;&lt;video autoplay loop muted playsinline&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/teaser/dragon/ssdr_bones.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;div class=&#34;gallery-vid-wrap&#34;&gt;&lt;video autoplay loop muted playsinline&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/teaser/dragon/skinning_mesh.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;div class=&#34;gallery-vid-wrap&#34;&gt;&lt;video autoplay loop muted playsinline&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/teaser/dragon/combined.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/tbody&gt;
+      &lt;/table&gt;
+
+      &lt;!-- Teaser Figure --&gt;
+      &lt;figure style=&#34;margin: 2.5rem auto 0; padding-top: 2rem; border-top: 1px solid #e8e8ec; max-width: 75%;&#34;&gt;
+        &lt;img src=&#34;https://cookmaker.cn/gaussianimate/static/images/teaser.svg&#34; alt=&#34;Project Teaser&#34; width=&#34;100%&#34;&gt;
+        &lt;figcaption style=&#34;margin-top: 0.8rem; font-size: 0.88rem; color: #555; line-height: 1.75; text-align: justify;&#34;&gt;
+          &lt;strong&gt;GaussiAnimate&lt;/strong&gt; is designed to: 1) &lt;strong&gt;rig&lt;/strong&gt; diverse animatable entities&amp;mdash;typically featuring a soft exterior and rigid core (e.g., clothed humans, quadrupeds, bipeds, birds, and garments)&amp;mdash;from either reconstructed consistent 4DGS or mesh sequences. This relies on a novel &lt;span style=&#34;color: red;&#34;&gt;skele&lt;/span&gt;&lt;span style=&#34;color: blue;&#34;&gt;bones&lt;/span&gt; representation that balances the intuitive control of &lt;span style=&#34;color: red;&#34;&gt;kinematic skeletons&lt;/span&gt; with the deformation fidelity of &lt;span style=&#34;color: blue;&#34;&gt;free-form bones&lt;/span&gt;; and 2) &lt;strong&gt;animate&lt;/strong&gt; these rigged entities non-parametrically via Partwise Motion Matching (PartMM), where skeletons drive the bones, enabling kinematic control over non-rigid deformations.
+        &lt;/figcaption&gt;
+      &lt;/figure&gt;
+
     &lt;/div&gt;
   &lt;/section&gt;
 
@@ -1311,29 +1516,34 @@ Parallel 4   :         des6, after des4, 1d
   &lt;section class=&#34;section hero is-light&#34;&gt;
     &lt;div class=&#34;container is-max-desktop&#34;&gt;
       &lt;div class=&#34;columns is-centered has-text-centered&#34;&gt;
-        &lt;div class=&#34;column is-four-fifths&#34;&gt;
+        &lt;div class=&#34;column&#34; style=&#34;max-width: 75%;&#34;&gt;
           &lt;h2 class=&#34;title is-4&#34;&gt;Abstract&lt;/h2&gt;
           &lt;div class=&#34;content has-text-justified&#34;&gt;
             &lt;p&gt;
               Rigging animatable characters, such as quadrupeds and clothed humans, presents a fundamental challenge:
               balancing &lt;i&gt;intuitive control&lt;/i&gt; with &lt;i&gt;deformation fidelity&lt;/i&gt;. While kinematic skeletons offer
-              intuitive control, natural surface deformations involve significant non-rigid dynamics, such as loose
-              clothing and soft tissues, that cannot be easily captured by skeletons alone. Free-form bones, which
-              conform closely to the surface, can effectively capture non-rigid deformations but lack the kinematic
-              structure required for intuitive control. To combine the best of both worlds, we propose a scaffold-skin
-              rigging system, termed &lt;i&gt;skelebones&lt;/i&gt;, with three core steps: (1) &lt;i&gt;Bones&lt;/i&gt;, which compress
-              temporally consistent deformable Gaussians into free-form bones to approximate non-rigid surface
-              deformations; (2) &lt;i&gt;Skeleton&lt;/i&gt;, which extracts a Mean Curvature Skeleton from canonical Gaussians and
-              refines it temporally to ensure a category-agnostic, motion-adaptive, and topology-correct kinematic
-              structure; and (3) &lt;i&gt;Binding&lt;/i&gt;, which binds the skeleton and bones via non-parametric partwise motion
-              matching, synthesizing novel bone motions by matching, retrieving, and blending existing ones.
-              Collectively, these steps compress the level of dynamics of reconstructed Gaussian sequences into compact
-              skelebones that are both controllable and expressive. We validate our approach on both synthetic and
-              real-world datasets, demonstrating superior reanimation performance (17.3 over LBS for unseen poses)
-              without sacrificing reconstruction quality, especially for subjects with complex non-rigid surface
-              dynamics. Our partwise motion matching algorithm also generalizes effectively across Gaussians and meshes,
-              delivering competitive results in low-data scenarios (48.4 over LBS, 24.1 over GRU). Code will be made
-              publicly available for research purposes.
+              intuitive control, natural surface deformations involve significant non-rigid dynamics&amp;mdash;such as loose
+              clothing and soft tissues&amp;mdash;that cannot be easily captured by skeletons alone.
+              Free-form bones, that conform closely to the surface, can effectively capture non-rigid deformations,
+              but lack a kinematic structure necessary for intuitive control.
+              Then how about combining both to achieve the best of both worlds?
+              Thus, we propose a Scaffold-Skin Rigging System, termed &amp;ldquo;&lt;i&gt;skelebones&lt;/i&gt;&amp;rdquo;, with three core steps:
+              (1) &lt;i&gt;Bones&lt;/i&gt;: compress temporally-consistent deformable Gaussians into free-form bones, approximating
+              non-rigid surface deformations;
+              (2) &lt;i&gt;Skeleton&lt;/i&gt;: extract a Mean Curvature Skeleton from canonical Gaussians and refine it temporally,
+              ensuring a category-agnostic, motion-adaptive, and topology-correct kinematic structure;
+              (3) &lt;i&gt;Binding&lt;/i&gt;: bind the skeleton and bones via non-parametric partwise motion matching, synthesizing
+              novel bone motions by matching, retrieving, and blending existing ones.
+              Collectively, these three steps enable us to compress the Level of Dynamics of the reconstructed Gaussian
+              sequences into compact skelebones that are both controllable and expressive.
+              We validate our approach on both synthetic and real-world datasets, achieving significant improvements in
+              reanimation performance across unseen poses&amp;mdash;with &lt;b&gt;17.3&lt;/b&gt; PSNR gains over Linear Blend Skinning (LBS)
+              and &lt;b&gt;21.7&lt;/b&gt; over Bag-of-Bones (BoB)&amp;mdash;while maintaining excellent reconstruction fidelity,
+              particularly for characters exhibiting complex non-rigid surface dynamics.
+              Our Partwise Motion Matching algorithm demonstrates strong generalization to both Gaussian and mesh
+              representations, even under low-data regimes (~1000 frames), achieving &lt;b&gt;48.4&lt;/b&gt; RMSE improvement over
+              robust LBS and outperforming GRU- and MLP-based learning methods by &lt;b&gt;&amp;gt;20&lt;/b&gt;.
+              Code will be made publicly available for research purposes.
             &lt;/p&gt;
           &lt;/div&gt;
         &lt;/div&gt;
@@ -1635,41 +1845,46 @@ Parallel 4   :         des6, after des4, 1d
   &lt;/section&gt;
 
 
-  &lt;!-- Method section --&gt;
+  &lt;!-- Method section: Pipeline --&gt;
   &lt;section class=&#34;section&#34; style=&#34;background-color: #f5f5f5;&#34;&gt;
     &lt;div class=&#34;container&#34;&gt;
-      &lt;h2 class=&#34;title is-3 has-text-centered&#34;&gt;Skelebone Motion Database Construction&lt;/h2&gt;
-
-      &lt;!-- Pipeline figure --&gt;
+      &lt;h2 class=&#34;title is-4 has-text-centered&#34;&gt;Skelebone Motion Database Construction&lt;/h2&gt;
       &lt;div class=&#34;columns is-centered&#34;&gt;
-        &lt;div class=&#34;column&#34;&gt;
+        &lt;div class=&#34;column is-10&#34;&gt;
           &lt;img src=&#34;https://cookmaker.cn/gaussianimate/static/images/pipeline.svg&#34; alt=&#34;Skelebone Motion Database Construction&#34; width=&#34;100%&#34;&gt;
-
-          &lt;h3 class=&#34;subtitle has-text-justified is-6&#34;&gt;
-            &lt;p&gt;
-              &lt;strong&gt;Skelebone Motion Database Construction.&lt;/strong&gt; Given a monocular or multi-view video, our method reconstructs a consistent 4DGS, extracts the inner skeleton via curve skeletonization and the outer free-form bones via SSDR, and combines them into &#34;skelebones,&#34; which are then used to build a motion database.
-            &lt;/p&gt;
-          &lt;/h3&gt;
+          &lt;p style=&#34;margin-top: 0.8rem; font-size: 0.88rem; color: #555; line-height: 1.75; text-align: justify;&#34;&gt;
+            &lt;strong&gt;Pipeline Overview.&lt;/strong&gt; Given a monocular or multi-view video, our method reconstructs a consistent 4DGS, extracts the inner skeleton via curve skeletonization and the outer free-form bones via SSDR, together forming &amp;ldquo;skelebones&amp;rdquo;, which are then used to build a motion database.
+          &lt;/p&gt;
         &lt;/div&gt;
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/section&gt;
 
-  &lt;!-- Method section --&gt;
+  &lt;!-- Method section: Skeletonization --&gt;
+  &lt;section class=&#34;section&#34;&gt;
+    &lt;div class=&#34;container&#34;&gt;
+      &lt;h2 class=&#34;title is-4 has-text-centered&#34;&gt;Inner Skeleton Initialization&lt;/h2&gt;
+      &lt;div class=&#34;columns is-centered&#34;&gt;
+        &lt;div class=&#34;column is-10&#34;&gt;
+          &lt;img src=&#34;https://cookmaker.cn/gaussianimate/static/images/skeleton.svg&#34; alt=&#34;Inner Skeleton Initialization&#34; width=&#34;100%&#34;&gt;
+          &lt;p style=&#34;margin-top: 0.8rem; font-size: 0.88rem; color: #555; line-height: 1.75; text-align: justify;&#34;&gt;
+            &lt;strong&gt;Inner Skeleton Initialization.&lt;/strong&gt; We first extract the curve skeleton (A) of the object in the canonical space. Then we estimate the joint locations on the curve skeleton through skinning analysis. Specifically, we project the skinning weights of the 3D points onto the curve skeleton (B), and then identify positions along the 1D curve where neighboring skinning weights exhibit the highest similarity as potential joint locations (C). Finally, we traverse the curve skeleton using Depth-First Search (DFS) to construct the kinematic tree (D).
+          &lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;!-- Method section: PartMM --&gt;
   &lt;section class=&#34;section&#34; style=&#34;background-color: #f5f5f5;&#34;&gt;
     &lt;div class=&#34;container&#34;&gt;
-      &lt;h2 class=&#34;title is-3 has-text-centered&#34;&gt;Partwise Motion Matching&lt;/h2&gt;
-
-      &lt;!-- Pipeline figure --&gt;
+      &lt;h2 class=&#34;title is-4 has-text-centered&#34;&gt;Partwise Motion Matching&lt;/h2&gt;
       &lt;div class=&#34;columns is-centered&#34;&gt;
-        &lt;div class=&#34;column&#34;&gt;
-          &lt;img src=&#34;https://cookmaker.cn/gaussianimate/static/images/pipeline2_pdf.svg&#34; alt=&#34;Partwise Motion Matching&#34; width=&#34;100%&#34;&gt;
-
-          &lt;h3 class=&#34;subtitle has-text-justified is-6&#34;&gt;
-            &lt;p&gt;
-              &lt;strong&gt;Partwise Motion Matching (PartMM).&lt;/strong&gt; Given a novel pose of the inner skeleton as input, we animate our skelebones by synthesizing the motion of the outer skeleton via part-wise motion matching. Specifically, we first (a) take the novel pose of the inner skeleton and decompose the kinematic tree into multiple parts; (b) build a part-wise motion patch database from previously reconstructed paired inner--outer skeleton motions; (c) iteratively query the database using the novel inner pose to retrieve the most similar motion patch, and perform part alignment to rotate the outer skeleton accordingly. By repeatedly applying step (c), we obtain the final outer-skeleton motion M&lt;sub&gt;out&lt;/sub&gt;.
-            &lt;/p&gt;
-          &lt;/h3&gt;
+        &lt;div class=&#34;column is-10&#34;&gt;
+          &lt;img src=&#34;https://cookmaker.cn/gaussianimate/static/images/pipeline2.svg&#34; alt=&#34;Partwise Motion Matching&#34; width=&#34;100%&#34;&gt;
+          &lt;p style=&#34;margin-top: 0.8rem; font-size: 0.88rem; color: #555; line-height: 1.75; text-align: justify;&#34;&gt;
+            &lt;strong&gt;Partwise Motion Matching (PartMM).&lt;/strong&gt; Given a novel inner-skeleton pose sequence, we animate skelebones by synthesizing outer-bone motion via part-wise matching. Our method: (a) decomposes the kinematic tree into multiple parts (shown as two parts; user-defined in practice); (b) extracts part-wise motion patches &lt;i&gt;R&lt;/i&gt;&lt;sub&gt;&lt;i&gt;J&lt;/i&gt;&lt;/sub&gt;&lt;sup&gt;novel&lt;/sup&gt; from the novel pose sequence; (c) queries these patches against a pre-built motion database to retrieve similar patches to recompile, and then perform part-level spatial alignment. Iterating step (c) yields the final motion &lt;i&gt;T&lt;/i&gt;&lt;sub&gt;&lt;i&gt;B&lt;/i&gt;&lt;/sub&gt;&lt;sup&gt;novel&lt;/sup&gt;.
+          &lt;/p&gt;
         &lt;/div&gt;
       &lt;/div&gt;
     &lt;/div&gt;
