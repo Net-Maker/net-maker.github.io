@@ -369,7 +369,7 @@ Further event details, including [page elements](https://docs.hugoblox.com/refer
 
 
 
-&lt;div id=&#34;chart-925418673&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-652814379&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   async function fetchChartJSON() {
     console.debug(&#39;Hugo Blox fetching chart JSON...&#39;)
@@ -387,7 +387,7 @@ Further event details, including [page elements](https://docs.hugoblox.com/refer
 
       fetchChartJSON().then(chart =&gt; {
         console.debug(&#39;Plotting chart...&#39;)
-        window.Plotly.newPlot(&#39;chart-925418673&#39;, chart.data, chart.layout, {responsive: true});
+        window.Plotly.newPlot(&#39;chart-652814379&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();
@@ -1537,12 +1537,12 @@ Parallel 4   :         des6, after des4, 1d
               Collectively, these three steps enable us to compress the Level of Dynamics of the reconstructed Gaussian
               sequences into compact skelebones that are both controllable and expressive.
               We validate our approach on both synthetic and real-world datasets, achieving significant improvements in
-              reanimation performance across unseen poses&amp;mdash;with &lt;b&gt;17.3&lt;/b&gt; PSNR gains over Linear Blend Skinning (LBS)
-              and &lt;b&gt;21.7&lt;/b&gt; over Bag-of-Bones (BoB)&amp;mdash;while maintaining excellent reconstruction fidelity,
+              reanimation performance across unseen poses&amp;mdash;with &lt;b style=&#34;color: #2e9e5a;&#34;&gt;17.3%&lt;/b&gt; PSNR gains over Linear Blend Skinning (LBS)
+              and &lt;b style=&#34;color: #2e9e5a;&#34;&gt;21.7%&lt;/b&gt; over Bag-of-Bones (BoB)&amp;mdash;while maintaining excellent reconstruction fidelity,
               particularly for characters exhibiting complex non-rigid surface dynamics.
               Our Partwise Motion Matching algorithm demonstrates strong generalization to both Gaussian and mesh
-              representations, even under low-data regimes (~1000 frames), achieving &lt;b&gt;48.4&lt;/b&gt; RMSE improvement over
-              robust LBS and outperforming GRU- and MLP-based learning methods by &lt;b&gt;&amp;gt;20&lt;/b&gt;.
+              representations, even under low-data regimes (~1000 frames), achieving &lt;b style=&#34;color: #2e9e5a;&#34;&gt;48.4%&lt;/b&gt; RMSE improvement over
+              robust LBS and outperforming GRU- and MLP-based learning methods by &lt;b style=&#34;color: #2e9e5a;&#34;&gt;&amp;gt;20%&lt;/b&gt;.
               Code will be made publicly available for research purposes.
             &lt;/p&gt;
           &lt;/div&gt;
@@ -1890,15 +1890,43 @@ Parallel 4   :         des6, after des4, 1d
     &lt;/div&gt;
   &lt;/section&gt;
 
+  &lt;!-- Acknowledgments --&gt;
+  &lt;section class=&#34;section&#34;&gt;
+    &lt;div class=&#34;container is-max-desktop&#34;&gt;
+      &lt;div class=&#34;columns is-centered&#34;&gt;
+        &lt;div class=&#34;column&#34; style=&#34;max-width: 75%;&#34;&gt;
+          &lt;h2 class=&#34;title is-4 has-text-centered&#34;&gt;Acknowledgments&lt;/h2&gt;
+          &lt;p style=&#34;font-size: 0.88rem; color: #555; line-height: 1.75; text-align: justify;&#34;&gt;
+            We thank &lt;a href=&#34;https://lhchen.top/&#34; target=&#34;_blank&#34;&gt;&lt;i&gt;Ling-Hao Chen&lt;/i&gt;&lt;/a&gt; for fruitful discussions on motion matching for retargeting, which inspired our shift from learning-based to matching-based approaches; &lt;a href=&#34;https://peizhuoli.github.io/&#34; target=&#34;_blank&#34;&gt;&lt;i&gt;Peizhuo Li&lt;/i&gt;&lt;/a&gt; and &lt;a href=&#34;https://gengshan-y.github.io/&#34; target=&#34;_blank&#34;&gt;&lt;i&gt;Gengshan Yang&lt;/i&gt;&lt;/a&gt; for insightful feedback during the literature survey; &lt;a href=&#34;https://ysysimon.com/&#34; target=&#34;_blank&#34;&gt;&lt;i&gt;Siyuan Yu&lt;/i&gt;&lt;/a&gt; for testing and visualization support; &lt;a href=&#34;https://fanegg.github.io/&#34; target=&#34;_blank&#34;&gt;&lt;i&gt;Yue Chen&lt;/i&gt;&lt;/a&gt; and &lt;a href=&#34;https://rover-xingyu.github.io/&#34; target=&#34;_blank&#34;&gt;&lt;i&gt;Xingyu Chen&lt;/i&gt;&lt;/a&gt; for helpful suggestions on figure design; the members of &lt;a href=&#34;https://xiuyuliang.cn/group.html&#34; target=&#34;_blank&#34;&gt;&lt;i&gt;Endless AI Lab&lt;/i&gt;&lt;/a&gt; for their discussions and proofreading; and the &lt;a href=&#34;https://actors-hq.com/&#34; target=&#34;_blank&#34;&gt;&lt;i&gt;ActorsHQ&lt;/i&gt;&lt;/a&gt;, &lt;a href=&#34;https://dna-rendering.github.io/&#34; target=&#34;_blank&#34;&gt;&lt;i&gt;DNA-Rendering&lt;/i&gt;&lt;/a&gt;, &lt;a href=&#34;https://github.com/rabbityl/DeformingThings4D&#34; target=&#34;_blank&#34;&gt;&lt;i&gt;DeformingThings4D&lt;/i&gt;&lt;/a&gt;, and &lt;a href=&#34;https://github.com/isantesteban/vto-dataset&#34; target=&#34;_blank&#34;&gt;&lt;i&gt;VTO&lt;/i&gt;&lt;/a&gt; dataset teams for providing the datasets.
+          &lt;/p&gt;
+          &lt;p style=&#34;font-size: 0.88rem; color: #555; line-height: 1.75; text-align: justify; margin-bottom: 0.6rem;&#34;&gt;
+            We also gratefully acknowledge the following open-source projects:
+          &lt;/p&gt;
+          &lt;table style=&#34;font-size: 0.85rem; color: #555; line-height: 1.6; margin: 0.4rem auto 1rem; border-collapse: collapse; width: auto;&#34;&gt;
+            &lt;tr&gt;&lt;td style=&#34;padding: 3px 12px 3px 0; font-weight: 600; white-space: nowrap;&#34;&gt;&lt;a href=&#34;https://banmo-www.github.io/&#34; target=&#34;_blank&#34;&gt;BANMo&lt;/a&gt;&lt;/td&gt;&lt;td style=&#34;padding: 3px 0; color: #888;&#34;&gt;Deformable 4D reconstruction from casual videos&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;td style=&#34;padding: 3px 12px 3px 0; font-weight: 600; white-space: nowrap;&#34;&gt;&lt;a href=&#34;https://jefftan969.github.io/dressrecon/&#34; target=&#34;_blank&#34;&gt;DressRecon&lt;/a&gt;&lt;/td&gt;&lt;td style=&#34;padding: 3px 0; color: #888;&#34;&gt;Freeform 4D human reconstruction&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;td style=&#34;padding: 3px 12px 3px 0; font-weight: 600; white-space: nowrap;&#34;&gt;&lt;a href=&#34;https://dynamic3dgaussians.github.io/&#34; target=&#34;_blank&#34;&gt;Dynamic 3D Gaussians&lt;/a&gt;&lt;/td&gt;&lt;td style=&#34;padding: 3px 0; color: #888;&#34;&gt;Persistent dynamic Gaussian tracking&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;td style=&#34;padding: 3px 12px 3px 0; font-weight: 600; white-space: nowrap;&#34;&gt;&lt;a href=&#34;https://yaoyx689.github.io/RigGS.html&#34; target=&#34;_blank&#34;&gt;RigGS&lt;/a&gt;&lt;/td&gt;&lt;td style=&#34;padding: 3px 0; color: #888;&#34;&gt;Gaussian-based articulated rigging&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;td style=&#34;padding: 3px 12px 3px 0; font-weight: 600; white-space: nowrap;&#34;&gt;&lt;a href=&#34;https://cgal.org/2015/02/27/cgal-wipMCF&#34; target=&#34;_blank&#34;&gt;Mean Curvature Skeleton&lt;/a&gt;&lt;/td&gt;&lt;td style=&#34;padding: 3px 0; color: #888;&#34;&gt;Curve skeleton extraction via mean curvature flow&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;td style=&#34;padding: 3px 12px 3px 0; font-weight: 600; white-space: nowrap;&#34;&gt;&lt;a href=&#34;https://github.com/electronicarts/dem-bones&#34; target=&#34;_blank&#34;&gt;DemBones&lt;/a&gt;&lt;/td&gt;&lt;td style=&#34;padding: 3px 0; color: #888;&#34;&gt;Smooth skinning decomposition with rigid bones&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;td style=&#34;padding: 3px 12px 3px 0; font-weight: 600; white-space: nowrap;&#34;&gt;&lt;a href=&#34;https://lhchen.top/Motion2Motion/&#34; target=&#34;_blank&#34;&gt;Motion2Motion&lt;/a&gt;&lt;/td&gt;&lt;td style=&#34;padding: 3px 0; color: #888;&#34;&gt;Cross-topology motion transfer&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;td style=&#34;padding: 3px 12px 3px 0; font-weight: 600; white-space: nowrap;&#34;&gt;&lt;a href=&#34;https://arxiv.org/abs/2103.15545&#34; target=&#34;_blank&#34;&gt;Drop the GAN&lt;/a&gt;&lt;/td&gt;&lt;td style=&#34;padding: 3px 0; color: #888;&#34;&gt;Patch nearest-neighbor generative framework&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;td style=&#34;padding: 3px 12px 3px 0; font-weight: 600; white-space: nowrap;&#34;&gt;&lt;a href=&#34;https://peizhuoli.github.io/genmm/&#34; target=&#34;_blank&#34;&gt;GenMM&lt;/a&gt;&lt;/td&gt;&lt;td style=&#34;padding: 3px 0; color: #888;&#34;&gt;Generative motion matching from single examples&lt;/td&gt;&lt;/tr&gt;
+          &lt;/table&gt;
+          &lt;p style=&#34;font-size: 0.88rem; color: #555; line-height: 1.75; text-align: justify;&#34;&gt;
+            This work is supported by the Research Center for Industries of the Future (RCIF) at Westlake University and the Westlake Education Foundation.
+          &lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
   &lt;footer class=&#34;footer&#34;&gt;
     &lt;div class=&#34;container&#34;&gt;
       &lt;div class=&#34;columns is-centered&#34;&gt;
         &lt;div class=&#34;column is-8&#34;&gt;
           &lt;div class=&#34;content&#34;&gt;
-
-            &lt;p&gt;
-            &lt;/p&gt;
-
+            &lt;p&gt;&lt;/p&gt;
           &lt;/div&gt;
         &lt;/div&gt;
       &lt;/div&gt;
