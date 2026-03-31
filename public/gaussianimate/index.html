@@ -529,7 +529,7 @@
 
       <!-- Teaser Figure -->
       <figure class="teaser-figure">
-        <img src="/gaussianimate/static/images/teaser.svg" alt="Project Teaser" width="100%">
+        <img src="/gaussianimate/static/images/teaser.png" alt="Project Teaser" width="100%">
         <figcaption class="body-text">
           <strong>GaussiAnimate</strong> is designed to: 1) <strong>rig</strong> diverse animatable entities&mdash;typically featuring a soft exterior and rigid core (e.g., clothed humans, quadrupeds, bipeds, birds, and garments)&mdash;from either reconstructed consistent 4DGS or mesh sequences. This relies on a novel <span class="skel-color">skele</span><span class="bone-color">bones</span> representation that balances the intuitive control of <span class="skel-color">kinematic skeletons</span> with the deformation fidelity of <span class="bone-color">free-form bones</span>; and 2) <strong>animate</strong> these rigged entities non-parametrically via Partwise Motion Matching (PartMM), where skeletons drive the bones, enabling kinematic control over non-rigid deformations.
         </figcaption>
@@ -877,7 +877,7 @@
       <h2 class="title is-4 has-text-centered">Skelebone Motion Database Construction</h2>
       <div class="columns is-centered">
         <div class="column is-10">
-          <img src="/gaussianimate/static/images/pipeline.svg" alt="Skelebone Motion Database Construction" width="100%">
+          <img src="/gaussianimate/static/images/pipeline.png" alt="Skelebone Motion Database Construction" width="100%">
           <p class="body-text method-caption">
             <strong>Pipeline Overview.</strong> Given a monocular or multi-view video, our method reconstructs a consistent 4DGS, extracts the inner skeleton via curve skeletonization and the outer free-form bones via SSDR, together forming &ldquo;skelebones&rdquo;, which are then used to build a motion database.
           </p>
@@ -892,7 +892,7 @@
       <h2 class="title is-4 has-text-centered">Inner Skeleton Initialization</h2>
       <div class="columns is-centered">
         <div class="column is-10">
-          <img src="/gaussianimate/static/images/skeleton.svg" alt="Inner Skeleton Initialization" width="100%">
+          <img src="/gaussianimate/static/images/skeleton.png" alt="Inner Skeleton Initialization" width="100%">
           <p class="body-text method-caption">
             <strong>Inner Skeleton Initialization.</strong> We first extract the curve skeleton (A) of the object in the canonical space. Then we estimate the joint locations on the curve skeleton through skinning analysis. Specifically, we project the skinning weights of the 3D points onto the curve skeleton (B), and then identify positions along the 1D curve where neighboring skinning weights exhibit the highest similarity as potential joint locations (C). Finally, we traverse the curve skeleton using Depth-First Search (DFS) to construct the kinematic tree (D).
           </p>
@@ -907,7 +907,7 @@
       <h2 class="title is-4 has-text-centered">Partwise Motion Matching</h2>
       <div class="columns is-centered">
         <div class="column is-10">
-          <img src="/gaussianimate/static/images/pipeline2.svg" alt="Partwise Motion Matching" width="100%">
+          <img src="/gaussianimate/static/images/pipeline2.png" alt="Partwise Motion Matching" width="100%">
           <p class="body-text method-caption">
             <strong>Partwise Motion Matching (PartMM).</strong> Given a novel inner-skeleton pose sequence, we animate skelebones by synthesizing outer-bone motion via part-wise matching. Our method: (a) decomposes the kinematic tree into multiple parts (shown as two parts; user-defined in practice); (b) extracts part-wise motion patches <i>R</i><sub><i>J</i></sub><sup>novel</sup> from the novel pose sequence; (c) queries these patches against a pre-built motion database to retrieve similar patches to recompile, and then perform part-level spatial alignment. Iterating step (c) yields the final motion <i>T</i><sub><i>B</i></sub><sup>novel</sup>.
           </p>

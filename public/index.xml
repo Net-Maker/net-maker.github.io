@@ -369,7 +369,7 @@ Further event details, including [page elements](https://docs.hugoblox.com/refer
 
 
 
-&lt;div id=&#34;chart-649572381&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-846597213&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   async function fetchChartJSON() {
     console.debug(&#39;Hugo Blox fetching chart JSON...&#39;)
@@ -387,7 +387,7 @@ Further event details, including [page elements](https://docs.hugoblox.com/refer
 
       fetchChartJSON().then(chart =&gt; {
         console.debug(&#39;Plotting chart...&#39;)
-        window.Plotly.newPlot(&#39;chart-649572381&#39;, chart.data, chart.layout, {responsive: true});
+        window.Plotly.newPlot(&#39;chart-846597213&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();
@@ -1596,7 +1596,7 @@ Parallel 4   :         des6, after des4, 1d
 
       &lt;!-- Teaser Figure --&gt;
       &lt;figure class=&#34;teaser-figure&#34;&gt;
-        &lt;img src=&#34;https://cookmaker.cn/gaussianimate/static/images/teaser.svg&#34; alt=&#34;Project Teaser&#34; width=&#34;100%&#34;&gt;
+        &lt;img src=&#34;https://cookmaker.cn/gaussianimate/static/images/teaser.png&#34; alt=&#34;Project Teaser&#34; width=&#34;100%&#34;&gt;
         &lt;figcaption class=&#34;body-text&#34;&gt;
           &lt;strong&gt;GaussiAnimate&lt;/strong&gt; is designed to: 1) &lt;strong&gt;rig&lt;/strong&gt; diverse animatable entities&amp;mdash;typically featuring a soft exterior and rigid core (e.g., clothed humans, quadrupeds, bipeds, birds, and garments)&amp;mdash;from either reconstructed consistent 4DGS or mesh sequences. This relies on a novel &lt;span class=&#34;skel-color&#34;&gt;skele&lt;/span&gt;&lt;span class=&#34;bone-color&#34;&gt;bones&lt;/span&gt; representation that balances the intuitive control of &lt;span class=&#34;skel-color&#34;&gt;kinematic skeletons&lt;/span&gt; with the deformation fidelity of &lt;span class=&#34;bone-color&#34;&gt;free-form bones&lt;/span&gt;; and 2) &lt;strong&gt;animate&lt;/strong&gt; these rigged entities non-parametrically via Partwise Motion Matching (PartMM), where skeletons drive the bones, enabling kinematic control over non-rigid deformations.
         &lt;/figcaption&gt;
@@ -1944,7 +1944,7 @@ Parallel 4   :         des6, after des4, 1d
       &lt;h2 class=&#34;title is-4 has-text-centered&#34;&gt;Skelebone Motion Database Construction&lt;/h2&gt;
       &lt;div class=&#34;columns is-centered&#34;&gt;
         &lt;div class=&#34;column is-10&#34;&gt;
-          &lt;img src=&#34;https://cookmaker.cn/gaussianimate/static/images/pipeline.svg&#34; alt=&#34;Skelebone Motion Database Construction&#34; width=&#34;100%&#34;&gt;
+          &lt;img src=&#34;https://cookmaker.cn/gaussianimate/static/images/pipeline.png&#34; alt=&#34;Skelebone Motion Database Construction&#34; width=&#34;100%&#34;&gt;
           &lt;p class=&#34;body-text method-caption&#34;&gt;
             &lt;strong&gt;Pipeline Overview.&lt;/strong&gt; Given a monocular or multi-view video, our method reconstructs a consistent 4DGS, extracts the inner skeleton via curve skeletonization and the outer free-form bones via SSDR, together forming &amp;ldquo;skelebones&amp;rdquo;, which are then used to build a motion database.
           &lt;/p&gt;
@@ -1959,7 +1959,7 @@ Parallel 4   :         des6, after des4, 1d
       &lt;h2 class=&#34;title is-4 has-text-centered&#34;&gt;Inner Skeleton Initialization&lt;/h2&gt;
       &lt;div class=&#34;columns is-centered&#34;&gt;
         &lt;div class=&#34;column is-10&#34;&gt;
-          &lt;img src=&#34;https://cookmaker.cn/gaussianimate/static/images/skeleton.svg&#34; alt=&#34;Inner Skeleton Initialization&#34; width=&#34;100%&#34;&gt;
+          &lt;img src=&#34;https://cookmaker.cn/gaussianimate/static/images/skeleton.png&#34; alt=&#34;Inner Skeleton Initialization&#34; width=&#34;100%&#34;&gt;
           &lt;p class=&#34;body-text method-caption&#34;&gt;
             &lt;strong&gt;Inner Skeleton Initialization.&lt;/strong&gt; We first extract the curve skeleton (A) of the object in the canonical space. Then we estimate the joint locations on the curve skeleton through skinning analysis. Specifically, we project the skinning weights of the 3D points onto the curve skeleton (B), and then identify positions along the 1D curve where neighboring skinning weights exhibit the highest similarity as potential joint locations (C). Finally, we traverse the curve skeleton using Depth-First Search (DFS) to construct the kinematic tree (D).
           &lt;/p&gt;
@@ -1974,7 +1974,7 @@ Parallel 4   :         des6, after des4, 1d
       &lt;h2 class=&#34;title is-4 has-text-centered&#34;&gt;Partwise Motion Matching&lt;/h2&gt;
       &lt;div class=&#34;columns is-centered&#34;&gt;
         &lt;div class=&#34;column is-10&#34;&gt;
-          &lt;img src=&#34;https://cookmaker.cn/gaussianimate/static/images/pipeline2.svg&#34; alt=&#34;Partwise Motion Matching&#34; width=&#34;100%&#34;&gt;
+          &lt;img src=&#34;https://cookmaker.cn/gaussianimate/static/images/pipeline2.png&#34; alt=&#34;Partwise Motion Matching&#34; width=&#34;100%&#34;&gt;
           &lt;p class=&#34;body-text method-caption&#34;&gt;
             &lt;strong&gt;Partwise Motion Matching (PartMM).&lt;/strong&gt; Given a novel inner-skeleton pose sequence, we animate skelebones by synthesizing outer-bone motion via part-wise matching. Our method: (a) decomposes the kinematic tree into multiple parts (shown as two parts; user-defined in practice); (b) extracts part-wise motion patches &lt;i&gt;R&lt;/i&gt;&lt;sub&gt;&lt;i&gt;J&lt;/i&gt;&lt;/sub&gt;&lt;sup&gt;novel&lt;/sup&gt; from the novel pose sequence; (c) queries these patches against a pre-built motion database to retrieve similar patches to recompile, and then perform part-level spatial alignment. Iterating step (c) yields the final motion &lt;i&gt;T&lt;/i&gt;&lt;sub&gt;&lt;i&gt;B&lt;/i&gt;&lt;/sub&gt;&lt;sup&gt;novel&lt;/sup&gt;.
           &lt;/p&gt;
