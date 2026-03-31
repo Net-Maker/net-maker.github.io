@@ -207,40 +207,133 @@
       width: 100%;
     }
   </style>
+
+  <!-- Reusable page styles -->
+  <style>
+    /* Title section */
+    .hero-title-section .container {
+      max-width: 1152px;
+    }
+    .hero-title-main { font-size: 3.3rem; }
+    .hero-title-sub { font-size: 2.4rem; }
+    .hero-authors {
+      margin-top: 1.2rem;
+      font-size: 1.4rem;
+      line-height: 2;
+    }
+    .hero-authors a { color: #333; }
+    .hero-affiliations {
+      margin-top: 0.6rem;
+      font-size: 1.2rem;
+      color: #666;
+      line-height: 1.7;
+    }
+    .hero-corresponding {
+      font-size: 1.1rem;
+      color: #888;
+    }
+    .hero-emails {
+      margin-top: 0.4rem;
+      font-size: 1.05rem;
+      color: #999;
+      font-family: 'SF Mono', 'Consolas', 'Monaco', monospace;
+      letter-spacing: 0.01em;
+    }
+
+    /* Shared text style for captions, acknowledgments, etc. */
+    .body-text {
+      font-size: 1.2rem;
+      color: #555;
+      line-height: 1.75;
+      text-align: justify;
+    }
+    .body-text-sm {
+      font-size: 1.15rem;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    /* Teaser figure */
+    .teaser-figure {
+      margin: 2.5rem auto 0;
+      padding-top: 2rem;
+      border-top: 1px solid #e8e8ec;
+      max-width: 75%;
+    }
+    .teaser-figure figcaption {
+      margin-top: 0.8rem;
+    }
+
+    /* Narrow column (75%) for abstract / ack */
+    .col-narrow {
+      max-width: 75%;
+    }
+
+    /* Method figure captions */
+    .method-caption {
+      margin-top: 0.8rem;
+    }
+
+    /* Metric highlight (green numbers in abstract) */
+    .metric-good { color: #2e9e5a; }
+
+    /* Semantic colors in teaser caption */
+    .skel-color { color: red; }
+    .bone-color { color: blue; }
+
+    /* Alternating section background */
+    .section-alt { background-color: #f5f5f5; }
+
+    /* Button row gap for paginated sections */
+    .btn-row { gap: 0.75rem; }
+
+    /* Acknowledgments project table */
+    .ack-table {
+      margin: 0.4rem auto 1rem;
+      border-collapse: collapse;
+      width: auto;
+    }
+    .ack-table td:first-child {
+      padding: 3px 12px 3px 0;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .ack-table td:last-child {
+      padding: 3px 0;
+      color: #888;
+    }
+  </style>
 </head>
 
 <body>
-  <section class="hero" style="background-color: #ff9d2e00;">
+  <section class="hero hero-title-section">
     <div class="hero-body">
-      <div class="container is-max-desktop">
+      <div class="container">
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <h1 class="title is-2 publication-title">
-              <span style="font-size: 3.3rem;">GaussiAnimate</span><br>
-              <span style="font-size: 2.4rem;">Reconstruct and Rig Animatable Categories with Level of Dynamics</span>
+              <span class="hero-title-main">GaussiAnimate</span><br>
+              <span class="hero-title-sub">Reconstruct and Rig Animatable Categories with Level of Dynamics</span>
             </h1>
 
-            <!-- Authors -->
-            <div style="margin-top: 1.2rem; font-size: 1.4rem; line-height: 2;">
-              <span><a href="http://cookmaker.cn" target="_blank" style="color: #333;">Jiaxin Wang</a><sup>1</sup></span>,
-              <span><a href="#" style="color: #333;">Dongxin Lyu</a><sup>1</sup></span>,
-              <span><a href="https://zcai0612.github.io/" target="_blank" style="color: #333;">Zeyu Cai</a><sup>1</sup></span>,
-              <span><a href="https://frank-zy-dou.github.io/" target="_blank" style="color: #333;">Zhiyang Dou</a><sup>2</sup></span>,
-              <span><a href="https://clinplayer.github.io/" target="_blank" style="color: #333;">Cheng Lin</a><sup>3</sup></span>,
-              <span><a href="https://apchenstu.github.io/" target="_blank" style="color: #333;">Anpei Chen</a><sup>1</sup></span>,
-              <span><a href="https://xiuyuliang.cn/" target="_blank" style="color: #333;">Yuliang Xiu</a><sup>1*</sup></span>
+            <div class="hero-authors">
+              <span><a href="http://cookmaker.cn" target="_blank">Jiaxin Wang</a><sup>1</sup></span>,
+              <span><a href="#">Dongxin Lyu</a><sup>1</sup></span>,
+              <span><a href="https://zcai0612.github.io/" target="_blank">Zeyu Cai</a><sup>1</sup></span>,
+              <span><a href="https://frank-zy-dou.github.io/" target="_blank">Zhiyang Dou</a><sup>2</sup></span>,
+              <span><a href="https://clinplayer.github.io/" target="_blank">Cheng Lin</a><sup>3</sup></span>,
+              <span><a href="https://apchenstu.github.io/" target="_blank">Anpei Chen</a><sup>1</sup></span>,
+              <span><a href="https://xiuyuliang.cn/" target="_blank">Yuliang Xiu</a><sup>1*</sup></span>
             </div>
 
-            <!-- Affiliations -->
-            <div style="margin-top: 0.6rem; font-size: 1.2rem; color: #666; line-height: 1.7;">
+            <div class="hero-affiliations">
               <sup>1</sup>Westlake University &nbsp;&nbsp;
               <sup>2</sup>University of Hong Kong &nbsp;&nbsp;
               <sup>3</sup>Macau University of Science and Technology<br>
-              <span style="font-size: 1.1rem; color: #888;">* Corresponding author</span>
+              <span class="hero-corresponding">* Corresponding author</span>
             </div>
 
-            <!-- Email -->
-            <div style="margin-top: 0.4rem; font-size: 1.05rem; color: #999; font-family: 'SF Mono', 'Consolas', 'Monaco', monospace; letter-spacing: 0.01em;">
+            <div class="hero-emails">
               {wangjiaxin, lyudongxin, chenanpei, xiuyuliang}@westlake.edu.cn,
               caizeyu010612@gmail.com,
               frankdou@mit.edu,
@@ -264,7 +357,7 @@
       margin-bottom: 1.8rem;
     }
     .gallery-title {
-      font-size: 1.5rem;
+      font-size: 2.25rem;
       font-weight: 600;
       color: #1a1a1a;
       letter-spacing: 0.04em;
@@ -279,7 +372,7 @@
     }
     .gallery-subtitle {
       color: #777;
-      font-size: 0.92rem;
+      font-size: 1.38rem;
       font-weight: 400;
       font-style: italic;
     }
@@ -291,7 +384,7 @@
       table-layout: fixed;
     }
     .gallery-table thead th {
-      font-size: 0.82rem;
+      font-size: 1.23rem;
       font-weight: 500;
       color: #666;
       text-transform: uppercase;
@@ -302,8 +395,8 @@
     }
     .gallery-table thead th:first-child {
       text-align: right;
-      padding-right: 20px;
-      width: 150px;
+      padding-right: 24px;
+      width: 200px;
     }
     .gallery-table tbody tr {
       transition: background 0.2s;
@@ -321,17 +414,17 @@
     }
     .gallery-table tbody td:first-child {
       text-align: right;
-      padding-right: 20px;
-      width: 150px;
+      padding-right: 24px;
+      width: 200px;
     }
     .gallery-cat-main {
-      font-size: 1rem;
+      font-size: 1.5rem;
       font-weight: 600;
       color: #2a2a2a;
       line-height: 1.3;
     }
     .gallery-cat-sub {
-      font-size: 0.78rem;
+      font-size: 1.17rem;
       color: #999;
       font-weight: 400;
       margin-top: 2px;
@@ -435,10 +528,10 @@
       </table>
 
       <!-- Teaser Figure -->
-      <figure style="margin: 2.5rem auto 0; padding-top: 2rem; border-top: 1px solid #e8e8ec; max-width: 75%;">
+      <figure class="teaser-figure">
         <img src="/gaussianimate/static/images/teaser.svg" alt="Project Teaser" width="100%">
-        <figcaption style="margin-top: 0.8rem; font-size: 1.2rem; color: #555; line-height: 1.75; text-align: justify;">
-          <strong>GaussiAnimate</strong> is designed to: 1) <strong>rig</strong> diverse animatable entities&mdash;typically featuring a soft exterior and rigid core (e.g., clothed humans, quadrupeds, bipeds, birds, and garments)&mdash;from either reconstructed consistent 4DGS or mesh sequences. This relies on a novel <span style="color: red;">skele</span><span style="color: blue;">bones</span> representation that balances the intuitive control of <span style="color: red;">kinematic skeletons</span> with the deformation fidelity of <span style="color: blue;">free-form bones</span>; and 2) <strong>animate</strong> these rigged entities non-parametrically via Partwise Motion Matching (PartMM), where skeletons drive the bones, enabling kinematic control over non-rigid deformations.
+        <figcaption class="body-text">
+          <strong>GaussiAnimate</strong> is designed to: 1) <strong>rig</strong> diverse animatable entities&mdash;typically featuring a soft exterior and rigid core (e.g., clothed humans, quadrupeds, bipeds, birds, and garments)&mdash;from either reconstructed consistent 4DGS or mesh sequences. This relies on a novel <span class="skel-color">skele</span><span class="bone-color">bones</span> representation that balances the intuitive control of <span class="skel-color">kinematic skeletons</span> with the deformation fidelity of <span class="bone-color">free-form bones</span>; and 2) <strong>animate</strong> these rigged entities non-parametrically via Partwise Motion Matching (PartMM), where skeletons drive the bones, enabling kinematic control over non-rigid deformations.
         </figcaption>
       </figure>
 
@@ -449,7 +542,7 @@
   <section class="section hero is-light">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
-        <div class="column" style="max-width: 75%;">
+        <div class="column col-narrow">
           <h2 class="title is-4">Abstract</h2>
           <div class="content has-text-justified">
             <p>
@@ -470,12 +563,12 @@
               Collectively, these three steps enable us to compress the Level of Dynamics of the reconstructed Gaussian
               sequences into compact skelebones that are both controllable and expressive.
               We validate our approach on both synthetic and real-world datasets, achieving significant improvements in
-              reanimation performance across unseen poses&mdash;with <b style="color: #2e9e5a;">17.3%</b> PSNR gains over Linear Blend Skinning (LBS)
-              and <b style="color: #2e9e5a;">21.7%</b> over Bag-of-Bones (BoB)&mdash;while maintaining excellent reconstruction fidelity,
+              reanimation performance across unseen poses&mdash;with <b class="metric-good">17.3%</b> PSNR gains over Linear Blend Skinning (LBS)
+              and <b class="metric-good">21.7%</b> over Bag-of-Bones (BoB)&mdash;while maintaining excellent reconstruction fidelity,
               particularly for characters exhibiting complex non-rigid surface dynamics.
               Our Partwise Motion Matching algorithm demonstrates strong generalization to both Gaussian and mesh
-              representations, even under low-data regimes (~1000 frames), achieving <b style="color: #2e9e5a;">48.4%</b> RMSE improvement over
-              robust LBS and outperforming GRU- and MLP-based learning methods by <b style="color: #2e9e5a;">&gt;20%</b>.
+              representations, even under low-data regimes (~1000 frames), achieving <b class="metric-good">48.4%</b> RMSE improvement over
+              robust LBS and outperforming GRU- and MLP-based learning methods by <b class="metric-good">&gt;20%</b>.
               Code will be made publicly available for research purposes.
             </p>
           </div>
@@ -487,7 +580,7 @@
   <section class="section" id="vto-section">
     <div class="container">
       <h2 class="title is-3 has-text-centered">Results on VTO Datasets</h2>
-      <div class="is-flex is-justify-content-center is-align-items-center mb-5" style="gap: 0.75rem;">
+      <div class="is-flex is-justify-content-center is-align-items-center mb-5 btn-row">
         <button id="cloth-page-prev" class="button is-light">Prev</button>
         <span id="cloth-page-indicator" class="has-text-weight-semibold">1 / 5 - Tshirt1</span>
         <button id="cloth-page-next" class="button is-light">Next</button>
@@ -579,7 +672,7 @@
   <section class="section" id="deformingthings4d-section">
     <div class="container">
       <h2 class="title is-3 has-text-centered">Results on DeformingThings4D Datasets</h2>
-      <div class="is-flex is-justify-content-center is-align-items-center mb-5" style="gap: 0.75rem;">
+      <div class="is-flex is-justify-content-center is-align-items-center mb-5 btn-row">
         <button id="animal-page-prev" class="button is-light">Prev</button>
         <span id="animal-page-indicator" class="has-text-weight-semibold">1 / 5 - lepoard</span>
         <button id="animal-page-next" class="button is-light">Next</button>
@@ -746,7 +839,7 @@
   <section class="section" id="actorshq-section">
     <div class="container">
       <h2 class="title is-3 has-text-centered">Result on ActorsHQ Dataset</h2>
-      <div class="is-flex is-justify-content-center is-align-items-center mb-5" style="gap: 0.75rem;">
+      <div class="is-flex is-justify-content-center is-align-items-center mb-5 btn-row">
         <button id="actor-page-prev" class="button is-light">Prev</button>
         <span id="actor-page-indicator" class="has-text-weight-semibold">1 / 3 - Actor01 Seq01</span>
         <button id="actor-page-next" class="button is-light">Next</button>
@@ -779,13 +872,13 @@
 
 
   <!-- Method section: Pipeline -->
-  <section class="section" style="background-color: #f5f5f5;">
+  <section class="section section-alt">
     <div class="container">
       <h2 class="title is-4 has-text-centered">Skelebone Motion Database Construction</h2>
       <div class="columns is-centered">
         <div class="column is-10">
           <img src="/gaussianimate/static/images/pipeline.svg" alt="Skelebone Motion Database Construction" width="100%">
-          <p style="margin-top: 0.8rem; font-size: 1.2rem; color: #555; line-height: 1.75; text-align: justify;">
+          <p class="body-text method-caption">
             <strong>Pipeline Overview.</strong> Given a monocular or multi-view video, our method reconstructs a consistent 4DGS, extracts the inner skeleton via curve skeletonization and the outer free-form bones via SSDR, together forming &ldquo;skelebones&rdquo;, which are then used to build a motion database.
           </p>
         </div>
@@ -800,7 +893,7 @@
       <div class="columns is-centered">
         <div class="column is-10">
           <img src="/gaussianimate/static/images/skeleton.svg" alt="Inner Skeleton Initialization" width="100%">
-          <p style="margin-top: 0.8rem; font-size: 1.2rem; color: #555; line-height: 1.75; text-align: justify;">
+          <p class="body-text method-caption">
             <strong>Inner Skeleton Initialization.</strong> We first extract the curve skeleton (A) of the object in the canonical space. Then we estimate the joint locations on the curve skeleton through skinning analysis. Specifically, we project the skinning weights of the 3D points onto the curve skeleton (B), and then identify positions along the 1D curve where neighboring skinning weights exhibit the highest similarity as potential joint locations (C). Finally, we traverse the curve skeleton using Depth-First Search (DFS) to construct the kinematic tree (D).
           </p>
         </div>
@@ -809,13 +902,13 @@
   </section>
 
   <!-- Method section: PartMM -->
-  <section class="section" style="background-color: #f5f5f5;">
+  <section class="section section-alt">
     <div class="container">
       <h2 class="title is-4 has-text-centered">Partwise Motion Matching</h2>
       <div class="columns is-centered">
         <div class="column is-10">
           <img src="/gaussianimate/static/images/pipeline2.svg" alt="Partwise Motion Matching" width="100%">
-          <p style="margin-top: 0.8rem; font-size: 1.2rem; color: #555; line-height: 1.75; text-align: justify;">
+          <p class="body-text method-caption">
             <strong>Partwise Motion Matching (PartMM).</strong> Given a novel inner-skeleton pose sequence, we animate skelebones by synthesizing outer-bone motion via part-wise matching. Our method: (a) decomposes the kinematic tree into multiple parts (shown as two parts; user-defined in practice); (b) extracts part-wise motion patches <i>R</i><sub><i>J</i></sub><sup>novel</sup> from the novel pose sequence; (c) queries these patches against a pre-built motion database to retrieve similar patches to recompile, and then perform part-level spatial alignment. Iterating step (c) yields the final motion <i>T</i><sub><i>B</i></sub><sup>novel</sup>.
           </p>
         </div>
@@ -827,26 +920,26 @@
   <section class="section">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
-        <div class="column" style="max-width: 75%;">
+        <div class="column col-narrow">
           <h2 class="title is-4 has-text-centered">Acknowledgments</h2>
-          <p style="font-size: 1.2rem; color: #555; line-height: 1.75; text-align: justify;">
+          <p class="body-text">
             We thank <a href="https://lhchen.top/" target="_blank"><i>Ling-Hao Chen</i></a> for fruitful discussions on motion matching for retargeting, which inspired our shift from learning-based to matching-based approaches; <a href="https://peizhuoli.github.io/" target="_blank"><i>Peizhuo Li</i></a> and <a href="https://gengshan-y.github.io/" target="_blank"><i>Gengshan Yang</i></a> for insightful feedback during the literature survey; <a href="https://ysysimon.com/" target="_blank"><i>Siyuan Yu</i></a> for testing and visualization support; <a href="https://fanegg.github.io/" target="_blank"><i>Yue Chen</i></a> and <a href="https://rover-xingyu.github.io/" target="_blank"><i>Xingyu Chen</i></a> for helpful suggestions on figure design; the members of <a href="https://xiuyuliang.cn/group.html" target="_blank"><i>Endless AI Lab</i></a> for their discussions and proofreading; and the <a href="https://actors-hq.com/" target="_blank"><i>ActorsHQ</i></a>, <a href="https://dna-rendering.github.io/" target="_blank"><i>DNA-Rendering</i></a>, <a href="https://github.com/rabbityl/DeformingThings4D" target="_blank"><i>DeformingThings4D</i></a>, and <a href="https://github.com/isantesteban/vto-dataset" target="_blank"><i>VTO</i></a> dataset teams for providing the datasets.
           </p>
-          <p style="font-size: 1.2rem; color: #555; line-height: 1.75; text-align: justify; margin-bottom: 0.6rem;">
+          <p class="body-text" style="margin-bottom: 0.6rem;">
             We also gratefully acknowledge the following open-source projects:
           </p>
-          <table style="font-size: 1.15rem; color: #555; line-height: 1.6; margin: 0.4rem auto 1rem; border-collapse: collapse; width: auto;">
-            <tr><td style="padding: 3px 12px 3px 0; font-weight: 600; white-space: nowrap;"><a href="https://banmo-www.github.io/" target="_blank">BANMo</a></td><td style="padding: 3px 0; color: #888;">Deformable 4D reconstruction from casual videos</td></tr>
-            <tr><td style="padding: 3px 12px 3px 0; font-weight: 600; white-space: nowrap;"><a href="https://jefftan969.github.io/dressrecon/" target="_blank">DressRecon</a></td><td style="padding: 3px 0; color: #888;">Freeform 4D human reconstruction</td></tr>
-            <tr><td style="padding: 3px 12px 3px 0; font-weight: 600; white-space: nowrap;"><a href="https://dynamic3dgaussians.github.io/" target="_blank">Dynamic 3D Gaussians</a></td><td style="padding: 3px 0; color: #888;">Persistent dynamic Gaussian tracking</td></tr>
-            <tr><td style="padding: 3px 12px 3px 0; font-weight: 600; white-space: nowrap;"><a href="https://yaoyx689.github.io/RigGS.html" target="_blank">RigGS</a></td><td style="padding: 3px 0; color: #888;">Gaussian-based articulated rigging</td></tr>
-            <tr><td style="padding: 3px 12px 3px 0; font-weight: 600; white-space: nowrap;"><a href="https://cgal.org/2015/02/27/cgal-wipMCF" target="_blank">Mean Curvature Skeleton</a></td><td style="padding: 3px 0; color: #888;">Curve skeleton extraction via mean curvature flow</td></tr>
-            <tr><td style="padding: 3px 12px 3px 0; font-weight: 600; white-space: nowrap;"><a href="https://github.com/electronicarts/dem-bones" target="_blank">DemBones</a></td><td style="padding: 3px 0; color: #888;">Smooth skinning decomposition with rigid bones</td></tr>
-            <tr><td style="padding: 3px 12px 3px 0; font-weight: 600; white-space: nowrap;"><a href="https://lhchen.top/Motion2Motion/" target="_blank">Motion2Motion</a></td><td style="padding: 3px 0; color: #888;">Cross-topology motion transfer</td></tr>
-            <tr><td style="padding: 3px 12px 3px 0; font-weight: 600; white-space: nowrap;"><a href="https://arxiv.org/abs/2103.15545" target="_blank">Drop the GAN</a></td><td style="padding: 3px 0; color: #888;">Patch nearest-neighbor generative framework</td></tr>
-            <tr><td style="padding: 3px 12px 3px 0; font-weight: 600; white-space: nowrap;"><a href="https://peizhuoli.github.io/genmm/" target="_blank">GenMM</a></td><td style="padding: 3px 0; color: #888;">Generative motion matching from single examples</td></tr>
+          <table class="ack-table body-text-sm">
+            <tr><td><a href="https://banmo-www.github.io/" target="_blank">BANMo</a></td><td>Deformable 4D reconstruction from casual videos</td></tr>
+            <tr><td><a href="https://jefftan969.github.io/dressrecon/" target="_blank">DressRecon</a></td><td>Freeform 4D human reconstruction</td></tr>
+            <tr><td><a href="https://dynamic3dgaussians.github.io/" target="_blank">Dynamic 3D Gaussians</a></td><td>Persistent dynamic Gaussian tracking</td></tr>
+            <tr><td><a href="https://yaoyx689.github.io/RigGS.html" target="_blank">RigGS</a></td><td>Gaussian-based articulated rigging</td></tr>
+            <tr><td><a href="https://cgal.org/2015/02/27/cgal-wipMCF" target="_blank">Mean Curvature Skeleton</a></td><td>Curve skeleton extraction via mean curvature flow</td></tr>
+            <tr><td><a href="https://github.com/electronicarts/dem-bones" target="_blank">DemBones</a></td><td>Smooth skinning decomposition with rigid bones</td></tr>
+            <tr><td><a href="https://lhchen.top/Motion2Motion/" target="_blank">Motion2Motion</a></td><td>Cross-topology motion transfer</td></tr>
+            <tr><td><a href="https://arxiv.org/abs/2103.15545" target="_blank">Drop the GAN</a></td><td>Patch nearest-neighbor generative framework</td></tr>
+            <tr><td><a href="https://peizhuoli.github.io/genmm/" target="_blank">GenMM</a></td><td>Generative motion matching from single examples</td></tr>
           </table>
-          <p style="font-size: 1.2rem; color: #555; line-height: 1.75; text-align: justify;">
+          <p class="body-text">
             This work is supported by the Research Center for Industries of the Future (RCIF) at Westlake University and the Westlake Education Foundation.
           </p>
         </div>
