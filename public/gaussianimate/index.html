@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="/gaussianimate/static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="/gaussianimate/static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="/gaussianimate/static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="/gaussianimate/static/css/index.css">
   <script defer src="/gaussianimate/static/js/fontawesome.all.min.js"></script>
   <script src="/gaussianimate/static/js/bulma-carousel.min.js"></script>
@@ -239,6 +240,44 @@
       font-family: 'SF Mono', 'Consolas', 'Monaco', monospace;
       letter-spacing: 0.01em;
     }
+    .hero-links {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+    .hero-link-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.62rem 1.15rem;
+      border: 1px solid #d9d9df;
+      border-radius: 999px;
+      background: #fff;
+      color: #444;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1;
+      text-decoration: none;
+      transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    }
+    .hero-link-btn:hover {
+      background: #f7f7fa;
+      border-color: #c9c9d2;
+      color: #222;
+    }
+    .hero-link-btn .icon {
+      width: 1rem;
+      height: 1rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      font-size: 1rem;
+    }
 
     /* Shared text style for captions, acknowledgments, etc. */
     .body-text {
@@ -339,6 +378,21 @@
               caizeyu010612@gmail.com,
               zhiyang0@connect.hku.hk,
               chenglin@must.edu.mo
+            </div>
+
+            <div class="hero-links">
+              <a class="hero-link-btn" href="https://github.com/Net-Maker/GaussiAnimate" target="_blank">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>Code (Coming Soon)</span>
+              </a>
+              <a class="hero-link-btn" href="https://arxiv.org/abs/2604.08547" target="_blank">
+                <span class="icon">
+                  <i class="ai ai-arxiv"></i>
+                </span>
+                <span>arXiv</span>
+              </a>
             </div>
 
           </div>

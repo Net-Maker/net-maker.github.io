@@ -369,7 +369,7 @@ Further event details, including [page elements](https://docs.hugoblox.com/refer
 
 
 
-&lt;div id=&#34;chart-165492837&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-896174523&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   async function fetchChartJSON() {
     console.debug(&#39;Hugo Blox fetching chart JSON...&#39;)
@@ -387,7 +387,7 @@ Further event details, including [page elements](https://docs.hugoblox.com/refer
 
       fetchChartJSON().then(chart =&gt; {
         console.debug(&#39;Plotting chart...&#39;)
-        window.Plotly.newPlot(&#39;chart-165492837&#39;, chart.data, chart.layout, {responsive: true});
+        window.Plotly.newPlot(&#39;chart-896174523&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();
@@ -1077,6 +1077,7 @@ Parallel 4   :         des6, after des4, 1d
   &lt;link rel=&#34;stylesheet&#34; href=&#34;http://localhost:1313/gaussianimate/static/css/bulma-carousel.min.css&#34;&gt;
   &lt;link rel=&#34;stylesheet&#34; href=&#34;http://localhost:1313/gaussianimate/static/css/bulma-slider.min.css&#34;&gt;
   &lt;link rel=&#34;stylesheet&#34; href=&#34;http://localhost:1313/gaussianimate/static/css/fontawesome.all.min.css&#34;&gt;
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css&#34;&gt;
   &lt;link rel=&#34;stylesheet&#34; href=&#34;http://localhost:1313/gaussianimate/static/css/index.css&#34;&gt;
   &lt;script defer src=&#34;http://localhost:1313/gaussianimate/static/js/fontawesome.all.min.js&#34;&gt;&lt;/script&gt;
   &lt;script src=&#34;http://localhost:1313/gaussianimate/static/js/bulma-carousel.min.js&#34;&gt;&lt;/script&gt;
@@ -1306,6 +1307,44 @@ Parallel 4   :         des6, after des4, 1d
       font-family: &#39;SF Mono&#39;, &#39;Consolas&#39;, &#39;Monaco&#39;, monospace;
       letter-spacing: 0.01em;
     }
+    .hero-links {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+    .hero-link-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.62rem 1.15rem;
+      border: 1px solid #d9d9df;
+      border-radius: 999px;
+      background: #fff;
+      color: #444;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1;
+      text-decoration: none;
+      transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    }
+    .hero-link-btn:hover {
+      background: #f7f7fa;
+      border-color: #c9c9d2;
+      color: #222;
+    }
+    .hero-link-btn .icon {
+      width: 1rem;
+      height: 1rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      font-size: 1rem;
+    }
 
     /* Shared text style for captions, acknowledgments, etc. */
     .body-text {
@@ -1406,6 +1445,21 @@ Parallel 4   :         des6, after des4, 1d
               caizeyu010612@gmail.com,
               zhiyang0@connect.hku.hk,
               chenglin@must.edu.mo
+            &lt;/div&gt;
+
+            &lt;div class=&#34;hero-links&#34;&gt;
+              &lt;a class=&#34;hero-link-btn&#34; href=&#34;https://github.com/Net-Maker/GaussiAnimate&#34; target=&#34;_blank&#34;&gt;
+                &lt;span class=&#34;icon&#34;&gt;
+                  &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt;
+                &lt;/span&gt;
+                &lt;span&gt;Code (Coming Soon)&lt;/span&gt;
+              &lt;/a&gt;
+              &lt;a class=&#34;hero-link-btn&#34; href=&#34;https://arxiv.org/abs/2604.08547&#34; target=&#34;_blank&#34;&gt;
+                &lt;span class=&#34;icon&#34;&gt;
+                  &lt;i class=&#34;ai ai-arxiv&#34;&gt;&lt;/i&gt;
+                &lt;/span&gt;
+                &lt;span&gt;arXiv&lt;/span&gt;
+              &lt;/a&gt;
             &lt;/div&gt;
 
           &lt;/div&gt;
