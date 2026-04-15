@@ -77,6 +77,15 @@ Further event details, including [page elements](https://docs.hugoblox.com/refer
     </item>
     
     <item>
+      <title>GaussiAnimate</title>
+      <link>http://localhost:1313/project/gaussianimate/</link>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/project/gaussianimate/</guid>
+      <description>&lt;p&gt;GaussiAnimate is a scaffold-skin rigging system for reconstructing and animating diverse categories from 4D Gaussian or mesh sequences.&lt;/p&gt;
+&lt;p&gt;It introduces the skelebone representation and Partwise Motion Matching for controllable yet expressive reanimation. The project page includes the paper, teaser, method overview, and extensive qualitative results.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Projects</title>
       <link>http://localhost:1313/projects/</link>
       <pubDate>Sun, 19 May 2024 00:00:00 +0000</pubDate>
@@ -369,7 +378,7 @@ Further event details, including [page elements](https://docs.hugoblox.com/refer
 
 
 
-&lt;div id=&#34;chart-896174523&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-729586134&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   async function fetchChartJSON() {
     console.debug(&#39;Hugo Blox fetching chart JSON...&#39;)
@@ -387,7 +396,7 @@ Further event details, including [page elements](https://docs.hugoblox.com/refer
 
       fetchChartJSON().then(chart =&gt; {
         console.debug(&#39;Plotting chart...&#39;)
-        window.Plotly.newPlot(&#39;chart-896174523&#39;, chart.data, chart.layout, {responsive: true});
+        window.Plotly.newPlot(&#39;chart-729586134&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();

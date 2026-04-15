@@ -43,6 +43,18 @@ sections:
     design:
       columns: '1'
   - block: collection
+    id: featured-project
+    content:
+      title: Featured Project
+      text: My latest project page and paper demo.
+      filters:
+        folders:
+          - project
+        featured_only: true
+    design:
+      view: article-grid
+      columns: 1
+  - block: collection
     id: papers
     content:
       title: Recent Publications
