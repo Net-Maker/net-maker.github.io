@@ -1,7 +1,7 @@
 ---
 title: GaussiAnimate
 date: 2026-04-09
-external_link: /gaussianimate
+external_link: https://cookmaker.cn/gaussianimate
 summary: Reconstruct and rig animatable categories with level of dynamics.
 featured: true
 tags:

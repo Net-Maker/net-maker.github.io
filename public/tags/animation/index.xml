@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Animation | Jiaxin wang&#39;s Website</title>
-    <link>http://localhost:1313/tags/animation/</link>
-      <atom:link href="http://localhost:1313/tags/animation/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://cookmaker.cn/tags/animation/</link>
+      <atom:link href="https://cookmaker.cn/tags/animation/index.xml" rel="self" type="application/rss+xml" />
     <description>Animation</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Thu, 09 Apr 2026 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:1313/media/icon_hu2479377040299485929.png</url>
+      <url>https://cookmaker.cn/media/icon_hu2479377040299485929.png</url>
       <title>Animation</title>
-      <link>http://localhost:1313/tags/animation/</link>
+      <link>https://cookmaker.cn/tags/animation/</link>
     </image>
     
     <item>
       <title>GaussiAnimate</title>
-      <link>http://localhost:1313/project/gaussianimate/</link>
+      <link>https://cookmaker.cn/project/gaussianimate/</link>
       <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/project/gaussianimate/</guid>
+      <guid>https://cookmaker.cn/project/gaussianimate/</guid>
       <description>&lt;p&gt;GaussiAnimate is a scaffold-skin rigging system for reconstructing and animating diverse categories from 4D Gaussian or mesh sequences.&lt;/p&gt;
 &lt;p&gt;It introduces the skelebone representation and Partwise Motion Matching for controllable yet expressive reanimation. The project page includes the paper, teaser, method overview, and extensive qualitative results.&lt;/p&gt;</description>
     </item>
