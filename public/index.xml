@@ -378,7 +378,7 @@ Further event details, including [page elements](https://docs.hugoblox.com/refer
 
 
 
-&lt;div id=&#34;chart-793564182&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-462398517&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   async function fetchChartJSON() {
     console.debug(&#39;Hugo Blox fetching chart JSON...&#39;)
@@ -396,7 +396,7 @@ Further event details, including [page elements](https://docs.hugoblox.com/refer
 
       fetchChartJSON().then(chart =&gt; {
         console.debug(&#39;Plotting chart...&#39;)
-        window.Plotly.newPlot(&#39;chart-793564182&#39;, chart.data, chart.layout, {responsive: true});
+        window.Plotly.newPlot(&#39;chart-462398517&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();
@@ -1283,6 +1283,79 @@ Parallel 4   :         des6, after des4, 1d
       font-size: 0.95rem;
       width: 100%;
     }
+
+    .result-accordion {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #ffffff;
+      margin: 0.85rem 0;
+      overflow: hidden;
+    }
+
+    .result-accordion-toggle {
+      align-items: center;
+      background: #fff7ed;
+      border: none;
+      color: #1f2937;
+      cursor: pointer;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 0.5rem;
+      font-size: 1.15rem;
+      font-weight: 700;
+      padding: 0.85rem 1rem;
+      width: 100%;
+    }
+
+    .result-accordion-toggle:hover {
+      background: #ffedd5;
+    }
+
+    .result-accordion-toggle-spacer {
+      min-width: 0;
+    }
+
+    .result-accordion-title {
+      justify-self: center;
+      text-align: center;
+      max-width: 100%;
+    }
+
+    .result-accordion-hint {
+      color: #9a3412;
+      font-size: 0.9rem;
+      font-weight: 600;
+      justify-self: end;
+      text-align: right;
+    }
+
+    .result-accordion-body {
+      display: none;
+      padding: 0.85rem 0.75rem 0.2rem;
+    }
+
+    .result-accordion.is-open .result-accordion-body {
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .result-accordion-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+        text-align: center;
+      }
+
+      .result-accordion-toggle-spacer {
+        display: none;
+      }
+
+      .result-accordion-title,
+      .result-accordion-hint {
+        justify-self: unset;
+        text-align: center;
+      }
+    }
   &lt;/style&gt;
 
   &lt;!-- Reusable page styles --&gt;
@@ -1401,6 +1474,87 @@ Parallel 4   :         des6, after des4, 1d
 
     /* Button row gap for paginated sections */
     .btn-row { gap: 0.75rem; }
+
+    .module-title-row {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .module-title-row .title {
+      margin-bottom: 0 !important;
+    }
+
+    .observed-toggle {
+      border: 1px solid #d9d9df;
+      border-radius: 999px;
+      background: #ffffff;
+      color: #444;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 700;
+      line-height: 1;
+      padding: 0.55rem 0.9rem;
+      transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .observed-toggle:hover,
+    .observed-toggle.is-active {
+      background: #1f2937;
+      border-color: #1f2937;
+      color: #ffffff;
+    }
+
+    .observed-motion-panel {
+      display: none;
+      margin-top: 0.5rem;
+    }
+
+    .observed-motion-panel.is-active {
+      display: block;
+    }
+
+    .observed-motion-card {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.05);
+      padding: 0.75rem;
+    }
+
+    .observed-motion-title {
+      color: #334155;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+
+    .observed-motion-placeholder {
+      align-items: center;
+      background: #f8fafc;
+      border: 1px dashed #cbd5e1;
+      border-radius: 8px;
+      color: #64748b;
+      display: flex;
+      font-size: 0.95rem;
+      justify-content: center;
+      min-height: 180px;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    #vto-section.is-observed-mode .btn-row,
+    #vto-section.is-observed-mode .cloth-page,
+    #deformingthings4d-section.is-observed-mode .btn-row,
+    #deformingthings4d-section.is-observed-mode .animal-page,
+    #actorshq-section.is-observed-mode .btn-row,
+    #actorshq-section.is-observed-mode .actor-page {
+      display: none !important;
+    }
 
     /* Acknowledgments project table */
     .ack-table {
@@ -1600,6 +1754,7 @@ Parallel 4   :         des6, after des4, 1d
         &lt;div class=&#34;gallery-subtitle&#34;&gt;Skelebon on diverse animatable entities&lt;/div&gt;
       &lt;/div&gt;
 
+      &lt;div id=&#34;teaser-gallery-videos&#34;&gt;
       &lt;table class=&#34;gallery-table&#34;&gt;
         &lt;thead&gt;
           &lt;tr&gt;
@@ -1657,6 +1812,7 @@ Parallel 4   :         des6, after des4, 1d
           &lt;/tr&gt;
         &lt;/tbody&gt;
       &lt;/table&gt;
+      &lt;/div&gt;
 
       &lt;!-- Teaser Figure --&gt;
       &lt;figure class=&#34;teaser-figure&#34;&gt;
@@ -1710,90 +1866,138 @@ Parallel 4   :         des6, after des4, 1d
 
   &lt;section class=&#34;section&#34; id=&#34;vto-section&#34;&gt;
     &lt;div class=&#34;container&#34;&gt;
-      &lt;h2 class=&#34;title is-3 has-text-centered&#34;&gt;Results on VTO Datasets&lt;/h2&gt;
+      &lt;div class=&#34;module-title-row&#34;&gt;
+        &lt;h2 class=&#34;title is-3 has-text-centered&#34;&gt;Results on VTO Datasets&lt;/h2&gt;
+        &lt;button class=&#34;observed-toggle&#34; type=&#34;button&#34; data-observed-toggle=&#34;vto-section&#34;&gt;Show observed motion&lt;/button&gt;
+      &lt;/div&gt;
       &lt;div class=&#34;is-flex is-justify-content-center is-align-items-center mb-5 btn-row&#34;&gt;
         &lt;button id=&#34;cloth-page-prev&#34; class=&#34;button is-light&#34;&gt;Prev&lt;/button&gt;
         &lt;span id=&#34;cloth-page-indicator&#34; class=&#34;has-text-weight-semibold&#34;&gt;1 / 5 - Tshirt1&lt;/span&gt;
         &lt;button id=&#34;cloth-page-next&#34; class=&#34;button is-light&#34;&gt;Next&lt;/button&gt;
       &lt;/div&gt;
 
+      &lt;div class=&#34;observed-motion-panel&#34; data-observed-panel&gt;
+        &lt;div class=&#34;columns is-multiline&#34;&gt;
+          &lt;div class=&#34;column is-one-fifth-desktop is-half-tablet&#34;&gt;
+            &lt;div class=&#34;observed-motion-card&#34;&gt;
+              &lt;div class=&#34;observed-motion-title&#34;&gt;Tshirt1&lt;/div&gt;
+              &lt;video controls muted loop playsinline preload=&#34;none&#34; width=&#34;100%&#34;&gt;
+                &lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/observed/tshirt1_observed_motion.mp4&#34; type=&#34;video/mp4&#34;&gt;
+              &lt;/video&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&#34;column is-one-fifth-desktop is-half-tablet&#34;&gt;
+            &lt;div class=&#34;observed-motion-card&#34;&gt;
+              &lt;div class=&#34;observed-motion-title&#34;&gt;Tshirt2&lt;/div&gt;
+              &lt;video controls muted loop playsinline preload=&#34;none&#34; width=&#34;100%&#34;&gt;
+                &lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/observed/tshirt2_observed_motion.mp4&#34; type=&#34;video/mp4&#34;&gt;
+              &lt;/video&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&#34;column is-one-fifth-desktop is-half-tablet&#34;&gt;
+            &lt;div class=&#34;observed-motion-card&#34;&gt;
+              &lt;div class=&#34;observed-motion-title&#34;&gt;Tshirt3&lt;/div&gt;
+              &lt;video controls muted loop playsinline preload=&#34;none&#34; width=&#34;100%&#34;&gt;
+                &lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/observed/tshirt3_observed_motion.mp4&#34; type=&#34;video/mp4&#34;&gt;
+              &lt;/video&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&#34;column is-one-fifth-desktop is-half-tablet&#34;&gt;
+            &lt;div class=&#34;observed-motion-card&#34;&gt;
+              &lt;div class=&#34;observed-motion-title&#34;&gt;Dress1&lt;/div&gt;
+              &lt;video controls muted loop playsinline preload=&#34;none&#34; width=&#34;100%&#34;&gt;
+                &lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/observed/dress1_observed_motion.mp4&#34; type=&#34;video/mp4&#34;&gt;
+              &lt;/video&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&#34;column is-one-fifth-desktop is-half-tablet&#34;&gt;
+            &lt;div class=&#34;observed-motion-card&#34;&gt;
+              &lt;div class=&#34;observed-motion-title&#34;&gt;Dress2&lt;/div&gt;
+              &lt;video controls muted loop playsinline preload=&#34;none&#34; width=&#34;100%&#34;&gt;
+                &lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/observed/dress2_observed_motion.mp4&#34; type=&#34;video/mp4&#34;&gt;
+              &lt;/video&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
       &lt;div class=&#34;cloth-page is-active&#34; data-cloth=&#34;hood_video_tshirt_shape00_91_33&#34;&gt;
-        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;GT&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_tshirt_shape00_91_33/gt_mesh.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Skeleton&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_tshirt_shape00_91_33/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Bones&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_tshirt_shape00_91_33/ssdr_bones.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;GT&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_tshirt_shape00_91_33/gt_mesh.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Skeleton&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_tshirt_shape00_91_33/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Bones&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_tshirt_shape00_91_33/ssdr_bones.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
         &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Animation Result&lt;/h4&gt;&lt;/div&gt;
         &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;
-        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_tshirt_shape00_91_33/comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_tshirt_shape00_91_33/comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
         &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Error Map&lt;/h4&gt;&lt;/div&gt;
         
         
         &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;
-        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_tshirt_shape00_91_33/error_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_tshirt_shape00_91_33/error_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
         &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Overlap&lt;/h4&gt;&lt;/div&gt;
         &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;
-        &lt;div class=&#34;columns&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_tshirt_shape00_91_33/overlap_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_tshirt_shape00_91_33/overlap_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
       &lt;/div&gt;
 
       &lt;div class=&#34;cloth-page&#34; data-cloth=&#34;hood_video_tshirt_shape00_91_36&#34;&gt;
-        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;GT&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_tshirt_shape00_91_36/gt_mesh.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Skeleton&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_tshirt_shape00_91_36/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Bones&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_tshirt_shape00_91_36/ssdr_bones.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;GT&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_tshirt_shape00_91_36/gt_mesh.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Skeleton&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_tshirt_shape00_91_36/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Bones&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_tshirt_shape00_91_36/ssdr_bones.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
         &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Animation Result&lt;/h4&gt;&lt;/div&gt;
         &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;
-        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_tshirt_shape00_91_36/comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_tshirt_shape00_91_36/comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
         &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Error Map&lt;/h4&gt;&lt;/div&gt;
         
         
         &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;
-        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_tshirt_shape00_91_36/error_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_tshirt_shape00_91_36/error_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
         &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Overlap&lt;/h4&gt;&lt;/div&gt;
         &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;
-        &lt;div class=&#34;columns&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_tshirt_shape00_91_36/overlap_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_tshirt_shape00_91_36/overlap_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
       &lt;/div&gt;&lt;div class=&#34;cloth-page&#34; data-cloth=&#34;hood_video_tshirt_shape00_91_38&#34;&gt;
-        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;GT&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_tshirt_shape00_91_38/gt_mesh.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Skeleton&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_tshirt_shape00_91_38/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Bones&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_tshirt_shape00_91_38/ssdr_bones.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;GT&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_tshirt_shape00_91_38/gt_mesh.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Skeleton&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_tshirt_shape00_91_38/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Bones&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_tshirt_shape00_91_38/ssdr_bones.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
         &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Animation Result&lt;/h4&gt;&lt;/div&gt;
         &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;
-        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_tshirt_shape00_91_38/comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_tshirt_shape00_91_38/comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
         &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Error Map&lt;/h4&gt;&lt;/div&gt;
         
         
         &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;
-        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_tshirt_shape00_91_38/error_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_tshirt_shape00_91_38/error_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
         &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Overlap&lt;/h4&gt;&lt;/div&gt;
         &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;
-        &lt;div class=&#34;columns&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_tshirt_shape00_91_38/overlap_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_tshirt_shape00_91_38/overlap_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
       &lt;/div&gt;
 
       &lt;div class=&#34;cloth-page&#34; data-cloth=&#34;hood_video_dress_shape00_91_38&#34;&gt;
         
         
         &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;
-          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;GT&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_dress_shape00_91_38/gt_mesh.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
-          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Skeleton&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_dress_shape00_91_38/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
-          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Bones&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_dress_shape00_91_38/ssdr_bones.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;GT&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_dress_shape00_91_38/gt_mesh.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Skeleton&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_dress_shape00_91_38/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Bones&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_dress_shape00_91_38/ssdr_bones.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
         &lt;/div&gt;
         &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Animation Result&lt;/h4&gt;&lt;/div&gt;
         &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;
-        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_dress_shape00_91_38/comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_dress_shape00_91_38/comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
         &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Error Map&lt;/h4&gt;&lt;/div&gt;
         
         
         &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;
-        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_dress_shape00_91_38/error_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_dress_shape00_91_38/error_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
         &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Overlap&lt;/h4&gt;&lt;/div&gt;
         &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;
-        &lt;div class=&#34;columns&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_dress_shape00_91_38/overlap_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_dress_shape00_91_38/overlap_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
       &lt;/div&gt;
 
       &lt;div class=&#34;cloth-page&#34; data-cloth=&#34;hood_video_dress_shape00_91_61&#34;&gt;
-        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;GT&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_dress_shape00_91_61/gt_mesh.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Skeleton&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_dress_shape00_91_61/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Bones&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_dress_shape00_91_61/ssdr_bones.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;GT&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_dress_shape00_91_61/gt_mesh.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Skeleton&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_dress_shape00_91_61/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Bones&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_dress_shape00_91_61/ssdr_bones.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
         &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Animation Result&lt;/h4&gt;&lt;/div&gt;
         &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;
-        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_dress_shape00_91_61/comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_dress_shape00_91_61/comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
         &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Error Map&lt;/h4&gt;&lt;/div&gt;
         
         
         &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;
-        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_dress_shape00_91_61/error_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_dress_shape00_91_61/error_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
         &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Overlap&lt;/h4&gt;&lt;/div&gt;
         &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;
-        &lt;div class=&#34;columns&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_dress_shape00_91_61/overlap_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/cloth/hood_video_dress_shape00_91_61/overlap_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
       &lt;/div&gt;
 
       
@@ -1802,11 +2006,59 @@ Parallel 4   :         des6, after des4, 1d
 
   &lt;section class=&#34;section&#34; id=&#34;deformingthings4d-section&#34;&gt;
     &lt;div class=&#34;container&#34;&gt;
-      &lt;h2 class=&#34;title is-3 has-text-centered&#34;&gt;Results on DeformingThings4D Datasets&lt;/h2&gt;
+      &lt;div class=&#34;module-title-row&#34;&gt;
+        &lt;h2 class=&#34;title is-3 has-text-centered&#34;&gt;Results on DeformingThings4D Datasets&lt;/h2&gt;
+        &lt;button class=&#34;observed-toggle&#34; type=&#34;button&#34; data-observed-toggle=&#34;deformingthings4d-section&#34;&gt;Show observed motion&lt;/button&gt;
+      &lt;/div&gt;
       &lt;div class=&#34;is-flex is-justify-content-center is-align-items-center mb-5 btn-row&#34;&gt;
         &lt;button id=&#34;animal-page-prev&#34; class=&#34;button is-light&#34;&gt;Prev&lt;/button&gt;
         &lt;span id=&#34;animal-page-indicator&#34; class=&#34;has-text-weight-semibold&#34;&gt;1 / 5 - lepoard&lt;/span&gt;
         &lt;button id=&#34;animal-page-next&#34; class=&#34;button is-light&#34;&gt;Next&lt;/button&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&#34;observed-motion-panel&#34; data-observed-panel&gt;
+        &lt;div class=&#34;columns is-multiline&#34;&gt;
+          &lt;div class=&#34;column is-one-fifth-desktop is-half-tablet&#34;&gt;
+            &lt;div class=&#34;observed-motion-card&#34;&gt;
+              &lt;div class=&#34;observed-motion-title&#34;&gt;lepoard&lt;/div&gt;
+              &lt;video controls muted loop playsinline preload=&#34;none&#34; width=&#34;100%&#34;&gt;
+                &lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/observed/lepoard_observed_motion.mp4&#34; type=&#34;video/mp4&#34;&gt;
+              &lt;/video&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&#34;column is-one-fifth-desktop is-half-tablet&#34;&gt;
+            &lt;div class=&#34;observed-motion-card&#34;&gt;
+              &lt;div class=&#34;observed-motion-title&#34;&gt;bull tail&lt;/div&gt;
+              &lt;video controls muted loop playsinline preload=&#34;none&#34; width=&#34;100%&#34;&gt;
+                &lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/observed/bull_tail_observed_motion.mp4&#34; type=&#34;video/mp4&#34;&gt;
+              &lt;/video&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&#34;column is-one-fifth-desktop is-half-tablet&#34;&gt;
+            &lt;div class=&#34;observed-motion-card&#34;&gt;
+              &lt;div class=&#34;observed-motion-title&#34;&gt;cattle jump&lt;/div&gt;
+              &lt;video controls muted loop playsinline preload=&#34;none&#34; width=&#34;100%&#34;&gt;
+                &lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/observed/cattle_jump_observed_motion.mp4&#34; type=&#34;video/mp4&#34;&gt;
+              &lt;/video&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&#34;column is-one-fifth-desktop is-half-tablet&#34;&gt;
+            &lt;div class=&#34;observed-motion-card&#34;&gt;
+              &lt;div class=&#34;observed-motion-title&#34;&gt;chicken&lt;/div&gt;
+              &lt;video controls muted loop playsinline preload=&#34;none&#34; width=&#34;100%&#34;&gt;
+                &lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/observed/chicken_observed_motion.mp4&#34; type=&#34;video/mp4&#34;&gt;
+              &lt;/video&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&#34;column is-one-fifth-desktop is-half-tablet&#34;&gt;
+            &lt;div class=&#34;observed-motion-card&#34;&gt;
+              &lt;div class=&#34;observed-motion-title&#34;&gt;fish&lt;/div&gt;
+              &lt;video controls muted loop playsinline preload=&#34;none&#34; width=&#34;100%&#34;&gt;
+                &lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/observed/fish_observed_motion.mp4&#34; type=&#34;video/mp4&#34;&gt;
+              &lt;/video&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
       &lt;/div&gt;
 
       &lt;div class=&#34;animal-page is-active&#34; data-animal=&#34;lepoard&#34;&gt;
@@ -1814,19 +2066,19 @@ Parallel 4   :         des6, after des4, 1d
           &lt;div class=&#34;column is-4&#34;&gt;
             &lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;GT&lt;/h4&gt;
             &lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;
-              &lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/lepoard/gt_mesh.mp4&#34; type=&#34;video/mp4&#34;&gt;
+              &lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/lepoard/gt_mesh.mp4&#34; type=&#34;video/mp4&#34;&gt;
             &lt;/video&gt;
           &lt;/div&gt;
           &lt;div class=&#34;column is-4&#34;&gt;
             &lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Skeleton&lt;/h4&gt;
             &lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;
-              &lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/lepoard/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;
+              &lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/lepoard/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;
             &lt;/video&gt;
           &lt;/div&gt;
           &lt;div class=&#34;column is-4&#34;&gt;
             &lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Bones&lt;/h4&gt;
             &lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;
-              &lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/lepoard/ssdr_bones.mp4&#34; type=&#34;video/mp4&#34;&gt;
+              &lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/lepoard/ssdr_bones.mp4&#34; type=&#34;video/mp4&#34;&gt;
             &lt;/video&gt;
           &lt;/div&gt;
         &lt;/div&gt;
@@ -1843,7 +2095,7 @@ Parallel 4   :         des6, after des4, 1d
         &lt;div class=&#34;columns mb-6&#34;&gt;
           &lt;div class=&#34;column&#34;&gt;
             &lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;
-              &lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/lepoard/comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;
+              &lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/lepoard/comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;
             &lt;/video&gt;
           &lt;/div&gt;
         &lt;/div&gt;
@@ -1859,7 +2111,7 @@ Parallel 4   :         des6, after des4, 1d
         &lt;div class=&#34;columns mb-6&#34;&gt;
           &lt;div class=&#34;column&#34;&gt;
             &lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;
-              &lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/lepoard/error_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;
+              &lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/lepoard/error_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;
             &lt;/video&gt;
           &lt;/div&gt;
         &lt;/div&gt;
@@ -1871,97 +2123,97 @@ Parallel 4   :         des6, after des4, 1d
           &lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;
           &lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;
         &lt;/div&gt;
-        &lt;div class=&#34;columns&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/lepoard/overlap_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/lepoard/overlap_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
       &lt;/div&gt;
 
       &lt;div class=&#34;animal-page&#34; data-animal=&#34;bull_tail&#34;&gt;
         &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;
-          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;GT&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/bull_tail/gt_mesh.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
-          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Skeleton&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/bull_tail/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
-          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Bones&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/bull_tail/ssdr_bones.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;GT&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/bull_tail/gt_mesh.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Skeleton&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/bull_tail/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Bones&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/bull_tail/ssdr_bones.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
         &lt;/div&gt;
         &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Animation Result&lt;/h4&gt;&lt;/div&gt;
         &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;
           &lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;
         &lt;/div&gt;
-        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/bull_tail/comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/bull_tail/comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
         &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Error Map&lt;/h4&gt;&lt;/div&gt;
         
         
         &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;
           &lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;
         &lt;/div&gt;
-        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/bull_tail/error_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/bull_tail/error_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
         &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Overlap&lt;/h4&gt;&lt;/div&gt;
         &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;
-        &lt;div class=&#34;columns&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/bull_tail/overlap_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/bull_tail/overlap_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
       &lt;/div&gt;
 
       &lt;div class=&#34;animal-page&#34; data-animal=&#34;cattle_jump&#34;&gt;
         &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;
-          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;GT&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/cattle_jump/gt_mesh.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
-          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Skeleton&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/cattle_jump/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
-          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Bones&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/cattle_jump/ssdr_bones.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;GT&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/cattle_jump/gt_mesh.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Skeleton&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/cattle_jump/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Bones&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/cattle_jump/ssdr_bones.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
         &lt;/div&gt;
         &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Animation Result&lt;/h4&gt;&lt;/div&gt;
         &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;
           &lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;
         &lt;/div&gt;
-        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/cattle_jump/comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/cattle_jump/comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
         &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Error Map&lt;/h4&gt;&lt;/div&gt;
         
         
         &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;
           &lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;
         &lt;/div&gt;
-        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/cattle_jump/error_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/cattle_jump/error_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
         &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Overlap&lt;/h4&gt;&lt;/div&gt;
         &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;
-        &lt;div class=&#34;columns&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/cattle_jump/overlap_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/cattle_jump/overlap_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
       &lt;/div&gt;
 
       &lt;div class=&#34;animal-page&#34; data-animal=&#34;chicken&#34;&gt;
         &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;
-          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;GT&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/chicken/gt_mesh.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
-          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Skeleton&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/chicken/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
-          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Bones&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/chicken/ssdr_bones.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;GT&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/chicken/gt_mesh.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Skeleton&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/chicken/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Bones&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/chicken/ssdr_bones.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
         &lt;/div&gt;
         &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Animation Result&lt;/h4&gt;&lt;/div&gt;
         &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;
           &lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;
         &lt;/div&gt;
-        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/chicken/comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/chicken/comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
         &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Error Map&lt;/h4&gt;&lt;/div&gt;
         
         
         &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;
           &lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;
         &lt;/div&gt;
-        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/chicken/error_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/chicken/error_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
         &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Overlap&lt;/h4&gt;&lt;/div&gt;
         &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;
-        &lt;div class=&#34;columns&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/chicken/overlap_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/chicken/overlap_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
       &lt;/div&gt;
 
       &lt;div class=&#34;animal-page&#34; data-animal=&#34;fish&#34;&gt;
         &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;
-          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;GT&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/fish/gt_mesh.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
-          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Skeleton&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/fish/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
-          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Bones&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/fish/ssdr_bones.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;GT&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/fish/gt_mesh.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Skeleton&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/fish/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Bones&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/fish/ssdr_bones.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
         &lt;/div&gt;
         &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Animation Result&lt;/h4&gt;&lt;/div&gt;
         &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;
           &lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;
         &lt;/div&gt;
-        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/fish/comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/fish/comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
         &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Error Map&lt;/h4&gt;&lt;/div&gt;
         &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;
           &lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column is-2&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;
         &lt;/div&gt;
-        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/fish/error_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/fish/error_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
         &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Overlap&lt;/h4&gt;&lt;/div&gt;
         &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;FullMM&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GRU&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;MLP&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;
-        &lt;div class=&#34;columns&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/fish/overlap_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&#34;columns&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/animal/fish/overlap_comparison.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/section&gt;
@@ -1969,81 +2221,61 @@ Parallel 4   :         des6, after des4, 1d
 
   &lt;section class=&#34;section&#34; id=&#34;actorshq-section&#34;&gt;
     &lt;div class=&#34;container&#34;&gt;
-      &lt;h2 class=&#34;title is-3 has-text-centered&#34;&gt;Result on ActorsHQ Dataset&lt;/h2&gt;
+      &lt;div class=&#34;module-title-row&#34;&gt;
+        &lt;h2 class=&#34;title is-3 has-text-centered&#34;&gt;Result on ActorsHQ Dataset&lt;/h2&gt;
+        &lt;button class=&#34;observed-toggle&#34; type=&#34;button&#34; data-observed-toggle=&#34;actorshq-section&#34;&gt;Show observed motion&lt;/button&gt;
+      &lt;/div&gt;
       &lt;div class=&#34;is-flex is-justify-content-center is-align-items-center mb-5 btn-row&#34;&gt;
         &lt;button id=&#34;actor-page-prev&#34; class=&#34;button is-light&#34;&gt;Prev&lt;/button&gt;
         &lt;span id=&#34;actor-page-indicator&#34; class=&#34;has-text-weight-semibold&#34;&gt;1 / 3 - Actor01 Seq01&lt;/span&gt;
         &lt;button id=&#34;actor-page-next&#34; class=&#34;button is-light&#34;&gt;Next&lt;/button&gt;
       &lt;/div&gt;
 
+      &lt;div class=&#34;observed-motion-panel&#34; data-observed-panel&gt;
+        &lt;div class=&#34;columns is-multiline is-centered&#34;&gt;
+          &lt;div class=&#34;column is-one-third-desktop is-half-tablet&#34;&gt;
+            &lt;div class=&#34;observed-motion-card&#34;&gt;
+              &lt;div class=&#34;observed-motion-title&#34;&gt;Actor01 Seq01&lt;/div&gt;
+              &lt;video controls muted loop playsinline preload=&#34;none&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/observed/actor01_seq1_c106_colored_ply_train80_white.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&#34;column is-one-third-desktop is-half-tablet&#34;&gt;
+            &lt;div class=&#34;observed-motion-card&#34;&gt;
+              &lt;div class=&#34;observed-motion-title&#34;&gt;Actor02 Seq01&lt;/div&gt;
+              &lt;video controls muted loop playsinline preload=&#34;none&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/observed/actor02_seq1_c159_colored_ply_train80_white.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&#34;column is-one-third-desktop is-half-tablet&#34;&gt;
+            &lt;div class=&#34;observed-motion-card&#34;&gt;
+              &lt;div class=&#34;observed-motion-title&#34;&gt;Actor04 Seq02&lt;/div&gt;
+              &lt;video controls muted loop playsinline preload=&#34;none&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/observed/actor04_seq2_c159_colored_ply_train80_white.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
       &lt;div class=&#34;actor-page is-active&#34; data-actor=&#34;actor01_seq01_c106&#34;&gt;
         &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;
-          &lt;div class=&#34;column is-3&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Recon PC&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c106/recon_pc.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
-          &lt;div class=&#34;column is-3&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Rendering&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c106/rendering.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
-          &lt;div class=&#34;column is-3&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Skeleton&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c106/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
-          &lt;div class=&#34;column is-3&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Bones&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c106/bones.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-3&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Recon PC&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c106/recon_pc.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-3&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Rendering&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c106/rendering.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-3&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Skeleton&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c106/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-3&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Bones&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c106/bones.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
         &lt;/div&gt;
-        &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Animation Result (View1)&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;D3DGS&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Bob&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c106/animation_gt.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c106/animation_d3dgs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c106/animation_ours.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c106/animation_bob.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c106/animation_lbs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Animation Result (View2)&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;D3DGS&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Bob&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c159/animation_gt.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c159/animation_d3dgs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c159/animation_ours.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c159/animation_bob.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c159/animation_lbs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Rendering Result (View1)&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;D3DGS&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Bob&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c106/render_result_gt.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c106/render_result_d3dgs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c106/render_result_ours.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c106/render_result_bob.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c106/render_result_lbs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Rendering Result (View2)&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;D3DGS&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Bob&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c159/render_result_gt.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c159/render_result_d3dgs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c159/render_result_ours.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c159/render_result_bob.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c159/render_result_lbs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;actor-page&#34; data-actor=&#34;actor02_seq01_c159&#34;&gt;
+        &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Animation Result (View1)&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;D3DGS&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Bob&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c106/animation_gt.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c106/animation_d3dgs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c106/animation_ours.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c106/animation_bob.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c106/animation_lbs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Animation Result (View2)&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;D3DGS&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Bob&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c159/animation_gt.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c159/animation_d3dgs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c159/animation_ours.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c159/animation_bob.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c159/animation_lbs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Rendering Result (View1)&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;D3DGS&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Bob&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c106/render_result_gt.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c106/render_result_d3dgs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c106/render_result_ours.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c106/render_result_bob.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c106/render_result_lbs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Rendering Result (View2)&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;D3DGS&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Bob&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c159/render_result_gt.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c159/render_result_d3dgs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c159/render_result_ours.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c159/render_result_bob.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor01_seq01_c159/render_result_lbs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;actor-page&#34; data-actor=&#34;actor02_seq01_c159&#34;&gt;
         &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;
-          &lt;div class=&#34;column is-3&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Recon PC&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c159/recon_pc.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
-          &lt;div class=&#34;column is-3&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Rendering&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c159/rendering.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
-          &lt;div class=&#34;column is-3&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Skeleton&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c159/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
-          &lt;div class=&#34;column is-3&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Bones&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c159/bones.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-3&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Recon PC&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c159/recon_pc.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-3&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Rendering&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c159/rendering.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-3&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Skeleton&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c159/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-3&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Bones&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c159/bones.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
         &lt;/div&gt;
-        &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Animation Result (View1)&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;D3DGS&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Bob&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c106/animation_gt.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c106/animation_d3dgs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c106/animation_ours.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c106/animation_bob.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c106/animation_lbs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Animation Result (View2)&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;D3DGS&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Bob&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c159/animation_gt.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c159/animation_d3dgs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c159/animation_ours.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c159/animation_bob.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c159/animation_lbs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Rendering Result (View1)&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;D3DGS&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Bob&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c106/render_result_gt.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c106/render_result_d3dgs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c106/render_result_ours.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c106/render_result_bob.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c106/render_result_lbs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Rendering Result (View2)&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;D3DGS&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Bob&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c159/render_result_gt.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c159/render_result_d3dgs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c159/render_result_ours.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c159/render_result_bob.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c159/render_result_lbs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;actor-page&#34; data-actor=&#34;actor04_seq02_c159&#34;&gt;
+        &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Animation Result (View1)&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;D3DGS&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Bob&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c106/animation_gt.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c106/animation_d3dgs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c106/animation_ours.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c106/animation_bob.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c106/animation_lbs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Animation Result (View2)&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;D3DGS&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Bob&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c159/animation_gt.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c159/animation_d3dgs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c159/animation_ours.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c159/animation_bob.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c159/animation_lbs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Rendering Result (View1)&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;D3DGS&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Bob&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c106/render_result_gt.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c106/render_result_d3dgs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c106/render_result_ours.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c106/render_result_bob.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c106/render_result_lbs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Rendering Result (View2)&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;D3DGS&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Bob&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c159/render_result_gt.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c159/render_result_d3dgs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c159/render_result_ours.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c159/render_result_bob.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor02_seq01_c159/render_result_lbs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;actor-page&#34; data-actor=&#34;actor04_seq02_c159&#34;&gt;
         &lt;div class=&#34;columns is-multiline mb-6&#34;&gt;
-          &lt;div class=&#34;column is-3&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Recon PC&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c159/recon_pc.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
-          &lt;div class=&#34;column is-3&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Rendering&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c159/rendering.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
-          &lt;div class=&#34;column is-3&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Skeleton&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c159/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
-          &lt;div class=&#34;column is-3&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Bones&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c159/bones.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-3&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Recon PC&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c159/recon_pc.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-3&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Rendering&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c159/rendering.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-3&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Skeleton&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c159/skeleton.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
+          &lt;div class=&#34;column is-3&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-3&#34;&gt;Bones&lt;/h4&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c159/bones.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;
         &lt;/div&gt;
-        &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Animation Result (View1)&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;D3DGS&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Bob&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c106/animation_gt.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c106/animation_d3dgs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c106/animation_ours.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c106/animation_bob.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c106/animation_lbs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Animation Result (View2)&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;D3DGS&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Bob&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c159/animation_gt.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c159/animation_d3dgs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c159/animation_ours.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c159/animation_bob.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c159/animation_lbs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Rendering Result (View1)&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;D3DGS&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Bob&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c106/render_result_gt.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c106/render_result_d3dgs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c106/render_result_ours.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c106/render_result_bob.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c106/render_result_lbs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Rendering Result (View2)&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;D3DGS&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Bob&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c159/render_result_gt.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c159/render_result_d3dgs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c159/render_result_ours.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c159/render_result_bob.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c159/render_result_lbs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/section&gt;
-
-
-  &lt;!-- Method section: Pipeline --&gt;
-  &lt;section class=&#34;section section-alt&#34;&gt;
-    &lt;div class=&#34;container&#34;&gt;
-      &lt;h2 class=&#34;title is-4 has-text-centered&#34;&gt;Skelebone Motion Database Construction&lt;/h2&gt;
-      &lt;div class=&#34;columns is-centered&#34;&gt;
-        &lt;div class=&#34;column is-10&#34;&gt;
-          &lt;img src=&#34;https://cookmaker.cn/gaussianimate/static/images/pipeline.png&#34; alt=&#34;Skelebone Motion Database Construction&#34; width=&#34;100%&#34;&gt;
-          &lt;p class=&#34;body-text method-caption&#34;&gt;
-            &lt;strong&gt;Pipeline Overview.&lt;/strong&gt; Given a monocular or multi-view video, our method reconstructs a consistent 4DGS, extracts the inner skeleton via curve skeletonization and the outer free-form bones via SSDR, together forming &amp;ldquo;skelebones&amp;rdquo;, which are then used to build a motion database.
-          &lt;/p&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/section&gt;
-
-  &lt;!-- Method section: Skeletonization --&gt;
-  &lt;section class=&#34;section&#34;&gt;
-    &lt;div class=&#34;container&#34;&gt;
-      &lt;h2 class=&#34;title is-4 has-text-centered&#34;&gt;Inner Skeleton Initialization&lt;/h2&gt;
-      &lt;div class=&#34;columns is-centered&#34;&gt;
-        &lt;div class=&#34;column is-10&#34;&gt;
-          &lt;img src=&#34;https://cookmaker.cn/gaussianimate/static/images/skeleton.png&#34; alt=&#34;Inner Skeleton Initialization&#34; width=&#34;100%&#34;&gt;
-          &lt;p class=&#34;body-text method-caption&#34;&gt;
-            &lt;strong&gt;Inner Skeleton Initialization.&lt;/strong&gt; We first extract the curve skeleton (A) of the object in the canonical space. Then we estimate the joint locations on the curve skeleton through skinning analysis. Specifically, we project the skinning weights of the 3D points onto the curve skeleton (B), and then identify positions along the 1D curve where neighboring skinning weights exhibit the highest similarity as potential joint locations (C). Finally, we traverse the curve skeleton using Depth-First Search (DFS) to construct the kinematic tree (D).
-          &lt;/p&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/section&gt;
-
-  &lt;!-- Method section: PartMM --&gt;
-  &lt;section class=&#34;section section-alt&#34;&gt;
-    &lt;div class=&#34;container&#34;&gt;
-      &lt;h2 class=&#34;title is-4 has-text-centered&#34;&gt;Partwise Motion Matching&lt;/h2&gt;
-      &lt;div class=&#34;columns is-centered&#34;&gt;
-        &lt;div class=&#34;column is-10&#34;&gt;
-          &lt;img src=&#34;https://cookmaker.cn/gaussianimate/static/images/pipeline2.png&#34; alt=&#34;Partwise Motion Matching&#34; width=&#34;100%&#34;&gt;
-          &lt;p class=&#34;body-text method-caption&#34;&gt;
-            &lt;strong&gt;Partwise Motion Matching (PartMM).&lt;/strong&gt; Given a novel inner-skeleton pose sequence, we animate skelebones by synthesizing outer-bone motion via part-wise matching. Our method: (a) decomposes the kinematic tree into multiple parts (shown as two parts; user-defined in practice); (b) extracts part-wise motion patches &lt;i&gt;R&lt;/i&gt;&lt;sub&gt;&lt;i&gt;J&lt;/i&gt;&lt;/sub&gt;&lt;sup&gt;novel&lt;/sup&gt; from the novel pose sequence; (c) queries these patches against a pre-built motion database to retrieve similar patches to recompile, and then perform part-level spatial alignment. Iterating step (c) yields the final motion &lt;i&gt;T&lt;/i&gt;&lt;sub&gt;&lt;i&gt;B&lt;/i&gt;&lt;/sub&gt;&lt;sup&gt;novel&lt;/sup&gt;.
-          &lt;/p&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
+        &lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Animation Result (View1)&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;D3DGS&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Bob&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c106/animation_gt.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c106/animation_d3dgs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c106/animation_ours.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c106/animation_bob.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c106/animation_lbs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Animation Result (View2)&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;D3DGS&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Bob&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c159/animation_gt.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c159/animation_d3dgs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c159/animation_ours.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c159/animation_bob.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c159/animation_lbs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Rendering Result (View1)&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;D3DGS&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Bob&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c106/render_result_gt.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c106/render_result_d3dgs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c106/render_result_ours.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c106/render_result_bob.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c106/render_result_lbs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;mb-4&#34;&gt;&lt;h4 class=&#34;title is-5 has-text-centered mb-4&#34;&gt;Rendering Result (View2)&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;GT&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;D3DGS&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Ours&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;Bob&lt;/h4&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;h4 class=&#34;title is-6 has-text-centered mb-2&#34;&gt;LBS&lt;/h4&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;columns is-multiline mb-6&#34;&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c159/render_result_gt.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c159/render_result_d3dgs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c159/render_result_ours.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c159/render_result_bob.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;div class=&#34;column&#34;&gt;&lt;video autoplay controls muted loop preload=&#34;metadata&#34; width=&#34;100%&#34; data-playback-rate=&#34;0.5&#34;&gt;&lt;source data-src=&#34;https://cookmaker.cn/gaussianimate/static/videos/actorshq/actor04_seq02_c159/render_result_lbs.mp4&#34; type=&#34;video/mp4&#34;&gt;&lt;/video&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
     &lt;/div&gt;
   &lt;/section&gt;
 
@@ -2068,7 +2300,7 @@ Parallel 4   :         des6, after des4, 1d
             &lt;tr&gt;&lt;td&gt;&lt;a href=&#34;https://github.com/electronicarts/dem-bones&#34; target=&#34;_blank&#34;&gt;DemBones&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Smooth skinning decomposition with rigid bones&lt;/td&gt;&lt;/tr&gt;
             &lt;tr&gt;&lt;td&gt;&lt;a href=&#34;https://lhchen.top/Motion2Motion/&#34; target=&#34;_blank&#34;&gt;Motion2Motion&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Cross-topology motion transfer&lt;/td&gt;&lt;/tr&gt;
             &lt;tr&gt;&lt;td&gt;&lt;a href=&#34;https://arxiv.org/abs/2103.15545&#34; target=&#34;_blank&#34;&gt;Drop the GAN&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Patch nearest-neighbor generative framework&lt;/td&gt;&lt;/tr&gt;
-            &lt;tr&gt;&lt;td&gt;&lt;a href=&#34;https://peizhuoli.github.io/genmm/&#34; target=&#34;_blank&#34;&gt;GenMM&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Generative motion matching from single examples&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;td&gt;&lt;a href=&#34;https://peizhuoli.github.io/publication/genmm/&#34; target=&#34;_blank&#34;&gt;GenMM&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Generative motion matching from single examples&lt;/td&gt;&lt;/tr&gt;
           &lt;/table&gt;
           &lt;p class=&#34;body-text&#34;&gt;
             This work is supported by the Research Center for Industries of the Future (RCIF) at Westlake University and the Westlake Education Foundation.
@@ -2091,21 +2323,43 @@ Parallel 4   :         des6, after des4, 1d
   &lt;/footer&gt;
 
   &lt;script&gt;
-    function toggleVideoSource(video, enabled) {
+    function getVideoSource(video) {
       var source = video.querySelector(&#34;source&#34;);
-      if (!source) return;
+      if (!source) return null;
 
       var currentSrc = source.getAttribute(&#34;src&#34;);
       if (!source.dataset.src &amp;&amp; currentSrc) {
         source.dataset.src = currentSrc;
       }
 
-      var savedSrc = source.dataset.src;
-      if (!savedSrc) return;
+      return source;
+    }
+
+    function prepareDeferredVideos() {
+      var videos = document.querySelectorAll(&#34;video&#34;);
+      for (var i = 0; i &lt; videos.length; i++) {
+        var video = videos[i];
+        if (video.closest(&#34;#teaser-gallery-videos&#34;)) continue;
+        var source = getVideoSource(video);
+        if (!source || !source.dataset.src) continue;
+
+        video.autoplay = false;
+        video.preload = &#34;none&#34;;
+        video.removeAttribute(&#34;autoplay&#34;);
+        if (source.getAttribute(&#34;src&#34;)) {
+          source.removeAttribute(&#34;src&#34;);
+          video.load();
+        }
+      }
+    }
+
+    function setVideoSource(video, enabled) {
+      var source = getVideoSource(video);
+      if (!source || !source.dataset.src) return;
 
       if (enabled) {
-        if (source.getAttribute(&#34;src&#34;) !== savedSrc) {
-          source.setAttribute(&#34;src&#34;, savedSrc);
+        if (source.getAttribute(&#34;src&#34;) !== source.dataset.src) {
+          source.setAttribute(&#34;src&#34;, source.dataset.src);
           video.load();
         }
       } else if (source.getAttribute(&#34;src&#34;)) {
@@ -2114,27 +2368,159 @@ Parallel 4   :         des6, after des4, 1d
       }
     }
 
-    function syncPageVideos(page, shouldPlay) {
-      var videos = page.querySelectorAll(&#34;video&#34;);
+    function playDeferredVideo(video) {
+      var rate = parseFloat(video.dataset.playbackRate || &#34;1&#34;);
+      video.playbackRate = !isNaN(rate) &amp;&amp; rate &gt; 0 ? rate : 1;
+
+      var playPromise = video.play();
+      if (playPromise &amp;&amp; typeof playPromise.then === &#34;function&#34;) {
+        playPromise.then(null, function () {});
+      }
+    }
+
+    function loadVideosIn(container) {
+      var videos = container.querySelectorAll(&#34;video&#34;);
       for (var i = 0; i &lt; videos.length; i++) {
-        var v = videos[i];
-        if (shouldPlay) {
-          toggleVideoSource(v, true);
-          v.autoplay = true;
-          v.preload = &#34;metadata&#34;;
-          var rate = parseFloat(v.dataset.playbackRate || &#34;1&#34;);
-          v.playbackRate = !isNaN(rate) &amp;&amp; rate &gt; 0 ? rate : 1;
-          var playPromise = v.play();
-          if (playPromise &amp;&amp; typeof playPromise.catch === &#34;function&#34;) {
-            playPromise.catch(function () {});
-          }
-        } else {
-          v.autoplay = false;
-          v.pause();
-          v.currentTime = 0;
-          v.preload = &#34;none&#34;;
-          toggleVideoSource(v, false);
+        var video = videos[i];
+        setVideoSource(video, true);
+        video.autoplay = true;
+        video.preload = &#34;metadata&#34;;
+        if (video.muted) {
+          playDeferredVideo(video);
         }
+      }
+    }
+
+    function unloadVideosIn(container) {
+      var videos = container.querySelectorAll(&#34;video&#34;);
+      for (var i = 0; i &lt; videos.length; i++) {
+        var video = videos[i];
+        video.autoplay = false;
+        video.pause();
+        if (video.readyState &gt; 0) {
+          video.currentTime = 0;
+        }
+        video.preload = &#34;none&#34;;
+        setVideoSource(video, false);
+      }
+    }
+
+    function syncPageVideos(page, shouldPlay) {
+      if (!shouldPlay) {
+        unloadVideosIn(page);
+        return;
+      }
+
+      var videos = page.querySelectorAll(&#34;video&#34;);
+      var processedBodies = [];
+      for (var i = 0; i &lt; videos.length; i++) {
+        var sectionBody = videos[i].closest(&#34;.result-accordion-body&#34;);
+        if (!sectionBody) {
+          loadVideosIn(videos[i].parentElement);
+        } else if (processedBodies.indexOf(sectionBody) === -1) {
+          processedBodies.push(sectionBody);
+          if (sectionBody.parentElement.classList.contains(&#34;is-open&#34;)) {
+            loadVideosIn(sectionBody);
+          } else {
+            unloadVideosIn(sectionBody);
+          }
+        }
+      }
+    }
+
+    function createResultAccordion(page, marker) {
+      var title = marker.textContent.trim();
+      var accordion = document.createElement(&#34;div&#34;);
+      var button = document.createElement(&#34;button&#34;);
+      var body = document.createElement(&#34;div&#34;);
+
+      accordion.className = &#34;result-accordion&#34;;
+      button.className = &#34;result-accordion-toggle&#34;;
+      button.type = &#34;button&#34;;
+      button.setAttribute(&#34;aria-expanded&#34;, &#34;false&#34;);
+      button.innerHTML =
+        &#39;&lt;span class=&#34;result-accordion-toggle-spacer&#34; aria-hidden=&#34;true&#34;&gt;&lt;/span&gt;&#39; +
+        &#39;&lt;span class=&#34;result-accordion-title&#34;&gt;&#39; + title + &#39;&lt;/span&gt;&#39; +
+        &#39;&lt;span class=&#34;result-accordion-hint&#34;&gt;Click to expand&lt;/span&gt;&#39;;
+      body.className = &#34;result-accordion-body&#34;;
+
+      accordion.appendChild(button);
+      accordion.appendChild(body);
+      page.insertBefore(accordion, marker);
+      page.removeChild(marker);
+
+      while (accordion.nextElementSibling &amp;&amp; !accordion.nextElementSibling.classList.contains(&#34;mb-4&#34;)) {
+        body.appendChild(accordion.nextElementSibling);
+      }
+
+      button.addEventListener(&#34;click&#34;, function () {
+        var open = !accordion.classList.contains(&#34;is-open&#34;);
+        accordion.classList.toggle(&#34;is-open&#34;, open);
+        button.setAttribute(&#34;aria-expanded&#34;, open ? &#34;true&#34; : &#34;false&#34;);
+        button.querySelector(&#34;.result-accordion-hint&#34;).textContent = open ? &#34;Click to collapse&#34; : &#34;Click to expand&#34;;
+
+        if (open &amp;&amp; page.classList.contains(&#34;is-active&#34;)) {
+          loadVideosIn(body);
+        } else {
+          unloadVideosIn(body);
+        }
+      });
+    }
+
+    function initExpandableResultSections() {
+      var pages = document.querySelectorAll(&#34;.cloth-page, .animal-page, .actor-page&#34;);
+      for (var i = 0; i &lt; pages.length; i++) {
+        var marker = findDirectSectionMarker(pages[i]);
+        while (marker) {
+          createResultAccordion(pages[i], marker);
+          marker = findDirectSectionMarker(pages[i]);
+        }
+      }
+    }
+
+    function findDirectSectionMarker(page) {
+      for (var i = 0; i &lt; page.children.length; i++) {
+        if (page.children[i].classList.contains(&#34;mb-4&#34;)) {
+          return page.children[i];
+        }
+      }
+      return null;
+    }
+
+    function getActiveResultPage(section) {
+      return section.querySelector(&#34;.cloth-page.is-active, .animal-page.is-active, .actor-page.is-active&#34;);
+    }
+
+    function setObservedMode(section, button, enabled) {
+      var panel = section.querySelector(&#34;[data-observed-panel]&#34;);
+      if (!panel) return;
+
+      section.classList.toggle(&#34;is-observed-mode&#34;, enabled);
+      panel.classList.toggle(&#34;is-active&#34;, enabled);
+      button.classList.toggle(&#34;is-active&#34;, enabled);
+      button.textContent = enabled ? &#34;Back to Results&#34; : &#34;Show observed motion&#34;;
+
+      if (enabled) {
+        unloadVideosIn(section);
+        loadVideosIn(panel);
+      } else {
+        unloadVideosIn(panel);
+        var activePage = getActiveResultPage(section);
+        if (activePage) {
+          syncPageVideos(activePage, true);
+        }
+      }
+    }
+
+    function initObservedMotionToggles() {
+      var buttons = document.querySelectorAll(&#34;[data-observed-toggle]&#34;);
+      for (var i = 0; i &lt; buttons.length; i++) {
+        buttons[i].addEventListener(&#34;click&#34;, function () {
+          var section = document.getElementById(this.dataset.observedToggle);
+          if (!section) return;
+
+          setObservedMode(section, this, !section.classList.contains(&#34;is-observed-mode&#34;));
+        });
       }
     }
 
@@ -2254,6 +2640,9 @@ Parallel 4   :         des6, after des4, 1d
       showPage(0);
     }
 
+    prepareDeferredVideos();
+    initExpandableResultSections();
+    initObservedMotionToggles();
     initClothPager();
     initAnimalPager();
     initActorPager();
