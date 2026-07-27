@@ -1,24 +1,43 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Animation | Jiaxin wang&#39;s Website</title>
-    <link>https://cookmaker.cn/tags/animation/</link>
-      <atom:link href="https://cookmaker.cn/tags/animation/index.xml" rel="self" type="application/rss+xml" />
+    <title>Animation | Jiaxin Wang — Computer Graphics Researcher</title>
+    <link>http://localhost:1313/tags/animation/</link>
+      <atom:link href="http://localhost:1313/tags/animation/index.xml" rel="self" type="application/rss+xml" />
     <description>Animation</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Thu, 09 Apr 2026 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://cookmaker.cn/media/icon_hu2479377040299485929.png</url>
+      <url>http://localhost:1313/media/icon_hu2479377040299485929.png</url>
       <title>Animation</title>
-      <link>https://cookmaker.cn/tags/animation/</link>
+      <link>http://localhost:1313/tags/animation/</link>
     </image>
     
     <item>
       <title>GaussiAnimate</title>
-      <link>https://cookmaker.cn/project/gaussianimate/</link>
+      <link>http://localhost:1313/project/gaussianimate/</link>
       <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>https://cookmaker.cn/project/gaussianimate/</guid>
-      <description>&lt;p&gt;GaussiAnimate is a scaffold-skin rigging system for reconstructing and animating diverse categories from 4D Gaussian or mesh sequences.&lt;/p&gt;
+      <guid>http://localhost:1313/project/gaussianimate/</guid>
+      <description>&lt;p&gt;Accepted to the &lt;strong&gt;SIGGRAPH Asia 2026 Conference Track&lt;/strong&gt;, GaussiAnimate is a scaffold-skin rigging system for reconstructing and animating diverse categories from 4D Gaussian or mesh sequences.&lt;/p&gt;
 &lt;p&gt;It introduces the skelebone representation and Partwise Motion Matching for controllable yet expressive reanimation. The project page includes the paper, teaser, method overview, and extensive qualitative results.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>GaussiAnimate: Reconstruct and Rig Animatable Categories with Level of Dynamics</title>
+      <link>http://localhost:1313/publication/preprint/</link>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/preprint/</guid>
+      <description>&lt;p&gt;GaussiAnimate compresses the level of dynamics of a 4D shape into compact &lt;strong&gt;skelebones&lt;/strong&gt; that remain both controllable and expressive. See the 
+ for the method and qualitative results.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>GGAvatar: Dynamic Facial Geometric Adjustment for Gaussian Head Avatar</title>
+      <link>http://localhost:1313/publication/conference-paper/</link>
+      <pubDate>Sun, 13 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/conference-paper/</guid>
+      <description>&lt;p&gt;GGAvatar reconstructs high-fidelity animatable Gaussian head avatars from monocular RGB video. Its geometry-aware coarse-to-fine design improves both novel-view rendering and expression animation.&lt;/p&gt;
+</description>
     </item>
     
   </channel>

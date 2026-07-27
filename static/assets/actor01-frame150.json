@@ -1,0 +1,29 @@
+{
+  "format": "D3DG homepage actor asset v2",
+  "source_repository": "Dynamic3DGaussians",
+  "source_dataset": "ActorsHQ actor01 sequence 1",
+  "source_experiment": "actorshq_actor01_seq1_raw580_800f",
+  "source_pointcloud": "pointcloud_t150.ply",
+  "source_skeleton_motion": "inner_skeleton/skeleton_motion/skeleton_motion.npz",
+  "source_free_form_bones": "ssdr_results_bones50_15bones_backup_before_threshold3_20260622_142317.npz",
+  "frame": 150,
+  "source_point_count": 123719,
+  "exported_point_count": 42000,
+  "joint_count": 19,
+  "edge_count": 18,
+  "free_form_bone_count": 15,
+  "bounds": {
+    "min": [
+      -0.2246589958667755,
+      0.0033179998863488436,
+      -0.17489099502563477
+    ],
+    "max": [
+      0.5931180119514465,
+      1.7518550157546997,
+      0.7172390222549438
+    ]
+  },
+  "sampling_seed": 20260722,
+  "binary_file": "actor01-frame150.d3dg"
+}

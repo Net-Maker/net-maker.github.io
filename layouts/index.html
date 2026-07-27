@@ -1,0 +1,139 @@
+{{ define "main" }}
+{{ $author := site.GetPage "/authors/admin" }}
+{{ $avatar := $author.Resources.GetMatch "avatar.jpg" }}
+{{ $avatarSmall := $avatar.Fill "128x128 Center webp" }}
+
+<main class="research-home">
+  <section class="research-hero" aria-labelledby="hero-title">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> Computer Graphics · 3D Vision</p>
+        <h1 id="hero-title">Jiaxin Wang</h1>
+        <p class="hero-cn">王佳鑫</p>
+        <div class="hero-affiliation">
+          <img src="{{ $avatarSmall.RelPermalink }}" alt="Portrait of Jiaxin Wang" width="64" height="64">
+          <p>
+            <strong>Incoming PhD Student</strong>
+            <span><a href="https://www.westlake.edu.cn/">Westlake University</a>, supervised by <a href="https://xiuyuliang.cn/">Prof. Yuliang Xiu</a></span>
+          </p>
+        </div>
+        <p class="hero-lede">
+          I turn dynamic 3D observations into structured, animatable, and controllable
+          digital worlds through Gaussian representations, reconstruction, and rigging.
+        </p>
+        <div class="hero-actions" aria-label="Profile links">
+          <a class="button-primary" href="#publications">Selected work <span aria-hidden="true">↓</span></a>
+          <a class="button-quiet" href="mailto:wangjiaxin@westlake.edu.cn">Email</a>
+          <a class="button-quiet" href="https://github.com/Net-Maker" rel="me">GitHub</a>
+          <a class="button-quiet" href="/uploads/resume.pdf">CV</a>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-label="Interactive Gaussian point cloud and skeleton visualization">
+        <canvas id="research-scene" data-actor-asset="/assets/actor01-frame150.d3dg?v={{ site.Params.asset_version }}"></canvas>
+        <div class="scene-fallback" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="research-intro section-shell" id="research">
+    <div class="section-index">01</div>
+    <div class="section-heading">
+      <p class="eyebrow">Research direction</p>
+      <h2>Making 4D representations<br>reconstructible and controllable.</h2>
+    </div>
+    <div class="research-statement">
+      <p>
+        My research lies at the intersection of computer graphics and 3D vision. I build
+        representations that recover geometry and motion from visual observations, then organize
+        them into controllable structures for animation. My current focus is dynamic Gaussian
+        reconstruction, category-agnostic rigging, and non-rigid motion synthesis.
+      </p>
+      <div class="research-tags" aria-label="Research interests">
+        <span>4D Reconstruction</span>
+        <span>Gaussian Splatting</span>
+        <span>Neural Rendering</span>
+        <span>Rigging &amp; Animation</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="publications section-shell" id="publications" aria-labelledby="publications-title">
+    <div class="section-index">02</div>
+    <div class="section-heading publications-heading">
+      <div>
+        <p class="eyebrow">Selected work</p>
+        <h2 id="publications-title">Publications</h2>
+      </div>
+      <a class="section-link" href="/publication/">View all <span aria-hidden="true">↗</span></a>
+    </div>
+
+    <div class="publication-list">
+      {{ range site.Data.publications }}
+      <article class="publication-card{{ if .featured }} publication-card-featured{{ end }}">
+        <div class="project-stage" data-project-room data-scene="{{ .scene }}" data-model="{{ .model | default "" }}">
+          <div class="project-room" aria-hidden="true">
+            <canvas class="project-room-canvas"></canvas>
+            <div class="room-grid"></div>
+            <span class="room-label">{{ .short_title }} / 3D study</span>
+            <span class="room-hint">{{ if .model }}Live asset{{ else }}3D preview{{ end }}</span>
+          </div>
+          <button class="publication-image publication-door" type="button" aria-expanded="false" aria-label="Open the {{ .short_title }} 3D scene">
+            <img src="{{ .image }}" alt="{{ .image_alt }}" loading="lazy">
+            <span class="image-index">{{ .index }}</span>
+            {{ if .featured }}<span class="featured-mark">Latest</span>{{ end }}
+            <span class="door-cue" aria-hidden="true">Explore in 3D ↗</span>
+          </button>
+        </div>
+        <div class="publication-copy">
+          <div class="publication-meta">
+            <span>{{ .venue }}</span><span>{{ .year }}</span>
+          </div>
+          <h3><a href="{{ .primary_url }}" {{ if strings.HasPrefix .primary_url "http" }}target="_blank" rel="noopener"{{ end }}>{{ .title }}</a></h3>
+          <p class="publication-authors">{{ .authors | safeHTML }}</p>
+          <p class="publication-summary">{{ .summary }}</p>
+          <div class="publication-links">
+            {{ range .links }}
+            <a href="{{ .url }}" {{ if strings.HasPrefix .url "http" }}target="_blank" rel="noopener"{{ end }}>{{ .label }} <span aria-hidden="true">↗</span></a>
+            {{ end }}
+            <button class="room-toggle" type="button" aria-label="Toggle {{ .short_title }} 3D scene">3D scene <span aria-hidden="true">↗</span></button>
+          </div>
+        </div>
+      </article>
+      {{ end }}
+    </div>
+  </section>
+
+  <section class="updates section-shell" id="news" aria-labelledby="news-title">
+    <div class="section-index">03</div>
+    <div class="section-heading">
+      <p class="eyebrow">Recent</p>
+      <h2 id="news-title">Updates</h2>
+    </div>
+    <div class="update-list">
+      <div class="update-row">
+        <time datetime="2026-07">2026.07</time>
+        <p><strong>GaussiAnimate</strong> has been accepted to the SIGGRAPH Asia 2026 Conference Track.</p>
+      </div>
+      <div class="update-row">
+        <time datetime="2024-12">2024.12</time>
+        <p><strong>HashRF</strong> was published in <em>Applied Sciences</em>.</p>
+      </div>
+      <div class="update-row">
+        <time datetime="2024">2024</time>
+        <p><strong>GGAvatar</strong> appeared at Pacific Graphics 2024.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-strip" aria-label="Contact">
+    <div>
+      <p class="eyebrow">Open to collaboration</p>
+      <h2>Let’s make ideas visible.</h2>
+    </div>
+    <a href="mailto:wangjiaxin@westlake.edu.cn">wangjiaxin@westlake.edu.cn <span aria-hidden="true">↗</span></a>
+  </section>
+</main>
+{{ end }}

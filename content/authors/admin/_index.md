@@ -6,8 +6,8 @@ title: 王佳鑫
 name_pronunciation: Jiaxin Wang
 
 # Full name (for SEO)
-first_name: Xin wang
-last_name: Jia
+first_name: Jiaxin
+last_name: Wang
 
 # Status emoji
 status:
@@ -20,18 +20,18 @@ superuser: true
 highlight_name: true
 
 # Role/position/tagline
-role: Research Assistant
+role: Incoming PhD Student
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
-  - name: Westlake Endless Lab
-    url: https://endless.do/
+  - name: Westlake University
+    url: https://www.westlake.edu.cn/
 
 # Social network links
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
 profiles:
   - icon: at-symbol
-    url: 'mailto:wangjiaxin@westkale.com'
+    url: 'mailto:wangjiaxin@westlake.edu.cn'
     label: E-mail Me
   # - icon: brands/x
   #   url: https://twitter.com/GetResearchDev
@@ -96,8 +96,8 @@ work:
     company_name: Westlake University Endless Lab
     company_url: ''
     company_logo: ''
-    date_start: 2016-01-01
-    date_end: 2020-12-31
+    date_start: 2024-07-01
+    date_end: null
     summary: |
       Responsibilities include:
       # - Migrated infrastructure to a new data center
@@ -180,5 +180,5 @@ work:
 
 ## About Me
 
-I'm now a research assistant in Westlake University, supervised by [Prof. Yuliang Xiu](https://endless.do) and [Prof. Anpei Chen](https://apchenstu.github.io/). Before that, I got my bachelor's degree in Computer Science from Hangzhou Dianzi University, where I work closely with [Prof. Weichen Dai](https://weichnn.github.io/).
+I am an incoming PhD student at Westlake University, supervised by [Prof. Yuliang Xiu](https://xiuyuliang.cn/). My research lies at the intersection of computer graphics and 3D vision, with a focus on dynamic 3D reconstruction, Gaussian representations, and controllable animation. I received my bachelor's degree in Computer Science from Hangzhou Dianzi University, where I worked closely with [Prof. Weichen Dai](https://weichnn.github.io/).
       <!-- My resarch interests include 3D/4D Reconstruction, Implicit Representation and 3D Human Avatar. -->

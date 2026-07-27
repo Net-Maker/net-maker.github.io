@@ -1,87 +1,37 @@
 ---
-title: 'Pacific Graphic 2024:GGAvatar'
-
-# Authors
-# If you created a profile for a user (e.g. the default `admin` user), write the username (folder name) here
-# and it will be replaced with their full name and linked to their profile.
+title: "GGAvatar: Dynamic Facial Geometric Adjustment for Gaussian Head Avatar"
 authors:
   - Xinyang Li
-  - Jiaxin Wang
-
-# Author notes (optional)
+  - admin
+  - Yixin Xuan
+  - Gongxin Yao
+  - Yu Pan
 author_notes:
-  - 'Equal contribution'
-  - 'Equal contribution'
-
-date: '2024-03-01T00:00:00Z'
-doi: ''
-
-# Schedule page publish date (NOT publication's date).
-publishDate: '2024-08-15T00:00:00Z'
-
-# Publication type.
-# Accepts a single type but formatted as a YAML list (for Hugo requirements).
-# Enter a publication type from the CSL standard.
-publication_types: ['paper-conference']
-
-# Publication name and optional abbreviated publication name.
-publication: In *Hugo Blox Builder Conference*
-publication_short: In *ICW*
-
-abstract: Reconstructing animatable 3D head avatars from target subject videos has long been a significant challenge and a hot topic in computer graphics. This paper proposes GGAvatar, a novel 3D avatar representation designed to robustly model dynamic head avatars with complex identities and deformations. GGAvatar employs a coarse-to-fine structure, featuring two core modules, a Neutral Gaussian Initialization Module and a Geometry Morph Adjuster. The Neutral Gaussian Initialization Module pairs Gaussian primitives with deformable triangular meshes, using an adaptive density control strategy to model the geometric structure of the target subject with neutral expressions. The Geometry Morph Adjuster introduces deformation bases for each Gaussian in global space, creating fine-grained low-dimensional representations of deformations to overcome the limitations of the Linear Blend Skinning formula. Extensive experiments show that GGAvatar can produce high-fidelity renderings, outperforming state-of-the-art methods in visual quality and quantitative metrics.
-
-# Summary. An optional shortened abstract. 
-summary: We proposed a Geometry Morph Adjuster, which enhance the quality of Human Head Reconstruction.
-
+  - "Equal contribution"
+  - "Equal contribution"
+date: "2024-10-13T00:00:00Z"
+doi: "10.2312/pg.20241313"
+publishDate: "2024-05-20T00:00:00Z"
+publication_types: ["paper-conference"]
+publication: "*Pacific Graphics Conference Papers and Posters*"
+publication_short: "*Pacific Graphics 2024*"
+abstract: "Reconstructing animatable 3D head avatars from target subject videos is challenging because identities and facial deformations vary substantially. GGAvatar introduces a coarse-to-fine Gaussian representation with a Neutral Gaussian Initialization Module and a Geometry Morph Adjuster. Gaussian primitives are paired with a deformable triangular mesh for robust geometric initialization, while global deformation bases provide a fine-grained, low-dimensional model of facial motion."
+summary: "Geometry-aware Gaussian initialization and low-dimensional morph adjustment for high-fidelity, animatable head avatars."
 tags:
-  - Human Head Reconstruction
-
-# Display this page in the Featured widget?
+  - Gaussian Splatting
+  - Human Avatar
+  - Animation
 featured: true
-
-# Custom links (uncomment lines below)
-# links:
-# - name: Custom Link
-#   url: http://example.org
-
-url_pdf: ''
-url_code: 'https://github.com/HugoBlox/hugo-blox-builder'
-url_dataset: 'https://github.com/HugoBlox/hugo-blox-builder'
-url_poster: ''
-url_project: ''
-url_slides: ''
-url_source: 'https://github.com/HugoBlox/hugo-blox-builder'
-url_video: 'https://youtube.com'
-
-# Featured image
-# To use, add an image named `featured.jpg/png` to your page's folder.
+url_pdf: "https://diglib.eg.org/bitstreams/d09c7dfb-e455-43b1-97cd-b0e11739cd37/download"
+url_code: ""
+url_dataset: ""
+url_project: ""
+url_video: "https://diglib.eg.org/items/2d1ae82e-e677-4673-9a79-0793ab541c43"
 image:
-  caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/pLCdAaMFLTE)'
-  focal_point: ''
+  caption: "GGAvatar overview"
+  focal_point: "Center"
   preview_only: false
-
-# Associated Projects (optional).
-#   Associate this publication with one or more of your projects.
-#   Simply enter your project's folder or file name without extension.
-#   E.g. `internal-project` references `content/project/internal-project/index.md`.
-#   Otherwise, set `projects: []`.
-projects:
-  - example
-
-# Slides (optional).
-#   Associate this publication with Markdown slides.
-#   Simply enter your slide deck's filename without extension.
-#   E.g. `slides: "example"` references `content/slides/example/index.md`.
-#   Otherwise, set `slides: ""`.
-slides: example
+projects: []
 ---
 
-{{% callout note %}}
-Click the _Cite_ button above to demo the feature to enable visitors to import publication metadata into their reference management software.
-{{% /callout %}}
-
-{{% callout note %}}
-Create your slides in Markdown - click the _Slides_ button to check out the example.
-{{% /callout %}}
-
-Add the publication's **full text** or **supplementary notes** here. You can use rich formatting such as including [code, math, and images](https://docs.hugoblox.com/content/writing-markdown-latex/).
+GGAvatar reconstructs high-fidelity animatable Gaussian head avatars from monocular RGB video. Its geometry-aware coarse-to-fine design improves both novel-view rendering and expression animation.

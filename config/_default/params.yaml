@@ -8,14 +8,17 @@ appearance:
   mode: system
   color: emerald
 
+# Increment when homepage static assets change so browsers do not reuse stale files.
+asset_version: "20260727-pivot-camera-v2"
+
 # SEO
 marketing:
   seo:
     site_type: Person
     local_business_type: ''
     org_name: ''
-    description: 'The highly-customizable Hugo Academic theme powered by Hugo Blox Builder. Easily create your personal academic website.'
-    twitter: 'GetResearchDev'
+    description: 'Jiaxin Wang is an incoming PhD student at Westlake University working on dynamic 3D reconstruction, Gaussian representations, rigging, and animation.'
+    twitter: ''
   analytics:
     google_analytics: ''
     baidu_tongji: ''
@@ -32,17 +35,17 @@ header:
     enable: true
     blox: "navbar"
     fixed_to_top: true
-    show_search: true
+    show_search: false
     show_theme_chooser: true
     logo:
-      text: "CookMaker"
+      text: "Jiaxin Wang"
 
 # Site footer
 footer:
   copyright:
-    notice: '© {year} Me. This work is licensed under {license}'
+    notice: '© {year} Jiaxin Wang'
     license:
-      enable: true
+      enable: false
       allow_derivatives: false
       share_alike: true
       allow_commercial: false

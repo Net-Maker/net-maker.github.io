@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Efficient Representation | Jiaxin Wang — Computer Graphics Researcher</title>
+    <link>http://localhost:1313/tags/efficient-representation/</link>
+      <atom:link href="http://localhost:1313/tags/efficient-representation/index.xml" rel="self" type="application/rss+xml" />
+    <description>Efficient Representation</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Tue, 03 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/icon_hu2479377040299485929.png</url>
+      <title>Efficient Representation</title>
+      <link>http://localhost:1313/tags/efficient-representation/</link>
+    </image>
+    
+    <item>
+      <title>Neural Radiance Fields with Hash-Low-Rank Decomposition</title>
+      <link>http://localhost:1313/publication/journal-article/</link>
+      <pubDate>Tue, 03 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/journal-article/</guid>
+      <description>&lt;p&gt;HashRF uses hash-low-rank decomposition to allocate representation capacity efficiently, preserving high-frequency scene details with a compact parameter budget.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
