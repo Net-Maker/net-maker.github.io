@@ -293,8 +293,11 @@ type: gaussianimate
     .hero-title-section .container {
       max-width: 1152px;
     }
-    .hero-title-main { font-size: 3.3rem; }
-    .hero-title-sub { font-size: 2.4rem; }
+    .hero-title-section .hero-body {
+      padding: 3.4rem 1.5rem 2.8rem;
+    }
+    .hero-title-main { font-size: 3.15rem; }
+    .hero-title-sub { font-size: 2.2rem; }
     .hero-venue {
       display: inline-flex;
       margin-top: 0.9rem;
@@ -310,30 +313,30 @@ type: gaussianimate
     }
     .hero-authors {
       margin-top: 1.2rem;
-      font-size: 1.4rem;
-      line-height: 2;
+      font-size: 1.3rem;
+      line-height: 1.85;
     }
     .hero-authors a { color: #333; }
     .hero-affiliations {
       margin-top: 0.6rem;
-      font-size: 1.2rem;
+      font-size: 1.12rem;
       color: #666;
-      line-height: 1.7;
+      line-height: 1.65;
     }
     .hero-corresponding {
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: #888;
     }
     .hero-tldr {
-      margin: 1.1rem auto 0;
-      max-width: 820px;
-      padding: 0.85rem 1.15rem;
+      margin: 1.2rem auto 0;
+      max-width: 940px;
+      padding: 0.95rem 1.3rem 1rem;
       text-align: left;
       background: #f6f7fb;
       border: 1px solid #e4e6ee;
       border-radius: 10px;
-      font-size: 1.08rem;
-      line-height: 1.65;
+      font-size: 1.05rem;
+      line-height: 1.62;
       color: #444;
     }
     .hero-tldr-label {
@@ -349,15 +352,23 @@ type: gaussianimate
       margin: 0;
       padding-left: 1.35rem;
     }
+    .hero-tldr li {
+      text-wrap: pretty;
+      widows: 2;
+      orphans: 2;
+    }
     .hero-tldr li + li {
-      margin-top: 0.35rem;
+      margin-top: 0.28rem;
     }
     .hero-emails {
-      margin-top: 0.4rem;
-      font-size: 1.05rem;
+      max-width: 980px;
+      margin: 0.55rem auto 0;
+      font-size: 0.96rem;
+      line-height: 1.55;
       color: #999;
       font-family: 'SF Mono', 'Consolas', 'Monaco', monospace;
       letter-spacing: 0.01em;
+      text-wrap: pretty;
     }
     .hero-links {
       margin-top: 1rem;
@@ -400,15 +411,17 @@ type: gaussianimate
 
     /* Shared text style for captions, acknowledgments, etc. */
     .body-text {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       color: #555;
-      line-height: 1.75;
+      line-height: 1.72;
       text-align: justify;
+      text-wrap: pretty;
     }
     .body-text-sm {
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       color: #555;
-      line-height: 1.6;
+      line-height: 1.62;
+      text-wrap: pretty;
     }
 
     /* Teaser figure */
@@ -416,15 +429,15 @@ type: gaussianimate
       margin: 2.5rem auto 0;
       padding-top: 2rem;
       border-top: 1px solid #e8e8ec;
-      max-width: 75%;
+      max-width: 82%;
     }
     .teaser-figure figcaption {
       margin-top: 0.8rem;
     }
 
-    /* Narrow column (75%) for abstract / ack */
+    /* Shared reading width for abstract / acknowledgments */
     .col-narrow {
-      max-width: 75%;
+      max-width: 82%;
     }
 
     /* Method figure captions */
@@ -732,18 +745,94 @@ type: gaussianimate
 
     /* Acknowledgments project table */
     .ack-table {
-      margin: 0.4rem auto 1rem;
+      margin: 0.4rem auto 1.15rem;
       border-collapse: collapse;
-      width: auto;
+      max-width: 900px;
+      width: 100%;
+    }
+    .ack-table tr + tr {
+      border-top: 1px solid #eceef1;
     }
     .ack-table td:first-child {
-      padding: 3px 12px 3px 0;
+      padding: 6px 18px 6px 0;
       font-weight: 600;
       white-space: nowrap;
+      width: 31%;
     }
     .ack-table td:last-child {
-      padding: 3px 0;
+      padding: 6px 0;
       color: #888;
+    }
+
+    @media screen and (max-width: 768px) {
+      .hero-title-section .hero-body {
+        padding: 2.25rem 1rem 2rem;
+      }
+      .hero-title-main {
+        font-size: 2.4rem;
+      }
+      .hero-title-sub {
+        display: inline-block;
+        font-size: 1.5rem;
+        line-height: 1.22;
+        margin-top: 0.25rem;
+      }
+      .hero-venue {
+        font-size: 0.78rem;
+        letter-spacing: 0.035em;
+      }
+      .hero-authors {
+        font-size: 1.08rem;
+        line-height: 1.7;
+      }
+      .hero-affiliations {
+        font-size: 0.95rem;
+        line-height: 1.55;
+      }
+      .hero-corresponding {
+        font-size: 0.9rem;
+      }
+      .hero-tldr {
+        margin-top: 0.9rem;
+        max-width: 100%;
+        padding: 0.8rem 0.9rem 0.85rem;
+        font-size: 0.98rem;
+        line-height: 1.55;
+      }
+      .hero-tldr-label {
+        margin-bottom: 0.35rem;
+        font-size: 0.82rem;
+      }
+      .hero-emails {
+        font-size: 0.8rem;
+        line-height: 1.5;
+        overflow-wrap: anywhere;
+      }
+      .hero-link-btn {
+        padding: 0.58rem 1rem;
+        font-size: 0.92rem;
+      }
+      .body-text {
+        font-size: 1.02rem;
+        line-height: 1.65;
+        text-align: left;
+      }
+      .body-text-sm {
+        font-size: 0.98rem;
+        line-height: 1.55;
+      }
+      .teaser-figure,
+      .col-narrow {
+        max-width: 100%;
+      }
+      .ack-table td:first-child {
+        padding-right: 12px;
+        white-space: normal;
+        width: 38%;
+      }
+      .ack-table td {
+        vertical-align: top;
+      }
     }
   </style>
 </head>
@@ -1560,6 +1649,8 @@ type: gaussianimate
             <tr><td><a href="https://dynamic3dgaussians.github.io/" target="_blank">Dynamic 3D Gaussians</a></td><td>Persistent dynamic Gaussian tracking</td></tr>
             <tr><td><a href="https://yaoyx689.github.io/RigGS.html" target="_blank">RigGS</a></td><td>Gaussian-based articulated rigging</td></tr>
             <tr><td><a href="https://cgal.org/2015/02/27/cgal-wipMCF" target="_blank">Mean Curvature Skeleton</a></td><td>Curve skeleton extraction via mean curvature flow</td></tr>
+            <tr><td><a href="https://frank-zy-dou.github.io/projects/CoverageAxis/index.html" target="_blank">Coverage Axis</a></td><td>Compact medial-axis approximation via global surface coverage</td></tr>
+            <tr><td><a href="https://frank-zy-dou.github.io/projects/CoverageAxis%2B%2B/index.html" target="_blank">Coverage Axis++</a></td><td>Efficient skeletal point selection with coverage and uniformity</td></tr>
             <tr><td><a href="https://github.com/electronicarts/dem-bones" target="_blank">DemBones</a></td><td>Smooth skinning decomposition with rigid bones</td></tr>
             <tr><td><a href="https://lhchen.top/Motion2Motion/" target="_blank">Motion2Motion</a></td><td>Cross-topology motion transfer</td></tr>
             <tr><td><a href="https://arxiv.org/abs/2103.15545" target="_blank">Drop the GAN</a></td><td>Patch nearest-neighbor generative framework</td></tr>
