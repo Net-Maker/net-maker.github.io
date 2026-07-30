@@ -1,4 +1,4 @@
-import * as THREE from "three";
+let THREE;
 
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const STAGE_DURATION = 16000;
@@ -754,10 +754,32 @@ initComparisonVideoCleanup();
 
 const stage = document.querySelector("[data-skelebones-stage]");
 if (stage) {
-  initSkelebonesStage(stage).catch((error) => {
-    console.warn("Unable to initialize the Skelebones stage:", error);
-    stage.classList.add("is-error");
-    stage.querySelector(".skelebones-stage-fallback").textContent =
-      "The interactive representation could not be loaded.";
-  });
+  let initializationStarted = false;
+  const initialize = async () => {
+    if (initializationStarted) return;
+    initializationStarted = true;
+    try {
+      THREE = await import("three");
+      await initSkelebonesStage(stage);
+    } catch (error) {
+      console.warn("Unable to initialize the Skelebones stage:", error);
+      stage.classList.add("is-error");
+      stage.querySelector(".skelebones-stage-fallback").textContent =
+        "The interactive representation could not be loaded.";
+    }
+  };
+
+  if ("IntersectionObserver" in window) {
+    const loaderObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        loaderObserver.disconnect();
+        initialize();
+      },
+      { rootMargin: "700px 0px", threshold: 0.01 },
+    );
+    loaderObserver.observe(stage);
+  } else {
+    initialize();
+  }
 }

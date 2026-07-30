@@ -15,10 +15,8 @@ type: gaussianimate
   <link rel="stylesheet" href="/gaussianimate/static/css/bulma.min.css">
   <link rel="stylesheet" href="/gaussianimate/static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="/gaussianimate/static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="/gaussianimate/static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="/gaussianimate/static/css/index.css">
-  <script defer src="/gaussianimate/static/js/fontawesome.all.min.js"></script>
   <script src="/gaussianimate/static/js/bulma-carousel.min.js"></script>
   <script src="/gaussianimate/static/js/bulma-slider.min.js"></script>
   <script src="/gaussianimate/static/js/index.js"></script>
@@ -415,6 +413,11 @@ type: gaussianimate
       justify-content: center;
       flex: 0 0 auto;
       font-size: 1rem;
+    }
+    .hero-link-btn .icon svg {
+      display: block;
+      height: 100%;
+      width: 100%;
     }
 
     /* Shared text style for captions, acknowledgments, etc. */
@@ -1031,7 +1034,10 @@ type: gaussianimate
             <div class="hero-links">
               <a class="hero-link-btn" href="https://github.com/Net-Maker/GaussiAnimate" target="_blank">
                 <span class="icon">
-                  <i class="fab fa-github"></i>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3.3-.4 6.8-1.6 6.8-7A5.5 5.5 0 0 0 19.3 3.7 5.1 5.1 0 0 0 19.2 0S18 0 15 1.5a13.4 13.4 0 0 0-6 0C6 0 4.8 0 4.8 0a5.1 5.1 0 0 0-.1 3.7A5.5 5.5 0 0 0 3.2 7.5c0 5.4 3.5 6.6 6.8 7A4.8 4.8 0 0 0 9 18v4"/>
+                    <path d="M9 18c-4.5 2-5-2-7-2"/>
+                  </svg>
                 </span>
                 <span>Code (Coming Soon)</span>
               </a>
@@ -1190,10 +1196,10 @@ type: gaussianimate
               <div class="gallery-cat-main">Clothed Human</div>
               <div class="gallery-cat-sub">4D Gaussians</div>
             </td>
-            <td><div class="gallery-vid-wrap"><video autoplay loop muted playsinline><source src="/gaussianimate/static/videos/teaser/gaussian/skeleton.mp4" type="video/mp4"></video></div></td>
-            <td><div class="gallery-vid-wrap"><video autoplay loop muted playsinline><source src="/gaussianimate/static/videos/teaser/gaussian/bones.mp4" type="video/mp4"></video></div></td>
-            <td><div class="gallery-vid-wrap"><video autoplay loop muted playsinline><source src="/gaussianimate/static/videos/teaser/gaussian/skinning_bones.mp4" type="video/mp4"></video></div></td>
-            <td><div class="gallery-vid-wrap"><video autoplay loop muted playsinline><source src="/gaussianimate/static/videos/teaser/gaussian/pc_bones.mp4" type="video/mp4"></video></div></td>
+            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/gaussian/skeleton.mp4" type="video/mp4"></video></div></td>
+            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/gaussian/bones.mp4" type="video/mp4"></video></div></td>
+            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/gaussian/skinning_bones.mp4" type="video/mp4"></video></div></td>
+            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/gaussian/pc_bones.mp4" type="video/mp4"></video></div></td>
           </tr>
           <!-- Bucks -->
           <tr>
@@ -1201,10 +1207,10 @@ type: gaussianimate
               <div class="gallery-cat-main">Quadruped</div>
               <div class="gallery-cat-sub">Mesh &middot; Bucks</div>
             </td>
-            <td><div class="gallery-vid-wrap"><video autoplay loop muted playsinline><source src="/gaussianimate/static/videos/teaser/bucks/skeleton.mp4" type="video/mp4"></video></div></td>
-            <td><div class="gallery-vid-wrap"><video autoplay loop muted playsinline><source src="/gaussianimate/static/videos/teaser/bucks/ssdr_bones.mp4" type="video/mp4"></video></div></td>
-            <td><div class="gallery-vid-wrap"><video autoplay loop muted playsinline><source src="/gaussianimate/static/videos/teaser/bucks/skinning_mesh.mp4" type="video/mp4"></video></div></td>
-            <td><div class="gallery-vid-wrap"><video autoplay loop muted playsinline><source src="/gaussianimate/static/videos/teaser/bucks/combined.mp4" type="video/mp4"></video></div></td>
+            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/bucks/skeleton.mp4" type="video/mp4"></video></div></td>
+            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/bucks/ssdr_bones.mp4" type="video/mp4"></video></div></td>
+            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/bucks/skinning_mesh.mp4" type="video/mp4"></video></div></td>
+            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/bucks/combined.mp4" type="video/mp4"></video></div></td>
           </tr>
           <!-- Cloth -->
           <tr>
@@ -1212,10 +1218,10 @@ type: gaussianimate
               <div class="gallery-cat-main">Garment</div>
               <div class="gallery-cat-sub">Mesh &middot; Cloth</div>
             </td>
-            <td><div class="gallery-vid-wrap"><video autoplay loop muted playsinline><source src="/gaussianimate/static/videos/teaser/cloth/skeleton.mp4" type="video/mp4"></video></div></td>
-            <td><div class="gallery-vid-wrap"><video autoplay loop muted playsinline><source src="/gaussianimate/static/videos/teaser/cloth/ssdr_bones.mp4" type="video/mp4"></video></div></td>
-            <td><div class="gallery-vid-wrap"><video autoplay loop muted playsinline><source src="/gaussianimate/static/videos/teaser/cloth/skinning_mesh.mp4" type="video/mp4"></video></div></td>
-            <td><div class="gallery-vid-wrap"><video autoplay loop muted playsinline><source src="/gaussianimate/static/videos/teaser/cloth/combined.mp4" type="video/mp4"></video></div></td>
+            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/cloth/skeleton.mp4" type="video/mp4"></video></div></td>
+            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/cloth/ssdr_bones.mp4" type="video/mp4"></video></div></td>
+            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/cloth/skinning_mesh.mp4" type="video/mp4"></video></div></td>
+            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/cloth/combined.mp4" type="video/mp4"></video></div></td>
           </tr>
           <!-- Dragon -->
           <tr>
@@ -1223,10 +1229,10 @@ type: gaussianimate
               <div class="gallery-cat-main">Dragon</div>
               <div class="gallery-cat-sub">Mesh &middot; Biped</div>
             </td>
-            <td><div class="gallery-vid-wrap"><video autoplay loop muted playsinline><source src="/gaussianimate/static/videos/teaser/dragon/skeleton.mp4" type="video/mp4"></video></div></td>
-            <td><div class="gallery-vid-wrap"><video autoplay loop muted playsinline><source src="/gaussianimate/static/videos/teaser/dragon/ssdr_bones.mp4" type="video/mp4"></video></div></td>
-            <td><div class="gallery-vid-wrap"><video autoplay loop muted playsinline><source src="/gaussianimate/static/videos/teaser/dragon/skinning_mesh.mp4" type="video/mp4"></video></div></td>
-            <td><div class="gallery-vid-wrap"><video autoplay loop muted playsinline><source src="/gaussianimate/static/videos/teaser/dragon/combined.mp4" type="video/mp4"></video></div></td>
+            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/dragon/skeleton.mp4" type="video/mp4"></video></div></td>
+            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/dragon/ssdr_bones.mp4" type="video/mp4"></video></div></td>
+            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/dragon/skinning_mesh.mp4" type="video/mp4"></video></div></td>
+            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/dragon/combined.mp4" type="video/mp4"></video></div></td>
           </tr>
         </tbody>
       </table>
@@ -1234,7 +1240,25 @@ type: gaussianimate
 
       <!-- Teaser Figure -->
       <figure class="teaser-figure">
-        <img src="/gaussianimate/static/images/teaser.png" alt="Project Teaser" width="100%">
+        <picture>
+          <source
+            type="image/webp"
+            srcset="
+              /gaussianimate/static/images/teaser-1600.webp 1600w,
+              /gaussianimate/static/images/teaser-2400.webp 2400w,
+              /gaussianimate/static/images/teaser-3200.webp 3200w"
+            sizes="(max-width: 768px) calc(100vw - 2rem), 960px"
+          >
+          <img
+            src="/gaussianimate/static/images/teaser-fallback.jpg"
+            alt="Project Teaser"
+            width="2400"
+            height="1350"
+            loading="lazy"
+            decoding="async"
+            fetchpriority="low"
+          >
+        </picture>
         <figcaption class="body-text">
           <strong>GaussiAnimate</strong> is designed to (1) <strong>rig</strong> diverse animatable entities&mdash;typically featuring a soft exterior and rigid core (e.g., clothed humans, quadrupeds, bipeds, birds, and garments)&mdash;from reconstructed consistent 4DGS or mesh sequences. This relies on a novel <span class="skel-color">skele</span><span class="bone-color">bones</span> representation that balances the intuitive control of <span class="skel-color">kinematic skeletons</span> with the deformation fidelity of <span class="bone-color">free-form bones</span>; and (2) <strong>animate</strong> these rigged entities non-parametrically via Partwise Motion Matching (PartMM), where skeletons drive the bones to enable kinematic control over non-rigid deformations.
         </figcaption>
@@ -1854,6 +1878,39 @@ type: gaussianimate
       }
     }
 
+    function initTeaserGalleryVideos() {
+      var gallery = document.getElementById("teaser-gallery-videos");
+      if (!gallery) return;
+
+      var videos = gallery.querySelectorAll("video");
+      if (!("IntersectionObserver" in window)) {
+        loadVideosIn(gallery);
+        return;
+      }
+
+      var observer = new IntersectionObserver(function (entries) {
+        for (var i = 0; i < entries.length; i++) {
+          var video = entries[i].target;
+          if (entries[i].isIntersecting) {
+            setVideoSource(video, true);
+            video.autoplay = true;
+            video.preload = "metadata";
+            playDeferredVideo(video);
+          } else {
+            video.autoplay = false;
+            video.pause();
+          }
+        }
+      }, {
+        rootMargin: "360px 0px",
+        threshold: 0.01,
+      });
+
+      for (var i = 0; i < videos.length; i++) {
+        observer.observe(videos[i]);
+      }
+    }
+
     function loadVideosIn(container) {
       var videos = container.querySelectorAll("video");
       for (var i = 0; i < videos.length; i++) {
@@ -1881,7 +1938,20 @@ type: gaussianimate
       }
     }
 
+    function getDeferredResultSection(element) {
+      return element.closest("#vto-section, #deformingthings4d-section, #actorshq-section");
+    }
+
+    function isResultSectionMediaActive(element) {
+      var section = getDeferredResultSection(element);
+      return !section || section.dataset.mediaActive === "true";
+    }
+
     function syncPageVideos(page, shouldPlay) {
+      if (shouldPlay && !isResultSectionMediaActive(page)) {
+        shouldPlay = false;
+      }
+
       if (!shouldPlay) {
         unloadVideosIn(page);
         return;
@@ -1935,7 +2005,7 @@ type: gaussianimate
         button.setAttribute("aria-expanded", open ? "true" : "false");
         button.querySelector(".result-accordion-hint").textContent = open ? "Click to collapse" : "Click to expand";
 
-        if (open && page.classList.contains("is-active")) {
+        if (open && page.classList.contains("is-active") && isResultSectionMediaActive(page)) {
           loadVideosIn(body);
         } else {
           unloadVideosIn(body);
@@ -1978,13 +2048,70 @@ type: gaussianimate
 
       if (enabled) {
         unloadVideosIn(section);
-        loadVideosIn(panel);
+        if (isResultSectionMediaActive(section)) {
+          loadVideosIn(panel);
+        }
       } else {
         unloadVideosIn(panel);
         var activePage = getActiveResultPage(section);
         if (activePage) {
           syncPageVideos(activePage, true);
         }
+      }
+    }
+
+    function syncResultSectionMedia(section) {
+      if (!isResultSectionMediaActive(section)) {
+        unloadVideosIn(section);
+        return;
+      }
+
+      if (section.classList.contains("is-observed-mode")) {
+        var observedPanel = section.querySelector("[data-observed-panel]");
+        if (observedPanel) {
+          loadVideosIn(observedPanel);
+        }
+        return;
+      }
+
+      var activePage = getActiveResultPage(section);
+      if (activePage) {
+        syncPageVideos(activePage, true);
+      }
+    }
+
+    function initResultSectionMediaObservers() {
+      var sections = [
+        document.getElementById("vto-section"),
+        document.getElementById("deformingthings4d-section"),
+        document.getElementById("actorshq-section"),
+      ].filter(Boolean);
+
+      for (var i = 0; i < sections.length; i++) {
+        sections[i].dataset.mediaActive = "false";
+      }
+
+      if (!("IntersectionObserver" in window)) {
+        for (var i = 0; i < sections.length; i++) {
+          sections[i].dataset.mediaActive = "true";
+          syncResultSectionMedia(sections[i]);
+        }
+        return;
+      }
+
+      var observer = new IntersectionObserver(function (entries) {
+        for (var i = 0; i < entries.length; i++) {
+          var section = entries[i].target;
+          section.dataset.mediaActive = entries[i].isIntersecting ? "true" : "false";
+          syncResultSectionMedia(section);
+        }
+      }, {
+        rootMargin: "700px 0px",
+        threshold: 0.01,
+      });
+
+      for (var i = 0; i < sections.length; i++) {
+        observer.observe(sections[i]);
       }
     }
 
@@ -2117,8 +2244,10 @@ type: gaussianimate
     }
 
     prepareDeferredVideos();
+    initTeaserGalleryVideos();
     initExpandableResultSections();
     initObservedMotionToggles();
+    initResultSectionMediaObservers();
     initClothPager();
     initAnimalPager();
     initActorPager();
@@ -2149,7 +2278,7 @@ type: gaussianimate
       }
     }
   </script>
-  <script type="module" src="/gaussianimate/static/js/skelebones-stage.js?v=10"></script>
+  <script type="module" src="/gaussianimate/static/js/skelebones-stage.js?v=11"></script>
 
 </body>
 
