@@ -257,7 +257,7 @@ function initHero() {
   rig.add(fallback);
   addStudio(scene);
 
-  loadActorAsset(canvas.dataset.actorAsset || "/assets/actor01-frame150.d3dg")
+  loadActorAsset(canvas.dataset.actorAsset || "/assets/actor01-frame773.d3dg")
     .then((actor) => {
       rig.remove(fallback);
       rig.add(actor);
