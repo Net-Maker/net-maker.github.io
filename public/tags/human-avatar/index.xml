@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Human Avatar | Jiaxin Wang — Computer Graphics Researcher</title>
-    <link>http://localhost:1313/tags/human-avatar/</link>
-      <atom:link href="http://localhost:1313/tags/human-avatar/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://cookmaker.cn/tags/human-avatar/</link>
+      <atom:link href="https://cookmaker.cn/tags/human-avatar/index.xml" rel="self" type="application/rss+xml" />
     <description>Human Avatar</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 13 Oct 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:1313/media/icon_hu2479377040299485929.png</url>
+      <url>https://cookmaker.cn/media/icon_hu2479377040299485929.png</url>
       <title>Human Avatar</title>
-      <link>http://localhost:1313/tags/human-avatar/</link>
+      <link>https://cookmaker.cn/tags/human-avatar/</link>
     </image>
     
     <item>
       <title>GGAvatar: Dynamic Facial Geometric Adjustment for Gaussian Head Avatar</title>
-      <link>http://localhost:1313/publication/conference-paper/</link>
+      <link>https://cookmaker.cn/publication/conference-paper/</link>
       <pubDate>Sun, 13 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/publication/conference-paper/</guid>
+      <guid>https://cookmaker.cn/publication/conference-paper/</guid>
       <description>&lt;p&gt;GGAvatar reconstructs high-fidelity animatable Gaussian head avatars from monocular RGB video. Its geometry-aware coarse-to-fine design improves both novel-view rendering and expression animation.&lt;/p&gt;
 </description>
     </item>

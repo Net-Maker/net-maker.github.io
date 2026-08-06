@@ -5,9 +5,11 @@
   authors: "<strong>Jiaxin Wang</strong>, Dongxin Lyu, Zeyu Cai, Zhiyang Dou, Cheng Lin, Anpei Chen, Yuliang Xiu"
   venue: "SIGGRAPH Asia · Conference Track"
   year: "2026"
-  image: "/gaussianimate/static/images/teaser.png"
+  image: "/gaussianimate/static/images/teaser-1600.webp?v=2"
   image_alt: "GaussiAnimate reconstructs category-agnostic skeletons and expressive free-form bones from dynamic 3D sequences."
+  interactive: true
   scene: "skelebones"
+  asset: "/assets/actor01-frame773.d3dg?v=20260806"
   model: ""
   summary: "A scaffold–skin rigging system that compresses dynamic 4D shapes into controllable, expressive skelebones and reanimates them through Partwise Motion Matching."
   primary_url: "/gaussianimate/"
@@ -25,8 +27,6 @@
   year: "2024"
   image: "/publication/conference-paper/featured.jpg"
   image_alt: "GGAvatar pipeline from monocular RGB video to a high-fidelity animatable Gaussian head avatar."
-  scene: "avatar"
-  model: ""
   summary: "A coarse-to-fine Gaussian avatar representation with neutral geometric initialization and a low-dimensional Geometry Morph Adjuster for detailed facial deformation."
   primary_url: "https://doi.org/10.2312/pg.20241313"
   links:
@@ -43,8 +43,6 @@
   year: "2024"
   image: "/images/hashrf.svg"
   image_alt: "Abstract visualization of HashRF combining low-rank planes with a multi-resolution hash encoding."
-  scene: "hashfield"
-  model: ""
   summary: "A compact radiance field that combines low-rank tensor decomposition with multi-resolution hash encoding to preserve fine detail using fewer parameters."
   primary_url: "https://doi.org/10.3390/app142311277"
   links:

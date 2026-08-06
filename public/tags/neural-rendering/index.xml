@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Neural Rendering | Jiaxin Wang — Computer Graphics Researcher</title>
-    <link>http://localhost:1313/tags/neural-rendering/</link>
-      <atom:link href="http://localhost:1313/tags/neural-rendering/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://cookmaker.cn/tags/neural-rendering/</link>
+      <atom:link href="https://cookmaker.cn/tags/neural-rendering/index.xml" rel="self" type="application/rss+xml" />
     <description>Neural Rendering</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Tue, 03 Dec 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:1313/media/icon_hu2479377040299485929.png</url>
+      <url>https://cookmaker.cn/media/icon_hu2479377040299485929.png</url>
       <title>Neural Rendering</title>
-      <link>http://localhost:1313/tags/neural-rendering/</link>
+      <link>https://cookmaker.cn/tags/neural-rendering/</link>
     </image>
     
     <item>
       <title>Neural Radiance Fields with Hash-Low-Rank Decomposition</title>
-      <link>http://localhost:1313/publication/journal-article/</link>
+      <link>https://cookmaker.cn/publication/journal-article/</link>
       <pubDate>Tue, 03 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/publication/journal-article/</guid>
+      <guid>https://cookmaker.cn/publication/journal-article/</guid>
       <description>&lt;p&gt;HashRF uses hash-low-rank decomposition to allocate representation capacity efficiently, preserving high-frequency scene details with a compact parameter budget.&lt;/p&gt;
 </description>
     </item>

@@ -1,0 +1,849 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>GaussiAnimate — Writing Study</title>
+  <style>
+    :root {
+      color-scheme: light;
+      background: #fff;
+      color: #101010;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html, body { width: 100%; min-height: 100%; margin: 0; background: #fff; }
+    body { overflow: hidden; }
+    main { min-height: 100svh; display: grid; place-items: center; padding: clamp(24px, 6vw, 88px); }
+    .wordmark-button {
+      width: min(1120px, 92vw);
+      min-width: 0;
+      max-width: 100%;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .stage { position: relative; display: block; width: 100%; min-width: 0; aspect-ratio: 601 / 146; }
+    .stage canvas, .stage svg { position: absolute; inset: 0; display: block; width: 100%; min-width: 0; height: 100%; }
+    .skeleton-layer, .outer-bones-layer, .dot-bones-3d { overflow: visible; pointer-events: none; }
+    .skeleton-edge {
+      fill: none;
+      stroke: #cbbda3;
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .skeleton-node {
+      fill: #ff4b46;
+      stroke: #f1eadf;
+      stroke-width: 1.15;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+    .outer-bone {
+      opacity: .98;
+      image-rendering: auto;
+    }
+    .debug-paths { opacity: 0; pointer-events: none; }
+    .debug .debug-paths { opacity: 1; }
+    .debug-paths path { fill: none; stroke: #1473e6; stroke-width: 1.25; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+    .replay {
+      position: fixed;
+      display: grid;
+      place-items: center;
+      color: #777;
+      border: 1px solid #dedede;
+      background: rgba(255,255,255,.92);
+      transition: color 160ms ease, border-color 160ms ease;
+    }
+    .replay { top: 20px; right: 20px; width: 42px; height: 42px; padding: 0; border-radius: 50%; cursor: pointer; }
+    .replay svg { width: 16px; height: 16px; }
+    .replay:hover { color: #111; border-color: #aaa; }
+    .wordmark-button:focus-visible, .replay:focus-visible { outline: 2px solid #111; outline-offset: 5px; }
+    html.theme-dark, html.theme-dark body, html.theme-dark main { background: #2c2c2c; color: #fff; }
+    body.theme-dark .replay {
+      color: rgba(255,255,255,.68);
+      border-color: rgba(255,255,255,.24);
+      background: rgba(44,44,44,.94);
+    }
+    body.theme-dark .replay:hover { color: #fff; border-color: rgba(255,255,255,.58); }
+    body.theme-dark .wordmark-button:focus-visible,
+    body.theme-dark .replay:focus-visible { outline-color: #fff; }
+    body.theme-dark .debug-paths path { stroke: #77b7ff; }
+    body.outer-layout .wordmark-button { cursor: default; }
+    body.outer-layout .replay { display: none; }
+    html.embed, html.embed body { width: 100%; height: 100%; min-height: 100%; }
+    body.embed main { min-height: 100%; padding: 0; }
+    body.embed .wordmark-button { width: 94%; cursor: default; pointer-events: none; }
+    body.embed .replay { display: none; }
+    html.embed:not(.theme-dark),
+    html.embed:not(.theme-dark) body,
+    body.embed:not(.theme-dark) main { background: transparent; }
+    @media (max-width: 640px) {
+      main { padding: 18px; }
+      .wordmark-button { width: 96vw; }
+      .replay { top: 14px; right: 14px; width: 38px; height: 38px; }
+    }
+    @media (prefers-reduced-motion: reduce) { .replay svg { transition: none; } }
+  </style>
+</head>
+<body>
+  <main>
+    <button class="wordmark-button" type="button" aria-label="重新播放 GaussiAnimate 书写动画">
+      <span class="stage">
+        <canvas class="ink" aria-hidden="true"></canvas>
+        <svg class="skeleton-layer" viewBox="0 0 601 146" aria-hidden="true"></svg>
+        <svg class="outer-bones-layer" viewBox="0 0 601 146" aria-hidden="true"></svg>
+        <canvas class="dot-bones-3d" aria-hidden="true"></canvas>
+        <svg class="debug-paths" viewBox="0 0 601 146" aria-hidden="true"></svg>
+      </span>
+    </button>
+  </main>
+  <button class="replay" type="button" aria-label="重新播放">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.34 5.66M20 5v6h-6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <script type="module">
+    import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.185.1/build/three.module.min.js";
+
+    const SVG_NS = "http://www.w3.org/2000/svg";
+    const query = new URLSearchParams(location.search);
+    const VARIANTS = {
+      "ai-brush": {
+        id: "ai-brush",
+        label: "AE",
+        viewBox: [0, 0, 601, 146],
+        image: "./gaussianimate-ai-logo-hd.png",
+        seed: "./ai-logo-strokes.json",
+        finalSeed: "./ai-brush-final-rig.json",
+        storageKey: "gaussianimate-ae-mask-current",
+        legacyStorageKeys: ["gaussianimate-ae-mask-v6"],
+      },
+      "caveat-brush": {
+        id: "caveat-brush",
+        label: "Caveat Brush",
+        viewBox: [0, 0, 1280, 260],
+        image: "./caveat-brush-logo.png",
+        seed: "./caveat-brush-editor-rig.json",
+        finalSeed: "./caveat-brush-final-rig.json",
+        storageKey: "gaussianimate-caveat-brush-ae-mask-v1",
+        legacyStorageKeys: [],
+      },
+    };
+    const CONFIG = VARIANTS[query.get("variant")] || VARIANTS["ai-brush"];
+    const USE_FINAL = query.get("source") === "final";
+    const IS_DARK = query.get("theme") === "dark";
+    const DARK_BACKGROUND = "#2c2c2c";
+    const OUTER_MODE = query.get("outer") || "";
+    const EMBED_MODE = query.has("embed");
+    const requestedWritingSpeed = Number(query.get("writingSpeed"));
+    const WRITING_SPEED = Number.isFinite(requestedWritingSpeed) && requestedWritingSpeed > 0
+      ? Math.min(Math.max(requestedWritingSpeed, .25), 4)
+      : 1;
+    const SHOW_OUTER_LAYOUT = ["layout", "surface", "edge"].includes(OUTER_MODE) && CONFIG.id === "caveat-brush";
+    const ANIMATE_OUTER_BONES = OUTER_MODE === "animate" && CONFIG.id === "caveat-brush";
+    const SHOW_OUTER_BONES = SHOW_OUTER_LAYOUT || ANIMATE_OUTER_BONES;
+    const VIEW_WIDTH = CONFIG.viewBox[2];
+    const VIEW_HEIGHT = CONFIG.viewBox[3];
+    const STORAGE_KEY = CONFIG.storageKey;
+    const BACKUP_STORAGE_KEY = `${STORAGE_KEY}-backup`;
+    const LEGACY_STORAGE_KEYS = CONFIG.legacyStorageKeys;
+    const canvas = document.querySelector(".ink");
+    const context = canvas.getContext("2d");
+    const maskCanvas = document.createElement("canvas");
+    const maskContext = maskCanvas.getContext("2d");
+    const stage = document.querySelector(".stage");
+    const skeletonLayer = document.querySelector(".skeleton-layer");
+    const outerBonesLayer = document.querySelector(".outer-bones-layer");
+    const dotBonesCanvas = document.querySelector(".dot-bones-3d");
+    const debugLayer = document.querySelector(".debug-paths");
+    const replayControls = [document.querySelector(".wordmark-button"), document.querySelector(".replay")];
+    const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+    const image = new Image();
+    let animationFrame = 0;
+    let currentProgress = 0;
+    let writingDuration = 5200;
+    let totalDuration = 5200;
+    let entries = [];
+    let skeletonEntries = [];
+    let outerBoneEntries = [];
+    let dotBoneEntries = [];
+    let dotBoneRenderer = null;
+    let dotBoneScene = null;
+    let dotBoneCamera = null;
+    let dotBoneRoot = null;
+
+    const SKELETON_HOLD_MS = 260;
+    const SKELETON_GROW_MS = 1600;
+    const SKELETON_STAGGER_MS = 22;
+    const OUTER_BONE_HOLD_MS = 220;
+    const OUTER_BONE_GROW_MS = 1500;
+    const OUTER_BONE_STAGGER_MS = 92;
+    const OUTER_BONE_SPIN_MS = 2800;
+    const OUTER_BONE_END_HOLD_MS = 260;
+    const OUTER_BONE_REVEAL_ORDER = {
+      G: [0, 1, 4, 2, 3, 6, 5, 7],
+      A: [0, 1, 2, 3, 4, 5],
+      i: [3.5, 4.2],
+    };
+    const OUTER_BONE_ASSETS = {
+      1: { url: "./outer-bones/view-01.png", width: 357, height: 421, sphere: [.714, .496] },
+      2: { url: "./outer-bones/view-02.png", width: 410, height: 346, sphere: [.380, .723] },
+      3: { url: "./outer-bones/view-03.png", width: 389, height: 405, sphere: [.344, .523] },
+      4: { url: "./outer-bones/view-04.png", width: 324, height: 354, sphere: [.685, .627] },
+      5: { url: "./outer-bones/view-05.png", width: 377, height: 374, sphere: [.271, .733] },
+      6: { url: "./outer-bones/view-06.png", width: 374, height: 375, sphere: [.727, .733] },
+      7: { url: "./outer-bones/view-07.png", width: 364, height: 364, sphere: [.720, .280] },
+      8: { url: "./outer-bones/view-08.png", width: 313, height: 371, sphere: [.326, .722] },
+    };
+    const OUTER_BONE_LAYOUTS = {
+      layout: {
+        G: [
+          { view: 3, x: 94, y: 78, size: 28, angle: -8 },
+          { view: 5, x: 148, y: 48, size: 27, angle: 4 },
+          { view: 4, x: 205, y: 87, size: 27, angle: 7 },
+          { view: 2, x: 87, y: 142, size: 29, angle: -5 },
+          { view: 7, x: 156, y: 132, size: 23, angle: 9 },
+          { view: 6, x: 211, y: 149, size: 28, angle: 5 },
+          { view: 1, x: 111, y: 207, size: 27, angle: -6 },
+          { view: 8, x: 188, y: 211, size: 27, angle: 7 },
+        ],
+        A: [
+          { view: 3, x: 596, y: 53, size: 27, angle: -6 },
+          { view: 4, x: 665, y: 68, size: 27, angle: 7 },
+          { view: 2, x: 573, y: 124, size: 28, angle: -4 },
+          { view: 6, x: 690, y: 145, size: 28, angle: 6 },
+          { view: 1, x: 605, y: 211, size: 27, angle: -7 },
+          { view: 8, x: 672, y: 200, size: 27, angle: 5 },
+        ],
+      },
+      surface: {
+        G: [
+          { view: 3, x: 140.2, y: 77.9, size: 23, angle: -8, anchor: "sphere" },
+          { view: 5, x: 160.1, y: 70.1, size: 22, angle: 4, anchor: "sphere" },
+          { view: 4, x: 178.5, y: 118.6, size: 23, angle: 7, anchor: "sphere" },
+          { view: 2, x: 120.1, y: 115.1, size: 24, angle: -5, anchor: "sphere" },
+          { view: 6, x: 159.5, y: 125.6, size: 22, angle: 5, anchor: "sphere" },
+          { view: 7, x: 182.9, y: 156, size: 22, angle: 9, anchor: "sphere" },
+          { view: 8, x: 128, y: 176.1, size: 23, angle: 7, anchor: "sphere" },
+          { view: 1, x: 178, y: 198.5, size: 23, angle: -6, anchor: "sphere" },
+        ],
+        A: [
+          { view: 3, x: 608.7, y: 109.2, size: 23, angle: -6, anchor: "sphere" },
+          { view: 8, x: 649.8, y: 136.9, size: 23, angle: 5, anchor: "sphere" },
+          { view: 2, x: 600.3, y: 140.2, size: 24, angle: -4, anchor: "sphere" },
+          { view: 6, x: 654.3, y: 165.2, size: 24, angle: 6, anchor: "sphere" },
+          { view: 7, x: 597, y: 188.5, size: 23, angle: -7, anchor: "sphere" },
+          { view: 1, x: 666.5, y: 190, size: 23, angle: 5, anchor: "sphere" },
+        ],
+        i: [
+          { view: 5, x: 557, y: 73.5, size: 25, angle: -3, anchor: "sphere", eraseRadius: 17.5 },
+          { view: 6, x: 797, y: 73.5, size: 25, angle: 4, anchor: "sphere", eraseRadius: 17.5 },
+        ],
+      },
+      edge: {
+        G: [
+          { view: 3, x: 132.25, y: 67.3, size: 23, angle: -8, anchor: "sphere" },
+          { view: 5, x: 160.1, y: 60.35, size: 22, angle: 4, anchor: "sphere" },
+          { view: 4, x: 192.22, y: 116.54, size: 23, angle: 7, anchor: "sphere" },
+          { view: 2, x: 106.1, y: 115.1, size: 24, angle: -5, anchor: "sphere" },
+          { view: 6, x: 159.5, y: 115.6, size: 22, angle: 5, anchor: "sphere" },
+          { view: 7, x: 196.4, y: 156, size: 22, angle: 9, anchor: "sphere" },
+          { view: 8, x: 123.33, y: 188.63, size: 23, angle: 7, anchor: "sphere" },
+          { view: 1, x: 178, y: 208.88, size: 23, angle: -6, anchor: "sphere" },
+        ],
+        A: [
+          { view: 3, x: 597.33, y: 109.2, size: 23, angle: -6, anchor: "sphere" },
+          { view: 8, x: 659.42, y: 136.9, size: 23, angle: 5, anchor: "sphere" },
+          { view: 2, x: 590.05, y: 140.2, size: 24, angle: -4, anchor: "sphere" },
+          { view: 6, x: 665.17, y: 165.2, size: 24, angle: 6, anchor: "sphere" },
+          { view: 7, x: 592.23, y: 199.24, size: 23, angle: -7, anchor: "sphere" },
+          { view: 1, x: 669.6, y: 196.97, size: 23, angle: 5, anchor: "sphere" },
+        ],
+        i: [
+          {
+            view: 5, x: 557, y: 73.5, size: 58, angle: -3, anchor: "sphere",
+            spinDelay: 0,
+          },
+          {
+            view: 6, x: 797, y: 73.5, size: 58, angle: 4, anchor: "sphere",
+            spinDelay: 140,
+          },
+        ],
+      },
+    };
+
+    document.title = `GaussiAnimate — ${CONFIG.label} ${IS_DARK ? "White on Black" : "Black on White"}`;
+    document.documentElement.classList.toggle("theme-dark", IS_DARK);
+    document.documentElement.classList.toggle("embed", EMBED_MODE);
+    document.body.classList.toggle("theme-dark", IS_DARK);
+    document.body.classList.toggle("embed", EMBED_MODE);
+    document.body.classList.toggle("outer-layout", SHOW_OUTER_LAYOUT);
+    document.querySelector('meta[name="color-scheme"]').content = IS_DARK ? "dark" : "light";
+    debugLayer.setAttribute("viewBox", CONFIG.viewBox.join(" "));
+    skeletonLayer.setAttribute("viewBox", CONFIG.viewBox.join(" "));
+    outerBonesLayer.setAttribute("viewBox", CONFIG.viewBox.join(" "));
+    stage.style.aspectRatio = `${VIEW_WIDTH} / ${VIEW_HEIGHT}`;
+
+    function clamp(value, low = 0, high = 1) { return Math.min(Math.max(value, low), high); }
+
+    function assignSequenceGroups(strokes) {
+      let iGroup = 0;
+      let pendingI = null;
+      strokes.forEach((stroke) => {
+        if (stroke.sequenceGroup) return;
+        if (stroke.name.startsWith("G ")) stroke.sequenceGroup = "G";
+        else if (stroke.name.startsWith("A ")) stroke.sequenceGroup = "A";
+        else if (stroke.name.startsWith("m ")) stroke.sequenceGroup = "m";
+        else if (stroke.name.startsWith("t ")) stroke.sequenceGroup = "t";
+        else if (stroke.name === "i stem") {
+          pendingI = `i-${++iGroup}`;
+          stroke.sequenceGroup = pendingI;
+        } else if (stroke.name === "i dot" && pendingI) {
+          stroke.sequenceGroup = pendingI;
+          pendingI = null;
+        }
+      });
+    }
+
+    function upgradeStoredRig(stored, seed) {
+      if (!stored || ![6, 7].includes(Number(stored.version)) || !Array.isArray(stored.strokes)) return null;
+      if (CONFIG.id === "caveat-brush" && stored.variant !== "caveat-brush") return null;
+      const upgraded = structuredClone(stored);
+      assignSequenceGroups(upgraded.strokes);
+      if (Number(upgraded.version) < 7) {
+        let cursor = 80;
+        upgraded.strokes.forEach((stroke, index) => {
+          const strokeDuration = Math.max(Number(stroke.trim.outMs) - Number(stroke.trim.inMs), 1);
+          stroke.trim = { inMs: cursor, outMs: cursor + strokeDuration };
+          const next = upgraded.strokes[index + 1];
+          cursor = stroke.trim.outMs + (stroke.sequenceGroup && next?.sequenceGroup === stroke.sequenceGroup ? 0 : 56);
+        });
+        upgraded.durationMs = cursor + 180;
+      }
+      upgraded.version = seed.version;
+      upgraded.viewBox = seed.viewBox;
+      upgraded.strokeCount = upgraded.strokes.length;
+      return upgraded;
+    }
+
+    function buildTimeline(data) {
+      writingDuration = (Number(data.durationMs) || 6200) / WRITING_SPEED;
+      totalDuration = writingDuration;
+      debugLayer.replaceChildren();
+      entries = data.strokes.map((stroke) => {
+        const element = document.createElementNS(SVG_NS, "path");
+        element.setAttribute("d", stroke.d);
+        debugLayer.append(element);
+        const trim = stroke.trim || {};
+        const sourceInMs = Number(trim.inMs) || 0;
+        const sourceOutMs = Math.max(Number(trim.outMs) || sourceInMs + 160, sourceInMs + 1);
+        const inMs = sourceInMs / WRITING_SPEED;
+        const outMs = sourceOutMs / WRITING_SPEED;
+        return {
+          ...stroke,
+          element,
+          path: new Path2D(stroke.d),
+          length: Math.max(element.getTotalLength(), .01),
+          start: inMs / writingDuration,
+          duration: (outMs - inMs) / writingDuration,
+        };
+      });
+      for (let index = 0; index < entries.length;) {
+        const group = entries[index].sequenceGroup;
+        let end = index;
+        while (group && end + 1 < entries.length && entries[end + 1].sequenceGroup === group) end += 1;
+        if (group && end > index) {
+          const sequenceStart = entries[index].start;
+          const sequenceEnd = entries[end].start + entries[end].duration;
+          for (let member = index; member <= end; member += 1) {
+            entries[member].sequenceStart = sequenceStart;
+            entries[member].sequenceDuration = sequenceEnd - sequenceStart;
+          }
+        }
+        index = end + 1;
+      }
+    }
+
+    function pointKey(point) {
+      return `${Number(point[0]).toFixed(2)},${Number(point[1]).toFixed(2)}`;
+    }
+
+    function buildSkeleton(data) {
+      skeletonLayer.replaceChildren();
+      skeletonEntries = [];
+      if (!data?.groups?.length) {
+        totalDuration = writingDuration;
+        return;
+      }
+
+      const phaseStartMs = writingDuration + SKELETON_HOLD_MS;
+      const phaseEndMs = phaseStartMs + SKELETON_GROW_MS;
+      totalDuration = phaseEndMs;
+
+      data.groups.forEach((group, groupIndex) => {
+        const groupElement = document.createElementNS(SVG_NS, "g");
+        groupElement.dataset.skeletonGroup = group.id;
+        skeletonLayer.append(groupElement);
+
+        const edgeRecords = [];
+        const nodeRecords = new Map();
+        const rawEvents = [];
+        let cursor = 0;
+
+        for (const stroke of group.strokes) {
+          if (!Array.isArray(stroke) || !stroke.length) continue;
+          const first = stroke[0];
+          rawEvents.push({ key: pointKey(first), point: first, at: cursor });
+
+          if (stroke.length === 1) {
+            cursor += Math.max(Number(data.nodeRadius) * 4, 8);
+            continue;
+          }
+
+          for (let index = 1; index < stroke.length; index += 1) {
+            const start = stroke[index - 1];
+            const end = stroke[index];
+            const length = Math.max(Math.hypot(end[0] - start[0], end[1] - start[1]), .01);
+            const line = document.createElementNS(SVG_NS, "line");
+            line.setAttribute("class", "skeleton-edge");
+            line.setAttribute("x1", start[0]);
+            line.setAttribute("y1", start[1]);
+            line.setAttribute("x2", end[0]);
+            line.setAttribute("y2", end[1]);
+            line.style.strokeDasharray = `${length} ${length + 2}`;
+            line.style.strokeDashoffset = `${length}`;
+            line.style.opacity = "0";
+            groupElement.append(line);
+            edgeRecords.push({ element: line, length, from: cursor, to: cursor + length });
+            cursor += length;
+            rawEvents.push({ key: pointKey(end), point: end, at: cursor });
+          }
+        }
+
+        const totalWeight = Math.max(cursor, 1);
+        for (const event of rawEvents) {
+          const previous = nodeRecords.get(event.key);
+          if (!previous || event.at < previous.at) nodeRecords.set(event.key, event);
+        }
+
+        const nodes = [...nodeRecords.values()].map((record) => {
+          const circle = document.createElementNS(SVG_NS, "circle");
+          circle.setAttribute("class", "skeleton-node");
+          circle.setAttribute("cx", record.point[0]);
+          circle.setAttribute("cy", record.point[1]);
+          circle.setAttribute("r", Number(data.nodeRadius) || 4.1);
+          circle.style.opacity = "0";
+          circle.style.transform = "scale(0)";
+          groupElement.append(circle);
+          return { element: circle, at: record.at / totalWeight };
+        });
+
+        const startMs = phaseStartMs + groupIndex * SKELETON_STAGGER_MS;
+        skeletonEntries.push({
+          id: group.id,
+          startMs,
+          endMs: phaseEndMs,
+          totalWeight,
+          edges: edgeRecords,
+          nodes,
+        });
+      });
+    }
+
+    function initDotBoneRenderer() {
+      if (dotBoneRenderer) return;
+      dotBoneRenderer = new THREE.WebGLRenderer({
+        canvas: dotBonesCanvas,
+        alpha: true,
+        antialias: true,
+        premultipliedAlpha: true,
+      });
+      dotBoneRenderer.setClearColor(0x000000, 0);
+      dotBoneRenderer.outputColorSpace = THREE.SRGBColorSpace;
+      dotBoneRenderer.toneMapping = THREE.ACESFilmicToneMapping;
+      dotBoneRenderer.toneMappingExposure = 1.18;
+
+      dotBoneScene = new THREE.Scene();
+      dotBoneCamera = new THREE.OrthographicCamera(0, VIEW_WIDTH, 0, -VIEW_HEIGHT, 1, 600);
+      dotBoneCamera.position.set(0, 0, 240);
+      dotBoneCamera.lookAt(0, 0, 0);
+      dotBoneRoot = new THREE.Group();
+      dotBoneScene.add(dotBoneRoot);
+
+      const ambient = new THREE.HemisphereLight(0xf4fff9, 0x17362b, 2.15);
+      const key = new THREE.DirectionalLight(0xffffff, 3.7);
+      key.position.set(-90, 140, 180);
+      const fill = new THREE.DirectionalLight(0x9dccff, 1.3);
+      fill.position.set(130, -70, 100);
+      dotBoneScene.add(ambient, key, fill);
+    }
+
+    function createArrow3D(direction, color) {
+      const arrow = new THREE.Group();
+      const material = new THREE.MeshStandardMaterial({
+        color,
+        roughness: .28,
+        metalness: .03,
+        transparent: true,
+        opacity: 0,
+      });
+      const shaftStart = 11.8;
+      const shaftLength = 12.6;
+      const coneLength = 10.8;
+      const shaft = new THREE.Mesh(
+        new THREE.CylinderGeometry(2.8, 2.8, shaftLength, 24, 1, false),
+        material,
+      );
+      shaft.position.y = shaftStart + shaftLength * .5;
+      const cone = new THREE.Mesh(
+        new THREE.ConeGeometry(6.4, coneLength, 32, 1, false),
+        material,
+      );
+      cone.position.y = shaftStart + shaftLength + coneLength * .5;
+      arrow.add(shaft, cone);
+      arrow.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), direction.clone().normalize());
+      return { object: arrow, material };
+    }
+
+    function createDotBone3D() {
+      const object = new THREE.Group();
+      const materials = [];
+      const sphereMaterial = new THREE.MeshStandardMaterial({
+        color: 0x31c487,
+        roughness: .22,
+        metalness: .04,
+        transparent: true,
+        opacity: 0,
+      });
+      const sphere = new THREE.Mesh(new THREE.SphereGeometry(17.4, 64, 36), sphereMaterial);
+      object.add(sphere);
+      materials.push(sphereMaterial);
+
+      const axes = [
+        createArrow3D(new THREE.Vector3(1, 0, 0), 0xff6f61),
+        createArrow3D(new THREE.Vector3(0, 1, 0), 0x82dfa5),
+        createArrow3D(new THREE.Vector3(0, 0, 1), 0x72aff2),
+      ];
+      axes.forEach((axis) => {
+        object.add(axis.object);
+        materials.push(axis.material);
+      });
+      object.visible = false;
+      object.scale.setScalar(.025);
+      dotBoneRoot.add(object);
+      return { object, materials };
+    }
+
+    function clearDotBoneObjects() {
+      if (!dotBoneRoot) return;
+      for (const child of [...dotBoneRoot.children]) {
+        child.traverse((node) => {
+          node.geometry?.dispose?.();
+          if (Array.isArray(node.material)) node.material.forEach((material) => material.dispose());
+          else node.material?.dispose?.();
+        });
+        dotBoneRoot.remove(child);
+      }
+    }
+
+    function buildOuterBoneLayout() {
+      outerBonesLayer.replaceChildren();
+      outerBoneEntries = [];
+      dotBoneEntries = [];
+      initDotBoneRenderer();
+      clearDotBoneObjects();
+      if (!SHOW_OUTER_BONES) return;
+      const activeLayout = ANIMATE_OUTER_BONES ? OUTER_BONE_LAYOUTS.edge : OUTER_BONE_LAYOUTS[OUTER_MODE];
+      if (!activeLayout) return;
+      const phaseStartMs = totalDuration + OUTER_BONE_HOLD_MS;
+      let phaseEndMs = phaseStartMs;
+
+      Object.entries(activeLayout).forEach(([letter, placements]) => {
+        if (ANIMATE_OUTER_BONES && letter === "i") {
+          placements.forEach((placement, index) => {
+            const revealOrder = OUTER_BONE_REVEAL_ORDER.i[index] ?? index;
+            const startMs = phaseStartMs + revealOrder * OUTER_BONE_STAGGER_MS;
+            const durationMs = OUTER_BONE_GROW_MS + ((index % 3) - 1) * 45;
+            const spinStartMs = startMs + durationMs * .72 + Number(placement.spinDelay || 0);
+            const model = createDotBone3D();
+            dotBoneEntries.push({
+              ...model,
+              x: placement.x,
+              y: placement.y,
+              startMs,
+              durationMs,
+              spinStartMs,
+              spinDurationMs: OUTER_BONE_SPIN_MS,
+              spinDirection: index === 0 ? 1 : -1,
+              baseYaw: index === 0 ? 0 : -Math.PI * .5,
+            });
+            phaseEndMs = Math.max(phaseEndMs, spinStartMs + OUTER_BONE_SPIN_MS);
+          });
+          return;
+        }
+
+        placements.forEach((placement, index) => {
+          const asset = OUTER_BONE_ASSETS[placement.view];
+          if (!asset) return;
+          const group = document.createElementNS(SVG_NS, "g");
+          group.dataset.outerBone = `${letter}-${index + 1}`;
+          group.dataset.view = String(placement.view);
+          group.setAttribute("transform", `translate(${placement.x} ${placement.y}) rotate(${placement.angle || 0})`);
+
+          const growthGroup = document.createElementNS(SVG_NS, "g");
+          growthGroup.dataset.outerBoneGrowth = `${letter}-${index + 1}`;
+          group.append(growthGroup);
+
+          if (placement.eraseRadius) {
+            const erase = document.createElementNS(SVG_NS, "circle");
+            erase.setAttribute("cx", 0);
+            erase.setAttribute("cy", 0);
+            erase.setAttribute("r", placement.eraseRadius);
+            erase.setAttribute("fill", IS_DARK ? DARK_BACKGROUND : "#fff");
+            growthGroup.append(erase);
+          }
+
+          const width = Number(placement.size);
+          const height = width * asset.height / asset.width;
+          const anchor = placement.anchor === "sphere" ? asset.sphere : [.5, .5];
+          const imageElement = document.createElementNS(SVG_NS, "image");
+          imageElement.setAttribute("class", "outer-bone");
+          imageElement.setAttribute("href", asset.url);
+          imageElement.setAttribute("x", -width * anchor[0]);
+          imageElement.setAttribute("y", -height * anchor[1]);
+          imageElement.setAttribute("width", width);
+          imageElement.setAttribute("height", height);
+          imageElement.setAttribute("preserveAspectRatio", "xMidYMid meet");
+          growthGroup.append(imageElement);
+          outerBonesLayer.append(group);
+
+          if (ANIMATE_OUTER_BONES) {
+            const revealOrder = OUTER_BONE_REVEAL_ORDER[letter]?.[index] ?? index;
+            const startMs = phaseStartMs + revealOrder * OUTER_BONE_STAGGER_MS;
+            const durationMs = OUTER_BONE_GROW_MS + ((index % 3) - 1) * 45;
+            const direction = index % 2 === 0 ? -1 : 1;
+            growthGroup.style.opacity = "0";
+            growthGroup.setAttribute("transform", "scale(.025)");
+            outerBoneEntries.push({
+              element: growthGroup,
+              startMs,
+              durationMs,
+              revealAngle: direction * (3 + (index % 3)),
+            });
+            phaseEndMs = Math.max(phaseEndMs, startMs + durationMs);
+          } else {
+            growthGroup.style.opacity = "1";
+            growthGroup.setAttribute("transform", "scale(1)");
+          }
+        });
+      });
+
+      if (ANIMATE_OUTER_BONES) totalDuration = phaseEndMs + OUTER_BONE_END_HOLD_MS;
+    }
+
+    function trimEase(value) {
+      const t = clamp(value);
+      return t * t * (3 - 2 * t);
+    }
+
+    function silkEase(value) {
+      const t = clamp(value);
+      return t * t * t * (t * (t * 6 - 15) + 10);
+    }
+
+    function boneGrowthEase(value) {
+      const t = clamp(value);
+      const base = silkEase(t);
+      const settle = Math.sin(Math.PI * clamp((t - .72) / .28)) * .012;
+      return .025 + .975 * base + settle;
+    }
+
+    function resize() {
+      const bounds = canvas.getBoundingClientRect();
+      const density = clamp(devicePixelRatio || 1, 1.5, 2.5);
+      const width = Math.max(1, Math.round(bounds.width * density));
+      const height = Math.max(1, Math.round(bounds.height * density));
+      if (
+        canvas.width === width && canvas.height === height
+        && dotBonesCanvas.width === width && dotBonesCanvas.height === height
+      ) return;
+      canvas.width = maskCanvas.width = width;
+      canvas.height = maskCanvas.height = height;
+      dotBoneRenderer.setSize(width, height, false);
+      render(currentProgress);
+    }
+
+    function renderSkeleton(elapsedMs) {
+      for (const group of skeletonEntries) {
+        const rawProgress = (elapsedMs - group.startMs) / Math.max(group.endMs - group.startMs, 1);
+        const active = rawProgress >= 0;
+        const local = trimEase(rawProgress);
+        const travelled = local * group.totalWeight;
+
+        for (const edge of group.edges) {
+          const edgeProgress = clamp((travelled - edge.from) / Math.max(edge.to - edge.from, .01));
+          edge.element.style.opacity = edgeProgress > 0 ? "1" : "0";
+          edge.element.style.strokeDashoffset = `${edge.length * (1 - trimEase(edgeProgress))}`;
+        }
+
+        for (const node of group.nodes) {
+          const appearanceAt = node.at <= .001 ? 0 : Math.min(node.at - .03, .945);
+          const nodeProgress = active ? clamp((local - appearanceAt) / .055) : 0;
+          const eased = 1 - Math.pow(1 - nodeProgress, 3);
+          node.element.style.opacity = `${eased}`;
+          node.element.style.transform = `scale(${eased})`;
+        }
+      }
+    }
+
+    function renderOuterBones(elapsedMs) {
+      for (const bone of outerBoneEntries) {
+        const progress = clamp((elapsedMs - bone.startMs) / Math.max(bone.durationMs, 1));
+        const opacity = silkEase(progress / .58);
+        const scale = boneGrowthEase(progress);
+        const rotation = bone.revealAngle * (1 - silkEase(progress));
+        bone.element.style.opacity = `${opacity}`;
+        bone.element.setAttribute("transform", `rotate(${rotation}) scale(${scale})`);
+      }
+    }
+
+    function renderDotBones(elapsedMs) {
+      for (const entry of dotBoneEntries) {
+        const progress = clamp((elapsedMs - entry.startMs) / Math.max(entry.durationMs, 1));
+        const opacity = silkEase(progress / .58);
+        const growth = boneGrowthEase(progress);
+        const spinProgress = clamp(
+          (elapsedMs - entry.spinStartMs) / Math.max(entry.spinDurationMs, 1),
+        );
+        const floatY = -1.8 * Math.sin(Math.PI * spinProgress);
+        const yaw = entry.baseYaw + entry.spinDirection * Math.PI * 2 * silkEase(spinProgress);
+        const pitch = .24 * Math.sin(Math.PI * 2 * spinProgress);
+        const roll = .075 * Math.sin(Math.PI * 4 * spinProgress);
+        entry.object.visible = opacity > .001;
+        entry.object.position.set(entry.x, -(entry.y + floatY), 0);
+        entry.object.scale.setScalar(growth);
+        entry.object.rotation.set(pitch, yaw, roll, "YXZ");
+        entry.materials.forEach((material) => { material.opacity = opacity; });
+      }
+      dotBoneRenderer.render(dotBoneScene, dotBoneCamera);
+    }
+
+    function render(progress) {
+      currentProgress = clamp(progress);
+      if (!canvas.width || !entries.length || !image.complete) return;
+      const elapsedMs = currentProgress * totalDuration;
+      const inkProgress = clamp(elapsedMs / writingDuration);
+      const sx = canvas.width / VIEW_WIDTH;
+      const sy = canvas.height / VIEW_HEIGHT;
+      maskContext.setTransform(1, 0, 0, 1, 0, 0);
+      maskContext.clearRect(0, 0, maskCanvas.width, maskCanvas.height);
+      maskContext.setTransform(sx, 0, 0, sy, 0, 0);
+      maskContext.strokeStyle = "#fff";
+      maskContext.fillStyle = "#fff";
+      maskContext.lineCap = "round";
+      maskContext.lineJoin = "round";
+      for (const entry of entries) {
+        let local;
+        if (entry.sequenceDuration) {
+          const sequenceProgress = trimEase((inkProgress - entry.sequenceStart) / entry.sequenceDuration);
+          const sequenceTime = entry.sequenceStart + sequenceProgress * entry.sequenceDuration;
+          local = clamp((sequenceTime - entry.start) / entry.duration);
+        } else {
+          local = trimEase((inkProgress - entry.start) / entry.duration);
+        }
+        if (local <= 0) continue;
+        maskContext.save();
+        maskContext.lineWidth = Number(entry.brushSize) || 14;
+        maskContext.setLineDash([entry.length, entry.length + 2]);
+        maskContext.lineDashOffset = entry.length * (1 - local);
+        maskContext.stroke(entry.path);
+        maskContext.restore();
+      }
+      context.setTransform(1, 0, 0, 1, 0, 0);
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.drawImage(image, 0, 0, canvas.width, canvas.height);
+      context.globalCompositeOperation = "destination-in";
+      context.drawImage(maskCanvas, 0, 0);
+      if (IS_DARK) {
+        context.globalCompositeOperation = "source-in";
+        context.fillStyle = "#fff";
+        context.fillRect(0, 0, canvas.width, canvas.height);
+      }
+      context.globalCompositeOperation = "source-over";
+      renderSkeleton(elapsedMs);
+      renderOuterBones(elapsedMs);
+      renderDotBones(elapsedMs);
+    }
+
+    function replay() {
+      cancelAnimationFrame(animationFrame);
+      if (reducedMotion.matches) { render(1); return; }
+      const started = performance.now();
+      const frame = (now) => {
+        const progress = clamp((now - started) / totalDuration);
+        render(progress);
+        if (progress < 1) animationFrame = requestAnimationFrame(frame);
+      };
+      animationFrame = requestAnimationFrame(frame);
+    }
+
+    if (!SHOW_OUTER_LAYOUT && !EMBED_MODE) replayControls.forEach((control) => control.addEventListener("click", replay));
+    if (EMBED_MODE) document.querySelector(".wordmark-button").tabIndex = -1;
+    if (query.has("debug")) document.body.classList.add("debug");
+    Promise.all([
+      fetch(USE_FINAL ? CONFIG.finalSeed : CONFIG.seed).then((response) => response.json()),
+      new Promise((resolve, reject) => { image.onload = resolve; image.onerror = reject; image.src = CONFIG.image; }),
+      CONFIG.id === "caveat-brush"
+        ? fetch("./skeleton-presentation-all.json").then((response) => response.json())
+        : Promise.resolve(null),
+    ]).then(([seedData, , skeletonData]) => {
+      let playbackData = seedData;
+      for (const key of USE_FINAL ? [] : [STORAGE_KEY, BACKUP_STORAGE_KEY, ...LEGACY_STORAGE_KEYS]) {
+        const serialized = localStorage.getItem(key);
+        if (!serialized) continue;
+        try {
+          const upgraded = upgradeStoredRig(JSON.parse(serialized), seedData);
+          if (!upgraded) continue;
+          playbackData = upgraded;
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(upgraded));
+          break;
+        } catch {}
+      }
+      buildTimeline(playbackData);
+      buildSkeleton(skeletonData);
+      buildOuterBoneLayout();
+      resize();
+      new ResizeObserver(resize).observe(stage);
+      if (query.has("metrics")) {
+        document.body.dataset.metrics = JSON.stringify({
+          viewport: { width: innerWidth, height: innerHeight, density: devicePixelRatio },
+          source: USE_FINAL ? "final" : "editable",
+          theme: IS_DARK ? "dark" : "light",
+          button: document.querySelector(".wordmark-button").getBoundingClientRect().toJSON(),
+          stage: stage.getBoundingClientRect().toJSON(),
+          canvas: canvas.getBoundingClientRect().toJSON(),
+          bitmap: { width: canvas.width, height: canvas.height },
+          timing: { writingDuration, totalDuration, writingSpeed: WRITING_SPEED },
+          outerBones: {
+            visible: SHOW_OUTER_BONES,
+            animated: ANIMATE_OUTER_BONES,
+            mode: OUTER_MODE,
+            G: outerBonesLayer.querySelectorAll('[data-outer-bone^="G-"]').length,
+            A: outerBonesLayer.querySelectorAll('[data-outer-bone^="A-"]').length,
+            i: outerBonesLayer.querySelectorAll('[data-outer-bone^="i-"]').length + dotBoneEntries.length,
+          },
+        });
+      }
+      if (SHOW_OUTER_LAYOUT) render(1);
+      else if (query.has("time")) render((Number(query.get("time")) || 0) / totalDuration);
+      else if (query.has("progress")) render(Number(query.get("progress")) || 0);
+      else if (query.has("complete")) render(1);
+      else replay();
+    });
+  </script>
+</body>
+</html>
