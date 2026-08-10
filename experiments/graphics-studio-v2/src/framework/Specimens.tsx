@@ -64,8 +64,14 @@ function useRepresentationMotion(
     if (!object) return;
     const targetScale = active ? ACTIVE_SCALE : INACTIVE_SCALE;
     const targetOpacity = visible ? (active ? 1 : 0.2) : 0;
+    if (object.userData.opacity === undefined) {
+      object.scale.setScalar(targetScale);
+      object.userData.opacity = targetOpacity;
+      setOpacity(object, targetOpacity);
+      return;
+    }
     const nextScale = damp(object.scale.x, targetScale, delta);
-    const nextOpacity = damp(object.userData.opacity ?? 0, targetOpacity, delta);
+    const nextOpacity = damp(object.userData.opacity, targetOpacity, delta);
     object.scale.setScalar(nextScale);
     object.userData.opacity = nextOpacity;
     setOpacity(object, nextOpacity);
@@ -83,18 +89,16 @@ function SurfaceSpecimen({ active, visible }: { active: boolean; visible: boolea
   useRepresentationMotion(group, active, visible);
 
   return (
-    <group ref={group} position={[-3.65, 0, 0]} rotation={[0.55, 0.2, -0.4]}>
+    <group ref={group} visible={visible} rotation={[0.55, 0.2, -0.4]}>
       <mesh>
         <torusKnotGeometry args={[1.1, 0.38, 320, 28, 2, 3]} />
         <meshPhysicalMaterial
-          color="#f8fbff"
-          roughness={0.12}
+          color="#c9d8d1"
+          roughness={0.62}
           metalness={0}
-          transmission={0.82}
-          thickness={0.72}
-          ior={1.24}
-          clearcoat={1}
-          clearcoatRoughness={0.16}
+          transmission={0}
+          clearcoat={0.16}
+          clearcoatRoughness={0.7}
           side={THREE.DoubleSide}
         />
       </mesh>
@@ -128,11 +132,11 @@ function FieldSpecimen({ active, visible }: { active: boolean; visible: boolean 
   }, []);
 
   return (
-    <group ref={group} position={[-1.25, 0, 0]} rotation={[0.55, 0.2, -0.4]}>
+    <group ref={group} visible={visible} rotation={[0.55, 0.2, -0.4]}>
       <points geometry={geometry}>
         <pointsMaterial
           ref={material}
-          size={0.024}
+          size={0.03}
           sizeAttenuation
           vertexColors
           depthWrite={false}
@@ -147,18 +151,9 @@ function RigSpecimen({ active, visible }: { active: boolean; visible: boolean })
   const group = useRef<Group>(null);
   useRepresentationMotion(group, active, visible);
 
-  const { lineGeometry, jointPositions } = useMemo(() => {
+  const jointPositions = useMemo(() => {
     const points = curve.getSpacedPoints(42);
-    const positions: number[] = [];
-    points.slice(0, -1).forEach((point, index) => {
-      positions.push(...point.toArray(), ...points[index + 1].toArray());
-    });
-    const geometry = new THREE.BufferGeometry();
-    geometry.setAttribute("position", new THREE.Float32BufferAttribute(positions, 3));
-    return {
-      lineGeometry: geometry,
-      jointPositions: points.filter((_, index) => index % 4 === 0),
-    };
+    return points.filter((_, index) => index % 4 === 0);
   }, []);
 
   const joints = useRef<InstancedMesh>(null);
@@ -174,12 +169,13 @@ function RigSpecimen({ active, visible }: { active: boolean; visible: boolean })
   }, [jointPositions]);
 
   return (
-    <group ref={group} position={[1.25, 0, 0]} rotation={[0.55, 0.2, -0.4]}>
-      <lineSegments geometry={lineGeometry}>
-        <lineBasicMaterial color="#8d959d" transparent />
-      </lineSegments>
+    <group ref={group} visible={visible} rotation={[0.55, 0.2, -0.4]}>
+      <mesh>
+        <tubeGeometry args={[curve, 160, 0.018, 8, true]} />
+        <meshBasicMaterial color="#77837e" transparent />
+      </mesh>
       <instancedMesh ref={joints} args={[undefined, undefined, jointPositions.length]}>
-        <sphereGeometry args={[0.055, 14, 10]} />
+        <sphereGeometry args={[0.06, 14, 10]} />
         <meshStandardMaterial color="#ff3b30" roughness={0.32} transparent />
       </instancedMesh>
     </group>
@@ -234,7 +230,7 @@ function FrameSpecimen({ active, visible }: { active: boolean; visible: boolean 
   }, [origins]);
 
   return (
-    <group ref={group} position={[3.65, 0, 0]} rotation={[0.55, 0.2, -0.4]}>
+    <group ref={group} visible={visible} rotation={[0.55, 0.2, -0.4]}>
       <lineSegments geometry={lines}>
         <lineBasicMaterial vertexColors transparent />
       </lineSegments>
@@ -247,13 +243,12 @@ function FrameSpecimen({ active, visible }: { active: boolean; visible: boolean 
 }
 
 export function RepresentationContinuum({ mode }: { mode: RepresentationId }) {
-  const visible = mode !== "project";
   return (
-    <group position={[0, -0.1, 0]} scale={0.88}>
-      <SurfaceSpecimen active={mode === "form"} visible={visible} />
-      <FieldSpecimen active={mode === "field"} visible={visible} />
-      <RigSpecimen active={mode === "rig"} visible={visible} />
-      <FrameSpecimen active={false} visible={visible} />
+    <group position={[0, -0.08, 0]} scale={1.12}>
+      <SurfaceSpecimen active={mode === "form"} visible={mode === "form"} />
+      <FieldSpecimen active={mode === "field"} visible={mode === "field"} />
+      <RigSpecimen active={mode === "rig"} visible={mode === "rig"} />
+      <FrameSpecimen active={mode === "rig"} visible={mode === "rig"} />
     </group>
   );
 }
@@ -458,7 +453,7 @@ export function ProjectSpecimen({
 
   return (
     <group ref={group} visible={active} position={[0, -0.05, 0]} scale={0.001}>
-      <Scene />
+      {active ? <Scene /> : null}
     </group>
   );
 }

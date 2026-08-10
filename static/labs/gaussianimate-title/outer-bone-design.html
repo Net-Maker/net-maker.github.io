@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>GaussiAnimate — Outer Bone 设计</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --background: #000;
+      --surface: rgba(20, 20, 20, .92);
+      --surface-border: rgba(255, 255, 255, .14);
+      --text: #f5f5f2;
+      --muted: rgba(255, 255, 255, .56);
+      --track: rgba(255, 255, 255, .16);
+      --accent: #78c7a6;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { width: 100%; min-height: 100%; margin: 0; background: var(--background); }
+    body { color: var(--text); overflow: hidden; }
+
+    main {
+      width: 100%;
+      min-height: 100svh;
+      display: grid;
+      grid-template-rows: 1fr auto;
+    }
+
+    .viewport {
+      position: relative;
+      min-height: 0;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 46%, rgba(56, 100, 82, .11), transparent 30%),
+        #000;
+    }
+
+    .bone-preview {
+      width: min(64vmin, 580px);
+      aspect-ratio: 1;
+      overflow: visible;
+      filter: drop-shadow(0 16px 42px rgba(0, 0, 0, .72));
+    }
+
+    .axis-shaft,
+    .axis-tip {
+      vector-effect: non-scaling-stroke;
+    }
+
+    .axis-shaft {
+      fill: none;
+      stroke-linecap: round;
+    }
+
+    .sphere-rim {
+      fill: url(#sphere-fill);
+      stroke: rgba(220, 255, 239, .56);
+      stroke-width: .85;
+      vector-effect: non-scaling-stroke;
+    }
+
+    .sphere-core { fill: url(#sphere-core); }
+
+    .sphere-highlight {
+      fill: rgba(255, 255, 255, .42);
+      filter: blur(.45px);
+    }
+
+    .sphere-shadow {
+      fill: rgba(0, 0, 0, .30);
+      filter: blur(1.1px);
+    }
+
+    .caption {
+      position: absolute;
+      left: 28px;
+      top: 25px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      user-select: none;
+    }
+
+    .controls {
+      width: min(920px, calc(100vw - 36px));
+      margin: 0 auto 24px;
+      padding: 17px 19px 16px;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(112px, 1fr)) auto auto;
+      gap: 18px;
+      align-items: end;
+      border: 1px solid var(--surface-border);
+      border-radius: 16px;
+      background: var(--surface);
+      box-shadow: 0 22px 60px rgba(0, 0, 0, .48);
+      backdrop-filter: blur(18px);
+    }
+
+    .control { min-width: 0; }
+    .control-label {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 10px;
+      color: rgba(255, 255, 255, .72);
+      font-size: 12px;
+      font-weight: 520;
+      white-space: nowrap;
+    }
+
+    .value {
+      color: #fff;
+      font-variant-numeric: tabular-nums;
+      font-size: 11px;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      height: 20px;
+      margin: 0;
+      appearance: none;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    input[type="range"]::-webkit-slider-runnable-track {
+      height: 3px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent) 0 var(--fill, 50%), var(--track) var(--fill, 50%) 100%);
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      width: 13px;
+      height: 13px;
+      margin-top: -5px;
+      appearance: none;
+      border: 2px solid #0b0b0b;
+      border-radius: 50%;
+      background: #f5f5f2;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, .32);
+    }
+
+    input[type="range"]::-moz-range-track { height: 3px; border-radius: 999px; background: var(--track); }
+    input[type="range"]::-moz-range-progress { height: 3px; border-radius: 999px; background: var(--accent); }
+    input[type="range"]::-moz-range-thumb {
+      width: 10px;
+      height: 10px;
+      border: 2px solid #0b0b0b;
+      border-radius: 50%;
+      background: #f5f5f2;
+    }
+
+    button {
+      height: 34px;
+      padding: 0 14px;
+      border: 1px solid rgba(255, 255, 255, .18);
+      border-radius: 9px;
+      color: rgba(255, 255, 255, .74);
+      background: rgba(255, 255, 255, .055);
+      font: inherit;
+      font-size: 12px;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: color 150ms ease, border-color 150ms ease, background 150ms ease;
+    }
+
+    button:hover { color: #fff; border-color: rgba(255, 255, 255, .42); background: rgba(255, 255, 255, .09); }
+    button:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+    @media (max-width: 880px) {
+      body { overflow: auto; }
+      main { min-height: 100svh; }
+      .viewport { min-height: 56svh; }
+      .controls { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-bottom: 18px; }
+      .controls button { grid-column: 1 / -1; }
+      .bone-preview { width: min(78vmin, 470px); }
+    }
+
+    @media (max-width: 480px) {
+      .caption { left: 18px; top: 18px; }
+      .controls { width: calc(100vw - 24px); padding: 15px; gap: 14px 16px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="viewport" aria-label="Outer Bone 预览">
+      <div class="caption">Outer Bone / 单元素原型</div>
+      <svg class="bone-preview" viewBox="-80 -80 160 160" role="img" aria-label="绿色球形关节与三轴骨骼">
+        <defs>
+          <radialGradient id="sphere-fill" cx="34%" cy="26%" r="72%">
+            <stop offset="0" stop-color="#d6fff0"/>
+            <stop offset=".18" stop-color="#8de0bc"/>
+            <stop offset=".58" stop-color="#45a17d"/>
+            <stop offset="1" stop-color="#1c5a45"/>
+          </radialGradient>
+          <radialGradient id="sphere-core" cx="38%" cy="31%" r="70%">
+            <stop offset="0" stop-color="#8dddb9" stop-opacity=".46"/>
+            <stop offset="1" stop-color="#0d3b2d" stop-opacity=".12"/>
+          </radialGradient>
+          <linearGradient id="x-shaft" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#b23d3a"/>
+            <stop offset="1" stop-color="#ff716c"/>
+          </linearGradient>
+          <linearGradient id="y-shaft" x1="0" y1="1" x2="0" y2="0">
+            <stop offset="0" stop-color="#338b55"/>
+            <stop offset="1" stop-color="#70d98b"/>
+          </linearGradient>
+          <linearGradient id="z-shaft" x1="1" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#466eb5"/>
+            <stop offset="1" stop-color="#78a8ff"/>
+          </linearGradient>
+          <filter id="sphere-glow" x="-100%" y="-100%" width="300%" height="300%">
+            <feGaussianBlur stdDeviation="2.8" result="blur"/>
+            <feFlood flood-color="#63c79e" flood-opacity=".22"/>
+            <feComposite in2="blur" operator="in"/>
+            <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+
+        <g class="bone" transform="scale(1)">
+          <g class="axes">
+            <g class="axis axis-z" data-axis="z">
+              <line class="axis-shaft" x1="0" y1="0" x2="-36" y2="27" stroke="url(#z-shaft)" stroke-width="3.4"/>
+              <path class="axis-tip" d="M -45 34 L -34 23 L -30 31 Z" fill="#78a8ff"/>
+            </g>
+            <g class="axis axis-x" data-axis="x">
+              <line class="axis-shaft" x1="0" y1="0" x2="43" y2="13" stroke="url(#x-shaft)" stroke-width="3.4"/>
+              <path class="axis-tip" d="M 53 16 L 40 7 L 38 16 Z" fill="#ff716c"/>
+            </g>
+            <g class="axis axis-y" data-axis="y">
+              <line class="axis-shaft" x1="0" y1="0" x2="4" y2="-45" stroke="url(#y-shaft)" stroke-width="3.4"/>
+              <path class="axis-tip" d="M 5 -56 L -1 -42 L 8 -41 Z" fill="#70d98b"/>
+            </g>
+          </g>
+          <g class="sphere" filter="url(#sphere-glow)">
+            <circle class="sphere-rim" cx="0" cy="0" r="10"/>
+            <circle class="sphere-core" cx="0" cy="0" r="8.5"/>
+            <ellipse class="sphere-shadow" cx="2.2" cy="3.2" rx="6.4" ry="5.2"/>
+            <ellipse class="sphere-highlight" cx="-3.4" cy="-3.5" rx="2.7" ry="1.85" transform="rotate(-24 -3.4 -3.5)"/>
+          </g>
+        </g>
+      </svg>
+    </section>
+
+    <section class="controls" aria-label="Bone 参数">
+      <label class="control">
+        <span class="control-label"><span>球体直径</span><output class="value" for="sphere">20</output></span>
+        <input id="sphere" type="range" min="8" max="34" step="1" value="20">
+      </label>
+      <label class="control">
+        <span class="control-label"><span>轴长度</span><output class="value" for="length">50</output></span>
+        <input id="length" type="range" min="22" max="74" step="1" value="50">
+      </label>
+      <label class="control">
+        <span class="control-label"><span>轴粗细</span><output class="value" for="thickness">3.4</output></span>
+        <input id="thickness" type="range" min="1" max="8" step="0.2" value="3.4">
+      </label>
+      <label class="control">
+        <span class="control-label"><span>箭头尺寸</span><output class="value" for="tip">11</output></span>
+        <input id="tip" type="range" min="5" max="18" step="1" value="11">
+      </label>
+      <label class="control">
+        <span class="control-label"><span>整体缩放</span><output class="value" for="scale">100%</output></span>
+        <input id="scale" type="range" min="55" max="145" step="1" value="100">
+      </label>
+      <button class="copy" type="button">复制当前链接</button>
+      <button class="reset" type="button">恢复默认</button>
+    </section>
+  </main>
+
+  <script>
+    const STORAGE_KEY = "gaussianimate-outer-bone-design-v1";
+    const defaults = { sphere: 20, length: 50, thickness: 3.4, tip: 11, scale: 100 };
+    const controls = Object.fromEntries(Object.keys(defaults).map((key) => [key, document.querySelector(`#${key}`)]));
+    const outputs = Object.fromEntries(Object.keys(defaults).map((key) => [key, document.querySelector(`output[for="${key}"]`)]));
+    const bone = document.querySelector(".bone");
+    const sphereParts = document.querySelectorAll(".sphere-rim, .sphere-core");
+    const sphereRim = document.querySelector(".sphere-rim");
+    const sphereCore = document.querySelector(".sphere-core");
+    const sphereShadow = document.querySelector(".sphere-shadow");
+    const sphereHighlight = document.querySelector(".sphere-highlight");
+    const axes = {
+      x: { direction: [0.9578, 0.2873], element: document.querySelector('.axis-x') },
+      y: { direction: [0.0885, -0.9961], element: document.querySelector('.axis-y') },
+      z: { direction: [-0.8, 0.6], element: document.querySelector('.axis-z') },
+    };
+
+    function clamp(value, low, high) { return Math.min(Math.max(value, low), high); }
+
+    function readValues() {
+      return Object.fromEntries(Object.entries(controls).map(([key, input]) => [key, Number(input.value)]));
+    }
+
+    function setSliderFill(input) {
+      const percentage = (Number(input.value) - Number(input.min)) / (Number(input.max) - Number(input.min)) * 100;
+      input.style.setProperty("--fill", `${percentage}%`);
+    }
+
+    function trianglePath(tipX, tipY, directionX, directionY, size) {
+      const baseX = tipX - directionX * size;
+      const baseY = tipY - directionY * size;
+      const normalX = -directionY;
+      const normalY = directionX;
+      const halfWidth = size * .47;
+      return [
+        `M ${tipX.toFixed(3)} ${tipY.toFixed(3)}`,
+        `L ${(baseX + normalX * halfWidth).toFixed(3)} ${(baseY + normalY * halfWidth).toFixed(3)}`,
+        `L ${(baseX - normalX * halfWidth).toFixed(3)} ${(baseY - normalY * halfWidth).toFixed(3)}`,
+        "Z",
+      ].join(" ");
+    }
+
+    function render() {
+      const values = readValues();
+      const radius = values.sphere * .5;
+      bone.setAttribute("transform", `scale(${values.scale / 100})`);
+      sphereRim.setAttribute("r", radius);
+      sphereCore.setAttribute("r", radius * .85);
+      sphereShadow.setAttribute("cx", radius * .22);
+      sphereShadow.setAttribute("cy", radius * .32);
+      sphereShadow.setAttribute("rx", radius * .64);
+      sphereShadow.setAttribute("ry", radius * .52);
+      sphereHighlight.setAttribute("cx", -radius * .34);
+      sphereHighlight.setAttribute("cy", -radius * .35);
+      sphereHighlight.setAttribute("rx", radius * .27);
+      sphereHighlight.setAttribute("ry", radius * .185);
+      sphereHighlight.setAttribute("transform", `rotate(-24 ${-radius * .34} ${-radius * .35})`);
+
+      Object.values(axes).forEach(({ direction, element }) => {
+        const [dx, dy] = direction;
+        const tipX = dx * values.length;
+        const tipY = dy * values.length;
+        const arrowBaseDistance = Math.max(values.length - values.tip * .78, radius * .9);
+        const shaft = element.querySelector(".axis-shaft");
+        const tip = element.querySelector(".axis-tip");
+        shaft.setAttribute("x1", dx * radius * .58);
+        shaft.setAttribute("y1", dy * radius * .58);
+        shaft.setAttribute("x2", dx * arrowBaseDistance);
+        shaft.setAttribute("y2", dy * arrowBaseDistance);
+        shaft.setAttribute("stroke-width", values.thickness);
+        tip.setAttribute("d", trianglePath(tipX, tipY, dx, dy, values.tip));
+      });
+
+      outputs.sphere.value = values.sphere.toFixed(0);
+      outputs.length.value = values.length.toFixed(0);
+      outputs.thickness.value = values.thickness.toFixed(1);
+      outputs.tip.value = values.tip.toFixed(0);
+      outputs.scale.value = `${values.scale.toFixed(0)}%`;
+      Object.values(controls).forEach(setSliderFill);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(values));
+      const url = new URL(location.href);
+      Object.entries(values).forEach(([key, value]) => url.searchParams.set(key, value));
+      history.replaceState(null, "", url);
+    }
+
+    function applyValues(values) {
+      Object.entries(defaults).forEach(([key, fallback]) => {
+        const input = controls[key];
+        input.value = clamp(Number(values?.[key] ?? fallback), Number(input.min), Number(input.max));
+      });
+      render();
+    }
+
+    Object.values(controls).forEach((input) => input.addEventListener("input", render));
+    document.querySelector(".copy").addEventListener("click", async (event) => {
+      const button = event.currentTarget;
+      try {
+        await navigator.clipboard.writeText(location.href);
+        button.textContent = "已复制";
+        setTimeout(() => { button.textContent = "复制当前链接"; }, 1200);
+      } catch {
+        button.textContent = "参数已写入地址栏";
+        setTimeout(() => { button.textContent = "复制当前链接"; }, 1600);
+      }
+    });
+    document.querySelector(".reset").addEventListener("click", () => applyValues(defaults));
+
+    let saved = null;
+    try { saved = JSON.parse(localStorage.getItem(STORAGE_KEY)); } catch {}
+    const query = new URLSearchParams(location.search);
+    const shared = Object.fromEntries(Object.keys(defaults)
+      .filter((key) => query.has(key))
+      .map((key) => [key, Number(query.get(key))]));
+    applyValues(Object.keys(shared).length ? { ...(saved || defaults), ...shared } : (saved || defaults));
+  </script>
+</body>
+</html>

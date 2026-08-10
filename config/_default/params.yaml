@@ -9,7 +9,7 @@ appearance:
   color: emerald
 
 # Increment when homepage static assets change so browsers do not reuse stale files.
-asset_version: "20260727-pivot-camera-v2"
+asset_version: "20260806-publication-room-v3"
 
 # SEO
 marketing:
@@ -17,7 +17,7 @@ marketing:
     site_type: Person
     local_business_type: ''
     org_name: ''
-    description: 'Jiaxin Wang is an incoming PhD student at Westlake University working on dynamic 3D reconstruction, Gaussian representations, rigging, and animation.'
+    description: 'Jiaxin Wang is a PhD student at Westlake University working on representations and reconstruction for 3D and 4D worlds.'
     twitter: ''
   analytics:
     google_analytics: ''

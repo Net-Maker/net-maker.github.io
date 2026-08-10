@@ -1,0 +1,871 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>GaussiAnimate — AE Mask Workspace</title>
+  <style>
+    :root { color-scheme: light; background: #f7f7f5; color: #171717; font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif; }
+    * { box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+    button, input { font: inherit; }
+    button { color: inherit; }
+    .app { height: 100svh; display: grid; grid-template: 56px minmax(0,1fr) 116px / 190px minmax(0,1fr) 220px; }
+    header { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 0 20px; border-bottom: 1px solid #dededb; background: #fff; }
+    h1 { margin: 0; font-size: 14px; font-weight: 650; letter-spacing: -.01em; }
+    .zoom-controls { display: flex; align-items: center; gap: 5px; }
+    .zoom-controls output { min-width: 45px; color: #555; text-align: center; font-size: 11px; }
+    .zoom-button { height: 30px; min-width: 30px; padding: 0 9px; border: 1px solid #d9d9d5; border-radius: 15px; background: #fff; font-size: 11px; cursor: pointer; }
+    .zoom-button:hover { border-color: #999; }
+    .panel { min-height: 0; background: #fbfbfa; }
+    .panel-title { height: 38px; display: flex; align-items: center; padding: 0 14px; border-bottom: 1px solid #e5e5e2; color: #777; font-size: 10px; font-weight: 650; letter-spacing: .09em; text-transform: uppercase; }
+    .strokes { border-right: 1px solid #dededb; overflow: hidden; }
+    .stroke-list { height: calc(100% - 38px); margin: 0; padding: 6px; list-style: none; overflow-y: auto; }
+    .stroke-row { border-radius: 5px; }
+    .stroke-row.drag-over { box-shadow: inset 0 2px #1473e6; }
+    .stroke-button { width: 100%; display: grid; grid-template-columns: 12px 25px minmax(0,1fr); align-items: center; gap: 6px; min-height: 31px; padding: 4px 7px; border: 0; border-radius: 5px; background: transparent; text-align: left; cursor: pointer; }
+    .stroke-button:hover { background: #f0f0ed; }
+    .stroke-button.active { background: #e8eef8; color: #0c56b3; }
+    .stroke-id { color: #929292; font-variant-numeric: tabular-nums; font-size: 10px; }
+    .stroke-name { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: 12px; }
+    .drag-handle { color: #aaa; font-size: 10px; cursor: grab; }
+    .viewer { min-width: 0; min-height: 0; overflow: auto; background: #f3f3f1; }
+    .canvas-space { width: max-content; min-width: 100%; min-height: 100%; display: grid; place-items: center; padding: clamp(24px, 5vw, 64px); }
+    .stage { position: relative; width: 902px; flex: 0 0 auto; aspect-ratio: 601 / 146; background: #fff; box-shadow: 0 1px 0 rgba(0,0,0,.04), 0 8px 30px rgba(0,0,0,.035); }
+    .stage img, .stage canvas, .stage svg { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
+    .reference { opacity: .23; }
+    .preview { opacity: 0; pointer-events: none; }
+    .preview-mode .preview { opacity: 1; }
+    .preview-mode .reference, .preview-mode .masks { opacity: 0; }
+    .mask-path { fill: none; stroke: #9b9b96; stroke-width: 1.15; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+    .mask-path.selected { stroke: #1473e6; stroke-width: 1.7; }
+    .brush-preview-path { fill: none; stroke: rgba(20,115,230,.14); stroke-linecap: round; stroke-linejoin: round; pointer-events: none; }
+    .vertex { fill: #fff; stroke: #1473e6; stroke-width: 1.2; vector-effect: non-scaling-stroke; cursor: grab; }
+    .vertex.start { fill: #e64b4b; stroke: #fff; }
+    .vertex.selected { fill: #1473e6; stroke: #fff; }
+    .vertex.start.selected { fill: #e64b4b; }
+    .vertex.dragging { cursor: grabbing; }
+    .radius-ring { fill: rgba(20,115,230,.06); stroke: rgba(20,115,230,.8); stroke-width: 1.1; vector-effect: non-scaling-stroke; pointer-events: none; }
+    .radius-sample { fill: rgba(20,115,230,.08); pointer-events: none; }
+    .inspector { border-left: 1px solid #dededb; }
+    .inspector-body { padding: 16px 14px; }
+    .field { display: grid; gap: 7px; margin-bottom: 18px; }
+    .field label, .field-head { color: #666; font-size: 11px; }
+    .field-head { display: flex; justify-content: space-between; align-items: center; }
+    .button-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+    .small-button { min-height: 31px; border: 1px solid #d8d8d4; border-radius: 5px; background: #fff; color: #444; font-size: 11px; cursor: pointer; }
+    .small-button:hover { border-color: #999; color: #111; }
+    .small-button:disabled { opacity: .35; cursor: default; }
+    .check { display: flex; align-items: center; gap: 7px; color: #555; font-size: 11px; }
+    .check input { accent-color: #1473e6; }
+    .advanced { margin: -2px 0 18px; padding: 0; border-top: 1px solid #e5e5e2; border-bottom: 1px solid #e5e5e2; }
+    .advanced summary { padding: 11px 0; color: #555; font-size: 11px; cursor: pointer; user-select: none; }
+    .advanced-body { display: grid; gap: 13px; padding: 0 0 13px; }
+    .radius-field { display: grid; gap: 7px; }
+    .radius-field[hidden] { display: none; }
+    .advanced-note { color: #888; font-size: 10px; line-height: 1.45; }
+    .sequence-state { color: #777; font-size: 10px; }
+    .file-input { display: none; }
+    output { color: #171717; font-variant-numeric: tabular-nums; }
+    input[type="range"] { width: 100%; accent-color: #1473e6; }
+    .number-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .number-pair label { display: grid; gap: 5px; }
+    input[type="number"] { width: 100%; height: 31px; padding: 0 7px; border: 1px solid #d7d7d3; border-radius: 4px; background: #fff; color: #222; font-size: 11px; }
+    .hint { margin: 22px 0 0; color: #888; font-size: 11px; line-height: 1.55; }
+    .timeline { grid-column: 1 / -1; display: grid; grid-template-columns: 190px minmax(0,1fr) 220px; border-top: 1px solid #d9d9d6; background: #fff; }
+    .transport { display: flex; align-items: center; gap: 7px; padding: 14px; border-right: 1px solid #e3e3df; }
+    .icon-button, .text-button, .player-link { min-height: 32px; border: 1px solid #d9d9d5; border-radius: 16px; background: #fff; font-size: 11px; cursor: pointer; text-decoration: none; }
+    .icon-button { width: 34px; display: grid; place-items: center; padding: 0; }
+    .text-button, .player-link { display: inline-grid; place-items: center; padding: 0 11px; }
+    .icon-button:hover, .text-button:hover, .player-link:hover { border-color: #999; }
+    .time-area { min-width: 0; padding: 16px 18px 12px; }
+    .time-head { display: flex; justify-content: space-between; color: #727272; font-size: 10px; font-variant-numeric: tabular-nums; }
+    .bars { position: relative; height: 28px; margin: 8px 0 5px; border-left: 1px solid #d4d4d0; border-right: 1px solid #d4d4d0; background: repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), #e8e8e5 calc(10% - 1px), #e8e8e5 10%); }
+    .bar { position: absolute; top: 8px; height: 12px; min-width: 2px; border-radius: 2px; background: #b9b9b4; }
+    .bar.active { background: #1473e6; }
+    .playhead { position: absolute; top: 0; bottom: 0; width: 1px; background: #e5484d; pointer-events: none; }
+    .scrubber { display: block; width: 100%; margin: 0; }
+    .actions { display: flex; align-items: center; justify-content: flex-end; gap: 7px; padding: 14px; border-left: 1px solid #e3e3df; }
+    .primary { border-color: #171717; background: #171717; color: #fff; }
+    .toast { position: fixed; left: 50%; bottom: 128px; z-index: 10; transform: translate(-50%, 8px); padding: 8px 12px; border: 1px solid #ddd; border-radius: 15px; background: rgba(255,255,255,.96); color: #555; font-size: 11px; opacity: 0; pointer-events: none; transition: 150ms ease; }
+    .toast.visible { opacity: 1; transform: translate(-50%,0); }
+    :focus-visible { outline: 2px solid #1473e6; outline-offset: 2px; }
+    @media (max-width: 820px) {
+      .app { grid-template: 52px minmax(0,1fr) 106px 112px / 122px minmax(0,1fr); }
+      .inspector { grid-column: 1 / -1; display: block; border: 0; border-top: 1px solid #dededb; overflow-x: auto; }
+      .inspector .panel-title { display: none; }
+      .inspector-body { height: 106px; display: flex; align-items: center; gap: 16px; padding: 10px 12px; width: max-content; }
+      .inspector .field { width: 170px; margin: 0; }
+      .inspector .advanced { width: 190px; margin: 0; border: 0; }
+      .inspector .advanced summary { padding: 4px 0; }
+      .inspector .advanced-body { gap: 7px; padding: 0; }
+      .inspector .advanced-note { display: none; }
+      .inspector .hint { display: none; }
+      .timeline { grid-column: 1 / -1; grid-template-columns: 122px minmax(0,1fr); }
+      .actions { display: none; }
+      .canvas-space { padding: 22px 12px; }
+      .zoom-controls .zoom-fit { display: none; }
+      .transport { padding: 10px; }
+      .text-button { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>GaussiAnimate · AE Mask Workspace</h1>
+      <div class="zoom-controls" aria-label="画布缩放">
+        <button class="zoom-button zoom-out" type="button" aria-label="缩小">−</button>
+        <output class="zoom-value">100%</output>
+        <button class="zoom-button zoom-in" type="button" aria-label="放大">＋</button>
+        <button class="zoom-button zoom-fit" type="button">适合</button>
+      </div>
+    </header>
+    <aside class="panel strokes">
+      <div class="panel-title">Mask paths</div>
+      <ol class="stroke-list"></ol>
+    </aside>
+    <main class="viewer">
+      <div class="canvas-space">
+        <div class="stage">
+          <img class="reference" src="./gaussianimate-ai-logo-hd.png" alt="GaussiAnimate 原始 Logo" draggable="false">
+          <canvas class="preview" aria-hidden="true"></canvas>
+          <svg class="masks" viewBox="0 0 601 146" aria-label="可编辑的书写蒙版路径"></svg>
+        </div>
+      </div>
+    </main>
+    <aside class="panel inspector">
+      <div class="panel-title">Stroke effect</div>
+      <div class="inspector-body">
+        <div class="field">
+          <div class="field-head"><label for="brush">Brush Size</label><output class="brush-value">—</output></div>
+          <input id="brush" class="brush" type="range" min="2" max="60" step="0.1">
+          <label class="check"><input class="brush-preview-toggle" type="checkbox" checked>显示笔刷覆盖</label>
+        </div>
+        <details class="advanced">
+          <summary>高级笔刷</summary>
+          <div class="advanced-body">
+            <label class="check"><input class="variable-radius-toggle" type="checkbox">逐节点半径</label>
+            <div class="radius-field" hidden>
+              <div class="field-head"><label for="point-radius">当前节点 Radius</label><output class="radius-value">—</output></div>
+              <input id="point-radius" class="point-radius" type="range" min="0.5" max="60" step="0.1">
+              <span class="advanced-note">半径会在相邻节点间平滑插值</span>
+            </div>
+          </div>
+        </details>
+        <div class="field">
+          <div class="field-head"><span>Path nodes</span><output class="node-count">—</output></div>
+          <div class="button-pair">
+            <button class="small-button add-node" type="button" title="快捷键 Q">增加节点 Q</button>
+            <button class="small-button delete-node" type="button" title="快捷键 E">删除节点 E</button>
+          </div>
+        </div>
+        <div class="field">
+          <div class="field-head"><span>Stroke order</span><output class="order-value">—</output></div>
+          <div class="button-pair">
+            <button class="small-button move-up" type="button">提前</button>
+            <button class="small-button move-down" type="button">延后</button>
+          </div>
+          <span class="sequence-state">独立笔画</span>
+        </div>
+        <div class="field">
+          <div class="field-head"><span>Trim End timing</span></div>
+          <div class="number-pair">
+            <label>In (ms)<input class="trim-in" type="number" min="0" step="10"></label>
+            <label>Out (ms)<input class="trim-out" type="number" min="1" step="10"></label>
+          </div>
+        </div>
+        <div class="field">
+          <div class="field-head"><span>Rig data</span></div>
+          <div class="button-pair">
+            <button class="small-button import" type="button">导入 JSON</button>
+            <button class="small-button export" type="button">导出 JSON</button>
+          </div>
+          <input class="file-input" type="file" accept="application/json,.json">
+        </div>
+        <p class="hint">蓝线是当前 Mask Path，半透明区域是 Brush Size，红点是落笔位置。Q 增加节点，E 删除节点；左侧可拖动笔画调整顺序。</p>
+      </div>
+    </aside>
+    <section class="timeline" aria-label="Trim End 时间轴">
+      <div class="transport">
+        <button class="icon-button play" type="button" aria-label="播放">▶</button>
+        <button class="text-button reset" type="button">恢复种子</button>
+      </div>
+      <div class="time-area">
+        <div class="time-head"><span>Trim End</span><output class="time-value">0.00 s</output></div>
+        <div class="bars"><span class="playhead"></span></div>
+        <input class="scrubber" type="range" min="0" value="0" step="1" aria-label="时间">
+      </div>
+      <div class="actions">
+        <a class="player-link primary" href="./index.html">播放页</a>
+      </div>
+    </section>
+  </div>
+  <div class="toast" role="status"></div>
+
+  <script>
+    const NS = "http://www.w3.org/2000/svg";
+    const query = new URLSearchParams(location.search);
+    const VARIANTS = {
+      "ai-brush": {
+        id: "ai-brush",
+        label: "AE",
+        viewBox: [0, 0, 601, 146],
+        image: "./gaussianimate-ai-logo-hd.png",
+        seed: "./ai-logo-strokes.json",
+        storageKey: "gaussianimate-ae-mask-current",
+        legacyStorageKeys: ["gaussianimate-ae-mask-v6"],
+        playerHref: "./index.html?v=7",
+        exportName: "gaussianimate-ae-mask-rig.json",
+      },
+      "caveat-brush": {
+        id: "caveat-brush",
+        label: "Caveat Brush",
+        viewBox: [0, 0, 1280, 260],
+        image: "./caveat-brush-logo.png",
+        seed: "./caveat-brush-editor-rig.json",
+        storageKey: "gaussianimate-caveat-brush-ae-mask-v1",
+        legacyStorageKeys: [],
+        playerHref: "./index.html?variant=caveat-brush",
+        exportName: "gaussianimate-caveat-brush-mask-rig.json",
+      },
+    };
+    const CONFIG = VARIANTS[query.get("variant")] || VARIANTS["ai-brush"];
+    const W = CONFIG.viewBox[2];
+    const H = CONFIG.viewBox[3];
+    const STORAGE_KEY = CONFIG.storageKey;
+    const BACKUP_STORAGE_KEY = `${STORAGE_KEY}-backup`;
+    const LEGACY_STORAGE_KEYS = CONFIG.legacyStorageKeys;
+    const viewer = document.querySelector(".viewer");
+    const stage = document.querySelector(".stage");
+    const svg = document.querySelector(".masks");
+    const image = document.querySelector(".reference");
+    const canvas = document.querySelector(".preview");
+    const context = canvas.getContext("2d");
+    const maskCanvas = document.createElement("canvas");
+    const maskContext = maskCanvas.getContext("2d");
+    const list = document.querySelector(".stroke-list");
+    const bars = document.querySelector(".bars");
+    const playhead = document.querySelector(".playhead");
+    const scrubber = document.querySelector(".scrubber");
+    const timeValue = document.querySelector(".time-value");
+    const brush = document.querySelector(".brush");
+    const brushValue = document.querySelector(".brush-value");
+    const brushPreviewToggle = document.querySelector(".brush-preview-toggle");
+    const variableRadiusToggle = document.querySelector(".variable-radius-toggle");
+    const radiusField = document.querySelector(".radius-field");
+    const pointRadius = document.querySelector(".point-radius");
+    const radiusValue = document.querySelector(".radius-value");
+    const nodeCount = document.querySelector(".node-count");
+    const addNodeButton = document.querySelector(".add-node");
+    const deleteNodeButton = document.querySelector(".delete-node");
+    const orderValue = document.querySelector(".order-value");
+    const sequenceState = document.querySelector(".sequence-state");
+    const moveUpButton = document.querySelector(".move-up");
+    const moveDownButton = document.querySelector(".move-down");
+    const zoomValue = document.querySelector(".zoom-value");
+    const importButton = document.querySelector(".import");
+    const fileInput = document.querySelector(".file-input");
+    const trimIn = document.querySelector(".trim-in");
+    const trimOut = document.querySelector(".trim-out");
+    const toast = document.querySelector(".toast");
+    let data;
+    let seed;
+    let selected = 0;
+    let selectedVertex = 0;
+    let dragging = null;
+    let draggedStroke = null;
+    let zoom = 1;
+    let frame = 0;
+    let toastTimer = 0;
+
+    document.title = `GaussiAnimate — ${CONFIG.label} Mask Workspace`;
+    document.querySelector("h1").textContent = `GaussiAnimate · ${CONFIG.label} Mask Workspace`;
+    image.src = CONFIG.image;
+    image.alt = `GaussiAnimate ${CONFIG.label} Logo`;
+    svg.setAttribute("viewBox", CONFIG.viewBox.join(" "));
+    stage.style.aspectRatio = `${W} / ${H}`;
+    document.querySelector(".player-link").href = CONFIG.playerHref;
+
+    const clamp = (value, low = 0, high = 1) => Math.min(Math.max(value, low), high);
+    const ease = (value) => { const t = clamp(value); return t * t * (3 - 2 * t); };
+    const currentStroke = () => data.strokes[selected];
+    const currentVertex = () => currentStroke().vertices[selectedVertex];
+
+    function vertexRadius(stroke, point) {
+      const radius = Number(point?.radius);
+      return Number.isFinite(radius) && radius > 0 ? radius : Number(stroke.brushSize) / 2;
+    }
+
+    function initializeVertexRadii() {
+      data.strokes.forEach((stroke) => {
+        stroke.vertices.forEach((point) => {
+          if (!Number.isFinite(Number(point.radius)) || Number(point.radius) <= 0) {
+            point.radius = Number(stroke.brushSize) / 2;
+          }
+        });
+      });
+    }
+
+    function radiusAtProgress(stroke, progress) {
+      const points = stroke.vertices;
+      if (points.length === 1) return vertexRadius(stroke, points[0]);
+      const cumulative = [0];
+      for (let index = 1; index < points.length; index += 1) {
+        cumulative.push(cumulative[index - 1] + Math.hypot(points[index].x - points[index - 1].x, points[index].y - points[index - 1].y));
+      }
+      const total = Math.max(cumulative.at(-1), .001);
+      const target = clamp(progress) * total;
+      let segment = 0;
+      while (segment + 1 < cumulative.length && cumulative[segment + 1] < target) segment += 1;
+      const next = Math.min(segment + 1, points.length - 1);
+      const span = Math.max(cumulative[next] - cumulative[segment], .001);
+      const local = clamp((target - cumulative[segment]) / span);
+      return vertexRadius(stroke, points[segment]) * (1 - local) + vertexRadius(stroke, points[next]) * local;
+    }
+
+    function sampleVariablePath(path, stroke, progress, callback) {
+      const length = Math.max(path.getTotalLength(), .01);
+      const visible = length * clamp(progress);
+      const step = Math.max(.7, Math.min(1.8, length / 280));
+      if (visible <= .02) {
+        const point = path.getPointAtLength(0);
+        callback(point, vertexRadius(stroke, stroke.vertices[0]), 0);
+        return;
+      }
+      for (let arc = 0; arc < visible; arc += step) {
+        const point = path.getPointAtLength(arc);
+        callback(point, radiusAtProgress(stroke, arc / length), arc / length);
+      }
+      const point = path.getPointAtLength(visible);
+      callback(point, radiusAtProgress(stroke, visible / length), visible / length);
+    }
+
+    function pathFromVertices(vertices) {
+      if (vertices.length === 1) return `M${vertices[0].x.toFixed(2)} ${vertices[0].y.toFixed(2)}l0.01 0`;
+      let d = `M${vertices[0].x.toFixed(2)} ${vertices[0].y.toFixed(2)}`;
+      for (let i = 0; i < vertices.length - 1; i += 1) {
+        const p0 = vertices[i - 1] || vertices[i];
+        const p1 = vertices[i];
+        const p2 = vertices[i + 1];
+        const p3 = vertices[i + 2] || p2;
+        const c1 = { x: p1.x + (p2.x - p0.x) / 6, y: p1.y + (p2.y - p0.y) / 6 };
+        const c2 = { x: p2.x - (p3.x - p1.x) / 6, y: p2.y - (p3.y - p1.y) / 6 };
+        d += `C${c1.x.toFixed(2)} ${c1.y.toFixed(2)} ${c2.x.toFixed(2)} ${c2.y.toFixed(2)} ${p2.x.toFixed(2)} ${p2.y.toFixed(2)}`;
+      }
+      return d;
+    }
+
+    function save() {
+      if (!data) return;
+      const serialized = JSON.stringify(data);
+      const previous = localStorage.getItem(STORAGE_KEY);
+      if (previous && previous !== serialized) localStorage.setItem(BACKUP_STORAGE_KEY, previous);
+      localStorage.setItem(STORAGE_KEY, serialized);
+    }
+    function showToast(message) {
+      clearTimeout(toastTimer); toast.textContent = message; toast.classList.add("visible");
+      toastTimer = setTimeout(() => toast.classList.remove("visible"), 1800);
+    }
+
+    function assignSequenceGroups(strokes) {
+      let iGroup = 0;
+      let pendingI = null;
+      strokes.forEach((stroke) => {
+        if (stroke.sequenceGroup) return;
+        if (stroke.name.startsWith("G ")) stroke.sequenceGroup = "G";
+        else if (stroke.name.startsWith("A ")) stroke.sequenceGroup = "A";
+        else if (stroke.name.startsWith("m ")) stroke.sequenceGroup = "m";
+        else if (stroke.name.startsWith("t ")) stroke.sequenceGroup = "t";
+        else if (stroke.name === "i stem") {
+          pendingI = `i-${++iGroup}`;
+          stroke.sequenceGroup = pendingI;
+        } else if (stroke.name === "i dot" && pendingI) {
+          stroke.sequenceGroup = pendingI;
+          pendingI = null;
+        }
+      });
+    }
+
+    function setZoom(value) {
+      zoom = clamp(value, .2, 5);
+      stage.style.width = `${Math.round(W * zoom)}px`;
+      zoomValue.value = `${Math.round(zoom * 100)}%`;
+    }
+
+    function fitZoom() {
+      const horizontalPadding = innerWidth <= 820 ? 28 : 96;
+      setZoom((viewer.clientWidth - horizontalPadding) / W);
+    }
+
+    function retimeStrokes() {
+      let cursor = 80;
+      data.strokes.forEach((stroke, index) => {
+        const duration = Math.max(stroke.trim.outMs - stroke.trim.inMs, 1);
+        stroke.trim.inMs = cursor;
+        stroke.trim.outMs = cursor + duration;
+        const next = data.strokes[index + 1];
+        cursor = stroke.trim.outMs + (stroke.sequenceGroup && next?.sequenceGroup === stroke.sequenceGroup ? 0 : 56);
+      });
+      data.durationMs = cursor + 180;
+      scrubber.max = data.durationMs;
+    }
+
+    function reorderStroke(from, to) {
+      if (from === to || to < 0 || to >= data.strokes.length) return;
+      const [stroke] = data.strokes.splice(from, 1);
+      data.strokes.splice(to, 0, stroke);
+      selected = to;
+      selectedVertex = 0;
+      retimeStrokes();
+      save();
+      renderList(); renderPaths(); renderBars(); updateInspector();
+    }
+
+    function updateInspector() {
+      const stroke = currentStroke();
+      brush.value = stroke.brushSize;
+      brushValue.value = `${Number(stroke.brushSize).toFixed(1)} px`;
+      const variableRadiusEnabled = Boolean(data.variableRadiusEnabled);
+      variableRadiusToggle.checked = variableRadiusEnabled;
+      radiusField.hidden = !variableRadiusEnabled;
+      pointRadius.value = vertexRadius(stroke, currentVertex());
+      radiusValue.value = `${vertexRadius(stroke, currentVertex()).toFixed(1)} px`;
+      nodeCount.value = `${stroke.vertices.length} 个`;
+      orderValue.value = `${selected + 1} / ${data.strokes.length}`;
+      sequenceState.textContent = stroke.sequenceGroup ? `${stroke.sequenceGroup} · Stroke Sequentially` : "独立笔画";
+      trimIn.value = stroke.trim.inMs;
+      trimOut.value = stroke.trim.outMs;
+      deleteNodeButton.disabled = stroke.vertices.length <= 1;
+      moveUpButton.disabled = selected === 0;
+      moveDownButton.disabled = selected === data.strokes.length - 1;
+      [...list.children].forEach((item, index) => item.firstElementChild.classList.toggle("active", index === selected));
+      [...bars.querySelectorAll(".bar")].forEach((bar, index) => bar.classList.toggle("active", index === selected));
+    }
+
+    function selectStroke(index) {
+      selected = index;
+      selectedVertex = 0;
+      stop(); renderPaths(); renderBars(); updateInspector();
+    }
+
+    function renderList() {
+      list.replaceChildren(...data.strokes.map((stroke, index) => {
+        const item = document.createElement("li");
+        item.className = "stroke-row";
+        item.draggable = true;
+        const button = document.createElement("button");
+        button.type = "button"; button.className = "stroke-button";
+        const handle = document.createElement("span"); handle.className = "drag-handle"; handle.ariaHidden = "true"; handle.textContent = "⠿";
+        const id = document.createElement("span"); id.className = "stroke-id"; id.textContent = String(index + 1).padStart(2, "0");
+        const name = document.createElement("span"); name.className = "stroke-name"; name.textContent = stroke.name;
+        button.append(handle, id, name);
+        button.addEventListener("click", () => selectStroke(index));
+        item.addEventListener("dragstart", (event) => {
+          draggedStroke = index;
+          event.dataTransfer.effectAllowed = "move";
+          event.dataTransfer.setData("text/plain", String(index));
+        });
+        item.addEventListener("dragover", (event) => { event.preventDefault(); item.classList.add("drag-over"); });
+        item.addEventListener("dragleave", () => item.classList.remove("drag-over"));
+        item.addEventListener("drop", (event) => {
+          event.preventDefault(); item.classList.remove("drag-over");
+          const from = draggedStroke ?? Number(event.dataTransfer.getData("text/plain"));
+          draggedStroke = null; reorderStroke(from, index);
+        });
+        item.addEventListener("dragend", () => {
+          draggedStroke = null;
+          list.querySelectorAll(".drag-over").forEach((row) => row.classList.remove("drag-over"));
+        });
+        item.append(button); return item;
+      }));
+    }
+
+    function renderPaths() {
+      svg.replaceChildren();
+      if (brushPreviewToggle.checked) {
+        if (data.variableRadiusEnabled) {
+          const samplePath = document.createElementNS(NS, "path");
+          samplePath.setAttribute("d", currentStroke().d);
+          sampleVariablePath(samplePath, currentStroke(), 1, (point, radius) => {
+            const sample = document.createElementNS(NS, "circle");
+            sample.setAttribute("cx", point.x); sample.setAttribute("cy", point.y); sample.setAttribute("r", radius);
+            sample.classList.add("radius-sample"); svg.append(sample);
+          });
+        } else {
+          const previewPath = document.createElementNS(NS, "path");
+          previewPath.setAttribute("d", currentStroke().d);
+          previewPath.setAttribute("stroke-width", currentStroke().brushSize);
+          previewPath.classList.add("brush-preview-path");
+          svg.append(previewPath);
+        }
+      }
+      data.strokes.forEach((stroke, index) => {
+        const path = document.createElementNS(NS, "path");
+        path.setAttribute("d", stroke.d); path.classList.add("mask-path");
+        if (index === selected) path.classList.add("selected");
+        path.addEventListener("pointerdown", () => selectStroke(index));
+        svg.append(path);
+      });
+      if (data.variableRadiusEnabled) {
+        const selectedPoint = currentVertex();
+        const ring = document.createElementNS(NS, "circle");
+        ring.setAttribute("cx", selectedPoint.x); ring.setAttribute("cy", selectedPoint.y);
+        ring.setAttribute("r", vertexRadius(currentStroke(), selectedPoint)); ring.classList.add("radius-ring");
+        svg.append(ring);
+      }
+      currentStroke().vertices.forEach((point, index) => {
+        const vertex = document.createElementNS(NS, "circle");
+        vertex.setAttribute("cx", point.x); vertex.setAttribute("cy", point.y); vertex.setAttribute("r", index === 0 ? 2.3 : 1.9);
+        vertex.classList.add("vertex"); if (index === 0) vertex.classList.add("start");
+        if (index === selectedVertex) vertex.classList.add("selected");
+        vertex.addEventListener("pointerdown", (event) => {
+          selectedVertex = index;
+          svg.querySelectorAll(".vertex").forEach((node, nodeIndex) => node.classList.toggle("selected", nodeIndex === selectedVertex));
+          const ring = svg.querySelector(".radius-ring");
+          if (ring) {
+            ring.setAttribute("cx", point.x); ring.setAttribute("cy", point.y);
+            ring.setAttribute("r", vertexRadius(currentStroke(), point));
+          }
+          updateInspector();
+          dragging = { index, pointerId: event.pointerId }; vertex.setPointerCapture(event.pointerId); vertex.classList.add("dragging"); event.preventDefault();
+        });
+        vertex.addEventListener("pointermove", (event) => {
+          if (!dragging || dragging.pointerId !== event.pointerId) return;
+          const bounds = svg.getBoundingClientRect();
+          const point = currentStroke().vertices[dragging.index];
+          point.x = clamp((event.clientX - bounds.left) / bounds.width * W, 0, W);
+          point.y = clamp((event.clientY - bounds.top) / bounds.height * H, 0, H);
+          currentStroke().d = pathFromVertices(currentStroke().vertices);
+          svg.querySelector(".mask-path.selected")?.setAttribute("d", currentStroke().d);
+          svg.querySelector(".brush-preview-path")?.setAttribute("d", currentStroke().d);
+          vertex.setAttribute("cx", point.x); vertex.setAttribute("cy", point.y);
+          const ring = svg.querySelector(".radius-ring");
+          if (ring) { ring.setAttribute("cx", point.x); ring.setAttribute("cy", point.y); }
+          event.preventDefault();
+        });
+        const finish = () => { if (!dragging) return; dragging = null; save(); renderPaths(); };
+        vertex.addEventListener("pointerup", finish); vertex.addEventListener("pointercancel", finish);
+        svg.append(vertex);
+      });
+    }
+
+    function renderBars() {
+      bars.querySelectorAll(".bar").forEach((bar) => bar.remove());
+      data.strokes.forEach((stroke, index) => {
+        const bar = document.createElement("span"); bar.className = `bar${index === selected ? " active" : ""}`;
+        bar.style.left = `${stroke.trim.inMs / data.durationMs * 100}%`;
+        bar.style.width = `${(stroke.trim.outMs - stroke.trim.inMs) / data.durationMs * 100}%`;
+        bar.addEventListener("click", () => selectStroke(index)); bars.append(bar);
+      });
+      bars.append(playhead);
+    }
+
+    function resize() {
+      const bounds = stage.getBoundingClientRect();
+      const density = clamp(devicePixelRatio || 1, 1.5, 2.5);
+      const width = Math.max(1, Math.round(bounds.width * density));
+      const height = Math.max(1, Math.round(bounds.height * density));
+      canvas.width = maskCanvas.width = width; canvas.height = maskCanvas.height = height;
+      renderAt(Number(scrubber.value));
+    }
+
+    function sequenceWindow(index) {
+      const group = data.strokes[index].sequenceGroup;
+      if (!group) return null;
+      let start = index; let end = index;
+      while (start > 0 && data.strokes[start - 1].sequenceGroup === group) start -= 1;
+      while (end + 1 < data.strokes.length && data.strokes[end + 1].sequenceGroup === group) end += 1;
+      if (start === end) return null;
+      return { inMs: data.strokes[start].trim.inMs, outMs: data.strokes[end].trim.outMs };
+    }
+
+    function strokeProgress(stroke, index, timeMs) {
+      const sequence = sequenceWindow(index);
+      if (!sequence) return ease((timeMs - stroke.trim.inMs) / Math.max(stroke.trim.outMs - stroke.trim.inMs, 1));
+      const sequenceProgress = ease((timeMs - sequence.inMs) / Math.max(sequence.outMs - sequence.inMs, 1));
+      const sequenceTime = sequence.inMs + sequenceProgress * (sequence.outMs - sequence.inMs);
+      return clamp((sequenceTime - stroke.trim.inMs) / Math.max(stroke.trim.outMs - stroke.trim.inMs, 1));
+    }
+
+    function renderAt(timeMs) {
+      if (!data || !canvas.width || !image.complete) return;
+      const sx = canvas.width / W; const sy = canvas.height / H;
+      maskContext.setTransform(1,0,0,1,0,0); maskContext.clearRect(0,0,maskCanvas.width,maskCanvas.height);
+      maskContext.setTransform(sx,0,0,sy,0,0); maskContext.strokeStyle = "#fff"; maskContext.fillStyle = "#fff"; maskContext.lineCap = "round"; maskContext.lineJoin = "round";
+      data.strokes.forEach((stroke, index) => {
+        const local = strokeProgress(stroke, index, timeMs);
+        if (local <= 0) return;
+        const node = document.createElementNS(NS, "path"); node.setAttribute("d", stroke.d);
+        const length = Math.max(node.getTotalLength(), .01);
+        maskContext.save();
+        if (data.variableRadiusEnabled) {
+          sampleVariablePath(node, stroke, local, (point, radius) => {
+            maskContext.beginPath(); maskContext.arc(point.x, point.y, radius, 0, Math.PI * 2); maskContext.fill();
+          });
+        } else {
+          maskContext.lineWidth = stroke.brushSize; maskContext.setLineDash([length, length + 2]); maskContext.lineDashOffset = length * (1 - local); maskContext.stroke(new Path2D(stroke.d));
+        }
+        maskContext.restore();
+      });
+      context.setTransform(1,0,0,1,0,0); context.clearRect(0,0,canvas.width,canvas.height); context.drawImage(image,0,0,canvas.width,canvas.height);
+      context.globalCompositeOperation = "destination-in"; context.drawImage(maskCanvas,0,0); context.globalCompositeOperation = "source-over";
+      scrubber.value = timeMs; timeValue.value = `${(timeMs / 1000).toFixed(2)} s`; playhead.style.left = `${timeMs / data.durationMs * 100}%`;
+    }
+
+    function stop() {
+      cancelAnimationFrame(frame);
+      frame = 0;
+      stage.classList.remove("preview-mode");
+      document.querySelector(".play").textContent = "▶";
+    }
+    function play() {
+      if (frame) { stop(); return; }
+      stage.classList.add("preview-mode"); document.querySelector(".play").textContent = "Ⅱ";
+      const initial = Number(scrubber.value) >= data.durationMs ? 0 : Number(scrubber.value);
+      const started = performance.now() - initial;
+      const tick = (now) => {
+        const time = Math.min(now - started, data.durationMs); renderAt(time);
+        if (time < data.durationMs) frame = requestAnimationFrame(tick); else stop();
+      };
+      frame = requestAnimationFrame(tick);
+    }
+
+    function commitVertices() {
+      currentStroke().d = pathFromVertices(currentStroke().vertices);
+      save(); renderPaths(); updateInspector(); renderAt(Number(scrubber.value));
+    }
+
+    function addSelectedNode() {
+      const vertices = currentStroke().vertices;
+      const index = clamp(selectedVertex, 0, vertices.length - 1);
+      let point;
+      if (vertices.length === 1) {
+        point = { x: clamp(vertices[0].x + 8, 0, W), y: vertices[0].y };
+      } else if (index < vertices.length - 1) {
+        const next = vertices[index + 1];
+        point = { x: (vertices[index].x + next.x) / 2, y: (vertices[index].y + next.y) / 2 };
+      } else {
+        const previous = vertices[index - 1];
+        point = {
+          x: clamp(vertices[index].x + (vertices[index].x - previous.x) * .25, 0, W),
+          y: clamp(vertices[index].y + (vertices[index].y - previous.y) * .25, 0, H),
+        };
+      }
+      if (data.variableRadiusEnabled) {
+        const currentRadius = vertexRadius(currentStroke(), vertices[index]);
+        const nextRadius = index < vertices.length - 1 ? vertexRadius(currentStroke(), vertices[index + 1]) : currentRadius;
+        point.radius = (currentRadius + nextRadius) / 2;
+      }
+      vertices.splice(index + 1, 0, point);
+      selectedVertex = index + 1;
+      commitVertices();
+    }
+    addNodeButton.addEventListener("click", addSelectedNode);
+
+    function deleteSelectedNode() {
+      const vertices = currentStroke().vertices;
+      if (vertices.length <= 1) return;
+      vertices.splice(selectedVertex, 1);
+      selectedVertex = clamp(selectedVertex, 0, vertices.length - 1);
+      commitVertices();
+    }
+    deleteNodeButton.addEventListener("click", deleteSelectedNode);
+    document.addEventListener("keydown", (event) => {
+      const editable = /INPUT|TEXTAREA|SELECT/.test(event.target.tagName) || event.target.isContentEditable;
+      if (editable || event.ctrlKey || event.metaKey || event.altKey) return;
+      if (event.code === "KeyQ") {
+        event.preventDefault(); addSelectedNode();
+      } else if (event.code === "KeyE" || ['Delete', 'Backspace'].includes(event.key)) {
+        event.preventDefault(); deleteSelectedNode();
+      }
+    });
+
+    brush.addEventListener("input", () => {
+      currentStroke().brushSize = Number(brush.value);
+      brushValue.value = `${Number(brush.value).toFixed(1)} px`;
+      save(); renderPaths(); renderAt(Number(scrubber.value));
+    });
+    variableRadiusToggle.addEventListener("change", () => {
+      data.variableRadiusEnabled = variableRadiusToggle.checked;
+      if (data.variableRadiusEnabled) initializeVertexRadii();
+      save(); updateInspector(); renderPaths(); renderAt(Number(scrubber.value));
+    });
+    pointRadius.addEventListener("input", () => {
+      currentVertex().radius = Number(pointRadius.value);
+      radiusValue.value = `${Number(pointRadius.value).toFixed(1)} px`;
+      save(); renderPaths(); renderAt(Number(scrubber.value));
+    });
+    brushPreviewToggle.addEventListener("change", renderPaths);
+    moveUpButton.addEventListener("click", () => reorderStroke(selected, selected - 1));
+    moveDownButton.addEventListener("click", () => reorderStroke(selected, selected + 1));
+    document.querySelector(".zoom-out").addEventListener("click", () => setZoom(zoom / 1.25));
+    document.querySelector(".zoom-in").addEventListener("click", () => setZoom(zoom * 1.25));
+    document.querySelector(".zoom-fit").addEventListener("click", fitZoom);
+    viewer.addEventListener("wheel", (event) => {
+      if (!event.ctrlKey && !event.metaKey) return;
+      event.preventDefault(); setZoom(zoom * (event.deltaY < 0 ? 1.12 : 1 / 1.12));
+    }, { passive: false });
+    function updateTrim() {
+      currentStroke().trim.inMs = Math.max(0, Number(trimIn.value));
+      currentStroke().trim.outMs = Math.max(currentStroke().trim.inMs + 1, Number(trimOut.value));
+      data.durationMs = Math.max(...data.strokes.map((stroke) => stroke.trim.outMs)) + 236;
+      scrubber.max = data.durationMs; save(); renderBars(); updateInspector(); renderAt(Number(scrubber.value));
+    }
+    trimIn.addEventListener("change", updateTrim); trimOut.addEventListener("change", updateTrim);
+    scrubber.addEventListener("input", () => { stop(); stage.classList.add("preview-mode"); renderAt(Number(scrubber.value)); });
+    scrubber.addEventListener("change", () => stage.classList.remove("preview-mode"));
+    scrubber.addEventListener("pointerup", () => stage.classList.remove("preview-mode"));
+    scrubber.addEventListener("blur", () => stage.classList.remove("preview-mode"));
+    document.querySelector(".play").addEventListener("click", play);
+    document.querySelector(".reset").addEventListener("click", () => {
+      if (!confirm("恢复种子会替换当前编辑，是否继续？恢复前结果会保留在备份槽。")) return;
+      stop();
+      const current = localStorage.getItem(STORAGE_KEY) || JSON.stringify(data);
+      localStorage.setItem(BACKUP_STORAGE_KEY, current);
+      data = structuredClone(seed);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      LEGACY_STORAGE_KEYS.forEach((key) => localStorage.removeItem(key));
+      selected = 0; selectedVertex = 0;
+      initialize(); showToast(`已恢复 ${data.strokes.length} 条种子路径；原结果仍有备份`);
+    });
+
+    function normalizeImportedRig(imported) {
+      if (!imported || ![5, 6, 7].includes(Number(imported.version))) throw new Error("只支持 v5、v6 或 v7 Rig");
+      if (!Array.isArray(imported.strokes) || !imported.strokes.length || imported.strokes.length > 200) throw new Error("strokes 数量无效");
+      const importedViewBox = imported.viewBox;
+      if (CONFIG.id === "caveat-brush" && (
+        imported.variant !== "caveat-brush" ||
+        !Array.isArray(importedViewBox) ||
+        Number(importedViewBox[2]) !== W ||
+        Number(importedViewBox[3]) !== H
+      )) throw new Error("这不是 Caveat Brush 版本的 Rig");
+      let strokes = imported.strokes.map((stroke, strokeIndex) => {
+        if (!stroke || !Array.isArray(stroke.vertices) || !stroke.vertices.length || stroke.vertices.length > 2000) {
+          throw new Error(`第 ${strokeIndex + 1} 笔缺少有效节点`);
+        }
+        const vertices = stroke.vertices.map((point, pointIndex) => {
+          const x = Number(point.x); const y = Number(point.y);
+          if (!Number.isFinite(x) || !Number.isFinite(y) || x < -W || x > W * 2 || y < -H || y > H * 2) {
+            throw new Error(`第 ${strokeIndex + 1} 笔的节点 ${pointIndex + 1} 无效`);
+          }
+          const radius = Number(point.radius);
+          if (point.radius !== undefined && (!Number.isFinite(radius) || radius <= 0 || radius > 120)) {
+            throw new Error(`第 ${strokeIndex + 1} 笔的节点 ${pointIndex + 1} Radius 无效`);
+          }
+          return Number.isFinite(radius) && radius > 0 ? { x, y, radius } : { x, y };
+        });
+        const brushSize = Number(stroke.brushSize);
+        const inMs = Number(stroke.trim?.inMs); const outMs = Number(stroke.trim?.outMs);
+        if (!Number.isFinite(brushSize) || brushSize <= 0 || brushSize > 100) throw new Error(`第 ${strokeIndex + 1} 笔的 Brush Size 无效`);
+        if (!Number.isFinite(inMs) || !Number.isFinite(outMs) || inMs < 0 || outMs <= inMs) throw new Error(`第 ${strokeIndex + 1} 笔的 Trim 时间无效`);
+        return {
+          ...stroke,
+          id: strokeIndex + 1,
+          name: String(stroke.name || `Stroke ${strokeIndex + 1}`),
+          vertices,
+          brushSize,
+          trim: { inMs, outMs },
+          d: pathFromVertices(vertices),
+        };
+      });
+
+      const leftIndex = strokes.findIndex((stroke) => stroke.name === "A left");
+      const rightIndex = strokes.findIndex((stroke) => stroke.name === "A right");
+      const crossbarIndex = strokes.findIndex((stroke) => stroke.name === "A crossbar");
+      const migratedA = leftIndex >= 0 && rightIndex >= 0 && crossbarIndex >= 0;
+      if (migratedA) {
+        const left = strokes[leftIndex]; const right = strokes[rightIndex]; const crossbar = strokes[crossbarIndex];
+        const leftEnd = left.vertices.at(-1); const rightStart = right.vertices[0];
+        const join = { x: (leftEnd.x + rightStart.x) / 2, y: (leftEnd.y + rightStart.y) / 2 };
+        const vertices = [...left.vertices.slice(0, -1), join, ...right.vertices.slice(1)];
+        const body = {
+          ...left,
+          name: "A body",
+          source: "imported-v5-a-body-merge",
+          vertices,
+          brushSize: Math.max(left.brushSize, right.brushSize),
+          trim: { inMs: left.trim.inMs, outMs: left.trim.inMs + (left.trim.outMs - left.trim.inMs) + (right.trim.outMs - right.trim.inMs) },
+          d: pathFromVertices(vertices),
+        };
+        const replaced = new Set([leftIndex, rightIndex, crossbarIndex]);
+        const insertion = Math.min(leftIndex, rightIndex, crossbarIndex);
+        const before = strokes.slice(0, insertion).filter((_, index) => !replaced.has(index));
+        const after = strokes.slice(insertion).filter((_, offset) => !replaced.has(insertion + offset));
+        strokes = [...before, body, crossbar, ...after];
+      }
+
+      assignSequenceGroups(strokes);
+      strokes.forEach((stroke, index) => { stroke.id = index + 1; });
+      const upgradedSequence = Number(imported.version) < 7;
+      data = {
+        ...structuredClone(seed),
+        ...imported,
+        version: 7,
+        viewBox: structuredClone(seed.viewBox),
+        strokeCount: strokes.length,
+        strokes,
+      };
+      if (migratedA || upgradedSequence) retimeStrokes();
+      else data.durationMs = Math.max(Number(imported.durationMs) || 0, Math.max(...strokes.map((stroke) => stroke.trim.outMs)) + 180);
+      return { migratedA, upgradedSequence };
+    }
+
+    importButton.addEventListener("click", () => fileInput.click());
+    fileInput.addEventListener("change", async () => {
+      const file = fileInput.files?.[0];
+      if (!file) return;
+      try {
+        stop();
+        const imported = JSON.parse(await file.text());
+        const migration = normalizeImportedRig(imported);
+        selected = 0; selectedVertex = 0; scrubber.value = 0;
+        save(); initialize();
+        if (migration.migratedA) showToast(`已导入 ${data.strokes.length} 笔；A 已合并，多笔画已连续化`);
+        else if (migration.upgradedSequence) showToast(`已导入 ${data.strokes.length} 笔；多笔画已升级为 Sequentially`);
+        else showToast(`已导入 ${data.strokes.length} 笔`);
+      } catch (error) {
+        showToast(`导入失败：${error.message}`);
+      } finally {
+        fileInput.value = "";
+      }
+    });
+
+    document.querySelector(".export").addEventListener("click", () => {
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+      const link = document.createElement("a"); link.href = URL.createObjectURL(blob); link.download = CONFIG.exportName; link.click();
+      setTimeout(() => URL.revokeObjectURL(link.href), 1000); showToast("已导出 AE 风格 Mask Rig");
+    });
+
+    function initialize() {
+      scrubber.max = data.durationMs;
+      selected = clamp(selected, 0, data.strokes.length - 1);
+      selectedVertex = clamp(selectedVertex, 0, currentStroke().vertices.length - 1);
+      renderList(); renderPaths(); renderBars(); updateInspector(); fitZoom(); resize(); renderAt(Number(scrubber.value));
+    }
+    Promise.all([
+      fetch(CONFIG.seed).then((response) => response.json()),
+      image.decode().catch(() => new Promise((resolve) => image.addEventListener("load", resolve, { once: true }))),
+    ]).then(([loaded]) => {
+      seed = loaded;
+      let restored = false;
+      const storageCandidates = [STORAGE_KEY, BACKUP_STORAGE_KEY, ...LEGACY_STORAGE_KEYS];
+      for (const key of storageCandidates) {
+        const serialized = localStorage.getItem(key);
+        if (!serialized) continue;
+        try {
+          normalizeImportedRig(JSON.parse(serialized));
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+          restored = true;
+          break;
+        } catch {}
+      }
+      if (!restored) data = structuredClone(loaded);
+      initialize(); new ResizeObserver(resize).observe(stage);
+    });
+    addEventListener("pagehide", save);
+    document.addEventListener("visibilitychange", () => { if (document.hidden) save(); });
+  </script>
+</body>
+</html>

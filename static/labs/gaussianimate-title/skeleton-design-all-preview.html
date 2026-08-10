@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GaussiAnimate — All-letter skeleton design</title>
+    <style>
+      html, body { width: 1440px; height: 1040px; margin: 0; overflow: hidden; background: #000; }
+      .panel { position: relative; width: 1440px; height: 259px; border-bottom: 1px solid #303030; }
+      .panel:last-child { height: 260px; border-bottom: 0; }
+      .logo, .rig { position: absolute; left: 80px; top: 0; display: block; width: 1280px; height: 260px; }
+      .logo { filter: invert(1); }
+      .edge { fill: none; stroke: #cbbda3; stroke-width: 4; stroke-linejoin: round; stroke-linecap: round; }
+      .node { fill: #ff4b46; stroke: #f1eadf; stroke-width: 1.15; }
+    </style>
+  </head>
+  <body>
+    <section class="panel" data-count="0"></section>
+    <section class="panel" data-count="6"></section>
+    <section class="panel" data-count="10"></section>
+    <section class="panel" data-count="all"></section>
+    <script>
+      const SVG_NS = 'http://www.w3.org/2000/svg';
+
+      function element(name, attributes = {}) {
+        const node = document.createElementNS(SVG_NS, name);
+        for (const [key, value] of Object.entries(attributes)) node.setAttribute(key, value);
+        return node;
+      }
+
+      function pointKey([x, y]) {
+        return `${x.toFixed(2)},${y.toFixed(2)}`;
+      }
+
+      function drawGroup(svg, group, nodeRadius) {
+        const uniquePoints = new Map();
+        for (const stroke of group.strokes) {
+          if (stroke.length > 1) {
+            svg.append(element('polyline', {
+              class: 'edge',
+              points: stroke.map(([x, y]) => `${x},${y}`).join(' ')
+            }));
+          }
+          for (const point of stroke) uniquePoints.set(pointKey(point), point);
+        }
+        for (const [x, y] of uniquePoints.values()) {
+          svg.append(element('circle', { class: 'node', cx: x, cy: y, r: nodeRadius }));
+        }
+      }
+
+      async function render() {
+        const rig = await fetch('skeleton-presentation-all.json').then(response => response.json());
+        for (const panel of document.querySelectorAll('.panel')) {
+          const logo = document.createElement('img');
+          logo.className = 'logo';
+          logo.src = 'caveat-brush-logo.png';
+          logo.alt = '';
+          panel.append(logo);
+
+          const svg = element('svg', { class: 'rig', viewBox: rig.viewBox.join(' ') });
+          panel.append(svg);
+          const count = panel.dataset.count === 'all' ? rig.groups.length : Number(panel.dataset.count);
+          for (const group of rig.groups.slice(0, count)) drawGroup(svg, group, rig.nodeRadius);
+        }
+      }
+
+      render();
+    </script>
+  </body>
+</html>

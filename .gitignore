@@ -1,1 +1,6 @@
 anonymous_supplementary/
+tools/
+
+# Private local editor — keep out of the public website repository.
+/static/labs/brushstroke-studio/
+/public/labs/brushstroke-studio/

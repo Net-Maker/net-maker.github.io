@@ -32,9 +32,9 @@ const HashRFScene = lazy(() =>
 const representations: RepresentationDefinition[] = [
   {
     id: "form",
-    label: "Form",
-    title: "Continuous geometry",
-    description: "Material, topology, and silhouette—shown without interface ornament.",
+    label: "Surface",
+    title: "Continuous surface",
+    description: "A smooth geometry reveals silhouette and topology.",
   },
   {
     id: "field",
@@ -50,9 +50,9 @@ const representations: RepresentationDefinition[] = [
   },
   {
     id: "project",
-    label: "Project",
-    title: "Adapters, not templates",
-    description: "Each project supplies its own scene while inheriting the same stage.",
+    label: "Projects",
+    title: "Project scenes",
+    description: "Each project brings its own representation into the same viewing stage.",
   },
 ];
 
@@ -124,6 +124,11 @@ export function RepresentationStudio() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [mode, selectMode]);
 
+  useEffect(() => {
+    const fallback = window.setTimeout(() => setReady(true), 900);
+    return () => window.clearTimeout(fallback);
+  }, []);
+
   const requestFullscreen = async () => {
     if (!document.fullscreenElement) {
       await document.documentElement.requestFullscreen?.();
@@ -190,6 +195,10 @@ export function RepresentationStudio() {
         <div className="studio-viewport">
           <div className={`stage-loading${ready ? " is-ready" : ""}`} aria-hidden="true">
             <span />
+          </div>
+          <div className="studio-purpose">
+            <h1>Representation Studio</h1>
+            <p>Surface, samples, and structure of one geometry.</p>
           </div>
           <Suspense fallback={null}>
             <ResearchStage

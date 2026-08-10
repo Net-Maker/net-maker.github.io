@@ -1,0 +1,652 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>GaussiAnimate — Three.js Outer Bone</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --black: #000;
+      --surface: rgba(18, 18, 18, .94);
+      --surface-soft: rgba(255, 255, 255, .055);
+      --border: rgba(255, 255, 255, .13);
+      --border-strong: rgba(255, 255, 255, .23);
+      --text: #f5f6f4;
+      --muted: rgba(255, 255, 255, .53);
+      --accent: #73c6a4;
+      --track: rgba(255, 255, 255, .15);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { width: 100%; min-height: 100%; margin: 0; background: var(--black); }
+    body { color: var(--text); overflow: hidden; }
+    button, input, select { font: inherit; }
+
+    main {
+      width: 100%;
+      min-height: 100svh;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 324px;
+      background: #000;
+    }
+
+    .viewport {
+      position: relative;
+      min-width: 0;
+      min-height: 0;
+      overflow: hidden;
+      isolation: isolate;
+      background:
+        radial-gradient(circle at 50% 47%, rgba(54, 116, 89, .12), transparent 32%),
+        #000;
+      cursor: grab;
+    }
+
+    .viewport:active { cursor: grabbing; }
+    .viewport canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; outline: none; }
+
+    .identity {
+      position: absolute;
+      z-index: 3;
+      left: 26px;
+      top: 24px;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .identity strong {
+      display: block;
+      color: rgba(255, 255, 255, .75);
+      font-size: 12px;
+      font-weight: 650;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .identity span {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: .02em;
+    }
+
+    .loading {
+      position: absolute;
+      z-index: 4;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: .08em;
+      background: #000;
+      transition: opacity 240ms ease;
+      pointer-events: none;
+    }
+
+    .ready .loading { opacity: 0; visibility: hidden; }
+
+    .view-actions {
+      position: absolute;
+      z-index: 3;
+      left: 24px;
+      bottom: 22px;
+      display: flex;
+      gap: 8px;
+    }
+
+    .ui-button {
+      min-height: 34px;
+      padding: 0 13px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      color: rgba(255, 255, 255, .72);
+      background: rgba(17, 17, 17, .84);
+      backdrop-filter: blur(14px);
+      cursor: pointer;
+      transition: color 150ms ease, border-color 150ms ease, background 150ms ease;
+    }
+
+    .ui-button:hover { color: #fff; border-color: var(--border-strong); background: rgba(31, 31, 31, .9); }
+    .ui-button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+    .inspector {
+      position: relative;
+      z-index: 6;
+      min-height: 100svh;
+      padding: 22px 20px 20px;
+      overflow: auto;
+      border-left: 1px solid var(--border);
+      background: var(--surface);
+      box-shadow: -24px 0 60px rgba(0, 0, 0, .34);
+    }
+
+    .panel-header {
+      padding: 2px 2px 19px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .panel-header h1 { margin: 0; font-size: 17px; font-weight: 620; letter-spacing: -.02em; }
+    .panel-header p { margin: 7px 0 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
+
+    .section { padding: 18px 2px 3px; border-bottom: 1px solid var(--border); }
+    .section:last-child { border-bottom: 0; }
+    .section-title {
+      margin: 0 0 15px;
+      color: rgba(255, 255, 255, .45);
+      font-size: 10px;
+      font-weight: 680;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .control { display: block; margin-bottom: 15px; }
+    .control-label {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 9px;
+      color: rgba(255, 255, 255, .72);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .value { color: #fff; font-size: 11px; font-variant-numeric: tabular-nums; }
+
+    input[type="range"] {
+      width: 100%;
+      height: 18px;
+      margin: 0;
+      appearance: none;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    input[type="range"]::-webkit-slider-runnable-track {
+      height: 3px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent) 0 var(--fill, 50%), var(--track) var(--fill, 50%) 100%);
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      width: 13px;
+      height: 13px;
+      margin-top: -5px;
+      appearance: none;
+      border: 2px solid #0b0b0b;
+      border-radius: 50%;
+      background: #f2f4f1;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, .35);
+    }
+
+    input[type="range"]::-moz-range-track { height: 3px; border-radius: 999px; background: var(--track); }
+    input[type="range"]::-moz-range-progress { height: 3px; border-radius: 999px; background: var(--accent); }
+    input[type="range"]::-moz-range-thumb { width: 10px; height: 10px; border: 2px solid #0b0b0b; border-radius: 50%; background: #f2f4f1; }
+
+    .select-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 13px; }
+    .select-field span { display: block; margin-bottom: 7px; color: var(--muted); font-size: 11px; }
+    select {
+      width: 100%;
+      height: 34px;
+      padding: 0 10px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: rgba(255, 255, 255, .82);
+      background: #181818;
+      font-size: 12px;
+    }
+
+    .render-preview {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      margin-bottom: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background-color: #050505;
+      background-image:
+        linear-gradient(45deg, rgba(255,255,255,.055) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(255,255,255,.055) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(255,255,255,.055) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(255,255,255,.055) 75%);
+      background-size: 18px 18px;
+      background-position: 0 0, 0 9px, 9px -9px, -9px 0;
+    }
+
+    .render-preview img { width: 100%; height: 100%; display: none; object-fit: contain; }
+    .render-preview.has-image img { display: block; }
+    .render-placeholder { color: rgba(255, 255, 255, .32); font-size: 11px; }
+    .render-preview.has-image .render-placeholder { display: none; }
+
+    .button-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .button-grid .ui-button { width: 100%; background: var(--surface-soft); backdrop-filter: none; }
+    .button-grid .primary { color: #0b2118; border-color: var(--accent); background: var(--accent); font-weight: 650; }
+    .button-grid .primary:hover { color: #06130e; background: #8dd8b8; }
+    .button-grid .wide { grid-column: 1 / -1; }
+
+    .status { min-height: 16px; margin: 10px 1px 0; color: var(--muted); font-size: 11px; }
+
+    @media (max-width: 760px) {
+      body { overflow: auto; }
+      main { grid-template-columns: 1fr; grid-template-rows: 58svh auto; }
+      .viewport { min-height: 58svh; }
+      .identity { left: 18px; top: 17px; }
+      .view-actions { left: 16px; bottom: 15px; }
+      .inspector { min-height: auto; padding: 20px 18px 26px; border-left: 0; border-top: 1px solid var(--border); }
+      .render-preview { max-width: 280px; margin-left: auto; margin-right: auto; }
+    }
+  </style>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <main>
+    <section class="viewport" aria-label="Three.js Outer Bone 预览">
+      <div class="identity">
+        <strong>Outer Bone / Three.js</strong>
+        <span>拖动旋转 · 滚轮缩放</span>
+      </div>
+      <div class="loading">正在建立 3D 骨骼…</div>
+      <div class="view-actions">
+        <button class="ui-button reset-view" type="button">视角归位</button>
+        <button class="ui-button toggle-spin" type="button" aria-pressed="false">自动旋转</button>
+      </div>
+    </section>
+
+    <aside class="inspector" aria-label="Outer Bone 调整面板">
+      <header class="panel-header">
+        <h1>Outer Bone</h1>
+        <p>调整真实三维几何，再将当前相机投影固定为 2D 图像。</p>
+      </header>
+
+      <section class="section">
+        <h2 class="section-title">Geometry</h2>
+        <label class="control">
+          <span class="control-label"><span>球体半径</span><output class="value" for="sphere">0.18</output></span>
+          <input id="sphere" type="range" min="0.06" max="0.36" step="0.01" value="0.18">
+        </label>
+        <label class="control">
+          <span class="control-label"><span>轴长度</span><output class="value" for="length">1.10</output></span>
+          <input id="length" type="range" min="0.45" max="1.80" step="0.05" value="1.10">
+        </label>
+        <label class="control">
+          <span class="control-label"><span>轴粗细</span><output class="value" for="thickness">0.035</output></span>
+          <input id="thickness" type="range" min="0.008" max="0.085" step="0.001" value="0.035">
+        </label>
+        <label class="control">
+          <span class="control-label"><span>箭头长度</span><output class="value" for="tipLength">0.18</output></span>
+          <input id="tipLength" type="range" min="0.07" max="0.34" step="0.01" value="0.18">
+        </label>
+        <label class="control">
+          <span class="control-label"><span>箭头半径</span><output class="value" for="tipRadius">0.085</output></span>
+          <input id="tipRadius" type="range" min="0.025" max="0.16" step="0.005" value="0.085">
+        </label>
+        <label class="control">
+          <span class="control-label"><span>整体缩放</span><output class="value" for="scale">1.00</output></span>
+          <input id="scale" type="range" min="0.55" max="1.65" step="0.05" value="1">
+        </label>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">2D Render</h2>
+        <div class="select-row">
+          <label class="select-field">
+            <span>背景</span>
+            <select id="background">
+              <option value="transparent">透明</option>
+              <option value="black" selected>黑色</option>
+            </select>
+          </label>
+          <label class="select-field">
+            <span>分辨率</span>
+            <select id="resolution">
+              <option value="512">512</option>
+              <option value="1024" selected>1024</option>
+              <option value="2048">2048</option>
+            </select>
+          </label>
+        </div>
+        <div class="render-preview" aria-live="polite">
+          <span class="render-placeholder">尚未生成 2D 预览</span>
+          <img alt="当前 Outer Bone 的二维渲染预览">
+        </div>
+        <div class="button-grid">
+          <button class="ui-button primary render-2d" type="button">生成 2D</button>
+          <button class="ui-button download" type="button" disabled>下载 PNG</button>
+          <button class="ui-button wide copy-link" type="button">复制参数链接</button>
+          <button class="ui-button wide reset-all" type="button">恢复默认</button>
+        </div>
+        <p class="status" role="status"></p>
+      </section>
+    </aside>
+  </main>
+
+  <script type="module">
+    import * as THREE from "three";
+    import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+
+    const STORAGE_KEY = "gaussianimate-outer-bone-three-v1";
+    const defaults = {
+      sphere: 0.18,
+      length: 1.10,
+      thickness: 0.035,
+      tipLength: 0.18,
+      tipRadius: 0.085,
+      scale: 1,
+      background: "black",
+      resolution: "1024",
+      camera: [2.75, 2.15, 4.15],
+    };
+
+    const viewport = document.querySelector(".viewport");
+    const numericKeys = ["sphere", "length", "thickness", "tipLength", "tipRadius", "scale"];
+    const inputs = Object.fromEntries(numericKeys.map((key) => [key, document.querySelector(`#${key}`)]));
+    const outputs = Object.fromEntries(numericKeys.map((key) => [key, document.querySelector(`output[for="${key}"]`)]));
+    const backgroundSelect = document.querySelector("#background");
+    const resolutionSelect = document.querySelector("#resolution");
+    const status = document.querySelector(".status");
+    const preview = document.querySelector(".render-preview");
+    const previewImage = preview.querySelector("img");
+    const downloadButton = document.querySelector(".download");
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(32, 1, 0.01, 100);
+    camera.position.fromArray(defaults.camera);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true, powerPreference: "high-performance" });
+    renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
+    renderer.setClearColor(0x000000, 1);
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.14;
+    viewport.prepend(renderer.domElement);
+
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enablePan = false;
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.075;
+    controls.minDistance = 2.35;
+    controls.maxDistance = 7.5;
+    controls.target.set(0, 0, 0);
+
+    scene.add(new THREE.HemisphereLight(0xdff8ed, 0x10231b, 1.62));
+    const keyLight = new THREE.DirectionalLight(0xffffff, 3.2);
+    keyLight.position.set(-2.4, 3.2, 4.2);
+    scene.add(keyLight);
+    const rimLight = new THREE.DirectionalLight(0x66dba7, 2.15);
+    rimLight.position.set(3.8, 1.5, -3.4);
+    scene.add(rimLight);
+    const fillLight = new THREE.PointLight(0x6e92ff, 1.1, 8);
+    fillLight.position.set(-2.8, -1.8, 2.6);
+    scene.add(fillLight);
+
+    const bone = new THREE.Group();
+    scene.add(bone);
+    const sphereMaterial = new THREE.MeshPhysicalMaterial({
+      color: 0x42b888,
+      emissive: 0x071d15,
+      emissiveIntensity: 0.28,
+      metalness: 0.08,
+      roughness: 0.2,
+      clearcoat: 0.92,
+      clearcoatRoughness: 0.16,
+    });
+    let sphereMesh = null;
+    let axisMeshes = [];
+    let lastRenderUrl = "";
+    let spinEnabled = false;
+
+    const axisDefinitions = [
+      { direction: new THREE.Vector3(1, 0, 0), color: 0xff5f58 },
+      { direction: new THREE.Vector3(0, 1, 0), color: 0x65d887 },
+      { direction: new THREE.Vector3(0, 0, 1), color: 0x6797ff },
+    ];
+    const localY = new THREE.Vector3(0, 1, 0);
+
+    function clamp(value, low, high) { return Math.min(Math.max(value, low), high); }
+
+    function readValues() {
+      return {
+        ...Object.fromEntries(numericKeys.map((key) => [key, Number(inputs[key].value)])),
+        background: backgroundSelect.value,
+        resolution: resolutionSelect.value,
+        camera: camera.position.toArray().map((value) => Number(value.toFixed(4))),
+      };
+    }
+
+    function disposeObject(object, disposeMaterial = true) {
+      object.traverse((child) => {
+        child.geometry?.dispose();
+        if (!disposeMaterial) return;
+        if (Array.isArray(child.material)) child.material.forEach((material) => material.dispose());
+        else child.material?.dispose();
+      });
+      object.removeFromParent();
+    }
+
+    function orientedMesh(geometry, material, direction, centerDistance) {
+      const mesh = new THREE.Mesh(geometry, material);
+      mesh.quaternion.setFromUnitVectors(localY, direction);
+      mesh.position.copy(direction).multiplyScalar(centerDistance);
+      return mesh;
+    }
+
+    function buildBone() {
+      const values = readValues();
+      if (sphereMesh) disposeObject(sphereMesh, false);
+      const disposedMaterials = new Set();
+      axisMeshes.forEach((mesh) => {
+        mesh.geometry?.dispose();
+        if (mesh.material && !disposedMaterials.has(mesh.material)) {
+          mesh.material.dispose();
+          disposedMaterials.add(mesh.material);
+        }
+        mesh.removeFromParent();
+      });
+      axisMeshes = [];
+
+      sphereMesh = new THREE.Mesh(new THREE.SphereGeometry(values.sphere, 64, 40), sphereMaterial);
+      sphereMesh.renderOrder = 5;
+      bone.add(sphereMesh);
+
+      const tipLength = Math.min(values.tipLength, values.length * .46);
+      const shaftStart = values.sphere * .28;
+      const shaftEnd = Math.max(values.length - tipLength, shaftStart + .01);
+      const shaftLength = shaftEnd - shaftStart;
+
+      axisDefinitions.forEach(({ direction, color }) => {
+        const material = new THREE.MeshStandardMaterial({
+          color,
+          emissive: color,
+          emissiveIntensity: .07,
+          metalness: .06,
+          roughness: .28,
+        });
+        const shaft = orientedMesh(
+          new THREE.CylinderGeometry(values.thickness, values.thickness, shaftLength, 20, 1, false),
+          material,
+          direction,
+          shaftStart + shaftLength * .5,
+        );
+        const tip = orientedMesh(
+          new THREE.ConeGeometry(values.tipRadius, tipLength, 28, 1, false),
+          material,
+          direction,
+          shaftEnd + tipLength * .5,
+        );
+        shaft.renderOrder = 2;
+        tip.renderOrder = 2;
+        bone.add(shaft, tip);
+        axisMeshes.push(shaft, tip);
+      });
+      bone.scale.setScalar(values.scale);
+      invalidate2D();
+    }
+
+    function setSliderFill(input) {
+      const fill = (Number(input.value) - Number(input.min)) / (Number(input.max) - Number(input.min)) * 100;
+      input.style.setProperty("--fill", `${fill}%`);
+    }
+
+    function syncLabels() {
+      outputs.sphere.value = Number(inputs.sphere.value).toFixed(2);
+      outputs.length.value = Number(inputs.length.value).toFixed(2);
+      outputs.thickness.value = Number(inputs.thickness.value).toFixed(3);
+      outputs.tipLength.value = Number(inputs.tipLength.value).toFixed(2);
+      outputs.tipRadius.value = Number(inputs.tipRadius.value).toFixed(3);
+      outputs.scale.value = Number(inputs.scale.value).toFixed(2);
+      Object.values(inputs).forEach(setSliderFill);
+    }
+
+    function syncState() {
+      const values = readValues();
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(values));
+      const url = new URL(location.href);
+      numericKeys.forEach((key) => url.searchParams.set(key, values[key]));
+      url.searchParams.set("background", values.background);
+      url.searchParams.set("resolution", values.resolution);
+      url.searchParams.set("camera", values.camera.join(","));
+      history.replaceState(null, "", url);
+    }
+
+    function invalidate2D() {
+      lastRenderUrl = "";
+      downloadButton.disabled = true;
+      preview.classList.remove("has-image");
+      status.textContent = "";
+    }
+
+    function applyValues(values) {
+      numericKeys.forEach((key) => {
+        const input = inputs[key];
+        input.value = clamp(Number(values?.[key] ?? defaults[key]), Number(input.min), Number(input.max));
+      });
+      backgroundSelect.value = values?.background === "transparent" ? "transparent" : "black";
+      resolutionSelect.value = ["512", "1024", "2048"].includes(String(values?.resolution)) ? String(values.resolution) : defaults.resolution;
+      const cameraValues = Array.isArray(values?.camera) && values.camera.length === 3 ? values.camera.map(Number) : defaults.camera;
+      if (cameraValues.every(Number.isFinite)) camera.position.fromArray(cameraValues);
+      controls.update();
+      syncLabels();
+      buildBone();
+      syncState();
+    }
+
+    function resize() {
+      const width = Math.max(viewport.clientWidth, 1);
+      const height = Math.max(viewport.clientHeight, 1);
+      renderer.setSize(width, height, false);
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+    }
+
+    function capture2D() {
+      const resolution = Number(resolutionSelect.value);
+      const transparent = backgroundSelect.value === "transparent";
+      const oldSize = renderer.getSize(new THREE.Vector2());
+      const oldPixelRatio = renderer.getPixelRatio();
+      const oldAspect = camera.aspect;
+      renderer.setPixelRatio(1);
+      renderer.setSize(resolution, resolution, false);
+      camera.aspect = 1;
+      camera.updateProjectionMatrix();
+      renderer.setClearColor(0x000000, transparent ? 0 : 1);
+      renderer.render(scene, camera);
+      const dataUrl = renderer.domElement.toDataURL("image/png");
+      renderer.setPixelRatio(oldPixelRatio);
+      renderer.setSize(oldSize.x, oldSize.y, false);
+      camera.aspect = oldAspect;
+      camera.updateProjectionMatrix();
+      renderer.setClearColor(0x000000, 1);
+      lastRenderUrl = dataUrl;
+      previewImage.src = dataUrl;
+      preview.classList.add("has-image");
+      preview.style.backgroundColor = transparent ? "#050505" : "#000";
+      downloadButton.disabled = false;
+      status.textContent = `已生成 ${resolution} × ${resolution} ${transparent ? "透明" : "黑底"} PNG`;
+    }
+
+    numericKeys.forEach((key) => inputs[key].addEventListener("input", () => {
+      syncLabels();
+      buildBone();
+      syncState();
+    }));
+    [backgroundSelect, resolutionSelect].forEach((input) => input.addEventListener("change", () => {
+      invalidate2D();
+      syncState();
+    }));
+    controls.addEventListener("end", () => { invalidate2D(); syncState(); });
+
+    document.querySelector(".reset-view").addEventListener("click", () => {
+      camera.position.fromArray(defaults.camera);
+      controls.target.set(0, 0, 0);
+      controls.update();
+      invalidate2D();
+      syncState();
+    });
+    document.querySelector(".toggle-spin").addEventListener("click", (event) => {
+      spinEnabled = !spinEnabled;
+      event.currentTarget.setAttribute("aria-pressed", String(spinEnabled));
+      event.currentTarget.textContent = spinEnabled ? "停止旋转" : "自动旋转";
+    });
+    document.querySelector(".render-2d").addEventListener("click", capture2D);
+    downloadButton.addEventListener("click", () => {
+      if (!lastRenderUrl) return;
+      const link = document.createElement("a");
+      link.href = lastRenderUrl;
+      link.download = `gaussianimate-outer-bone-${backgroundSelect.value}-${resolutionSelect.value}.png`;
+      link.click();
+    });
+    document.querySelector(".copy-link").addEventListener("click", async (event) => {
+      syncState();
+      const button = event.currentTarget;
+      try {
+        await navigator.clipboard.writeText(location.href);
+        button.textContent = "已复制参数链接";
+      } catch {
+        button.textContent = "参数已写入地址栏";
+      }
+      setTimeout(() => { button.textContent = "复制参数链接"; }, 1400);
+    });
+    document.querySelector(".reset-all").addEventListener("click", () => applyValues(defaults));
+
+    let saved = null;
+    try { saved = JSON.parse(localStorage.getItem(STORAGE_KEY)); } catch {}
+    const query = new URLSearchParams(location.search);
+    const shared = {};
+    numericKeys.forEach((key) => { if (query.has(key)) shared[key] = Number(query.get(key)); });
+    if (query.has("background")) shared.background = query.get("background");
+    if (query.has("resolution")) shared.resolution = query.get("resolution");
+    if (query.has("camera")) shared.camera = query.get("camera").split(",").map(Number);
+    applyValues({ ...(saved || defaults), ...shared });
+
+    new ResizeObserver(resize).observe(viewport);
+    resize();
+    document.body.classList.add("ready");
+
+    let previous = performance.now();
+    function animate(now) {
+      const delta = Math.min((now - previous) / 1000, .05);
+      previous = now;
+      if (spinEnabled) bone.rotation.y += delta * .45;
+      controls.update();
+      renderer.render(scene, camera);
+      requestAnimationFrame(animate);
+    }
+    requestAnimationFrame(animate);
+  </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GaussiAnimate — AI Brush skeleton design</title>
+    <style>
+      html, body { width: 1440px; height: 700px; margin: 0; overflow: hidden; background: #000; }
+      .panel { position: relative; width: 1440px; height: 349px; border-bottom: 1px solid #303030; }
+      .panel:last-child { height: 350px; border-bottom: 0; }
+      .logo, .rig { position: absolute; left: 60px; top: 15px; display: block; width: 1320px; height: 320px; }
+      .logo { filter: invert(1); }
+      .edge { fill: none; stroke: #cbbda3; stroke-width: 1.85; stroke-linejoin: round; stroke-linecap: round; }
+      .node { fill: #ff4b46; stroke: #f1eadf; stroke-width: .52; }
+    </style>
+  </head>
+  <body>
+    <section class="panel" data-show="false"></section>
+    <section class="panel" data-show="true"></section>
+    <script>
+      const SVG_NS = 'http://www.w3.org/2000/svg';
+
+      function element(name, attributes = {}) {
+        const node = document.createElementNS(SVG_NS, name);
+        for (const [key, value] of Object.entries(attributes)) node.setAttribute(key, value);
+        return node;
+      }
+
+      function pointKey([x, y]) {
+        return `${x.toFixed(2)},${y.toFixed(2)}`;
+      }
+
+      function drawGroup(svg, group, nodeRadius) {
+        const uniquePoints = new Map();
+        for (const stroke of group.strokes) {
+          if (stroke.length > 1) {
+            svg.append(element('polyline', {
+              class: 'edge',
+              points: stroke.map(([x, y]) => `${x},${y}`).join(' ')
+            }));
+          }
+          for (const point of stroke) uniquePoints.set(pointKey(point), point);
+        }
+        for (const [x, y] of uniquePoints.values()) {
+          svg.append(element('circle', { class: 'node', cx: x, cy: y, r: nodeRadius }));
+        }
+      }
+
+      async function render() {
+        const rig = await fetch('skeleton-presentation-ai-all.json').then(response => response.json());
+        for (const panel of document.querySelectorAll('.panel')) {
+          const logo = document.createElement('img');
+          logo.className = 'logo';
+          logo.src = 'gaussianimate-ai-logo-hd.png';
+          logo.alt = '';
+          panel.append(logo);
+
+          const svg = element('svg', { class: 'rig', viewBox: rig.viewBox.join(' ') });
+          panel.append(svg);
+          if (panel.dataset.show === 'true') {
+            for (const group of rig.groups) drawGroup(svg, group, rig.nodeRadius);
+          }
+        }
+      }
+
+      render();
+    </script>
+  </body>
+</html>

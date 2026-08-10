@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      html, body { width: 1440px; height: 1040px; margin: 0; overflow: hidden; background: #000; }
+      .panel { position: relative; width: 1440px; height: 259px; border-bottom: 1px solid #303030; }
+      .panel:last-child { height: 260px; border-bottom: 0; }
+      .logo, .rig { position: absolute; left: 80px; top: 0; display: block; width: 1280px; height: 260px; }
+      .logo { filter: invert(1); }
+      .bone-edge { fill: none; stroke: #cbbda3; stroke-width: 4; stroke-linejoin: round; stroke-linecap: round; }
+      .nodes circle { r: 4.1px; fill: #ff4b46; stroke: #f1eadf; stroke-width: 1.15; }
+    </style>
+  </head>
+  <body>
+    <section class="panel"><img class="logo" src="caveat-brush-logo.png" alt=""></section>
+    <section class="panel">
+      <img class="logo" src="caveat-brush-logo.png" alt="">
+      <svg class="rig" viewBox="0 0 1280 260"><use href="skeleton-design-v3.svg#g-partial"/></svg>
+    </section>
+    <section class="panel">
+      <img class="logo" src="caveat-brush-logo.png" alt="">
+      <svg class="rig" viewBox="0 0 1280 260"><use href="skeleton-design-v3.svg#g-full"/><use href="skeleton-design-v3.svg#a-partial"/></svg>
+    </section>
+    <section class="panel">
+      <img class="logo" src="caveat-brush-logo.png" alt="">
+      <svg class="rig" viewBox="0 0 1280 260"><use href="skeleton-design-v3.svg#g-full"/><use href="skeleton-design-v3.svg#a-full"/></svg>
+    </section>
+  </body>
+</html>

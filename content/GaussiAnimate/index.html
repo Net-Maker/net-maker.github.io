@@ -303,6 +303,34 @@ type: gaussianimate
       padding: 3.4rem 1.5rem 2.8rem;
     }
     .hero-title-main { font-size: 3.15rem; }
+    .hero-title-accessible {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    .hero-title-animation-shell {
+      display: block;
+      width: min(880px, 100%);
+      aspect-ratio: 1280 / 260;
+      margin: 0 auto 0.65rem;
+      overflow: hidden;
+      background: transparent;
+      contain: layout paint;
+    }
+    .hero-title-animation-shell iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: transparent;
+      pointer-events: none;
+    }
     .hero-title-sub { font-size: 2.2rem; }
     .hero-venue {
       display: inline-flex;
@@ -919,6 +947,10 @@ type: gaussianimate
       .hero-title-main {
         font-size: 2.4rem;
       }
+      .hero-title-animation-shell {
+        width: 100%;
+        margin-bottom: 0.55rem;
+      }
       .hero-title-sub {
         display: inline-block;
         font-size: 1.5rem;
@@ -992,7 +1024,17 @@ type: gaussianimate
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <h1 class="title is-2 publication-title">
-              <span class="hero-title-main">GaussiAnimate</span><br>
+              <span class="hero-title-accessible">GaussiAnimate: </span>
+              <span class="hero-title-animation-shell" aria-hidden="true">
+                <iframe
+                  src="/labs/gaussianimate-title/?variant=caveat-brush&amp;source=final&amp;theme=light&amp;outer=animate&amp;writingSpeed=2.5&amp;embed=1&amp;v=14"
+                  width="1280"
+                  height="260"
+                  title="Animated GaussiAnimate title"
+                  tabindex="-1"
+                  loading="eager"
+                ></iframe>
+              </span>
               <span class="hero-title-sub">Reconstruct and Rig Animatable Categories with Level of Dynamics</span>
             </h1>
 
@@ -1172,88 +1214,21 @@ type: gaussianimate
 
   <section class="gallery-section">
     <div class="container">
-      <div class="gallery-header">
-        <div class="gallery-title">Results Gallery</div>
-        <hr class="gallery-rule">
-        <div class="gallery-subtitle">Skelebon on diverse animatable entities</div>
-      </div>
-
-      <div id="teaser-gallery-videos">
-      <table class="gallery-table">
-        <thead>
-          <tr>
-            <th></th>
-            <th>Skeleton</th>
-            <th>Bones</th>
-            <th>Skinning</th>
-            <th>Combined</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Gaussian -->
-          <tr>
-            <td>
-              <div class="gallery-cat-main">Clothed Human</div>
-              <div class="gallery-cat-sub">4D Gaussians</div>
-            </td>
-            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/gaussian/skeleton.mp4" type="video/mp4"></video></div></td>
-            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/gaussian/bones.mp4" type="video/mp4"></video></div></td>
-            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/gaussian/skinning_bones.mp4" type="video/mp4"></video></div></td>
-            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/gaussian/pc_bones.mp4" type="video/mp4"></video></div></td>
-          </tr>
-          <!-- Bucks -->
-          <tr>
-            <td>
-              <div class="gallery-cat-main">Quadruped</div>
-              <div class="gallery-cat-sub">Mesh &middot; Bucks</div>
-            </td>
-            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/bucks/skeleton.mp4" type="video/mp4"></video></div></td>
-            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/bucks/ssdr_bones.mp4" type="video/mp4"></video></div></td>
-            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/bucks/skinning_mesh.mp4" type="video/mp4"></video></div></td>
-            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/bucks/combined.mp4" type="video/mp4"></video></div></td>
-          </tr>
-          <!-- Cloth -->
-          <tr>
-            <td>
-              <div class="gallery-cat-main">Garment</div>
-              <div class="gallery-cat-sub">Mesh &middot; Cloth</div>
-            </td>
-            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/cloth/skeleton.mp4" type="video/mp4"></video></div></td>
-            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/cloth/ssdr_bones.mp4" type="video/mp4"></video></div></td>
-            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/cloth/skinning_mesh.mp4" type="video/mp4"></video></div></td>
-            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/cloth/combined.mp4" type="video/mp4"></video></div></td>
-          </tr>
-          <!-- Dragon -->
-          <tr>
-            <td>
-              <div class="gallery-cat-main">Dragon</div>
-              <div class="gallery-cat-sub">Mesh &middot; Biped</div>
-            </td>
-            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/dragon/skeleton.mp4" type="video/mp4"></video></div></td>
-            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/dragon/ssdr_bones.mp4" type="video/mp4"></video></div></td>
-            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/dragon/skinning_mesh.mp4" type="video/mp4"></video></div></td>
-            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/dragon/combined.mp4" type="video/mp4"></video></div></td>
-          </tr>
-        </tbody>
-      </table>
-      </div>
-
       <!-- Teaser Figure -->
       <figure class="teaser-figure">
         <picture>
           <source
             type="image/webp"
             srcset="
-              /gaussianimate/static/images/teaser-1600.webp 1600w,
-              /gaussianimate/static/images/teaser-2400.webp 2400w,
-              /gaussianimate/static/images/teaser-3200.webp 3200w"
+              /gaussianimate/static/images/teaser-1600.webp?v=2 1600w,
+              /gaussianimate/static/images/teaser-2362.webp?v=2 2362w"
             sizes="(max-width: 768px) calc(100vw - 2rem), 960px"
           >
           <img
-            src="/gaussianimate/static/images/teaser-fallback.jpg"
+            src="/gaussianimate/static/images/teaser-fallback.jpg?v=2"
             alt="Project Teaser"
-            width="2400"
-            height="1350"
+            width="2362"
+            height="1575"
             loading="lazy"
             decoding="async"
             fetchpriority="low"
@@ -1358,6 +1333,76 @@ type: gaussianimate
         <p class="method-principle">
           PartMM binds the inner scaffold to the outer bones, so a new skeleton pose can retrieve and blend deformation already observed on the surface.
         </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery-section">
+    <div class="container">
+      <div class="gallery-header">
+        <div class="gallery-title">Results Gallery</div>
+        <hr class="gallery-rule">
+        <div class="gallery-subtitle">Skelebon on diverse animatable entities</div>
+      </div>
+
+      <div id="teaser-gallery-videos">
+      <table class="gallery-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Skeleton</th>
+            <th>Bones</th>
+            <th>Skinning</th>
+            <th>Combined</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Gaussian -->
+          <tr>
+            <td>
+              <div class="gallery-cat-main">Clothed Human</div>
+              <div class="gallery-cat-sub">4D Gaussians</div>
+            </td>
+            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/gaussian/skeleton.mp4" type="video/mp4"></video></div></td>
+            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/gaussian/bones.mp4" type="video/mp4"></video></div></td>
+            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/gaussian/skinning_bones.mp4" type="video/mp4"></video></div></td>
+            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/gaussian/pc_bones.mp4" type="video/mp4"></video></div></td>
+          </tr>
+          <!-- Bucks -->
+          <tr>
+            <td>
+              <div class="gallery-cat-main">Quadruped</div>
+              <div class="gallery-cat-sub">Mesh &middot; Bucks</div>
+            </td>
+            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/bucks/skeleton.mp4" type="video/mp4"></video></div></td>
+            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/bucks/ssdr_bones.mp4" type="video/mp4"></video></div></td>
+            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/bucks/skinning_mesh.mp4" type="video/mp4"></video></div></td>
+            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/bucks/combined.mp4" type="video/mp4"></video></div></td>
+          </tr>
+          <!-- Cloth -->
+          <tr>
+            <td>
+              <div class="gallery-cat-main">Garment</div>
+              <div class="gallery-cat-sub">Mesh &middot; Cloth</div>
+            </td>
+            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/cloth/skeleton.mp4" type="video/mp4"></video></div></td>
+            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/cloth/ssdr_bones.mp4" type="video/mp4"></video></div></td>
+            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/cloth/skinning_mesh.mp4" type="video/mp4"></video></div></td>
+            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/cloth/combined.mp4" type="video/mp4"></video></div></td>
+          </tr>
+          <!-- Dragon -->
+          <tr>
+            <td>
+              <div class="gallery-cat-main">Dragon</div>
+              <div class="gallery-cat-sub">Mesh &middot; Biped</div>
+            </td>
+            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/dragon/skeleton.mp4" type="video/mp4"></video></div></td>
+            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/dragon/ssdr_bones.mp4" type="video/mp4"></video></div></td>
+            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/dragon/skinning_mesh.mp4" type="video/mp4"></video></div></td>
+            <td><div class="gallery-vid-wrap"><video loop muted playsinline preload="none"><source data-src="/gaussianimate/static/videos/teaser/dragon/combined.mp4" type="video/mp4"></video></div></td>
+          </tr>
+        </tbody>
+      </table>
       </div>
     </div>
   </section>

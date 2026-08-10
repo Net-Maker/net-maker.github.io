@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1040" viewBox="0 0 1440 1040">
+  <defs>
+    <filter id="white-logo" color-interpolation-filters="sRGB">
+      <feComponentTransfer>
+        <feFuncR type="table" tableValues="1 0"/>
+        <feFuncG type="table" tableValues="1 0"/>
+        <feFuncB type="table" tableValues="1 0"/>
+        <feFuncA type="identity"/>
+      </feComponentTransfer>
+    </filter>
+
+    <!-- One centerline per original brush stroke. Every edge is a rigid straight segment. -->
+    <g id="g-full" fill="none" stroke-linejoin="round" stroke-linecap="round">
+      <polyline class="bone-edge" points="181.5,70 160.1,70.1 140.2,77.9 120.1,115.1 117.5,157.8 128,176.1 148.1,177.9"/>
+      <polyline class="bone-edge" points="159.5,125.6 178.5,118.6 186.3,134.9 182.9,156 178,198.5"/>
+      <line class="bone-edge" x1="148.1" y1="177.9" x2="182.9" y2="156"/>
+      <g class="nodes">
+        <circle cx="181.5" cy="70"/><circle cx="160.1" cy="70.1"/><circle cx="140.2" cy="77.9"/>
+        <circle cx="120.1" cy="115.1"/><circle cx="117.5" cy="157.8"/><circle cx="128" cy="176.1"/>
+        <circle cx="148.1" cy="177.9"/>
+        <circle cx="159.5" cy="125.6"/><circle cx="178.5" cy="118.6"/><circle cx="186.3" cy="134.9"/>
+        <circle cx="182.9" cy="156"/><circle cx="178" cy="198.5"/>
+      </g>
+    </g>
+
+    <g id="g-partial" fill="none" stroke-linejoin="round" stroke-linecap="round">
+      <polyline class="bone-edge" points="181.5,70 160.1,70.1 140.2,77.9 120.1,115.1"/>
+      <g class="nodes">
+        <circle cx="181.5" cy="70"/><circle cx="160.1" cy="70.1"/><circle cx="140.2" cy="77.9"/>
+        <circle cx="120.1" cy="115.1"/>
+      </g>
+    </g>
+
+    <g id="a-full" fill="none" stroke-linejoin="round" stroke-linecap="round">
+      <polyline class="bone-edge" points="597,188.5 597.9,156.2 600.3,140.2 608.7,109.2 631.1,69.6 644.2,94.2 649.8,136.9 654.3,165.2 666.5,190"/>
+      <polyline class="bone-edge" points="600.3,140.2 625,141.4 649.8,136.9"/>
+      <g class="nodes">
+        <circle cx="597" cy="188.5"/><circle cx="597.9" cy="156.2"/><circle cx="600.3" cy="140.2"/>
+        <circle cx="608.7" cy="109.2"/><circle cx="631.1" cy="69.6"/><circle cx="644.2" cy="94.2"/>
+        <circle cx="649.8" cy="136.9"/><circle cx="654.3" cy="165.2"/><circle cx="666.5" cy="190"/>
+        <circle cx="625" cy="141.4"/>
+      </g>
+    </g>
+
+    <g id="a-partial" fill="none" stroke-linejoin="round" stroke-linecap="round">
+      <polyline class="bone-edge" points="597,188.5 597.9,156.2 600.3,140.2 608.7,109.2 631.1,69.6"/>
+      <g class="nodes">
+        <circle cx="597" cy="188.5"/><circle cx="597.9" cy="156.2"/><circle cx="600.3" cy="140.2"/>
+        <circle cx="608.7" cy="109.2"/><circle cx="631.1" cy="69.6"/>
+      </g>
+    </g>
+  </defs>
+
+  <style>
+    .bone-edge { stroke: #cbbda3; stroke-width: 4; }
+    .nodes circle { fill: #ff4b46; stroke: #f1eadf; stroke-width: 1.15; r: 4.1px; }
+    .divider { stroke: #303030; stroke-width: 1; }
+  </style>
+
+  <rect width="1440" height="1040" fill="#000"/>
+
+  <!-- The original shape remains complete in every panel. -->
+  <image href="caveat-brush-logo.png" x="80" y="0" width="1280" height="260" filter="url(#white-logo)"/>
+  <image href="caveat-brush-logo.png" x="80" y="260" width="1280" height="260" filter="url(#white-logo)"/>
+  <image href="caveat-brush-logo.png" x="80" y="520" width="1280" height="260" filter="url(#white-logo)"/>
+  <image href="caveat-brush-logo.png" x="80" y="780" width="1280" height="260" filter="url(#white-logo)"/>
+
+  <line class="divider" x1="0" y1="260" x2="1440" y2="260"/>
+  <line class="divider" x1="0" y1="520" x2="1440" y2="520"/>
+  <line class="divider" x1="0" y1="780" x2="1440" y2="780"/>
+
+  <g transform="translate(80 260)"><use href="#g-partial"/></g>
+  <g transform="translate(80 520)"><use href="#g-full"/><use href="#a-partial"/></g>
+  <g transform="translate(80 780)"><use href="#g-full"/><use href="#a-full"/></g>
+</svg>

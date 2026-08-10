@@ -385,7 +385,7 @@ function initProjectRoom(stage) {
   const camera = new THREE.PerspectiveCamera(31, 1, .1, 30);
   camera.position.set(0, .2, 5.2);
   const group = new THREE.Group();
-  group.rotation.set(-.08, -.32, 0);
+  group.rotation.set(-.04, -.22, 0);
   scene.add(group);
   addStudio(scene);
 
@@ -396,7 +396,24 @@ function initProjectRoom(stage) {
 
   let animatedObject;
   const modelUrl = stage.dataset.model;
-  if (modelUrl) {
+  const actorAssetUrl = stage.dataset.asset;
+  if (actorAssetUrl) {
+    const actorFrame = new THREE.Group();
+    actorFrame.scale.setScalar(.48);
+    group.add(actorFrame);
+    loadActorAsset(actorAssetUrl)
+      .then((actor) => {
+        actorFrame.add(actor);
+        animatedObject = actorFrame;
+        room.dataset.asset = "actorshq";
+      })
+      .catch((error) => {
+        console.warn("Using procedural publication fallback:", error);
+        group.remove(actorFrame);
+        animatedObject = createSkelebonesScene(group);
+        room.dataset.asset = "fallback";
+      });
+  } else if (modelUrl) {
     new GLTFLoader().load(modelUrl, (gltf) => {
       normalizeModel(gltf.scene, group);
       animatedObject = gltf.scene;
@@ -409,14 +426,37 @@ function initProjectRoom(stage) {
   fitRenderer(renderer, camera, room);
   const clock = new THREE.Clock();
   let wasActive = true;
+  let dragging = false;
+  let previousX = 0;
+  let targetRotation = group.rotation.y;
+  canvas.addEventListener("pointerdown", (event) => {
+    if (!event.isPrimary) return;
+    dragging = true;
+    previousX = event.clientX;
+    canvas.style.cursor = "grabbing";
+    canvas.setPointerCapture(event.pointerId);
+  });
+  canvas.addEventListener("pointermove", (event) => {
+    if (!dragging) return;
+    targetRotation += (event.clientX - previousX) * .012;
+    previousX = event.clientX;
+  });
+  const endDrag = (event) => {
+    dragging = false;
+    canvas.style.cursor = "grab";
+    if (canvas.hasPointerCapture(event.pointerId)) canvas.releasePointerCapture(event.pointerId);
+  };
+  canvas.style.cursor = "grab";
+  canvas.addEventListener("pointerup", endDrag);
+  canvas.addEventListener("pointercancel", endDrag);
   function render() {
     const hoverActive = finePointer.matches && stage.matches(":hover") && !stage.classList.contains("suppress-hover");
     const active = hoverActive || stage.classList.contains("is-open") || stage.classList.contains("is-closing");
-    if (active && !reducedMotion) {
+    if (active) {
       const t = clock.getElapsedTime();
-      group.rotation.y += .005;
-      group.position.y = Math.sin(t * 1.2) * .025;
-      if (animatedObject) animatedObject.rotation.y += .0015;
+      if (!reducedMotion && !dragging) targetRotation += .0035;
+      group.rotation.y += (targetRotation - group.rotation.y) * .12;
+      group.position.y = reducedMotion ? 0 : Math.sin(t * 1.2) * .018;
     }
     if (active || wasActive) renderer.render(scene, camera);
     wasActive = active;

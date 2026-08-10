@@ -273,6 +273,30 @@ a:focus-visible {
 
 .stage-loading.is-ready {
   opacity: 0;
+  visibility: hidden;
+}
+
+.studio-purpose {
+  max-width: 300px;
+  position: absolute;
+  z-index: 3;
+  top: 24px;
+  left: 28px;
+  pointer-events: none;
+}
+
+.studio-purpose h1 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 590;
+  letter-spacing: -0.035em;
+}
+
+.studio-purpose p {
+  margin: 7px 0 0;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.45;
 }
 
 .studio-caption {
@@ -593,20 +617,27 @@ a:focus-visible {
   }
 
   .representation-list {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+    overflow: hidden;
   }
 
   .representation-list button {
-    display: flex;
-    flex-direction: column;
+    width: 100%;
+    min-width: 0;
+    display: grid;
+    grid-template-columns: 1fr;
     align-items: flex-start;
     gap: 8px;
-    font-size: 12px;
+    font-size: 11px;
   }
 
-  .representation-list button i,
+  .representation-list button i {
+    width: 0;
+  }
+
   .representation-list button[aria-selected="true"] i {
     width: 100%;
   }
@@ -628,16 +659,39 @@ a:focus-visible {
   }
 
   .studio-caption {
-    right: 18px;
+    right: auto;
     bottom: 18px;
     left: 18px;
-    max-width: none;
-    padding-left: 44%;
+    max-width: min(290px, calc(100% - 36px));
+    text-align: left;
+  }
+
+  .studio-caption span {
+    font-size: 15px;
+  }
+
+  .studio-caption p {
+    max-width: 270px;
+    font-size: 11px;
+  }
+
+  .studio-purpose {
+    max-width: 245px;
+    top: 18px;
+    left: 18px;
+  }
+
+  .studio-purpose h1 {
+    font-size: 19px;
+  }
+
+  .studio-purpose p {
+    font-size: 10px;
   }
 
   .studio-orbit-hint {
     right: 18px;
-    top: 18px;
+    top: 74px;
   }
 
   .signature-study {

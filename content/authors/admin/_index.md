@@ -20,7 +20,7 @@ superuser: true
 highlight_name: true
 
 # Role/position/tagline
-role: Incoming PhD Student
+role: PhD Student
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
@@ -180,5 +180,7 @@ work:
 
 ## About Me
 
-I am an incoming PhD student at Westlake University, supervised by [Prof. Yuliang Xiu](https://xiuyuliang.cn/). My research lies at the intersection of computer graphics and 3D vision, with a focus on dynamic 3D reconstruction, Gaussian representations, and controllable animation. I received my bachelor's degree in Computer Science from Hangzhou Dianzi University, where I worked closely with [Prof. Weichen Dai](https://weichnn.github.io/).
+I am a PhD student at Westlake University, advised by [Prof. Yuliang Xiu](https://yuliangxiu.cn/). Before beginning my doctoral studies, I earned my B.Sc. in Computer Science from Hangzhou Dianzi University (2020–2024), where I began my research journey under the guidance of [Prof. Weichen Dai](https://weichnn.github.io/) from 2022 to 2024. I then joined Westlake University as a Research Assistant (2024–2026), during which I was fortunate to be jointly mentored by Prof. Yuliang Xiu, Prof. Anpei Chen, Prof. Cheng Lin, and Prof. Zhiyang Dou.
+
+My research centers on representations and reconstruction for 3D and 4D worlds. I am always happy to exchange ideas and explore new collaborations. Beyond research, I find just as much joy in the kitchen—if you enjoy cooking too, I would be delighted to swap recipes and stories.
       <!-- My resarch interests include 3D/4D Reconstruction, Implicit Representation and 3D Human Avatar. -->
