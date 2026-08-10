@@ -121,63 +121,6 @@ type: gaussianimate
       padding: 0.6rem;
     }
 
-    #deformingthings4d-section .animal-page > .mb-4 {
-      background: #fff7ed;
-      border: 1px solid #fed7aa;
-      border-radius: 8px;
-      padding: 0.35rem 0.75rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 48px;
-    }
-
-    #vto-section .cloth-page > .mb-4 {
-      background: #fff7ed;
-      border: 1px solid #fed7aa;
-      border-radius: 8px;
-      padding: 0.35rem 0.75rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 48px;
-    }
-
-    #actorshq-section .actor-page > .mb-4 {
-      background: #fff7ed;
-      border: 1px solid #fed7aa;
-      border-radius: 8px;
-      padding: 0.35rem 0.75rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 48px;
-    }
-
-    #deformingthings4d-section .animal-page > .mb-4 .title {
-      margin: 0 !important;
-      width: 100%;
-      text-align: center !important;
-      line-height: 1.2;
-      display: block;
-    }
-
-    #vto-section .cloth-page > .mb-4 .title {
-      margin: 0 !important;
-      width: 100%;
-      text-align: center !important;
-      line-height: 1.2;
-      display: block;
-    }
-
-    #actorshq-section .actor-page > .mb-4 .title {
-      margin: 0 !important;
-      width: 100%;
-      text-align: center !important;
-      line-height: 1.2;
-      display: block;
-    }
-
     #deformingthings4d-section .animal-page > .columns.is-multiline.mb-6 {
       margin-bottom: 0.75rem !important;
     }
@@ -219,76 +162,97 @@ type: gaussianimate
       width: 100%;
     }
 
-    .result-accordion {
-      border: 1px solid #e5e7eb;
-      border-radius: 12px;
-      background: #ffffff;
-      margin: 0.85rem 0;
-      overflow: hidden;
-    }
-
-    .result-accordion-toggle {
-      align-items: center;
-      background: #fff7ed;
-      border: none;
-      color: #1f2937;
-      cursor: pointer;
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      gap: 0.5rem;
-      font-size: 1.15rem;
-      font-weight: 700;
-      padding: 0.85rem 1rem;
-      width: 100%;
-    }
-
-    .result-accordion-toggle:hover {
-      background: #ffedd5;
-    }
-
-    .result-accordion-toggle-spacer {
-      min-width: 0;
-    }
-
-    .result-accordion-title {
-      justify-self: center;
-      text-align: center;
+    .result-view-switcher {
+      display: flex;
+      justify-content: center;
+      margin: 0.15rem auto 1rem;
       max-width: 100%;
+      overflow-x: auto;
+      padding: 0.2rem;
+      scrollbar-width: none;
     }
 
-    .result-accordion-hint {
-      color: #9a3412;
-      font-size: 0.9rem;
-      font-weight: 600;
-      justify-self: end;
-      text-align: right;
-    }
-
-    .result-accordion-body {
+    .result-view-switcher::-webkit-scrollbar {
       display: none;
-      padding: 0.85rem 0.75rem 0.2rem;
     }
 
-    .result-accordion.is-open .result-accordion-body {
-      display: block;
+    .result-view-tabs {
+      background: #f1f3f5;
+      border: 1px solid #e1e5e9;
+      border-radius: 10px;
+      display: inline-flex;
+      flex: 0 0 auto;
+      gap: 0.2rem;
+      padding: 0.2rem;
+      width: max-content;
     }
 
-    @media (max-width: 768px) {
-      .result-accordion-toggle {
-        display: flex;
-        flex-direction: column;
-        gap: 0.35rem;
-        text-align: center;
+    .result-view-tab {
+      appearance: none;
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: 7px;
+      color: #667085;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.86rem;
+      font-weight: 600;
+      line-height: 1;
+      min-height: 2.15rem;
+      padding: 0 1rem;
+      transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease, box-shadow 150ms ease;
+      white-space: nowrap;
+    }
+
+    .result-view-tab:hover:not([aria-selected="true"]) {
+      color: #344054;
+    }
+
+    .result-view-tab[aria-selected="true"] {
+      background: #ffffff;
+      border-color: #d7dce1;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+      color: #1f2937;
+    }
+
+    .result-view-tab:focus-visible {
+      box-shadow: 0 0 0 3px rgba(100, 116, 139, 0.18);
+      outline: none;
+    }
+
+    .result-view-panel[hidden] {
+      display: none !important;
+    }
+
+    .result-view-panel > .columns.is-multiline.mb-6 {
+      margin-bottom: 0.75rem !important;
+    }
+
+    .result-view-panel > .columns:not(.is-multiline) {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 0.6rem;
+    }
+
+    .result-view-panel > .columns.is-multiline.mb-6 + .columns {
+      margin-top: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      border-radius: 0 !important;
+      padding: 0 !important;
+    }
+
+    @media (max-width: 480px) {
+      .result-view-switcher {
+        justify-content: flex-start;
+        margin-left: -0.2rem;
+        margin-right: -0.2rem;
       }
 
-      .result-accordion-toggle-spacer {
-        display: none;
-      }
-
-      .result-accordion-title,
-      .result-accordion-hint {
-        justify-self: unset;
-        text-align: center;
+      .result-view-tab {
+        min-height: 2.1rem;
+        padding: 0 0.85rem;
       }
     }
   </style>
@@ -2003,79 +1967,167 @@ type: gaussianimate
       }
 
       var videos = page.querySelectorAll("video");
-      var processedBodies = [];
+      var processedPanels = [];
       for (var i = 0; i < videos.length; i++) {
-        var sectionBody = videos[i].closest(".result-accordion-body");
-        if (!sectionBody) {
+        var resultPanel = videos[i].closest(".result-view-panel");
+        if (!resultPanel) {
           loadVideosIn(videos[i].parentElement);
-        } else if (processedBodies.indexOf(sectionBody) === -1) {
-          processedBodies.push(sectionBody);
-          if (sectionBody.parentElement.classList.contains("is-open")) {
-            loadVideosIn(sectionBody);
+        } else if (processedPanels.indexOf(resultPanel) === -1) {
+          processedPanels.push(resultPanel);
+          if (!resultPanel.hidden) {
+            loadVideosIn(resultPanel);
           } else {
-            unloadVideosIn(sectionBody);
+            unloadVideosIn(resultPanel);
           }
         }
       }
     }
 
-    function createResultAccordion(page, marker) {
-      var title = marker.textContent.trim();
-      var accordion = document.createElement("div");
-      var button = document.createElement("button");
-      var body = document.createElement("div");
+    function getResultViewDefinition(marker) {
+      if (!marker || !marker.classList.contains("mb-4")) return null;
 
-      accordion.className = "result-accordion";
-      button.className = "result-accordion-toggle";
-      button.type = "button";
-      button.setAttribute("aria-expanded", "false");
-      button.innerHTML =
-        '<span class="result-accordion-toggle-spacer" aria-hidden="true"></span>' +
-        '<span class="result-accordion-title">' + title + '</span>' +
-        '<span class="result-accordion-hint">Click to expand</span>';
-      body.className = "result-accordion-body";
+      var heading = marker.querySelector("h4.title");
+      if (!heading) return null;
 
-      accordion.appendChild(button);
-      accordion.appendChild(body);
-      page.insertBefore(accordion, marker);
-      page.removeChild(marker);
+      var title = heading.textContent.replace(/\s+/g, " ").trim();
+      var labels = {
+        "Animation Result": "Animation",
+        "Error Map": "Error Map",
+        "Overlap": "Overlap",
+        "Animation Result (View1)": "Animation \u00b7 View 1",
+        "Animation Result (View2)": "Animation \u00b7 View 2",
+        "Rendering Result (View1)": "Rendering \u00b7 View 1",
+        "Rendering Result (View2)": "Rendering \u00b7 View 2",
+      };
 
-      while (accordion.nextElementSibling && !accordion.nextElementSibling.classList.contains("mb-4")) {
-        body.appendChild(accordion.nextElementSibling);
-      }
-
-      button.addEventListener("click", function () {
-        var open = !accordion.classList.contains("is-open");
-        accordion.classList.toggle("is-open", open);
-        button.setAttribute("aria-expanded", open ? "true" : "false");
-        button.querySelector(".result-accordion-hint").textContent = open ? "Click to collapse" : "Click to expand";
-
-        if (open && page.classList.contains("is-active") && isResultSectionMediaActive(page)) {
-          loadVideosIn(body);
-        } else {
-          unloadVideosIn(body);
-        }
-      });
+      if (!Object.prototype.hasOwnProperty.call(labels, title)) return null;
+      return { title: title, label: labels[title] };
     }
 
-    function initExpandableResultSections() {
+    function getDirectResultViewMarkers(page) {
+      var markers = [];
+      for (var i = 0; i < page.children.length; i++) {
+        if (getResultViewDefinition(page.children[i])) {
+          markers.push(page.children[i]);
+        }
+      }
+      return markers;
+    }
+
+    function syncSelectedResultView(page, panelId) {
+      var panelContainer = page.querySelector(".result-view-panels");
+      if (!panelContainer) return;
+
+      var tabs = page.querySelectorAll(".result-view-tab");
+      for (var i = 0; i < tabs.length; i++) {
+        var selected = tabs[i].dataset.panelId === panelId;
+        tabs[i].setAttribute("aria-selected", selected ? "true" : "false");
+        tabs[i].tabIndex = selected ? 0 : -1;
+      }
+
+      var panels = panelContainer.children;
+      for (var i = 0; i < panels.length; i++) {
+        var active = panels[i].id === panelId;
+        panels[i].hidden = !active;
+        panels[i].setAttribute("aria-hidden", active ? "false" : "true");
+
+        if (active && page.classList.contains("is-active") && isResultSectionMediaActive(page)) {
+          loadVideosIn(panels[i]);
+        } else {
+          unloadVideosIn(panels[i]);
+        }
+      }
+    }
+
+    function createResultViewSelector(page, pageIndex) {
+      var markers = getDirectResultViewMarkers(page);
+      if (!markers.length) return;
+
+      var switcher = document.createElement("div");
+      var tabList = document.createElement("div");
+      var panelContainer = document.createElement("div");
+
+      switcher.className = "result-view-switcher";
+      tabList.className = "result-view-tabs";
+      tabList.setAttribute("role", "tablist");
+      tabList.setAttribute("aria-label", "Result view");
+      panelContainer.className = "result-view-panels";
+      panelContainer.id = "result-view-panels-" + (pageIndex + 1);
+
+      switcher.appendChild(tabList);
+      page.insertBefore(switcher, markers[0]);
+      page.insertBefore(panelContainer, markers[0]);
+
+      for (var i = 0; i < markers.length; i++) {
+        var marker = markers[i];
+        var definition = getResultViewDefinition(marker);
+        var panel = document.createElement("div");
+        var tab = document.createElement("button");
+        var panelId = "result-view-panel-" + (pageIndex + 1) + "-" + (i + 1);
+        var tabId = "result-view-tab-" + (pageIndex + 1) + "-" + (i + 1);
+        var next = marker.nextElementSibling;
+
+        panel.className = "result-view-panel";
+        panel.id = panelId;
+        panel.setAttribute("role", "tabpanel");
+        panel.setAttribute("aria-labelledby", tabId);
+        panel.hidden = i !== 0;
+        panel.setAttribute("aria-hidden", i === 0 ? "false" : "true");
+        tab.className = "result-view-tab";
+        tab.id = tabId;
+        tab.type = "button";
+        tab.dataset.panelId = panelId;
+        tab.setAttribute("role", "tab");
+        tab.setAttribute("aria-controls", panelId);
+        tab.setAttribute("aria-selected", i === 0 ? "true" : "false");
+        tab.tabIndex = i === 0 ? 0 : -1;
+        tab.textContent = definition.label;
+
+        while (next && !getResultViewDefinition(next)) {
+          if (next.classList.contains("mb-4")) break;
+          var current = next;
+          next = next.nextElementSibling;
+          panel.appendChild(current);
+        }
+
+        marker.parentNode.removeChild(marker);
+        panelContainer.appendChild(panel);
+        tabList.appendChild(tab);
+      }
+
+      tabList.addEventListener("click", function (event) {
+        var tab = event.target.closest(".result-view-tab");
+        if (!tab || !tabList.contains(tab)) return;
+        syncSelectedResultView(page, tab.dataset.panelId);
+      });
+
+      tabList.addEventListener("keydown", function (event) {
+        var tab = event.target.closest(".result-view-tab");
+        if (!tab || !tabList.contains(tab)) return;
+
+        var tabs = tabList.querySelectorAll(".result-view-tab");
+        var current = Array.prototype.indexOf.call(tabs, tab);
+        var next = current;
+        if (event.key === "ArrowRight") next = (current + 1) % tabs.length;
+        if (event.key === "ArrowLeft") next = (current - 1 + tabs.length) % tabs.length;
+        if (event.key === "Home") next = 0;
+        if (event.key === "End") next = tabs.length - 1;
+        if (next === current) return;
+
+        event.preventDefault();
+        tabs[next].focus();
+        syncSelectedResultView(page, tabs[next].dataset.panelId);
+        tabs[next].scrollIntoView({ block: "nearest", inline: "nearest" });
+      });
+
+      syncSelectedResultView(page, tabList.firstElementChild.dataset.panelId);
+    }
+
+    function initResultViewSelectors() {
       var pages = document.querySelectorAll(".cloth-page, .animal-page, .actor-page");
       for (var i = 0; i < pages.length; i++) {
-        var marker = findDirectSectionMarker(pages[i]);
-        while (marker) {
-          createResultAccordion(pages[i], marker);
-          marker = findDirectSectionMarker(pages[i]);
-        }
+        createResultViewSelector(pages[i], i);
       }
-    }
-
-    function findDirectSectionMarker(page) {
-      for (var i = 0; i < page.children.length; i++) {
-        if (page.children[i].classList.contains("mb-4")) {
-          return page.children[i];
-        }
-      }
-      return null;
     }
 
     function getActiveResultPage(section) {
@@ -2290,7 +2342,7 @@ type: gaussianimate
 
     prepareDeferredVideos();
     initTeaserGalleryVideos();
-    initExpandableResultSections();
+    initResultViewSelectors();
     initObservedMotionToggles();
     initResultSectionMediaObservers();
     initClothPager();
