@@ -167,6 +167,7 @@
     let currentProgress = 0;
     let writingDuration = 5200;
     let totalDuration = 5200;
+    let variableRadiusEnabled = false;
     let entries = [];
     let skeletonEntries = [];
     let outerBoneEntries = [];
@@ -290,6 +291,46 @@
 
     function clamp(value, low = 0, high = 1) { return Math.min(Math.max(value, low), high); }
 
+    function vertexRadius(stroke, point) {
+      const radius = Number(point?.radius);
+      return Number.isFinite(radius) && radius > 0 ? radius : Number(stroke.brushSize) / 2;
+    }
+
+    function radiusAtProgress(stroke, progress) {
+      const points = stroke.vertices || [];
+      if (!points.length) return Number(stroke.brushSize) / 2;
+      if (points.length === 1) return vertexRadius(stroke, points[0]);
+      const cumulative = [0];
+      for (let index = 1; index < points.length; index += 1) {
+        cumulative.push(cumulative[index - 1] + Math.hypot(
+          Number(points[index].x) - Number(points[index - 1].x),
+          Number(points[index].y) - Number(points[index - 1].y),
+        ));
+      }
+      const total = Math.max(cumulative.at(-1), .001);
+      const target = clamp(progress) * total;
+      let segment = 0;
+      while (segment + 1 < cumulative.length && cumulative[segment + 1] < target) segment += 1;
+      const next = Math.min(segment + 1, points.length - 1);
+      const span = Math.max(cumulative[next] - cumulative[segment], .001);
+      const local = clamp((target - cumulative[segment]) / span);
+      return vertexRadius(stroke, points[segment]) * (1 - local)
+        + vertexRadius(stroke, points[next]) * local;
+    }
+
+    function sampleVariablePath(entry, progress, callback) {
+      const visible = entry.length * clamp(progress);
+      const step = Math.max(.7, Math.min(1.8, entry.length / 280));
+      if (visible <= .02) {
+        callback(entry.element.getPointAtLength(0), radiusAtProgress(entry, 0), 0);
+        return;
+      }
+      for (let arc = 0; arc < visible; arc += step) {
+        callback(entry.element.getPointAtLength(arc), radiusAtProgress(entry, arc / entry.length), arc / entry.length);
+      }
+      callback(entry.element.getPointAtLength(visible), radiusAtProgress(entry, visible / entry.length), visible / entry.length);
+    }
+
     function assignSequenceGroups(strokes) {
       let iGroup = 0;
       let pendingI = null;
@@ -333,6 +374,7 @@
     function buildTimeline(data) {
       writingDuration = (Number(data.durationMs) || 6200) / WRITING_SPEED;
       totalDuration = writingDuration;
+      variableRadiusEnabled = Boolean(data.variableRadiusEnabled);
       debugLayer.replaceChildren();
       entries = data.strokes.map((stroke) => {
         const element = document.createElementNS(SVG_NS, "path");
@@ -343,7 +385,7 @@
         const sourceOutMs = Math.max(Number(trim.outMs) || sourceInMs + 160, sourceInMs + 1);
         const inMs = sourceInMs / WRITING_SPEED;
         const outMs = sourceOutMs / WRITING_SPEED;
-        return {
+        const entry = {
           ...stroke,
           element,
           path: new Path2D(stroke.d),
@@ -351,6 +393,13 @@
           start: inMs / writingDuration,
           duration: (outMs - inMs) / writingDuration,
         };
+        if (variableRadiusEnabled) {
+          entry.radiusSamples = [];
+          sampleVariablePath(entry, 1, (point, radius, progress) => {
+            entry.radiusSamples.push({ x: point.x, y: point.y, radius, progress });
+          });
+        }
+        return entry;
       });
       for (let index = 0; index < entries.length;) {
         const group = entries[index].sequenceGroup;
@@ -757,10 +806,19 @@
         }
         if (local <= 0) continue;
         maskContext.save();
-        maskContext.lineWidth = Number(entry.brushSize) || 14;
-        maskContext.setLineDash([entry.length, entry.length + 2]);
-        maskContext.lineDashOffset = entry.length * (1 - local);
-        maskContext.stroke(entry.path);
+        if (variableRadiusEnabled) {
+          for (const point of entry.radiusSamples) {
+            if (point.progress > local) break;
+            maskContext.beginPath();
+            maskContext.arc(point.x, point.y, point.radius, 0, Math.PI * 2);
+            maskContext.fill();
+          }
+        } else {
+          maskContext.lineWidth = Number(entry.brushSize) || 14;
+          maskContext.setLineDash([entry.length, entry.length + 2]);
+          maskContext.lineDashOffset = entry.length * (1 - local);
+          maskContext.stroke(entry.path);
+        }
         maskContext.restore();
       }
       context.setTransform(1, 0, 0, 1, 0, 0);
