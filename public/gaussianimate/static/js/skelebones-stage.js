@@ -571,11 +571,16 @@ async function initSkelebonesStage(stage) {
   let previousX = 0;
   let dragRotation = 0;
   let userInteractionTime = 0;
+  let manualReplayActive = false;
 
   const replayButton = stage.querySelector("[data-stage-replay]");
   replayButton.addEventListener("click", () => {
     startTime = performance.now();
+    dragRotation = 0;
+    userInteractionTime = 0;
+    manualReplayActive = prefersReducedMotion;
     setStageCopy(stage, "skinning");
+    if (manualReplayActive) requestAnimationFrame(render);
   });
 
   canvas.addEventListener("pointerdown", (event) => {
@@ -611,14 +616,21 @@ async function initSkelebonesStage(stage) {
   fitRenderer(renderer, camera, stage);
 
   stage.classList.add("is-ready");
+  replayButton.disabled = false;
 
   function render(now) {
-    if (!prefersReducedMotion) requestAnimationFrame(render);
-    if (!visible && !prefersReducedMotion) return;
+    if (!prefersReducedMotion || manualReplayActive) requestAnimationFrame(render);
+    if (!visible && (!prefersReducedMotion || manualReplayActive)) return;
 
-    const progress = prefersReducedMotion
-      ? 0.9
-      : ((now - startTime) % STAGE_DURATION) / STAGE_DURATION;
+    let progress;
+    if (manualReplayActive) {
+      progress = clamp01((now - startTime) / STAGE_DURATION);
+      if (progress >= 1) manualReplayActive = false;
+    } else {
+      progress = prefersReducedMotion
+        ? 0.9
+        : ((now - startTime) % STAGE_DURATION) / STAGE_DURATION;
+    }
 
     let skeletonReveal = 0;
     let boneReveal = 0;
@@ -673,7 +685,7 @@ async function initSkelebonesStage(stage) {
       phase = "bones";
     }
 
-    if (prefersReducedMotion) {
+    if (prefersReducedMotion && !manualReplayActive) {
       contraction = 1;
       colorMix = 1;
       surfaceReveal = 1;
