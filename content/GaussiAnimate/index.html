@@ -437,6 +437,12 @@ type: gaussianimate
     .teaser-figure figcaption {
       margin-top: 0.8rem;
     }
+    .teaser-figure video {
+      background: #202020;
+      display: block;
+      height: auto;
+      width: 100%;
+    }
 
     /* Shared reading width for abstract / acknowledgments */
     .col-narrow {
@@ -1267,24 +1273,21 @@ type: gaussianimate
     <div class="container">
       <!-- Teaser Figure -->
       <figure class="teaser-figure">
-        <picture>
-          <source
-            type="image/webp"
-            srcset="
-              /gaussianimate/static/images/teaser-1600.webp?v=2 1600w,
-              /gaussianimate/static/images/teaser-2362.webp?v=2 2362w"
-            sizes="(max-width: 768px) calc(100vw - 2rem), 960px"
-          >
-          <img
-            src="/gaussianimate/static/images/teaser-fallback.jpg?v=2"
-            alt="Project Teaser"
-            width="2362"
-            height="1575"
-            loading="lazy"
-            decoding="async"
-            fetchpriority="low"
-          >
-        </picture>
+        <video
+          autoplay
+          controls
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          poster="/gaussianimate/static/images/teaser-video-poster.webp?v=1"
+          width="1920"
+          height="1080"
+          aria-label="GaussiAnimate teaser video"
+        >
+          <source src="/gaussianimate/static/videos/gaussianimate-teaser.mp4?v=1" type="video/mp4">
+          Your browser does not support the video element.
+        </video>
         <figcaption class="body-text">
           <strong>GaussiAnimate</strong> is designed to (1) <strong>rig</strong> diverse animatable entities&mdash;typically featuring a soft exterior and rigid core (e.g., clothed humans, quadrupeds, bipeds, birds, and garments)&mdash;from reconstructed consistent 4DGS or mesh sequences. This relies on a novel <span class="skel-color">skele</span><span class="bone-color">bones</span> representation that balances the intuitive control of <span class="skel-color">kinematic skeletons</span> with the deformation fidelity of <span class="bone-color">free-form bones</span>; and (2) <strong>animate</strong> these rigged entities non-parametrically via Partwise Motion Matching (PartMM), where skeletons drive the bones to enable kinematic control over non-rigid deformations.
         </figcaption>
@@ -1949,7 +1952,11 @@ type: gaussianimate
       var videos = document.querySelectorAll("video");
       for (var i = 0; i < videos.length; i++) {
         var video = videos[i];
-        if (video.closest("#teaser-gallery-videos") || video.closest(".method-showcase")) continue;
+        if (
+          video.closest(".teaser-figure") ||
+          video.closest("#teaser-gallery-videos") ||
+          video.closest(".method-showcase")
+        ) continue;
         var source = getVideoSource(video);
         if (!source || !source.dataset.src) continue;
 
